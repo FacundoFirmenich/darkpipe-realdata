@@ -1,0 +1,27 @@
+{
+  "schema": "darkpipe.gps_network.background_smoke.v1",
+  "day": "2024-12-12",
+  "role": "STRUCTURAL_SMOKE_EXCLUDED_FROM_NULL",
+  "target_opened": false,
+  "clock_rows": 108030,
+  "position_rows": 3630,
+  "clock_nodes": 30,
+  "position_nodes": 30,
+  "epochs": 3601,
+  "first_utc": "2024-12-11T20:59:42+00:00",
+  "last_utc": "2024-12-13T02:59:42+00:00",
+  "receipts": [
+    {
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-12_hr.tdp.gz",
+      "compressed_bytes": 5050721,
+      "sha256": "95647deb1e8b12a58e7673405e4b7c95f7bd8fc1b71162c38d34f6f8da7f98ee",
+      "media": "application/gzip"
+    },
+    {
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-12.pos.gz",
+      "compressed_bytes": 858163,
+      "sha256": "f9ee68eb34e973177a8447f321619bb0766442168c4bdca8b3178f78ba70009c",
+      "media": "application/gzip"
+    }
+  ]
+}

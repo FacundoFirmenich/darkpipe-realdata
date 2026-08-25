@@ -1,0 +1,54 @@
+name: DarkPipe v0.9 GPS network target
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: darkpipe-v09-gps-target
+  cancel-in-progress: false
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q
+      - name: Require committed green calibration state
+        run: >-
+          test -f
+          evidence/gps_network_v09/calibration_state.npz
+      - name: Open frozen target once
+        id: target
+        continue-on-error: true
+        run: >-
+          python run_darkpipe_gps_network_v09.py
+          --stage target
+          --calibration-state evidence/gps_network_v09/calibration_state.npz
+          --output "$RUNNER_TEMP/darkpipe-v09-target"
+      - name: Upload compact target evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: darkpipe-v09-gps-target
+          path: ${{ runner.temp }}/darkpipe-v09-target
+          if-no-files-found: error
+          retention-days: 30
+      - name: Require terminal target decision
+        if: always()
+        run: >-
+          python -c "import json,pathlib;
+          p=pathlib.Path(r'${{ runner.temp }}/darkpipe-v09-target/target_result.json');
+          assert p.is_file(), 'target did not reach a terminal decision';
+          d=json.loads(p.read_text());
+          assert d['decision'] in
+          {'GPS_NETWORK_TRANSIENT_CANDIDATE',
+          'NO_GPS_NETWORK_TRANSIENT_CANDIDATE'}"

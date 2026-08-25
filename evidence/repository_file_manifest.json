@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T18:34:43.815227Z",
+  "generated_at_utc": "2026-08-25T21:37:00.296089Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 153,
-  "total_bytes": 28788405,
+  "file_count": 162,
+  "total_bytes": 28844558,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -44,6 +44,16 @@
       "path": ".github/workflows/v08-inventory.yml",
       "byte_count": 1038,
       "sha256": "876cb6249b0e301ee41f39bac410513df6d76f5f3aa9a5cd39803744d8907fbf"
+    },
+    {
+      "path": ".github/workflows/v09-calibrate.yml",
+      "byte_count": 1568,
+      "sha256": "b96e87342eb274188f9fcf15156d146aacb0a3a096f98a77c37af68028c941fd"
+    },
+    {
+      "path": ".github/workflows/v09-target.yml",
+      "byte_count": 1676,
+      "sha256": "81d63aa4cafc1527c9914b4ec1288ea025be53cc9a9edc06c809e21b11cb1b17"
     },
     {
       "path": ".gitignore",
@@ -121,6 +131,11 @@
       "sha256": "99ac072c19923a119329c18c221c798dea7941696dc5365bda48a1ffbac5b361"
     },
     {
+      "path": "docs/DEEP_RESEARCH_V09_INDEPENDENT_SENSOR_SELECTION_2026-08-25.md",
+      "byte_count": 4553,
+      "sha256": "a4f5277d0cb3f44286ae69671f70b8f78a5e95005984b058dd16e75272dbf8bd"
+    },
+    {
       "path": "docs/OBSERVATIONAL_AUTHORITY_0.5.md",
       "byte_count": 3509,
       "sha256": "496416ba458be630252ce4c624b7cd8cb0163102cbf0a64365d0f98a45d4db05"
@@ -144,6 +159,11 @@
       "path": "docs/PREREGISTRATION_AION_SENSOR_VALIDATION_0.4.md",
       "byte_count": 6407,
       "sha256": "792ebb6501968b695cc699154cbfabbfbe269b9cdaea7980b9aa1ad1cfdb56c4"
+    },
+    {
+      "path": "docs/PREREGISTRATION_GPS_NETWORK_TRANSIENT_0.9.md",
+      "byte_count": 5253,
+      "sha256": "04dd0a1623c54a2d151f15bbb21ea4e5920e98e352e0991cb8b460441d57f10c"
     },
     {
       "path": "docs/SCIENTIFIC_SCOPE.md",
@@ -486,6 +506,11 @@
       "sha256": "86c90f577bc3bab7820517aca9bcac1b92110b32d5752bf90a3be3eea58a5095"
     },
     {
+      "path": "evidence/gps_network_v09/background_smoke_2024-12-12.json",
+      "byte_count": 904,
+      "sha256": "514fbd2ccc0d02f7f4e588991d256043fc1b7235016eaaa5a928469ae7e96380"
+    },
+    {
       "path": "evidence/hapi_intermagnet_probe_2026-08-25/data.csv",
       "byte_count": 3764,
       "sha256": "463387a7b240489af3673d2a70a82457bba2ef572349700b56978e828fde7cf5"
@@ -612,13 +637,18 @@
     },
     {
       "path": "pyproject.toml",
-      "byte_count": 1002,
-      "sha256": "bcf9708d13353060e9744cd23a3f34b06ade3014d34981fe39b6f0feba07bb08"
+      "byte_count": 1018,
+      "sha256": "d61da3f34d473eed8b4d6276a1808cc44180c68efa74c3d1a52e9d8c304b4e83"
     },
     {
       "path": "requirements.txt",
-      "byte_count": 66,
-      "sha256": "20145b3cf68e7bacbb8da6305cb0c03de9993620918c59f6c1c6eb97808cff4e"
+      "byte_count": 108,
+      "sha256": "aeb3ce776e9f75c3a0e5bd1a509f1bf31078c2056be1ca194c4101db8fd0a0f5"
+    },
+    {
+      "path": "research/v09/report-source.md",
+      "byte_count": 3629,
+      "sha256": "4f78d139802278ad85fbefd6163bde5518962b7e1c3cbb0b78d614b2f3df44b6"
     },
     {
       "path": "run_darkpipe_aion_blind_v06.py",
@@ -649,6 +679,11 @@
       "path": "run_darkpipe_authority_v05.py",
       "byte_count": 1193,
       "sha256": "b4cf275cf75ed04d6d98cf49fe7e432c028430619430fb778466485bed1fffc8"
+    },
+    {
+      "path": "run_darkpipe_gps_network_v09.py",
+      "byte_count": 16089,
+      "sha256": "7994233a39104bbaaf5c9f7cec86d36ec2ebd9758cfcd806cb6d3ad2297ca47c"
     },
     {
       "path": "run_darkpipe_realdata_v03.py",
@@ -709,6 +744,11 @@
       "path": "src/darkpipe/cli.py",
       "byte_count": 6293,
       "sha256": "4cc620d3b7ee855b70bc569b18ebbb6af50a942c78b41b841b5b388579319f70"
+    },
+    {
+      "path": "src/darkpipe/gps_network.py",
+      "byte_count": 17860,
+      "sha256": "eba00949bf8c77b8aabc9ae86fbe2929f64d0abd12412bfdf73e519ce1321bca"
     },
     {
       "path": "src/darkpipe/http.py",
@@ -774,6 +814,11 @@
       "path": "tests/test_evidence.py",
       "byte_count": 2186,
       "sha256": "e5b797c3307a5ab155d0c3c8f37166447ff12a32408ffe5a93b3714728495e45"
+    },
+    {
+      "path": "tests/test_gps_network.py",
+      "byte_count": 4563,
+      "sha256": "1d9781300da7d6328a6f93c3f5a243b916c0518af6fe228f7f263f44ef161c97"
     }
   ]
 }
