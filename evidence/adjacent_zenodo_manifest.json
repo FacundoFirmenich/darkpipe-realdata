@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "verified_at_utc": "2026-08-25",
+  "zenodo": [
+    {
+      "record_id": 19194518,
+      "title": "OpenADS_LifeSearch: Advanced Astro-Complexity and Bayesian Discovery Framework",
+      "doi": "10.5281/zenodo.19194518",
+      "version": "v1.0.1",
+      "downloaded": true,
+      "bytes": 23444,
+      "sha256": "F0632272550B18BD4B9DE090E50FFCD1500C8DC61B9290152761A3795535A13F",
+      "finding": "public hard-coded NASA ADS credential; value excluded and unused"
+    },
+    {
+      "record_id": 18480821,
+      "title": "Seismic Fractal Analysis (SFA): Framework for Precision-Calibrated Dimensional Inference",
+      "doi": "10.5281/zenodo.18480821",
+      "version": "v1.0.0",
+      "downloaded": false,
+      "bytes": 640135466,
+      "reason": "avoided heavy local download"
+    },
+    {
+      "record_id": 17875888,
+      "title": "Seismic Fractal Analysis: Multi-Planar Hierarchy Framework",
+      "doi": "10.5281/zenodo.17875888",
+      "version": "v1.0.0",
+      "downloaded": true,
+      "bytes": 93409,
+      "sha256": "0A26EFD5722B48CEB5C71E80CC9870DFC889DE5476025E17FF3ED346DF44A208"
+    },
+    {
+      "record_id": 17548048,
+      "title": "scale-dependent-spacetime-geometry v1.13",
+      "doi": "10.5281/zenodo.17548048",
+      "version": "v1.13",
+      "downloaded": true,
+      "bytes": 49626,
+      "sha256": "1CEBF41F707E37D1184EAECA875491976FEF12DB670C6716FAA593C197BEC20E"
+    },
+    {
+      "record_id": 20102651,
+      "title": "KwanTube v3.5.1",
+      "doi": "10.5281/zenodo.20102651",
+      "downloaded": false,
+      "bytes": 23156016,
+      "reason": "not required for DarkPipe and avoided disk use"
+    }
+  ]
+}

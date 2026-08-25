@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-08-25",
+  "preserved_failures": [
+    {
+      "stage": "legacy endpoint verification",
+      "terminal": "HTTP 404",
+      "finding": "Inherited NOAA mag-7-day and plasma-7-day routes were retired; replaced by current official products."
+    },
+    {
+      "stage": "local entrypoint attempt",
+      "exit_code": 1,
+      "finding": "darkpipe executable absent from PATH; no source contacted."
+    },
+    {
+      "stage": "editable module attempt",
+      "exit_code": 1,
+      "finding": "editable install had not registered; no source contacted."
+    },
+    {
+      "stage": "propagated one-hour live run",
+      "exit_code": 1,
+      "finding": "NOAA and USGS were fetched but USGS returned null values beyond its adjusted-data cutoff; 0 finite target rows and the pipeline abstained."
+    },
+    {
+      "stage": "first INTERMAGNET HAPI probe",
+      "exit_code": 1,
+      "finding": "data response omitted parameters; parser incorrectly assumed inline metadata. Repaired by combining official /info and /data."
+    }
+  ],
+  "repairs": [
+    {
+      "stage": "NOAA-USGS live run",
+      "exit_code": 0,
+      "evidence": "evidence/live_run_rtsw_2026-08-25/manifest.json"
+    },
+    {
+      "stage": "INTERMAGNET HAPI probe",
+      "exit_code": 0,
+      "evidence": "evidence/hapi_intermagnet_probe_2026-08-25/data.json"
+    }
+  ]
+}

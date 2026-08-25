@@ -1,0 +1,49 @@
+{
+  "HAPI" : "3.1",
+  "status" : {
+    "code" : 1200,
+    "message" : "ok"
+  },
+  "parameters" : [ {
+    "name" : "Time",
+    "type" : "isotime",
+    "length" : 17,
+    "units" : "UTC",
+    "fill" : null,
+    "description" : "The UTC date and time for the data from Boulder, USA (BOU)",
+    "label" : "Date/time"
+  }, {
+    "name" : "Field_Vector",
+    "type" : "double",
+    "size" : [ 3 ],
+    "units" : [ "nT", "nT", "nT" ],
+    "coordinateSystemName" : "Cartesian",
+    "vectorComponents" : [ "x", "y", "z" ],
+    "fill" : "99999.0",
+    "description" : "The vector value of the magnetic field at Boulder, USA (BOU), for definitions of the vector components see https://intermagnet.org/faq/10.geomagnetic-comp.html",
+    "label" : [ "X", "Y", "Z" ]
+  }, {
+    "name" : "Field_Magnitude",
+    "type" : "double",
+    "units" : "nT",
+    "vectorComponents" : "r",
+    "fill" : "99999.0",
+    "description" : "The scalar value of the magnetic field from an independent instrument at Boulder, USA (BOU)",
+    "label" : "F"
+  } ],
+  "startDate" : "2018-10-09T00:00:00Z",
+  "stopDate" : "2026-08-25T05:57:00Z",
+  "timeStampLocation" : "begin",
+  "cadence" : "PT1M",
+  "maxRequestDuration" : "P366D",
+  "description" : "Adjusted minute data in XYZF orientation, provided by Boulder, USA (BOU) observatory. See https://intermagnet.org/faq/10.geomagnetic-comp.html for a description of the Geomagnetic orientation used in this data.",
+  "coordinateSystemSchema" : "spase2.4.1",
+  "resourceURL" : "https://intermagnet.org",
+  "creationDate" : "2018-10-09T00:00:00Z",
+  "citation" : "https://intermagnet.org/data_conditions.html",
+  "modificationDate" : "2026-08-25T06:00:14Z",
+  "contact" : "e_ginman@bgs.ac.uk",
+  "x_latitude" : 40.14,
+  "x_longitude" : 254.767,
+  "x_elevation" : 1682.0
+}

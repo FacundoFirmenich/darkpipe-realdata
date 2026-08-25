@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-08-25",
+  "source": "current attachments from chatgpt-conversation://6a22c10e-05a0-838c-9689-3f075d570529",
+  "notebooks": [
+    {
+      "name": "geo2.maso.ipynb",
+      "bytes": 158967,
+      "sha256": "9F4EE4F4C854E2004969B80EE57924D0F6F57906F420DF17E469C324A99B291B",
+      "classification": "CANDIDATE_REAL_DATA_PATTERN"
+    },
+    {
+      "name": "Eduscience28.ipynb",
+      "bytes": 694748,
+      "sha256": "736C7394C74339976922594B0FD3E01E217E811A7D03634680BF4D34B0A6D05A",
+      "classification": "SIDE_BRANCH_THEORY_SYNTHETIC"
+    },
+    {
+      "name": "Untitled33.ipynb",
+      "bytes": 1517565,
+      "sha256": "D91B0CE69C53EAA43C239533BB3D80FA3F1BFABBACB501696E5015CA8635253B",
+      "classification": "LEGACY_SNAPSHOT_REAL_DATA_WITH_STORED_ERRORS"
+    },
+    {
+      "name": "fermiLAT.bayesianogrbs8.ipynb",
+      "bytes": 743031,
+      "sha256": "C12E3EE509F4B6229D432494B19BB015C16D109C10020DE4CE6C6C9EB7936A33",
+      "classification": "SIDE_BRANCH_REAL_DATA"
+    },
+    {
+      "name": "Untitled49.ipynb",
+      "bytes": 22310,
+      "sha256": "94414F3830C0C7816B2B4BB3E28C1BA28CA953439C16D3C3CD494837AC31F05D",
+      "classification": "SIDE_BRANCH_YUKAWA"
+    },
+    {
+      "name": "fermiLAT.spectralandrdshift.ipynb",
+      "bytes": 12396,
+      "sha256": "86765FD5E711016F65FCD9EE6304473AE41A8725B41E56262EDC1850B8B81DFC",
+      "classification": "SIDE_BRANCH_REAL_DATA"
+    },
+    {
+      "name": "{GraviTools}.ipynb",
+      "bytes": 27845,
+      "sha256": "84FC2626F9FE52D279200FC8A7F3E237295EA1B90177A96B57D2014AF3A14CFB",
+      "classification": "SIDE_BRANCH_GRAVITY"
+    },
+    {
+      "name": "gravipy.ipynb",
+      "bytes": 22787,
+      "sha256": "3E77A9E80C95380AB94C42C624A14B69728F9686E113EA8D1676285AB324555D",
+      "classification": "SIDE_BRANCH_GRAVITY"
+    },
+    {
+      "name": "GeOSync.realdata.ipynb",
+      "bytes": 1385421,
+      "sha256": "AA99C026380B61B44549F9776A9D38CA7774C767918AD3B5F8797DBF70349A64",
+      "classification": "CANDIDATE_REAL_DATA_PATTERN"
+    },
+    {
+      "name": "Toolkitsegundaparte.ipynb",
+      "bytes": 7219,
+      "sha256": "C3CB271DD5F76B4DA1B51BD97C46C3919D943BCE3126A9F359995A03162124C1",
+      "classification": "SIDE_BRANCH_PLOTTING"
+    }
+  ],
+  "publication_policy": "Original notebooks are not copied into the public repository; only hashes, classifications and clean-room patterns are preserved."
+}

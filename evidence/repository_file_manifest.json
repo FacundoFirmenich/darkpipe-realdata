@@ -1,0 +1,243 @@
+{
+  "file_count": 47,
+  "files": [
+    {
+      "byte_count": 340,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "752e4695a2237b53f223a0f36163fc5a20524bfa487649d47614f8f9d27246a3"
+    },
+    {
+      "byte_count": 120,
+      "path": ".gitignore",
+      "sha256": "3aa2c2a86c1c393b41a2496e04ae6df62abc0cfa4e7a3e3348cf7f11b8766e8e"
+    },
+    {
+      "byte_count": 660,
+      "path": "CHANGELOG.md",
+      "sha256": "2029dcc6a5f647f644358a9232321fc1f74f8fd5b492e8c0a80878cb6a8c7790"
+    },
+    {
+      "byte_count": 365,
+      "path": "CITATION.cff",
+      "sha256": "e2b008d890f5e22ed63845b9fe0f14069af02654054e39beebc1b79a80d2d3f5"
+    },
+    {
+      "byte_count": 2228,
+      "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
+      "sha256": "7592cd3aedcdf288e59ab03a439625f26184867f31d3d5b686d57b24dec6cbf9"
+    },
+    {
+      "byte_count": 5237,
+      "path": "docs/CIERRE_SUSTANTIVO_ES_2026-08-25.md",
+      "sha256": "6c41823f3962838ca0fa7f1a99e7c26ce8e53041ce4d166c45d3cd0fd52226e1"
+    },
+    {
+      "byte_count": 1695,
+      "path": "docs/SCIENTIFIC_SCOPE.md",
+      "sha256": "7331a70efadb7360d8cf54f41862f0ff812839f58ece9c3b1937babacc6db588"
+    },
+    {
+      "byte_count": 1472,
+      "path": "docs/SOURCE_ENDPOINTS.md",
+      "sha256": "6977c544a2a44e27c68e71a55996b1e95934070c9b1b79b52b35fd48ba296325"
+    },
+    {
+      "byte_count": 1668,
+      "path": "evidence/adjacent_zenodo_manifest.json",
+      "sha256": "d901a4814c391e5a158df93a8ed998cc5ccad35b23a327c3cf1de97f98c14e74"
+    },
+    {
+      "byte_count": 1379,
+      "path": "evidence/failure_receipt.json",
+      "sha256": "fd3026ccaec43a87d8f747e991028d6713d3fc4b2b83c1dd0697a098be798fe5"
+    },
+    {
+      "byte_count": 3764,
+      "path": "evidence/hapi_intermagnet_probe_2026-08-25/data.csv",
+      "sha256": "463387a7b240489af3673d2a70a82457bba2ef572349700b56978e828fde7cf5"
+    },
+    {
+      "byte_count": 4418,
+      "path": "evidence/hapi_intermagnet_probe_2026-08-25/data.json",
+      "sha256": "a53d920282127a4072b45903ad8ac9a6306caeb4b6a7f9f2c8ba77ac9ba5154e"
+    },
+    {
+      "byte_count": 1783,
+      "path": "evidence/hapi_intermagnet_probe_2026-08-25/info.json",
+      "sha256": "b040a964ba9d2d52e5f833dc0e801e16aeb31fabc7d5850a159512f00fd5e20e"
+    },
+    {
+      "byte_count": 6958,
+      "path": "evidence/live_run_2026-08-25/data/noaa_solar_wind.csv",
+      "sha256": "b4c10b58ab234e6120b89da9befd5003667bc727038495f804f02f84b463c48e"
+    },
+    {
+      "byte_count": 1750,
+      "path": "evidence/live_run_2026-08-25/data/usgs_geomag.csv",
+      "sha256": "de072b6d795d31686c2c4070c3533b56a11c49f8c845e8416a2dd71775086f9d"
+    },
+    {
+      "byte_count": 6621,
+      "path": "evidence/live_run_2026-08-25/raw/noaa_solar_wind.json",
+      "sha256": "9a11d8d97ac61c0caf0d10dee471bb8611b978ec88612f8076296b34b82750c4"
+    },
+    {
+      "byte_count": 3416,
+      "path": "evidence/live_run_2026-08-25/raw/usgs_geomag.json",
+      "sha256": "402564eac323c7e56b108a2b6832cd76982ad93662c447f5d78ff75c5c4d4a35"
+    },
+    {
+      "byte_count": 288997,
+      "path": "evidence/live_run_rtsw_2026-08-25/analysis/diagnostics.png",
+      "sha256": "c3d2c3abec607c6300c2490bcddb9ed1fdb8a2cfec2f21a8bf97830add9ac23d"
+    },
+    {
+      "byte_count": 14420,
+      "path": "evidence/live_run_rtsw_2026-08-25/analysis/report.json",
+      "sha256": "c0c668592c1fdbbdd24ca77a089c6b5e6e3f991016c327fc755d41190ea18f73"
+    },
+    {
+      "byte_count": 1609,
+      "path": "evidence/live_run_rtsw_2026-08-25/analysis/report.md",
+      "sha256": "30be3f6f2c0e472d14e195d89f3cae959d4832cd43b5a72266c5a112059781db"
+    },
+    {
+      "byte_count": 127661,
+      "path": "evidence/live_run_rtsw_2026-08-25/data/aligned_observations.csv",
+      "sha256": "f9a84dfb6102da3a6c3048b93bc9817c7fb3b4f50b20e2460e7ed366a561e1cb"
+    },
+    {
+      "byte_count": 103582,
+      "path": "evidence/live_run_rtsw_2026-08-25/data/noaa_solar_wind.csv",
+      "sha256": "1e57297f61ca56ebf4255d0e28fb97bc0a013ec3f431fe0a1cdb0913e45be88b"
+    },
+    {
+      "byte_count": 94220,
+      "path": "evidence/live_run_rtsw_2026-08-25/data/usgs_geomag.csv",
+      "sha256": "6d65bd09ecede281549828f7ab1a5e146149943c9c03670e8a2af85f6e45b56e"
+    },
+    {
+      "byte_count": 2866,
+      "path": "evidence/live_run_rtsw_2026-08-25/manifest.json",
+      "sha256": "5cd50d88f0b056f2150a60290d972614227d1f89c1d3f6e033ac16903d87e972"
+    },
+    {
+      "byte_count": 1347784,
+      "path": "evidence/live_run_rtsw_2026-08-25/raw/noaa_rtsw_mag.json",
+      "sha256": "999a76c1467fbdfcffd660d5bff83223b5a7dcdae273baec1d4d65a4c6dfc075"
+    },
+    {
+      "byte_count": 2305187,
+      "path": "evidence/live_run_rtsw_2026-08-25/raw/noaa_rtsw_wind.json",
+      "sha256": "799eaa9d5ca870406f347f9321a8c9aa91bd5770bf8cf408342243a4565d5f9a"
+    },
+    {
+      "byte_count": 94990,
+      "path": "evidence/live_run_rtsw_2026-08-25/raw/usgs_geomag.json",
+      "sha256": "ee173c0bc1a63a8928af61d3a7be3fa56e6fab4cd9fb15612ebda57e589798d4"
+    },
+    {
+      "byte_count": 9,
+      "path": "evidence/native_thread_trace_manifest.json",
+      "sha256": "eb045d78d273107348b0300c01d29b7552d622abbc6faf81b3ec55359aa9950c"
+    },
+    {
+      "byte_count": 2438,
+      "path": "evidence/notebook_inventory.json",
+      "sha256": "99b3e1bd3f41cd51680c075b017525df55fa7cea200dad9545ff265c2161a30b"
+    },
+    {
+      "byte_count": 1074,
+      "path": "LICENSE",
+      "sha256": "95aef09057b2e417a2f340e4f3b567746405358cb46f5607be8281d98309955c"
+    },
+    {
+      "byte_count": 2746,
+      "path": "notebooks/DarkPipe_RealData_v03_Colab.ipynb",
+      "sha256": "fb99c725a7a8bce492a65dd233ba80f45ac68aca0d54cebfbbd0deb3bc70d84c"
+    },
+    {
+      "byte_count": 986,
+      "path": "pyproject.toml",
+      "sha256": "e7d94b06475b280b599ef21e4864694ddc1575da3637d583458c74cda7a3745d"
+    },
+    {
+      "byte_count": 3123,
+      "path": "README.md",
+      "sha256": "f5a00a8d098074f3a6e931615acff194913acfaa366e662da879bd48cf504841"
+    },
+    {
+      "byte_count": 66,
+      "path": "requirements.txt",
+      "sha256": "20145b3cf68e7bacbb8da6305cb0c03de9993620918c59f6c1c6eb97808cff4e"
+    },
+    {
+      "byte_count": 176,
+      "path": "run_darkpipe_realdata_v03.py",
+      "sha256": "93da3b6f0a5304a0e654f8ed733ca8d433e8961d28ce5602785f8966bd8dbf59"
+    },
+    {
+      "byte_count": 940,
+      "path": "SECURITY.md",
+      "sha256": "70f3802ba6ca6aa9ad2d6167996fa56d823ac6170a281c842b39a72e1ec017f3"
+    },
+    {
+      "byte_count": 365,
+      "path": "src/darkpipe/__init__.py",
+      "sha256": "7070412d65caa02753ec72fbd47761cbf5b4e9f928fc411ab0a189e673a0e872"
+    },
+    {
+      "byte_count": 29,
+      "path": "src/darkpipe/__main__.py",
+      "sha256": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3"
+    },
+    {
+      "byte_count": 4058,
+      "path": "src/darkpipe/analysis.py",
+      "sha256": "787a60a3a07280c97120e5bd7740c676bdb3c8c9f0e212e1fccb12e5c83c5fa2"
+    },
+    {
+      "byte_count": 1583,
+      "path": "src/darkpipe/cli.py",
+      "sha256": "a50f88e7d9daff4851ba02b5ab07bb5d1525652d605f1e58f04634c6340895d4"
+    },
+    {
+      "byte_count": 2061,
+      "path": "src/darkpipe/http.py",
+      "sha256": "eeb1cf5f69f8d67f75054f6b2129b4671c3b219d4f0ebfe9dfd5a1c2e4463aff"
+    },
+    {
+      "byte_count": 2478,
+      "path": "src/darkpipe/pipeline.py",
+      "sha256": "ba769c3839a97ca9dcf6e4d8598b665056d6fc8403060408e79a29de2810422a"
+    },
+    {
+      "byte_count": 1011,
+      "path": "src/darkpipe/provenance.py",
+      "sha256": "377d2745afa73c74749555827823e8bdfc97310ce0539febdeb7ab8f3f2c9687"
+    },
+    {
+      "byte_count": 2812,
+      "path": "src/darkpipe/report.py",
+      "sha256": "a168bd68569259aa76d205d173616e1633e40905f123e688cb3f3093c7fd1922"
+    },
+    {
+      "byte_count": 7194,
+      "path": "src/darkpipe/sources.py",
+      "sha256": "595b66d4942b26f285e9c99cf35c5b0ed6ce999aaa277fca3cda048ea8c4cee0"
+    },
+    {
+      "byte_count": 2310,
+      "path": "src/darkpipe/whittle.py",
+      "sha256": "8ab45107bbef9ad0b2cc05f36b071226409b0f6133ab747e816a5b3618dae28f"
+    },
+    {
+      "byte_count": 2186,
+      "path": "tests/test_evidence.py",
+      "sha256": "e5b797c3307a5ab155d0c3c8f37166447ff12a32408ffe5a93b3714728495e45"
+    }
+  ],
+  "generated_at_utc": "2026-08-25T06:12:30.273623Z",
+  "schema_version": "1.0",
+  "total_bytes": 4462835
+}

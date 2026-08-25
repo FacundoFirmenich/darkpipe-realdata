@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+build/
+dist/
+*.egg-info/
+darkpipe_run/
+work/
+raw/
+.env
+.ipynb_checkpoints/

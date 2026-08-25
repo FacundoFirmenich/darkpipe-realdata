@@ -1,0 +1,81 @@
+{
+  "files": [
+    {
+      "byte_count": 288997,
+      "path": "analysis/diagnostics.png",
+      "sha256": "c3d2c3abec607c6300c2490bcddb9ed1fdb8a2cfec2f21a8bf97830add9ac23d"
+    },
+    {
+      "byte_count": 14420,
+      "path": "analysis/report.json",
+      "sha256": "c0c668592c1fdbbdd24ca77a089c6b5e6e3f991016c327fc755d41190ea18f73"
+    },
+    {
+      "byte_count": 1609,
+      "path": "analysis/report.md",
+      "sha256": "30be3f6f2c0e472d14e195d89f3cae959d4832cd43b5a72266c5a112059781db"
+    },
+    {
+      "byte_count": 127661,
+      "path": "data/aligned_observations.csv",
+      "sha256": "f9a84dfb6102da3a6c3048b93bc9817c7fb3b4f50b20e2460e7ed366a561e1cb"
+    },
+    {
+      "byte_count": 103582,
+      "path": "data/noaa_solar_wind.csv",
+      "sha256": "1e57297f61ca56ebf4255d0e28fb97bc0a013ec3f431fe0a1cdb0913e45be88b"
+    },
+    {
+      "byte_count": 94220,
+      "path": "data/usgs_geomag.csv",
+      "sha256": "6d65bd09ecede281549828f7ab1a5e146149943c9c03670e8a2af85f6e45b56e"
+    },
+    {
+      "byte_count": 1347784,
+      "path": "raw/noaa_rtsw_mag.json",
+      "sha256": "999a76c1467fbdfcffd660d5bff83223b5a7dcdae273baec1d4d65a4c6dfc075"
+    },
+    {
+      "byte_count": 2305187,
+      "path": "raw/noaa_rtsw_wind.json",
+      "sha256": "799eaa9d5ca870406f347f9321a8c9aa91bd5770bf8cf408342243a4565d5f9a"
+    },
+    {
+      "byte_count": 94990,
+      "path": "raw/usgs_geomag.json",
+      "sha256": "ee173c0bc1a63a8928af61d3a7be3fa56e6fab4cd9fb15612ebda57e589798d4"
+    }
+  ],
+  "generated_at_utc": "2026-08-25T05:59:42.069192Z",
+  "schema_version": "1.0",
+  "software_version": "0.3.0",
+  "source_artifacts": [
+    {
+      "byte_count": 1347784,
+      "content_type": "application/json",
+      "name": "NOAA SWPC RTSW magnetic and plasma",
+      "retrieved_at_utc": "2026-08-25T05:59:27.275961Z",
+      "sha256": "999a76c1467fbdfcffd660d5bff83223b5a7dcdae273baec1d4d65a4c6dfc075",
+      "status_code": 200,
+      "url": "https://services.swpc.noaa.gov/json/rtsw/rtsw_mag_1m.json"
+    },
+    {
+      "byte_count": 2305187,
+      "content_type": "application/json",
+      "name": "NOAA SWPC RTSW magnetic and plasma",
+      "retrieved_at_utc": "2026-08-25T05:59:31.500627Z",
+      "sha256": "799eaa9d5ca870406f347f9321a8c9aa91bd5770bf8cf408342243a4565d5f9a",
+      "status_code": 200,
+      "url": "https://services.swpc.noaa.gov/json/rtsw/rtsw_wind_1m.json"
+    },
+    {
+      "byte_count": 94990,
+      "content_type": "application/json",
+      "name": "USGS Geomagnetism BOU",
+      "retrieved_at_utc": "2026-08-25T05:59:38.445235Z",
+      "sha256": "ee173c0bc1a63a8928af61d3a7be3fa56e6fab4cd9fb15612ebda57e589798d4",
+      "status_code": 200,
+      "url": "https://geomag.usgs.gov/ws/data/?id=BOU&starttime=2026-08-24T05%3A59%3A00Z&endtime=2026-08-25T05%3A54%3A00Z&elements=X%2CY%2CZ%2CF&sampling_period=60&type=adjusted&format=json"
+    }
+  ]
+}
