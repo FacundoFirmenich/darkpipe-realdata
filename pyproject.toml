@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = "GPL-3.0-or-later"
 authors = [{name = "Facundo Firmenich"}]
-dependencies = ["numpy>=2.0", "pandas>=2.2", "scipy>=1.13", "requests>=2.32", "matplotlib>=3.9"]
+dependencies = ["numpy>=2.0", "pandas>=2.2", "scipy>=1.13", "requests>=2.32", "matplotlib>=3.9", "h5py>=3.12"]
 keywords = ["geomagnetism", "solar-wind", "atom-interferometry", "quantum-sensing", "open-data"]
 classifiers = ["Development Status :: 3 - Alpha", "Intended Audience :: Science/Research", "Programming Language :: Python :: 3"]
 
