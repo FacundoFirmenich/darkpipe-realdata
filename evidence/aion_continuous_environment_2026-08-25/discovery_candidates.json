@@ -1,0 +1,117 @@
+{
+  "campaign_id": "DP-AION-CONTINUOUS-0.7-20260825",
+  "candidates": [
+    {
+      "candidate_id": "c001",
+      "development_statistic": 0.08727681380067927,
+      "frequency_hz": 0.03809211753417201,
+      "grid_index": 2829,
+      "rank": 1
+    },
+    {
+      "candidate_id": "c002",
+      "development_statistic": 0.07067608037037962,
+      "frequency_hz": 0.015051555782801134,
+      "grid_index": 1113,
+      "rank": 2
+    },
+    {
+      "candidate_id": "c003",
+      "development_statistic": 0.06831381818436198,
+      "frequency_hz": 0.04181136905231287,
+      "grid_index": 3106,
+      "rank": 3
+    },
+    {
+      "candidate_id": "c004",
+      "development_statistic": 0.06605754309333142,
+      "frequency_hz": 0.018905076308817124,
+      "grid_index": 1400,
+      "rank": 4
+    },
+    {
+      "candidate_id": "c005",
+      "development_statistic": 0.06496990008414832,
+      "frequency_hz": 0.047544655688580566,
+      "grid_index": 3533,
+      "rank": 5
+    },
+    {
+      "candidate_id": "c006",
+      "development_statistic": 0.06492227670943067,
+      "frequency_hz": 0.04762521709330564,
+      "grid_index": 3539,
+      "rank": 6
+    },
+    {
+      "candidate_id": "c007",
+      "development_statistic": 0.06462849206751548,
+      "frequency_hz": 0.04207990706806312,
+      "grid_index": 3126,
+      "rank": 7
+    },
+    {
+      "candidate_id": "c008",
+      "development_statistic": 0.06347184588773151,
+      "frequency_hz": 0.0634823869233575,
+      "grid_index": 4720,
+      "rank": 8
+    }
+  ],
+  "development_cadence": {
+    "hln": {
+      "irregular_sampling": true,
+      "median_interval_seconds": 6.323342323303223,
+      "nominal_median_nyquist_hz": 0.07907210687572062
+    },
+    "lln": {
+      "irregular_sampling": true,
+      "median_interval_seconds": 6.32462215423584,
+      "nominal_median_nyquist_hz": 0.07905610608929911
+    }
+  },
+  "generated_at_utc": "2026-08-25T15:49:34.223507Z",
+  "grid": {
+    "count": 5578,
+    "duration_seconds": 74477.35079193115,
+    "frequency_max_hz": 0.075,
+    "frequency_min_hz": 0.0001,
+    "oversampling": 1,
+    "rayleigh_hz": 1.3426900787512162e-05,
+    "start_unix": 1766173370.4284198,
+    "step_hz": 1.3426900787512162e-05,
+    "stop_unix": 1766247847.7792118
+  },
+  "holdout_endpoints_accessed": false,
+  "preregistration_commit": "bd042781284b46490f1d27e356a0066a238f2190",
+  "schema_version": "1.0",
+  "selection_rule": {
+    "engineering_exclusion_rayleigh_cells": 2,
+    "engineering_probe_frequencies_hz": [
+      0.0001,
+      0.0012345,
+      0.03,
+      0.099
+    ],
+    "local_maximum": "left >= and right strictly lower",
+    "maximum_candidates": 8,
+    "minimum_separation_rayleigh_cells": 2,
+    "threshold_used": false,
+    "tie_break": "higher statistic, then lower frequency"
+  },
+  "source": {
+    "hln": {
+      "development_rows": 11325,
+      "holdout_rows": 16989,
+      "rows": 28314,
+      "sha256": "ba800196b6db0f3be93c4fe66cd18332d11189d78234488c5d283719218c5319"
+    },
+    "lln": {
+      "development_rows": 11323,
+      "holdout_rows": 16986,
+      "rows": 28309,
+      "sha256": "d582be3ecccdb5fa139d2a5280da51f926fee8b31963662a68be980c27a7d224"
+    }
+  },
+  "stage": "DEVELOPMENT_DISCOVERY_ONLY"
+}

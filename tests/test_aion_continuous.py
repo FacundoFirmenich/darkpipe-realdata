@@ -108,3 +108,8 @@ def test_v07_protocol_constants_and_hapi_bound_are_frozen():
     assert "development-only continuous" in prereg
     assert "dark-plasma, dark-matter" in prereg
     assert "OMNI never acts as a causal veto" in prereg
+    erratum = (
+        ROOT / "docs" / "TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md"
+    ).read_text(encoding="utf-8")
+    assert "plasma morfo-sintáctico" in erratum
+    assert "No analytical rule" in erratum

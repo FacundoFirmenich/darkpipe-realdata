@@ -34,7 +34,7 @@ Build a real-data-first, projection-aware pipeline for environmental foregrounds
 
 ## Not established
 
-- Dark plasma, ultralight-field, topological-defect or gravitational-wave detection.
+- The morfo-syntactic-plasma account of dark matter, ultralight-field, topological-defect or gravitational-wave detection.
 - Independent repeated-instrument false-positive rate or continuous-band global significance.
 - Full raw-HDF5 marginal-likelihood reconstruction.
 - Transfer to AION-10, AION-km or another facility.

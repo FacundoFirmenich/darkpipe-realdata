@@ -6,7 +6,9 @@ a frozen-family chronological holdout gate and measured local geomagnetic classi
 
 **Latest adjudicated result:** v0.6.0 `PASS_BOUNDED`. The unchanged null case produced no familywise detections, and all seven 0.60-rad injected cases were identified as the sole detected target at the frozen AION frequency family.
 
-**v0.7 authority ceiling:** at most one single-epoch split-sample sensor candidate and its measured environmental classification. It cannot establish dark plasma, dark matter, gravitational waves, causation, an independent false-positive rate, a specific coupling or transfer to another instrument.
+**v0.7 authority ceiling:** at most one single-epoch split-sample sensor candidate
+and its measured environmental classification. It cannot establish the
+morfo-syntactic-plasma/dark-matter conjecture, causation or physical detection.
 
 ## What 0.7 tests
 
@@ -16,11 +18,12 @@ a frozen-family chronological holdout gate and measured local geomagnetic classi
 - INTERMAGNET/BGS Hartland one-second XYZF as a measured regional-field control for holdout survivors.
 - NASA CDAWeb OMNI one-minute variables as heliospheric context only, never as a causal veto.
 - Explicit exclusion of the four development frequencies exposed by pre-freeze engineering equivalence probes and their two-Rayleigh-cell neighborhoods.
-- Mandatory `NOT_ESTIMABLE` status for dark-plasma, dark-matter and gravitational-wave detection in this campaign.
-
+- Mandatory `NOT_ESTIMABLE` status for the morfo-syntactic-plasma/dark-matter conjecture and gravitational-wave detection in this campaign.
 - The unsearched 75–100 mHz interval remains `NOT_ESTIMABLE` because of the AION development cadence.
+
 Read the [v0.7 preregistration](docs/PREREGISTRATION_AION_CONTINUOUS_ENVIRONMENT_0.7.md). The executable rules and this documentation must be committed before the full continuous scan.
 
+The post-discovery [terminology erratum](docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md) changes no analytical rule and preserves frozen historical wording as provenance.
 
 ## What 0.6 established
 

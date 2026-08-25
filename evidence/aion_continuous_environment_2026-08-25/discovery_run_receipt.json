@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "DP-AION-CONTINUOUS-0.7-20260825",
+  "stage": "DEVELOPMENT_DISCOVERY_ONLY",
+  "github": {
+    "workflow": "DarkPipe v0.7 development discovery",
+    "run_id": 32868104234,
+    "job_id": 97868258776,
+    "url": "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/32868104234",
+    "head_sha": "bd042781284b46490f1d27e356a0066a238f2190",
+    "event": "workflow_dispatch",
+    "started_at_utc": "2026-08-25T15:48:44Z",
+    "completed_at_utc": "2026-08-25T15:49:38Z",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 9570938950,
+    "name": "darkpipe-v07-development-candidates",
+    "archive_size_bytes": 159640,
+    "expired": false
+  },
+  "files": {
+    "discovery_candidates.json": "055fb74db1aa0aca1f138095e465fde4e351fa2da5a631a12d65c0124d7fe1a6",
+    "development_continuous_scan.png": "427945a924ad8426ecfdf3a0f5cf194a3ae3352411850500f2fe07048d054e56"
+  },
+  "holdout_endpoints_accessed": false,
+  "semantic_erratum_changes_analytical_rules": false
+}

@@ -6,10 +6,11 @@
 - Added chronological holdout confirmation with 4,095 condition-wise circular rotations and familywise alpha 0.05.
 - Added measured INTERMAGNET/BGS Hartland one-second environmental classification and NASA CDAWeb OMNI one-minute context for holdout survivors.
 - Preserved the first failed engineering equivalence probe, repaired the time-origin defect and excluded all four exposed development frequencies plus two-Rayleigh-cell neighborhoods.
-- Kept dark-plasma, dark-matter and gravitational-wave detection, causal coupling and independent-epoch false-positive rate as `NOT_ESTIMABLE` by construction.
+- Kept the morfo-syntactic-plasma/dark-matter conjecture, gravitational-wave detection, causal coupling and independent-epoch false-positive rate as `NOT_ESTIMABLE` by construction.
 - Reduced the upper bound from 100 to 75 mHz before freeze after cadence checks put the lower nominal median Nyquist at 79.056 mHz; 75–100 mHz remains `NOT_ESTIMABLE`.
 - Split compact adjudication artifacts from potentially large raw environmental receipts so heavy HAPI evidence can remain in cloud custody.
 - No v0.7 scientific result is claimed before the prospectively frozen workflows execute.
+- Added a post-discovery terminology erratum without changing any frozen analytical rule; historical bytes retain their original wording as provenance.
 
 ## 0.6.0 — 2026-08-25
 
