@@ -1,0 +1,1841 @@
+{
+  "selection_sha256": "ed4d7768389a1775286af1f45bc56384fb95b3e392ef6634d2eb9a3813bce843",
+  "file_count": 27,
+  "total_bytes": 19018652,
+  "records": [
+    {
+      "path": "data_analysis/README.md",
+      "bytes": 4747,
+      "sha256": "7c2c7e0f1ceb35eed574673991a9f70290df818fc716894717c87224bcded961",
+      "fully_read": true,
+      "kind": "text",
+      "chars": 4571,
+      "lines": 95
+    },
+    {
+      "path": "data_analysis/LICENSE.txt",
+      "bytes": 1072,
+      "sha256": "74e79dd3f9c99aa78416bd3e6e09f60baf58dacff36e794db81dcd0bb81729be",
+      "fully_read": true,
+      "kind": "text",
+      "chars": 1072,
+      "lines": 21
+    },
+    {
+      "path": "data_analysis/pyproject.toml",
+      "bytes": 937,
+      "sha256": "0208b0abfaa48f2cb816a6b7a5247b5598bd7da0e5341af62ef8173d43f4405b",
+      "fully_read": true,
+      "kind": "text",
+      "chars": 937,
+      "lines": 42
+    },
+    {
+      "path": "data_analysis/utilities/analysis/signal_extraction.py",
+      "bytes": 906,
+      "sha256": "6fe690d5991771930cbac111190dfcc25f5a82f9405d40e456193025af2785f7",
+      "fully_read": true,
+      "kind": "text",
+      "chars": 906,
+      "lines": 27
+    },
+    {
+      "path": "data_analysis/utilities/adevtools.py",
+      "bytes": 4403,
+      "sha256": "fb5fa88633fdb98da10594d5183f00dd15efe3c583e224e2f2a5c8196fd46c01",
+      "fully_read": true,
+      "kind": "text",
+      "chars": 4403,
+      "lines": 103
+    },
+    {
+      "path": "data_analysis/figures/Figure 4.ipynb",
+      "bytes": 2587235,
+      "sha256": "7f9171dca44ed21d5fda08651464ee8e075c8c071eb2518abecd1de4ce251d4d",
+      "fully_read": true,
+      "kind": "notebook",
+      "cell_count": 35,
+      "code_cells": 26,
+      "markdown_cells": 9,
+      "source_chars": 23211,
+      "output_chars": 2541838,
+      "errors": [],
+      "imports": [
+        "json",
+        "matplotlib.gridspec",
+        "matplotlib.pyplot",
+        "numpy",
+        "openpyxl",
+        "pandas",
+        "pathlib",
+        "sys",
+        "uncertainties",
+        "utilities",
+        "utilities.adevtools",
+        "utilities.datasets.paths",
+        "utilities.plots"
+      ]
+    },
+    {
+      "path": "data_analysis/figures/Figure 5a.ipynb",
+      "bytes": 284862,
+      "sha256": "83d55fa9368cdfde620ec8660ac032ea4fec7ea2df20e58c92eb49b3af5c0c0e",
+      "fully_read": true,
+      "kind": "notebook",
+      "cell_count": 12,
+      "code_cells": 11,
+      "markdown_cells": 1,
+      "source_chars": 12049,
+      "output_chars": 265791,
+      "errors": [],
+      "imports": [
+        "brokenaxes",
+        "matplotlib.pyplot",
+        "numpy",
+        "openpyxl",
+        "pandas",
+        "pathlib",
+        "sys",
+        "utilities.analysis.signal_extraction",
+        "utilities.datasets.paths",
+        "utilities.plots"
+      ]
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_with_phi_hln-lnl-repeat_63132_63134_63133_63135_63150_63149_63148_63151_63164_63163_63162_63331_63333_63332_0.csv",
+      "bytes": 3450487,
+      "sha256": "d582be3ecccdb5fa139d2a5280da51f926fee8b31963662a68be980c27a7d224",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 28309,
+      "columns": [
+        "timestamp",
+        "phi",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward",
+        "stark_shifter_setpoint"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "phi": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64",
+        "stark_shifter_setpoint": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "phi": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0,
+        "stark_shifter_setpoint": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1766173370.4284198,
+          "phi": 4.9503884238,
+          "excitation_fraction_forward": 0.0847114876,
+          "excitation_fraction_backward": 0.0809167894,
+          "fluorescence_counts_forward": 1260023.4618767984,
+          "fluorescence_counts_backward": 772510.0315693002,
+          "stark_shifter_setpoint": 3.5032891854
+        },
+        {
+          "timestamp": 1766173373.6066253,
+          "phi": 5.0773214603,
+          "excitation_fraction_forward": 0.08918662,
+          "excitation_fraction_backward": 0.1040779343,
+          "fluorescence_counts_forward": 1281105.466402246,
+          "fluorescence_counts_backward": 792506.432377069,
+          "stark_shifter_setpoint": 3.5026931031
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1766396036.0226784,
+          "phi": 5.2042544969,
+          "excitation_fraction_forward": 0.1223775712,
+          "excitation_fraction_backward": 0.1623912555,
+          "fluorescence_counts_forward": 1130710.6193515633,
+          "fluorescence_counts_backward": 628799.5481057416,
+          "stark_shifter_setpoint": 3.5
+        },
+        {
+          "timestamp": 1766396042.4130838,
+          "phi": 4.3157232413,
+          "excitation_fraction_forward": 0.3670674158,
+          "excitation_fraction_backward": 0.3252620123,
+          "fluorescence_counts_forward": 1096386.909714633,
+          "fluorescence_counts_backward": 593200.6308997513,
+          "stark_shifter_setpoint": 3.5
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 28309,
+          "min": 1766173370.4284198,
+          "max": 1766396200.661332
+        },
+        "phi": {
+          "finite_count": 28309,
+          "min": 0.0,
+          "max": 6.283185307179586
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 28309,
+          "min": 0.0635058690450461,
+          "max": 0.9411196163963438
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 28309,
+          "min": 0.0572802972451972,
+          "max": 0.941656937698532
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 28309,
+          "min": 793233.3018667776,
+          "max": 1828310.8596485008
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 28309,
+          "min": 435913.613311147,
+          "max": 1134224.996696672
+        },
+        "stark_shifter_setpoint": {
+          "finite_count": 28309,
+          "min": 3.47000000026628,
+          "max": 3.529999999999994
+        }
+      },
+      "time": {
+        "start_unix": 1766173370.4284198,
+        "end_unix": 1766396200.661332,
+        "duration_s": 222830.2329120636,
+        "median_cadence_s": 6.3261765241622925,
+        "nonmonotonic_steps": 5
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_with_phi_hln-lnl-repeat_63132_63134_63133_63135_63150_63149_63148_63151_63164_63163_63162_63331_63333_63332_2.csv",
+      "bytes": 3451007,
+      "sha256": "ba800196b6db0f3be93c4fe66cd18332d11189d78234488c5d283719218c5319",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 28314,
+      "columns": [
+        "timestamp",
+        "phi",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward",
+        "stark_shifter_setpoint"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "phi": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64",
+        "stark_shifter_setpoint": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "phi": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0,
+        "stark_shifter_setpoint": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1766173376.8185928,
+          "phi": 5.1407879786,
+          "excitation_fraction_forward": 0.0886678702,
+          "excitation_fraction_backward": 0.1039312815,
+          "fluorescence_counts_forward": 1336853.9967229716,
+          "fluorescence_counts_backward": 794326.3561556434,
+          "stark_shifter_setpoint": 3.5020895985
+        },
+        {
+          "timestamp": 1766173380.0129418,
+          "phi": 4.6330558326,
+          "excitation_fraction_forward": 0.6719012554,
+          "excitation_fraction_backward": 0.6940760722,
+          "fluorescence_counts_forward": 1302790.7210686114,
+          "fluorescence_counts_backward": 754439.1890045941,
+          "stark_shifter_setpoint": 3.5014885597
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1766396048.7717175,
+          "phi": 5.8389196794,
+          "excitation_fraction_forward": 0.8786886993,
+          "excitation_fraction_backward": 0.9130930026,
+          "fluorescence_counts_forward": 1069545.8649113872,
+          "fluorescence_counts_backward": 594969.352941818,
+          "stark_shifter_setpoint": 3.5
+        },
+        {
+          "timestamp": 1766396051.9678,
+          "phi": 3.3637254675,
+          "excitation_fraction_forward": 0.3203077238,
+          "excitation_fraction_backward": 0.2969866193,
+          "fluorescence_counts_forward": 1166405.7805864315,
+          "fluorescence_counts_backward": 626788.9233411574,
+          "stark_shifter_setpoint": 3.5
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 28314,
+          "min": 1766173376.8185928,
+          "max": 1766396207.035418
+        },
+        "phi": {
+          "finite_count": 28314,
+          "min": 0.0,
+          "max": 6.283185307179586
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 28314,
+          "min": 0.0634463346036962,
+          "max": 0.9458201719030812
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 28314,
+          "min": 0.0554023304516007,
+          "max": 0.9486237310056111
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 28314,
+          "min": 760523.3372261437,
+          "max": 1451889.2291648898
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 28314,
+          "min": 470141.2148323399,
+          "max": 868911.902754743
+        },
+        "stark_shifter_setpoint": {
+          "finite_count": 28314,
+          "min": 3.4700000005506637,
+          "max": 3.5299999999999936
+        }
+      },
+      "time": {
+        "start_unix": 1766173376.8185928,
+        "end_unix": 1766396207.035418,
+        "duration_s": 222830.2168252468,
+        "median_cadence_s": 6.3260345458984375,
+        "nonmonotonic_steps": 5
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.csv",
+      "bytes": 806193,
+      "sha256": "70d051e74fc286c5b66bb1af3fb8249fabc5a4dc156f9d51ef07011191b71904",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 8603,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1766430620.717234,
+          "excitation_fraction_forward": 0.8439699125,
+          "excitation_fraction_backward": 0.8227452897,
+          "fluorescence_counts_forward": 885745.8340749558,
+          "fluorescence_counts_backward": 493865.5783681329
+        },
+        {
+          "timestamp": 1766430627.0745313,
+          "excitation_fraction_forward": 0.5318789976,
+          "excitation_fraction_backward": 0.4977276272,
+          "fluorescence_counts_forward": 959666.4061469156,
+          "fluorescence_counts_backward": 531299.3794793067
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1766517299.7361245,
+          "excitation_fraction_forward": 0.8690044128,
+          "excitation_fraction_backward": 0.8655431786,
+          "fluorescence_counts_forward": 1128549.4664305588,
+          "fluorescence_counts_backward": 610106.6437199552
+        },
+        {
+          "timestamp": 1766517302.930961,
+          "excitation_fraction_forward": 0.2141563505,
+          "excitation_fraction_backward": 0.1827759516,
+          "fluorescence_counts_forward": 1132502.630212447,
+          "fluorescence_counts_backward": 614093.5291781359
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 8603,
+          "min": 1766430620.717234,
+          "max": 1766519316.1057997
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 8603,
+          "min": 0.0581214590483438,
+          "max": 0.9318539330753464
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 8603,
+          "min": 0.0506201852878412,
+          "max": 0.9364149901926332
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 8603,
+          "min": 688430.3406050412,
+          "max": 1337501.0554599634
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 8603,
+          "min": 342985.2924766932,
+          "max": 756285.0595835989
+        }
+      },
+      "time": {
+        "start_unix": 1766430620.717234,
+        "end_unix": 1766519316.1057997,
+        "duration_s": 88695.38856577873,
+        "median_cadence_s": 6.34051787853241,
+        "nonmonotonic_steps": 1
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-0_3mHz_63846_63845_63844_63866_63868_63867_0.6.csv",
+      "bytes": 1285011,
+      "sha256": "ccc17ef2a47f923c2869ce476b98cc76a2767e41d824a60bdd0517e944382fef",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 13728,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1766560027.3292527,
+          "excitation_fraction_forward": 0.4261150686,
+          "excitation_fraction_backward": 0.3844861337,
+          "fluorescence_counts_forward": 1085039.8153470927,
+          "fluorescence_counts_backward": 665775.4153765471
+        },
+        {
+          "timestamp": 1766560030.605832,
+          "excitation_fraction_forward": 0.750218458,
+          "excitation_fraction_backward": 0.798424347,
+          "fluorescence_counts_forward": 1128069.7432657748,
+          "fluorescence_counts_backward": 726129.3603832962
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1766611753.7037709,
+          "excitation_fraction_forward": 0.8652433225,
+          "excitation_fraction_backward": 0.8347182929,
+          "fluorescence_counts_forward": 936792.167242898,
+          "fluorescence_counts_backward": 677824.5578024134
+        },
+        {
+          "timestamp": 1766611756.8993435,
+          "excitation_fraction_forward": 0.3977655074,
+          "excitation_fraction_backward": 0.3559985074,
+          "fluorescence_counts_forward": 951370.2834925156,
+          "fluorescence_counts_backward": 679787.2443211027
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 13728,
+          "min": 1766521648.171589,
+          "max": 1766614741.0478587
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 13728,
+          "min": 0.0626185004690829,
+          "max": 0.9435598328854992
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 13728,
+          "min": 0.0580102920549228,
+          "max": 0.9473789522541952
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 13728,
+          "min": 763947.229978781,
+          "max": 1328001.4167148324
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 13728,
+          "min": 452166.8573393581,
+          "max": 763185.0511990208
+        }
+      },
+      "time": {
+        "start_unix": 1766521648.171589,
+        "end_unix": 1766614741.0478587,
+        "duration_s": 93092.87626981735,
+        "median_cadence_s": 3.1948342323303223,
+        "nonmonotonic_steps": 3
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-1mHz-again_65278_0.6.csv",
+      "bytes": 571156,
+      "sha256": "41e4f32886c7ba4c98eed14ea20d7a516235b3c52e77d870fa2640273db96849",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 6083,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1768519931.0174384,
+          "excitation_fraction_forward": 0.3379020878,
+          "excitation_fraction_backward": 0.3240113097,
+          "fluorescence_counts_forward": 1350478.507065843,
+          "fluorescence_counts_backward": 567013.9242108905
+        },
+        {
+          "timestamp": 1768519934.2164135,
+          "excitation_fraction_forward": 0.0966802637,
+          "excitation_fraction_backward": 0.1003452973,
+          "fluorescence_counts_forward": 1395999.6105177563,
+          "fluorescence_counts_backward": 568238.0122521241
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1768540325.0128896,
+          "excitation_fraction_forward": 0.0956032902,
+          "excitation_fraction_backward": 0.101605633,
+          "fluorescence_counts_forward": 1373771.0305356309,
+          "fluorescence_counts_backward": 580220.6905512705
+        },
+        {
+          "timestamp": 1768540328.22333,
+          "excitation_fraction_forward": 0.120176722,
+          "excitation_fraction_backward": 0.1170652062,
+          "fluorescence_counts_forward": 1377078.8183330656,
+          "fluorescence_counts_backward": 571999.2048357022
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 6083,
+          "min": 1768519931.0174384,
+          "max": 1768540328.22333
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 6083,
+          "min": 0.0700441622187982,
+          "max": 0.9347083477017912
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 6083,
+          "min": 0.0755556940583369,
+          "max": 0.8797145779401
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 6083,
+          "min": 1207366.086552476,
+          "max": 1539051.9641781491
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 6083,
+          "min": 501128.1912701089,
+          "max": 641173.4694551952
+        }
+      },
+      "time": {
+        "start_unix": 1768519931.0174384,
+        "end_unix": 1768540328.22333,
+        "duration_s": 20397.205891609192,
+        "median_cadence_s": 3.2117698192596436,
+        "nonmonotonic_steps": 0
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-3mHz_63900_63902_63901_0.6.csv",
+      "bytes": 675282,
+      "sha256": "ab1ee425f2fbbb1d099877743052dd22252165526a56a0c579832c6a9b700065",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 7262,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1766615102.320023,
+          "excitation_fraction_forward": 0.4512479679,
+          "excitation_fraction_backward": 0.3943748579,
+          "fluorescence_counts_forward": 923564.6892566426,
+          "fluorescence_counts_backward": 719383.9385257266
+        },
+        {
+          "timestamp": 1766615105.4988737,
+          "excitation_fraction_forward": 0.8898519568,
+          "excitation_fraction_backward": 0.9014012024,
+          "fluorescence_counts_forward": 904845.8517645132,
+          "fluorescence_counts_backward": 675180.6474599988
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1766653256.2947853,
+          "excitation_fraction_forward": 0.9003204685,
+          "excitation_fraction_backward": 0.8755507921,
+          "fluorescence_counts_forward": 731373.8229462128,
+          "fluorescence_counts_backward": 598428.8793152546
+        },
+        {
+          "timestamp": 1766653259.4584804,
+          "excitation_fraction_forward": 0.4715080346,
+          "excitation_fraction_backward": 0.4265270807,
+          "fluorescence_counts_forward": 767947.3418668648,
+          "fluorescence_counts_backward": 647653.9475503085
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 7262,
+          "min": 1766615102.320023,
+          "max": 1766662048.266993
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 7262,
+          "min": 0.0533603740539796,
+          "max": 0.9472657003939672
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 7262,
+          "min": 0.0593329444510958,
+          "max": 0.94060462406948
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 7262,
+          "min": 519957.7216703412,
+          "max": 978109.3417924131
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 7262,
+          "min": 406931.132661328,
+          "max": 747585.1005857713
+        }
+      },
+      "time": {
+        "start_unix": 1766615102.320023,
+        "end_unix": 1766662048.266993,
+        "duration_s": 46945.94696998596,
+        "median_cadence_s": 3.1949477195739746,
+        "nonmonotonic_steps": 1
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-10mHz_64979_0.6.csv",
+      "bytes": 630712,
+      "sha256": "9c1035d0225e0d06f48a76d0a233c484f13ee2709151799e0a643f288ea55c41",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 6706,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1768340253.933409,
+          "excitation_fraction_forward": 0.7196087559,
+          "excitation_fraction_backward": 0.718987651,
+          "fluorescence_counts_forward": 978247.3802511322,
+          "fluorescence_counts_backward": 520521.608736649
+        },
+        {
+          "timestamp": 1768340257.1214986,
+          "excitation_fraction_forward": 0.2560483362,
+          "excitation_fraction_backward": 0.2934567533,
+          "fluorescence_counts_forward": 1005093.5247040036,
+          "fluorescence_counts_backward": 497060.8687585469
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1768368815.57926,
+          "excitation_fraction_forward": 0.927266031,
+          "excitation_fraction_backward": 0.9148824417,
+          "fluorescence_counts_forward": 1094426.7314716647,
+          "fluorescence_counts_backward": 523875.4600772101
+        },
+        {
+          "timestamp": 1768368912.9359496,
+          "excitation_fraction_forward": 0.7250739167,
+          "excitation_fraction_backward": 0.7537795433,
+          "fluorescence_counts_forward": 1070393.1635464362,
+          "fluorescence_counts_backward": 546116.2806203007
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 6706,
+          "min": 1768340253.933409,
+          "max": 1768368912.9359496
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 6706,
+          "min": 0.0640829630943112,
+          "max": 0.9402596049208424
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 6706,
+          "min": 0.0485940150190957,
+          "max": 0.9459639811532812
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 6706,
+          "min": 843101.3948914903,
+          "max": 1211518.40331236
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 6706,
+          "min": 394526.54684428894,
+          "max": 611371.6865453958
+        }
+      },
+      "time": {
+        "start_unix": 1768340253.933409,
+        "end_unix": 1768368912.9359496,
+        "duration_s": 28659.00254058838,
+        "median_cadence_s": 3.21152663230896,
+        "nonmonotonic_steps": 0
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-30mHz_65093_0.6.csv",
+      "bytes": 634969,
+      "sha256": "508f43c5b8b850acf523ec9b773152c69fa3b23e0d6b6236dcadad7194d51a0e",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 6741,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1768419519.5402317,
+          "excitation_fraction_forward": 0.5775660812,
+          "excitation_fraction_backward": 0.5736411146,
+          "fluorescence_counts_forward": 1732493.4562471318,
+          "fluorescence_counts_backward": 693462.7379541623
+        },
+        {
+          "timestamp": 1768419525.994175,
+          "excitation_fraction_forward": 0.7536959471,
+          "excitation_fraction_backward": 0.7118153495,
+          "fluorescence_counts_forward": 1760299.9012757377,
+          "fluorescence_counts_backward": 695068.2475975117
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1768465939.8507984,
+          "excitation_fraction_forward": 0.8256603962,
+          "excitation_fraction_backward": 0.7761775476,
+          "fluorescence_counts_forward": 1349670.3841863151,
+          "fluorescence_counts_backward": 503157.7430718184
+        },
+        {
+          "timestamp": 1768465952.7434692,
+          "excitation_fraction_forward": 0.5705695171,
+          "excitation_fraction_backward": 0.513258974,
+          "fluorescence_counts_forward": 1314913.641380836,
+          "fluorescence_counts_backward": 470716.4339451452
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 6741,
+          "min": 1768419519.5402317,
+          "max": 1768465952.7434692
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 6741,
+          "min": 0.0827596963813964,
+          "max": 0.9051329465482686
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 6741,
+          "min": 0.0925226224336824,
+          "max": 0.8364239451077836
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 6741,
+          "min": 1061652.7975150463,
+          "max": 1872097.4562502208
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 6741,
+          "min": 386143.0994919047,
+          "max": 709638.5622787485
+        }
+      },
+      "time": {
+        "start_unix": 1768419519.5402317,
+        "end_unix": 1768465952.7434692,
+        "duration_s": 46433.20323753357,
+        "median_cadence_s": 6.374158024787903,
+        "nonmonotonic_steps": 0
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-100mHz_64835_0.6.csv",
+      "bytes": 1474406,
+      "sha256": "9148847dff7ccd0adabf6071e3c270afd1c8bdfbf4294d567ed5327af8cc332f",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 15718,
+      "columns": [
+        "timestamp",
+        "excitation_fraction_forward",
+        "excitation_fraction_backward",
+        "fluorescence_counts_forward",
+        "fluorescence_counts_backward"
+      ],
+      "dtypes": {
+        "timestamp": "float64",
+        "excitation_fraction_forward": "float64",
+        "excitation_fraction_backward": "float64",
+        "fluorescence_counts_forward": "float64",
+        "fluorescence_counts_backward": "float64"
+      },
+      "null_counts": {
+        "timestamp": 0,
+        "excitation_fraction_forward": 0,
+        "excitation_fraction_backward": 0,
+        "fluorescence_counts_forward": 0,
+        "fluorescence_counts_backward": 0
+      },
+      "first_rows": [
+        {
+          "timestamp": 1768245474.687902,
+          "excitation_fraction_forward": 0.9259323575,
+          "excitation_fraction_backward": 0.8985438592,
+          "fluorescence_counts_forward": 1288511.3771314437,
+          "fluorescence_counts_backward": 632726.6097837364
+        },
+        {
+          "timestamp": 1768245477.895305,
+          "excitation_fraction_forward": 0.6904351034,
+          "excitation_fraction_backward": 0.7307275379,
+          "fluorescence_counts_forward": 1302214.8327122438,
+          "fluorescence_counts_backward": 613297.025273364
+        }
+      ],
+      "last_rows": [
+        {
+          "timestamp": 1768299348.3093662,
+          "excitation_fraction_forward": 0.3159219634,
+          "excitation_fraction_backward": 0.3581748874,
+          "fluorescence_counts_forward": 1324253.888448446,
+          "fluorescence_counts_backward": 658786.9369236073
+        },
+        {
+          "timestamp": 1768299351.4902508,
+          "excitation_fraction_forward": 0.0979353012,
+          "excitation_fraction_backward": 0.1258238898,
+          "fluorescence_counts_forward": 1335052.7978093675,
+          "fluorescence_counts_backward": 649593.3638361308
+        }
+      ],
+      "numeric_ranges": {
+        "timestamp": {
+          "finite_count": 15718,
+          "min": 1768245474.687902,
+          "max": 1768299351.4902508
+        },
+        "excitation_fraction_forward": {
+          "finite_count": 15718,
+          "min": 0.0703531822657657,
+          "max": 0.9367209939126347
+        },
+        "excitation_fraction_backward": {
+          "finite_count": 15718,
+          "min": 0.0653858797697203,
+          "max": 0.9207727833112308
+        },
+        "fluorescence_counts_forward": {
+          "finite_count": 15718,
+          "min": 1135310.863935487,
+          "max": 1491027.1068857529
+        },
+        "fluorescence_counts_backward": {
+          "finite_count": 15718,
+          "min": 524619.8347549503,
+          "max": 722695.8030508492
+        }
+      },
+      "time": {
+        "start_unix": 1768245474.687902,
+        "end_unix": 1768299351.4902508,
+        "duration_s": 53876.80234885216,
+        "median_cadence_s": 3.1948773860931396,
+        "nonmonotonic_steps": 0
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/signal_fitting_results_by_frequency.csv",
+      "bytes": 2424323,
+      "sha256": "9cda3e4bc768aadb594ad4b4f5619fa3183f0545b2490cf59526a38caeb35809",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 14000,
+      "columns": [
+        "dataset_frequency_hz",
+        "dataset_filename",
+        "f_hz",
+        "fit_A_rad",
+        "fit_delta0_rad",
+        "fit_phi_rad",
+        "fit_logL",
+        "iteration"
+      ],
+      "dtypes": {
+        "dataset_frequency_hz": "float64",
+        "dataset_filename": "object",
+        "f_hz": "float64",
+        "fit_A_rad": "float64",
+        "fit_delta0_rad": "float64",
+        "fit_phi_rad": "float64",
+        "fit_logL": "float64",
+        "iteration": "int64"
+      },
+      "null_counts": {
+        "dataset_frequency_hz": 0,
+        "dataset_filename": 0,
+        "f_hz": 0,
+        "fit_A_rad": 0,
+        "fit_delta0_rad": 0,
+        "fit_phi_rad": 0,
+        "fit_logL": 0,
+        "iteration": 0
+      },
+      "first_rows": [
+        {
+          "dataset_frequency_hz": 0.0001,
+          "dataset_filename": "excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.csv",
+          "f_hz": 7e-05,
+          "fit_A_rad": 0.004383114,
+          "fit_delta0_rad": 0.1005311856,
+          "fit_phi_rad": 0.7523156002,
+          "fit_logL": 19627.5328587858,
+          "iteration": 0
+        },
+        {
+          "dataset_frequency_hz": 0.0001,
+          "dataset_filename": "excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.csv",
+          "f_hz": 7.00434e-05,
+          "fit_A_rad": 0.0044098529,
+          "fit_delta0_rad": 0.1005325378,
+          "fit_phi_rad": 2.9673680128,
+          "fit_logL": 19627.759690301,
+          "iteration": 0
+        }
+      ],
+      "last_rows": [
+        {
+          "dataset_frequency_hz": 0.1,
+          "dataset_filename": "excitation_fraction_corrected_signal-100mHz_64835_0.6.csv",
+          "f_hz": 0.1299194693,
+          "fit_A_rad": 0.0002213398,
+          "fit_delta0_rad": 0.1002836354,
+          "fit_phi_rad": -2.2750757577,
+          "fit_logL": 41051.4811359912,
+          "iteration": 0
+        },
+        {
+          "dataset_frequency_hz": 0.1,
+          "dataset_filename": "excitation_fraction_corrected_signal-100mHz_64835_0.6.csv",
+          "f_hz": 0.13,
+          "fit_A_rad": 0.0020844251,
+          "fit_delta0_rad": 0.1002700225,
+          "fit_phi_rad": -1.5509366361,
+          "fit_logL": 41060.051902031,
+          "iteration": 0
+        }
+      ],
+      "numeric_ranges": {
+        "dataset_frequency_hz": {
+          "finite_count": 14000,
+          "min": 0.0001,
+          "max": 0.1
+        },
+        "f_hz": {
+          "finite_count": 14000,
+          "min": 7e-05,
+          "max": 0.13
+        },
+        "fit_A_rad": {
+          "finite_count": 14000,
+          "min": 2.597041609816732e-05,
+          "max": 0.0176848142547905
+        },
+        "fit_delta0_rad": {
+          "finite_count": 14000,
+          "min": 0.0960697690578958,
+          "max": 0.1025812873395942
+        },
+        "fit_phi_rad": {
+          "finite_count": 14000,
+          "min": -3.141388786352363,
+          "max": 3.141575927533724
+        },
+        "fit_logL": {
+          "finite_count": 14000,
+          "min": 8294.600539964023,
+          "max": 41621.61817090645
+        },
+        "iteration": {
+          "finite_count": 14000,
+          "min": 0.0,
+          "max": 2.0
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/montecarlo_std_devs.csv",
+      "bytes": 134206,
+      "sha256": "4190e17fb09a0a375381f494920ab0b5e26affefec806a375445b7eab8283fdd",
+      "fully_read": true,
+      "kind": "csv",
+      "rows": 5100,
+      "columns": [
+        "MC",
+        "std_dev_rad"
+      ],
+      "dtypes": {
+        "MC": "int64",
+        "std_dev_rad": "float64"
+      },
+      "null_counts": {
+        "MC": 0,
+        "std_dev_rad": 0
+      },
+      "first_rows": [
+        {
+          "MC": 1,
+          "std_dev_rad": 0.0031043315
+        },
+        {
+          "MC": 2,
+          "std_dev_rad": 0.0033426379
+        }
+      ],
+      "last_rows": [
+        {
+          "MC": 5099,
+          "std_dev_rad": 0.0032883154
+        },
+        {
+          "MC": 5100,
+          "std_dev_rad": 0.0034451025
+        }
+      ],
+      "numeric_ranges": {
+        "MC": {
+          "finite_count": 5100,
+          "min": 1.0,
+          "max": 5100.0
+        },
+        "std_dev_rad": {
+          "finite_count": 5100,
+          "min": 0.0020327464049519,
+          "max": 0.0041084592963708
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/sigma_delta_phi_randomised.npy",
+      "bytes": 64128,
+      "sha256": "526050bf7438b9b4b97e3ad4114cc28e21f8b15c367016275a803b057191310b",
+      "fully_read": true,
+      "kind": "npy",
+      "shape": [
+        8000
+      ],
+      "dtype": "float64",
+      "numeric_range": {
+        "finite_count": 8000,
+        "min": 0.003241749088251577,
+        "max": 0.004752668753372846
+      }
+    },
+    {
+      "path": "data_analysis/data/intermediate_data/sigma_delta_phi_nonrandomised.npy",
+      "bytes": 64128,
+      "sha256": "82c544f65cb507418f4ae7a99d3f06a6a5b5c2282a2e47a790525aad08e59654",
+      "fully_read": true,
+      "kind": "npy",
+      "shape": [
+        8000
+      ],
+      "dtype": "float64",
+      "numeric_range": {
+        "finite_count": 8000,
+        "min": 0.00308697972007331,
+        "max": 0.004502784776970999
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-1mHz-again_65278_0.6.npz",
+      "bytes": 66926,
+      "sha256": "93088da2b116ab85df4941ab9361729c921fe94d293060805c45d4279f578fdc",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.000999921209195054,
+          "max": 0.000999921209195054
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5999774992881038,
+          "max": 0.5999774992881038
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 2.410887401712909e-05,
+          "max": 2.410887401712909e-05
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.5000207887209074,
+          "max": 3.5000207887209074
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.7075074829877786e-05,
+          "max": 1.7075074829877786e-05
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.2758601807701748,
+          "max": 0.2758601807701748
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 4.030141179500832e-05,
+          "max": 4.030141179500832e-05
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.51018839955003,
+          "max": 3.51018839955003
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.6007729938133441,
+          "max": 0.6007729938133441
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 0.0,
+          "max": 0.15498059483552223
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 2.9645040194938995e-30,
+          "max": 0.9994189190424194
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-3mHz_63900_63902_63901_0.6.npz",
+      "bytes": 66926,
+      "sha256": "7645168302d60cac956831e3d4ac8b22644616b7158648af379c2e2fe01cf5e9",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.003000006095456221,
+          "max": 0.003000006095456221
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": -0.6000025069079323,
+          "max": -0.6000025069079323
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.894988434004267e-06,
+          "max": 3.894988434004267e-06
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.500000722008651,
+          "max": 3.500000722008651
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 2.752287378329713e-06,
+          "max": 2.752287378329713e-06
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.8989853940603868,
+          "max": 0.8989853940603868
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 6.4828408977504445e-06,
+          "max": 6.4828408977504445e-06
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.498304415993358,
+          "max": 3.498304415993358
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5995943378107155,
+          "max": 0.5995943378107155
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 0.0,
+          "max": 0.15648289554005332
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 9.378530274363037e-31,
+          "max": 0.9999837259749322
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-0_3mHz_63846_63845_63844_63866_63868_63867_0.6.npz",
+      "bytes": 66926,
+      "sha256": "a6ca6af08b1d9ccb3032002bc045c56ca4324af4b66f233e5002b32aea8daf9b",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.0003000125880430458,
+          "max": 0.0003000125880430458
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.6000143462452187,
+          "max": 0.6000143462452187
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.1954784456784412e-05,
+          "max": 1.1954784456784412e-05
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.499989838435122,
+          "max": 3.499989838435122
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 8.456112902116682e-06,
+          "max": 8.456112902116682e-06
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.26217756091720446,
+          "max": 0.26217756091720446
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.993576928855274e-05,
+          "max": 1.993576928855274e-05
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.505255677640716,
+          "max": 3.505255677640716
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.6001598179458543,
+          "max": 0.6001598179458543
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 0.0,
+          "max": 0.15648635178999726
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 1.1593137629186665e-31,
+          "max": 0.9998413018049075
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.npz",
+      "bytes": 66926,
+      "sha256": "8ef90bd98f6752287766c496842723e070b95139003fbd02dee8b7f25505d421",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 9.99875251410979e-05,
+          "max": 9.99875251410979e-05
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5999536411514771,
+          "max": 0.5999536411514771
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.5888249791172407e-05,
+          "max": 1.5888249791172407e-05
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.500021048929543,
+          "max": 3.500021048929543
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.1286484540690658e-05,
+          "max": 1.1286484540690658e-05
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.46429623295617684,
+          "max": 0.46429623295617684
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 2.670751612459264e-05,
+          "max": 2.670751612459264e-05
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.5211002776886215,
+          "max": 3.5211002776886215
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.602115040771049,
+          "max": 0.602115040771049
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 0.0,
+          "max": 0.0784469805675065
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 5.411037065073255e-31,
+          "max": 0.9975495036263949
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-30mHz_65093_0.6.npz",
+      "bytes": 66926,
+      "sha256": "60d135afc4041b8e07b67bfdfb28e69e4c8e7c598a38a023e7e2b63c945559e6",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.029999989417143824,
+          "max": 0.029999989417143824
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5999972026823763,
+          "max": 0.5999972026823763
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 7.014158529104869e-06,
+          "max": 7.014158529104869e-06
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.4999981174315535,
+          "max": 3.4999981174315535
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 4.93252954211035e-06,
+          "max": 4.93252954211035e-06
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": -0.32013533268337957,
+          "max": -0.32013533268337957
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.1562580337238904e-05,
+          "max": 1.1562580337238904e-05
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.5042797816523747,
+          "max": 3.5042797816523747
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5966667260157056,
+          "max": 0.5966667260157056
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 2.1536313031956952e-05,
+          "max": 0.07785658427305922
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 7.18611751142251e-08,
+          "max": 0.9998962207307894
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-100mHz_64835_0.6.npz",
+      "bytes": 66926,
+      "sha256": "855fe4eccc3e0775335a71ef8dae8675dd52d4afd0bb2e3673ca5e816cfec91d",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.10000005848595471,
+          "max": 0.10000005848595471
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5999875068046354,
+          "max": 0.5999875068046354
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 2.925414961422517e-05,
+          "max": 2.925414961422517e-05
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.4999959662860967,
+          "max": 3.4999959662860967
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 2.0642173007618905e-05,
+          "max": 2.0642173007618905e-05
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": -2.0366330697445916,
+          "max": -2.0366330697445916
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 4.855286313359078e-05,
+          "max": 4.855286313359078e-05
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.5013619861144445,
+          "max": 3.5013619861144445
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5987278475391602,
+          "max": 0.5987278475391602
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 1.8560863978619267e-05,
+          "max": 0.15648645688106966
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 2.966707613263986e-09,
+          "max": 0.999956747587038
+        }
+      }
+    },
+    {
+      "path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-10mHz_64979_0.6.npz",
+      "bytes": 66926,
+      "sha256": "478946ff3f18ac228cf5e3bf54fb93854dc8c359a541a6161d6e244d4137551c",
+      "fully_read": true,
+      "kind": "npz",
+      "arrays": {
+        "frequency": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.010000029621487978,
+          "max": 0.010000029621487978
+        },
+        "fitted_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": -0.5999954362168453,
+          "max": -0.5999954362168453
+        },
+        "fitted_amplitude_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.2256303338141624e-05,
+          "max": 1.2256303338141624e-05
+        },
+        "fitted_offset": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.49999934039564,
+          "max": 3.49999934039564
+        },
+        "fitted_offset_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 8.663702889060794e-06,
+          "max": 8.663702889060794e-06
+        },
+        "fitted_phase": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 1.0039793024372234,
+          "max": 1.0039793024372234
+        },
+        "fitted_phase_err": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 2.04127272413257e-05,
+          "max": 2.04127272413257e-05
+        },
+        "signal_mean": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 3.50395584731707,
+          "max": 3.50395584731707
+        },
+        "signal_amplitude": {
+          "shape": [],
+          "dtype": "float64",
+          "finite_count": 1,
+          "min": 0.5997585096510709,
+          "max": 0.5997585096510709
+        },
+        "freqs": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 3.4893049699958944e-05,
+          "max": 0.15496713855925145
+        },
+        "pgram": {
+          "shape": [
+            4000
+          ],
+          "dtype": "float64",
+          "finite_count": 4000,
+          "min": 3.6742385822337655e-08,
+          "max": 0.9999105256892298
+        }
+      }
+    }
+  ]
+}
