@@ -1,0 +1,31 @@
+name: DarkPipe v0.7 development discovery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q
+      - name: Development-only continuous scan
+        run: >
+          python run_darkpipe_aion_continuous_v07.py
+          --mode discover
+          --campaign v07_discovery_artifact
+          --preregistration-commit "$GITHUB_SHA"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darkpipe-v07-development-candidates
+          path: v07_discovery_artifact
+          if-no-files-found: error

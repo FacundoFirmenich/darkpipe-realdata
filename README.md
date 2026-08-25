@@ -1,12 +1,28 @@
-# DarkPipe 0.6.0 — seed-committed AION holdout replay
+# DarkPipe 0.7.0 candidate — continuous AION search with measured environmental controls
 
-DarkPipe acquires bounded official observations, preserves byte-level provenance and runs reproducible environmental and atom-interferometer validation. Version 0.6 adds a prospectively frozen, operationally blinded replay on authentic AION LLN/HLN control noise.
+DarkPipe acquires bounded official observations, preserves byte-level provenance and runs reproducible environmental and atom-interferometer validation.
+Version 0.7 preregisters a development-only continuous scan of authentic AION LLN/HLN control noise,
+a frozen-family chronological holdout gate and measured local geomagnetic classification. The v0.7 campaign has not yet been adjudicated.
 
-**Terminal result:** `PASS_BOUNDED`. The unchanged null case produced no familywise detections, and all seven 0.60-rad injected cases were identified as the sole detected target at the frozen AION frequency family.
+**Latest adjudicated result:** v0.6.0 `PASS_BOUNDED`. The unchanged null case produced no familywise detections, and all seven 0.60-rad injected cases were identified as the sole detected target at the frozen AION frequency family.
 
-**Authority ceiling:** this is one fixed seven-frequency software-detector validation on one authentic control holdout. It is not a dark-matter or gravitational-wave detection; not an independent repeated-instrument false-positive rate; not a continuous-band search; not nonlinear raw-HDF5 likelihood equivalence; and not a transfer to AION-10/AION-km.
+**v0.7 authority ceiling:** at most one single-epoch split-sample sensor candidate and its measured environmental classification. It cannot establish dark plasma, dark matter, gravitational waves, causation, an independent false-positive rate, a specific coupling or transfer to another instrument.
 
-## What 0.6 changes
+## What 0.7 tests
+
+- A 0.1–75 mHz development-only grid at one Rayleigh-cell spacing, with no development significance threshold.
+- At most eight separated local maxima, committed before any holdout frequency endpoint is computed.
+- Holdout familywise calibration from 4,095 condition-wise circular rotations.
+- INTERMAGNET/BGS Hartland one-second XYZF as a measured regional-field control for holdout survivors.
+- NASA CDAWeb OMNI one-minute variables as heliospheric context only, never as a causal veto.
+- Explicit exclusion of the four development frequencies exposed by pre-freeze engineering equivalence probes and their two-Rayleigh-cell neighborhoods.
+- Mandatory `NOT_ESTIMABLE` status for dark-plasma, dark-matter and gravitational-wave detection in this campaign.
+
+- The unsearched 75–100 mHz interval remains `NOT_ESTIMABLE` because of the AION development cadence.
+Read the [v0.7 preregistration](docs/PREREGISTRATION_AION_CONTINUOUS_ENVIRONMENT_0.7.md). The executable rules and this documentation must be committed before the full continuous scan.
+
+
+## What 0.6 established
 
 - Chronological 40/60 development/holdout split on the preserved LLN and HLN controls.
 - Fixed nuisance fringe model and paired-arm differential-phase score.
