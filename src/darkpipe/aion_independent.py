@@ -40,6 +40,14 @@ def _source_entry(record: dict[str, Any]) -> dict[str, Any]:
     return item
 
 
+def _source_url(item: dict[str, Any]) -> str:
+    links = item.get("links", {})
+    url = links.get("content") or links.get("self")
+    if not isinstance(url, str) or not url:
+        raise ValueError("Zenodo source has no supported content link")
+    return url
+
+
 def fetch_source_record(output: str | Path) -> dict[str, Any]:
     artifact = fetch_json(
         f"https://zenodo.org/api/records/{ZENODO_RECORD_ID}",
@@ -54,7 +62,7 @@ def fetch_source_record(output: str | Path) -> dict[str, Any]:
 def download_source(record: dict[str, Any], target: str | Path) -> dict[str, Any]:
     """Stream the frozen source to an ephemeral path and verify it exactly."""
     item = _source_entry(record)
-    url = item["links"]["content"]
+    url = _source_url(item)
     path = Path(target)
     path.parent.mkdir(parents=True, exist_ok=True)
     md5 = hashlib.md5(usedforsecurity=False)
