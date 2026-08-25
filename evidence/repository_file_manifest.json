@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T16:27:11.727760Z",
+  "generated_at_utc": "2026-08-25T17:36:55.546135Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 130,
-  "total_bytes": 28415051,
+  "file_count": 135,
+  "total_bytes": 28425815,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -29,6 +29,11 @@
       "path": ".github/workflows/v07-discover.yml",
       "byte_count": 828,
       "sha256": "2842935089379bf998a1d43ccc11834b6d691d4ade89dc4332d5ee466dfc2ca8"
+    },
+    {
+      "path": ".github/workflows/v08-inventory.yml",
+      "byte_count": 1038,
+      "sha256": "876cb6249b0e301ee41f39bac410513df6d76f5f3aa9a5cd39803744d8907fbf"
     },
     {
       "path": ".gitignore",
@@ -124,6 +129,11 @@
       "path": "docs/SOURCE_ENDPOINTS.md",
       "byte_count": 1470,
       "sha256": "06073d9cc9bbf7a56c2c22fb79af069cb89e2e893522a01cc730f115e00a7d58"
+    },
+    {
+      "path": "docs/SOURCE_INVENTORY_PROTOCOL_AION_INDEPENDENT_0.8.md",
+      "byte_count": 1302,
+      "sha256": "75a0830158412c500e124f082d4f401f5a604e0ced69b3f1f6e2804b5bcf184c"
     },
     {
       "path": "docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md",
@@ -527,8 +537,8 @@
     },
     {
       "path": "pyproject.toml",
-      "byte_count": 988,
-      "sha256": "68a6df8003d36ee8a2719497fb4a7c130862335c5b06705e78879168a07efdac"
+      "byte_count": 1002,
+      "sha256": "14bfa38ee65b96ece78914ff27eab6daf67be78b26546a823b77b75dbd784239"
     },
     {
       "path": "requirements.txt",
@@ -544,6 +554,11 @@
       "path": "run_darkpipe_aion_continuous_v07.py",
       "byte_count": 1946,
       "sha256": "dbda6c673b2e6b0f7f8c69d81205cb4b513f67f88e003a9ae1d551967b4d98a9"
+    },
+    {
+      "path": "run_darkpipe_aion_independent_v08.py",
+      "byte_count": 842,
+      "sha256": "3bc5044ac56bf5fea76080a7c5bcea99053e28cc7415be439d21d359e27d0f1f"
     },
     {
       "path": "run_darkpipe_aion_v04.py",
@@ -589,6 +604,11 @@
       "path": "src/darkpipe/aion_continuous.py",
       "byte_count": 34187,
       "sha256": "b729c87417e4ff921ec91f0322aad5dde9410b78df7e778a394a8f517bc10eea"
+    },
+    {
+      "path": "src/darkpipe/aion_independent.py",
+      "byte_count": 6175,
+      "sha256": "b407ae6dc9180b68af88f9c17cb8189653545a26a402659a43006e80e5be0ee3"
     },
     {
       "path": "src/darkpipe/analysis.py",
@@ -649,6 +669,11 @@
       "path": "tests/test_aion_continuous.py",
       "byte_count": 5024,
       "sha256": "82b5d005c7a0689f07e9a8b08e5452451a8c53c5ea40f482ab3acb0fd52f3a93"
+    },
+    {
+      "path": "tests/test_aion_independent.py",
+      "byte_count": 1393,
+      "sha256": "3767856f2bd437d6bc07ee7daa998fde00c392e1d902e2ff299e8ece7cc6e819"
     },
     {
       "path": "tests/test_authority.py",
