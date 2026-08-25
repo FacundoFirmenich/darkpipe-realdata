@@ -1,4 +1,6 @@
+import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -176,7 +178,10 @@ def test_repository_manifest_hashes_every_published_file():
         item["byte_count"] for item in manifest["files"]
     )
     assert all(not item["path"].startswith("evidence/native_threads/") for item in manifest["files"])
+    assert manifest["byte_domain"].startswith("exact Git index blobs")
     for item in manifest["files"]:
-        path = ROOT / item["path"]
-        assert path.stat().st_size == item["byte_count"]
-        assert sha256_file(path) == item["sha256"]
+        payload = subprocess.check_output(
+            ["git", "show", f":{item['path']}"], cwd=ROOT
+        )
+        assert len(payload) == item["byte_count"]
+        assert hashlib.sha256(payload).hexdigest() == item["sha256"]
