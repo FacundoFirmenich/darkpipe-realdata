@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-08-25
+
+- Added a bounded 27-file AION differential atom-interferometer evidence slice with byte-level hashes, record metadata, attribution and explicit CC-BY-4.0/MIT/GPL jurisdiction boundaries.
+- Froze preregistration `DP-AION-0.4-20260825` in commit `f2da008` before endpoint computation.
+- Added exact integrity/schema abstention, seven-frequency injection recovery and HLN–LLN differential-noise consistency endpoints.
+- Recorded terminal `PASS_BOUNDED`: Gate 0 PASS, E1 7/7 PASS and E2 PASS; preserved blind-search and facility-transfer quantities as `NOT_ESTIMABLE`.
+- Added the `darkpipe aion-validate` command, direct 0.4 script, Colab notebook, checked receipt/figure and five AION tests.
+- Preserved adverse engineering evidence: Windows long-path omission, comment-prefixed CSV parse failures, several timestamp reversals and one initially over-literal license test.
 ## 0.3.0 — 2026-08-25
 
 - Reconstructed the DarkPipe objective from the native 59-turn conversation to EOF.

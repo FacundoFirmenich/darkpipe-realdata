@@ -1,0 +1,482 @@
+{
+  "campaign_id": "DP-AION-0.4-20260825",
+  "claim_ceiling": "bounded software-and-instrument validation; not a dark-matter or gravitational-wave detection",
+  "decision": "PASS_BOUNDED",
+  "endpoint_e1": {
+    "datasets": [
+      {
+        "absolute_error_hz": 9.933480810210061e-08,
+        "dataset_id": "0p1_mhz",
+        "duration_s": 88695.38856577873,
+        "final_iteration": 0,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 8603,
+        "fourier_resolution_hz": 1.1274543312456147e-05,
+        "median_cadence_s": 6.34051787853241,
+        "original_filename": "excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 19904.64620913405,
+        "recovered_frequency_hz": 0.0001000868599492,
+        "resolution_normalized_error": 0.008810539402722879,
+        "rows": 8603,
+        "timestamp_nonmonotonic_steps": 1,
+        "truth_frequency_hz": 9.99875251410979e-05
+      },
+      {
+        "absolute_error_hz": 3.8323712665420864e-07,
+        "dataset_id": "0p3_mhz",
+        "duration_s": 93092.87626981735,
+        "final_iteration": 1,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 13728,
+        "fourier_resolution_hz": 1.0741960502988786e-05,
+        "median_cadence_s": 3.1948342323303223,
+        "original_filename": "excitation_fraction_corrected_signal-0_3mHz_63846_63845_63844_63866_63868_63867_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 25177.918474845617,
+        "recovered_frequency_hz": 0.0003003958251697,
+        "resolution_normalized_error": 0.03567664641362057,
+        "rows": 13728,
+        "timestamp_nonmonotonic_steps": 3,
+        "truth_frequency_hz": 0.0003000125880430458
+      },
+      {
+        "absolute_error_hz": 2.228021290445921e-06,
+        "dataset_id": "1_mhz",
+        "duration_s": 20397.205891609192,
+        "final_iteration": 1,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 6083,
+        "fourier_resolution_hz": 4.9026322787248544e-05,
+        "median_cadence_s": 3.2117698192596436,
+        "original_filename": "excitation_fraction_corrected_signal-1mHz-again_65278_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 14026.075865088837,
+        "recovered_frequency_hz": 0.0010021492304855,
+        "resolution_normalized_error": 0.04544540899211425,
+        "rows": 6083,
+        "timestamp_nonmonotonic_steps": 0,
+        "truth_frequency_hz": 0.000999921209195054
+      },
+      {
+        "absolute_error_hz": 3.598051274210194e-07,
+        "dataset_id": "3_mhz",
+        "duration_s": 46945.94696998596,
+        "final_iteration": 1,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 7262,
+        "fourier_resolution_hz": 2.130109337530952e-05,
+        "median_cadence_s": 3.1949477195739746,
+        "original_filename": "excitation_fraction_corrected_signal-3mHz_63900_63902_63901_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 13233.858562310956,
+        "recovered_frequency_hz": 0.0029996462903288,
+        "resolution_normalized_error": 0.016891392431436218,
+        "rows": 7262,
+        "timestamp_nonmonotonic_steps": 1,
+        "truth_frequency_hz": 0.003000006095456221
+      },
+      {
+        "absolute_error_hz": 3.233229081221062e-07,
+        "dataset_id": "10_mhz",
+        "duration_s": 28659.00254058838,
+        "final_iteration": 1,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 6706,
+        "fourier_resolution_hz": 3.4893049699958944e-05,
+        "median_cadence_s": 3.21152663230896,
+        "original_filename": "excitation_fraction_corrected_signal-10mHz_64979_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 17338.38029943882,
+        "recovered_frequency_hz": 0.0100003529443961,
+        "resolution_normalized_error": 0.009266112045301865,
+        "rows": 6706,
+        "timestamp_nonmonotonic_steps": 0,
+        "truth_frequency_hz": 0.010000029621487978
+      },
+      {
+        "absolute_error_hz": 5.579241578769489e-07,
+        "dataset_id": "30_mhz",
+        "duration_s": 46433.20323753357,
+        "final_iteration": 1,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 6741,
+        "fourier_resolution_hz": 2.1536313031956952e-05,
+        "median_cadence_s": 6.374158024787903,
+        "original_filename": "excitation_fraction_corrected_signal-30mHz_65093_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 8420.24797419447,
+        "recovered_frequency_hz": 0.0300005473413017,
+        "resolution_normalized_error": 0.025906205813830137,
+        "rows": 6741,
+        "timestamp_nonmonotonic_steps": 0,
+        "truth_frequency_hz": 0.029999989417143824
+      },
+      {
+        "absolute_error_hz": 7.84849749191352e-07,
+        "dataset_id": "100_mhz",
+        "duration_s": 53876.80234885216,
+        "final_iteration": 2,
+        "final_iteration_grid_points": 1000,
+        "finite_paired_rows": 15718,
+        "fourier_resolution_hz": 1.8560863978619267e-05,
+        "median_cadence_s": 3.1948773860931396,
+        "original_filename": "excitation_fraction_corrected_signal-100mHz_64835_0.6.csv",
+        "passed": true,
+        "peak_log_likelihood": 41621.61817090645,
+        "recovered_frequency_hz": 0.1000008433357039,
+        "resolution_normalized_error": 0.042285194810728656,
+        "rows": 15718,
+        "timestamp_nonmonotonic_steps": 0,
+        "truth_frequency_hz": 0.10000005848595471
+      }
+    ],
+    "passed": true,
+    "passed_count": 7,
+    "rule": "all seven abs(f_hat-f_true)*T <= 1",
+    "total_count": 7
+  },
+  "endpoint_e2": {
+    "ci95_rad": [
+      -2.3517999485963142e-05,
+      5.2071433108547985e-05
+    ],
+    "difference_rad": 1.4276716811292421e-05,
+    "difference_uncertainty_rad": 1.928301851900794e-05,
+    "hln": {
+      "block_level_mean_rad": 0.0038906769838130345,
+      "block_size_shots": 141,
+      "minus_sql_combined_uncertainty_rad": 1.6903837012230126e-05,
+      "minus_sql_rad": 1.6041286325884448e-05,
+      "published_sql_rad": 0.00025851672359124256,
+      "published_sql_uncertainty_rad": 9.508661097608923e-06,
+      "realizations": 8000,
+      "shots": 28314,
+      "whole_dataset_rad": 0.000274558009917127,
+      "whole_dataset_uncertainty_rad": 1.3975874565366555e-05
+    },
+    "lln": {
+      "block_level_mean_rad": 0.0036880403470141427,
+      "block_size_shots": 141,
+      "minus_sql_combined_uncertainty_rad": 1.633830892245154e-05,
+      "minus_sql_rad": 1.7417406165696277e-06,
+      "published_sql_rad": 0.00025853955248926496,
+      "published_sql_uncertainty_rad": 9.509500781214345e-06,
+      "realizations": 8000,
+      "shots": 28309,
+      "whole_dataset_rad": 0.0002602812931058346,
+      "whole_dataset_uncertainty_rad": 1.3285696569527069e-05
+    },
+    "passed": true,
+    "rule": "two-sided 95% normal interval for HLN-LLN includes zero",
+    "z_score": 0.7403776953913811
+  },
+  "gate_0": {
+    "diagnostics": {
+      "control_hln": {
+        "rows": 28314,
+        "timestamp_nonmonotonic_steps": 5
+      },
+      "control_lln": {
+        "rows": 28309,
+        "timestamp_nonmonotonic_steps": 5
+      },
+      "files": [
+        {
+          "byte_count": 4747,
+          "expected_sha256": "7c2c7e0f1ceb35eed574673991a9f70290df818fc716894717c87224bcded961",
+          "path": "upstream/bundle_README.md",
+          "sha256": "7c2c7e0f1ceb35eed574673991a9f70290df818fc716894717c87224bcded961",
+          "status": "ok"
+        },
+        {
+          "byte_count": 1072,
+          "expected_sha256": "74e79dd3f9c99aa78416bd3e6e09f60baf58dacff36e794db81dcd0bb81729be",
+          "path": "upstream/bundle_LICENSE.txt",
+          "sha256": "74e79dd3f9c99aa78416bd3e6e09f60baf58dacff36e794db81dcd0bb81729be",
+          "status": "ok"
+        },
+        {
+          "byte_count": 937,
+          "expected_sha256": "0208b0abfaa48f2cb816a6b7a5247b5598bd7da0e5341af62ef8173d43f4405b",
+          "path": "upstream/bundle_pyproject.toml",
+          "sha256": "0208b0abfaa48f2cb816a6b7a5247b5598bd7da0e5341af62ef8173d43f4405b",
+          "status": "ok"
+        },
+        {
+          "byte_count": 906,
+          "expected_sha256": "6fe690d5991771930cbac111190dfcc25f5a82f9405d40e456193025af2785f7",
+          "path": "upstream/bundle_signal_extraction.py",
+          "sha256": "6fe690d5991771930cbac111190dfcc25f5a82f9405d40e456193025af2785f7",
+          "status": "ok"
+        },
+        {
+          "byte_count": 4403,
+          "expected_sha256": "fb5fa88633fdb98da10594d5183f00dd15efe3c583e224e2f2a5c8196fd46c01",
+          "path": "upstream/bundle_adevtools.py",
+          "sha256": "fb5fa88633fdb98da10594d5183f00dd15efe3c583e224e2f2a5c8196fd46c01",
+          "status": "ok"
+        },
+        {
+          "byte_count": 2587235,
+          "expected_sha256": "7f9171dca44ed21d5fda08651464ee8e075c8c071eb2518abecd1de4ce251d4d",
+          "path": "upstream/figure_4.ipynb",
+          "sha256": "7f9171dca44ed21d5fda08651464ee8e075c8c071eb2518abecd1de4ce251d4d",
+          "status": "ok"
+        },
+        {
+          "byte_count": 284862,
+          "expected_sha256": "83d55fa9368cdfde620ec8660ac032ea4fec7ea2df20e58c92eb49b3af5c0c0e",
+          "path": "upstream/figure_5a.ipynb",
+          "sha256": "83d55fa9368cdfde620ec8660ac032ea4fec7ea2df20e58c92eb49b3af5c0c0e",
+          "status": "ok"
+        },
+        {
+          "byte_count": 3450487,
+          "expected_sha256": "d582be3ecccdb5fa139d2a5280da51f926fee8b31963662a68be980c27a7d224",
+          "path": "upstream/control_lln.csv",
+          "sha256": "d582be3ecccdb5fa139d2a5280da51f926fee8b31963662a68be980c27a7d224",
+          "status": "ok"
+        },
+        {
+          "byte_count": 3451007,
+          "expected_sha256": "ba800196b6db0f3be93c4fe66cd18332d11189d78234488c5d283719218c5319",
+          "path": "upstream/control_hln.csv",
+          "sha256": "ba800196b6db0f3be93c4fe66cd18332d11189d78234488c5d283719218c5319",
+          "status": "ok"
+        },
+        {
+          "byte_count": 806193,
+          "expected_sha256": "70d051e74fc286c5b66bb1af3fb8249fabc5a4dc156f9d51ef07011191b71904",
+          "path": "upstream/injection_0p1_mhz.csv",
+          "sha256": "70d051e74fc286c5b66bb1af3fb8249fabc5a4dc156f9d51ef07011191b71904",
+          "status": "ok"
+        },
+        {
+          "byte_count": 1285011,
+          "expected_sha256": "ccc17ef2a47f923c2869ce476b98cc76a2767e41d824a60bdd0517e944382fef",
+          "path": "upstream/injection_0p3_mhz.csv",
+          "sha256": "ccc17ef2a47f923c2869ce476b98cc76a2767e41d824a60bdd0517e944382fef",
+          "status": "ok"
+        },
+        {
+          "byte_count": 571156,
+          "expected_sha256": "41e4f32886c7ba4c98eed14ea20d7a516235b3c52e77d870fa2640273db96849",
+          "path": "upstream/injection_1_mhz.csv",
+          "sha256": "41e4f32886c7ba4c98eed14ea20d7a516235b3c52e77d870fa2640273db96849",
+          "status": "ok"
+        },
+        {
+          "byte_count": 675282,
+          "expected_sha256": "ab1ee425f2fbbb1d099877743052dd22252165526a56a0c579832c6a9b700065",
+          "path": "upstream/injection_3_mhz.csv",
+          "sha256": "ab1ee425f2fbbb1d099877743052dd22252165526a56a0c579832c6a9b700065",
+          "status": "ok"
+        },
+        {
+          "byte_count": 630712,
+          "expected_sha256": "9c1035d0225e0d06f48a76d0a233c484f13ee2709151799e0a643f288ea55c41",
+          "path": "upstream/injection_10_mhz.csv",
+          "sha256": "9c1035d0225e0d06f48a76d0a233c484f13ee2709151799e0a643f288ea55c41",
+          "status": "ok"
+        },
+        {
+          "byte_count": 634969,
+          "expected_sha256": "508f43c5b8b850acf523ec9b773152c69fa3b23e0d6b6236dcadad7194d51a0e",
+          "path": "upstream/injection_30_mhz.csv",
+          "sha256": "508f43c5b8b850acf523ec9b773152c69fa3b23e0d6b6236dcadad7194d51a0e",
+          "status": "ok"
+        },
+        {
+          "byte_count": 1474406,
+          "expected_sha256": "9148847dff7ccd0adabf6071e3c270afd1c8bdfbf4294d567ed5327af8cc332f",
+          "path": "upstream/injection_100_mhz.csv",
+          "sha256": "9148847dff7ccd0adabf6071e3c270afd1c8bdfbf4294d567ed5327af8cc332f",
+          "status": "ok"
+        },
+        {
+          "byte_count": 2424323,
+          "expected_sha256": "9cda3e4bc768aadb594ad4b4f5619fa3183f0545b2490cf59526a38caeb35809",
+          "path": "upstream/mle_scan.csv",
+          "sha256": "9cda3e4bc768aadb594ad4b4f5619fa3183f0545b2490cf59526a38caeb35809",
+          "status": "ok"
+        },
+        {
+          "byte_count": 134206,
+          "expected_sha256": "4190e17fb09a0a375381f494920ab0b5e26affefec806a375445b7eab8283fdd",
+          "path": "upstream/sql_montecarlo_std_devs.csv",
+          "sha256": "4190e17fb09a0a375381f494920ab0b5e26affefec806a375445b7eab8283fdd",
+          "status": "ok"
+        },
+        {
+          "byte_count": 64128,
+          "expected_sha256": "526050bf7438b9b4b97e3ad4114cc28e21f8b15c367016275a803b057191310b",
+          "path": "upstream/sigma_hln.npy",
+          "sha256": "526050bf7438b9b4b97e3ad4114cc28e21f8b15c367016275a803b057191310b",
+          "status": "ok"
+        },
+        {
+          "byte_count": 64128,
+          "expected_sha256": "82c544f65cb507418f4ae7a99d3f06a6a5b5c2282a2e47a790525aad08e59654",
+          "path": "upstream/sigma_lln.npy",
+          "sha256": "82c544f65cb507418f4ae7a99d3f06a6a5b5c2282a2e47a790525aad08e59654",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "93088da2b116ab85df4941ab9361729c921fe94d293060805c45d4279f578fdc",
+          "path": "upstream/truth_1_mhz.npz",
+          "sha256": "93088da2b116ab85df4941ab9361729c921fe94d293060805c45d4279f578fdc",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "7645168302d60cac956831e3d4ac8b22644616b7158648af379c2e2fe01cf5e9",
+          "path": "upstream/truth_3_mhz.npz",
+          "sha256": "7645168302d60cac956831e3d4ac8b22644616b7158648af379c2e2fe01cf5e9",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "a6ca6af08b1d9ccb3032002bc045c56ca4324af4b66f233e5002b32aea8daf9b",
+          "path": "upstream/truth_0p3_mhz.npz",
+          "sha256": "a6ca6af08b1d9ccb3032002bc045c56ca4324af4b66f233e5002b32aea8daf9b",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "8ef90bd98f6752287766c496842723e070b95139003fbd02dee8b7f25505d421",
+          "path": "upstream/truth_0p1_mhz.npz",
+          "sha256": "8ef90bd98f6752287766c496842723e070b95139003fbd02dee8b7f25505d421",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "60d135afc4041b8e07b67bfdfb28e69e4c8e7c598a38a023e7e2b63c945559e6",
+          "path": "upstream/truth_30_mhz.npz",
+          "sha256": "60d135afc4041b8e07b67bfdfb28e69e4c8e7c598a38a023e7e2b63c945559e6",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "855fe4eccc3e0775335a71ef8dae8675dd52d4afd0bb2e3673ca5e816cfec91d",
+          "path": "upstream/truth_100_mhz.npz",
+          "sha256": "855fe4eccc3e0775335a71ef8dae8675dd52d4afd0bb2e3673ca5e816cfec91d",
+          "status": "ok"
+        },
+        {
+          "byte_count": 66926,
+          "expected_sha256": "478946ff3f18ac228cf5e3bf54fb93854dc8c359a541a6161d6e244d4137551c",
+          "path": "upstream/truth_10_mhz.npz",
+          "sha256": "478946ff3f18ac228cf5e3bf54fb93854dc8c359a541a6161d6e244d4137551c",
+          "status": "ok"
+        }
+      ],
+      "injections": [
+        {
+          "dataset_id": "0p1_mhz",
+          "duration_s": 88695.38856577873,
+          "finite_paired_rows": 8603,
+          "mle_iterations": 1,
+          "mle_rows": 1000,
+          "original_filename": "excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.csv",
+          "rows": 8603,
+          "timestamp_nonmonotonic_steps": 1,
+          "truth_frequency_hz": 9.99875251410979e-05
+        },
+        {
+          "dataset_id": "0p3_mhz",
+          "duration_s": 93092.87626981735,
+          "finite_paired_rows": 13728,
+          "mle_iterations": 2,
+          "mle_rows": 2000,
+          "original_filename": "excitation_fraction_corrected_signal-0_3mHz_63846_63845_63844_63866_63868_63867_0.6.csv",
+          "rows": 13728,
+          "timestamp_nonmonotonic_steps": 3,
+          "truth_frequency_hz": 0.0003000125880430458
+        },
+        {
+          "dataset_id": "1_mhz",
+          "duration_s": 20397.205891609192,
+          "finite_paired_rows": 6083,
+          "mle_iterations": 2,
+          "mle_rows": 2000,
+          "original_filename": "excitation_fraction_corrected_signal-1mHz-again_65278_0.6.csv",
+          "rows": 6083,
+          "timestamp_nonmonotonic_steps": 0,
+          "truth_frequency_hz": 0.000999921209195054
+        },
+        {
+          "dataset_id": "3_mhz",
+          "duration_s": 46945.94696998596,
+          "finite_paired_rows": 7262,
+          "mle_iterations": 2,
+          "mle_rows": 2000,
+          "original_filename": "excitation_fraction_corrected_signal-3mHz_63900_63902_63901_0.6.csv",
+          "rows": 7262,
+          "timestamp_nonmonotonic_steps": 1,
+          "truth_frequency_hz": 0.003000006095456221
+        },
+        {
+          "dataset_id": "10_mhz",
+          "duration_s": 28659.00254058838,
+          "finite_paired_rows": 6706,
+          "mle_iterations": 2,
+          "mle_rows": 2000,
+          "original_filename": "excitation_fraction_corrected_signal-10mHz_64979_0.6.csv",
+          "rows": 6706,
+          "timestamp_nonmonotonic_steps": 0,
+          "truth_frequency_hz": 0.010000029621487978
+        },
+        {
+          "dataset_id": "30_mhz",
+          "duration_s": 46433.20323753357,
+          "finite_paired_rows": 6741,
+          "mle_iterations": 2,
+          "mle_rows": 2000,
+          "original_filename": "excitation_fraction_corrected_signal-30mHz_65093_0.6.csv",
+          "rows": 6741,
+          "timestamp_nonmonotonic_steps": 0,
+          "truth_frequency_hz": 0.029999989417143824
+        },
+        {
+          "dataset_id": "100_mhz",
+          "duration_s": 53876.80234885216,
+          "finite_paired_rows": 15718,
+          "mle_iterations": 3,
+          "mle_rows": 3000,
+          "original_filename": "excitation_fraction_corrected_signal-100mHz_64835_0.6.csv",
+          "rows": 15718,
+          "timestamp_nonmonotonic_steps": 0,
+          "truth_frequency_hz": 0.10000005848595471
+        }
+      ],
+      "sigma_hln": {
+        "dtype": "float64",
+        "shape": [
+          8000
+        ]
+      },
+      "sigma_lln": {
+        "dtype": "float64",
+        "shape": [
+          8000
+        ]
+      }
+    },
+    "failure_count": 0,
+    "failures": [],
+    "passed": true
+  },
+  "generated_at_utc": "2026-08-25T07:03:44.683542Z",
+  "not_estimable": [
+    "blind-search false-positive rate",
+    "global dark-matter or gravitational-wave significance",
+    "transfer to AION-10 or AION-km sensitivity",
+    "independent full raw-HDF5 marginal-likelihood reproduction"
+  ],
+  "preregistration_commit": "f2da008",
+  "schema_version": "1.0",
+  "software_version": "0.4.0",
+  "source_manifest_sha256": "eaa3b07339a70992ae5aefd3fe6aa8ef2b2197b839d8fac9a298a178d14bde71"
+}

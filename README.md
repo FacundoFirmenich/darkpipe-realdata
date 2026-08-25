@@ -1,45 +1,63 @@
-# DarkPipe 0.3.0 — real-data-first foreground pipeline
+# DarkPipe 0.4.0 — real-data-first environmental and quantum-sensor validation
 
-DarkPipe acquires current official heliospheric and geomagnetic observations, preserves byte-level provenance, aligns measured channels, projects environmental nuisance variables from a geomagnetic target, and calculates spectral, Whittle-baseline, lag, coherence and non-Gaussian residual diagnostics.
+DarkPipe preserves byte-level provenance for bounded official observations and applies preregistered diagnostics without promoting residuals or control injections into discovery claims.
 
-**Current authority ceiling:** this release proves an operational, lightweight real-data foreground workflow. It does not claim detection of dark matter, hidden plasma, topological transients, or sensitivity of an atom-interferometer facility.
+Version 0.4 adds an authentic AION differential atom-interferometer evidence track to the 0.3 NOAA–USGS environmental-foreground pipeline.
 
-## What is deployed
+**Current authority ceiling:** DarkPipe 0.4 establishes a reproducible software-and-instrument validation on selected AION controls. It does not claim detection of dark matter, gravitational waves, hidden plasma or topological transients; it does not establish AION-10/AION-km sensitivity or a blind-search false-positive rate.
 
-- NOAA SWPC real-time solar-wind magnetic and plasma products (RTSW), one-minute cadence over a bounded 24-hour analysis window.
-- USGS Geomagnetism adjusted Boulder (BOU) XYZF observations over the matching interval.
-- Optional generic HAPI acquisition for INTERMAGNET and NASA CDAWeb.
-- Raw JSON receipts, retrieval timestamps, resolved URLs, byte counts and SHA-256 hashes.
-- One-minute time alignment, environmental nuisance projection, Welch spectrum, constant-free Whittle baseline score, residual diagnostics, lag scan and coherence.
-- A command-line application, Colab notebook, offline tests and GitHub Actions.
+## AION 0.4 result
 
-## Run locally
+The preregistered campaign `DP-AION-0.4-20260825` was committed before endpoint calculation.
+
+- Integrity/schema gate: 27/27 selected files, 19,018,652 bytes, PASS.
+- Injected-frequency recovery: 7/7 within one Fourier-resolution cell, PASS.
+- High- versus low-laser-noise consistency: HLN−LLN = 14.2767 µrad, 95% interval [−23.5180, 52.0714] µrad, PASS under the frozen rule.
+- Terminal decision: `PASS_BOUNDED`.
+- Blind discovery false-positive rate and global new-physics significance: `NOT_ESTIMABLE` from this evidence slice.
+
+Read [the preregistration](docs/PREREGISTRATION_AION_SENSOR_VALIDATION_0.4.md), [scientific scope](docs/SCIENTIFIC_SCOPE.md) and [substantive Spanish closure](docs/CIERRE_SUSTANTIVO_ES_AION_0.4_2026-08-25.md).
+
+## Run the checked AION validation
 
     python -m pip install -e .
+    darkpipe aion-validate \
+      --evidence evidence/aion_sensor_validation_2026-08-25 \
+      --output darkpipe_aion_run
+
+The command re-hashes all 27 files, validates schemas/mappings, executes the frozen E1/E2 rules and writes `report.json`, `report.md`, `validation.png` and `manifest.json`.
+
+A direct script is also provided:
+
+    python run_darkpipe_aion_v04.py --output darkpipe_aion_run
+
+## Run the live environmental pipeline
+
     darkpipe run --output darkpipe_run --station BOU
 
-The default live run downloads only a few kilobytes. Every response is protected by a hard byte ceiling (1–10 MB depending on source). Generated run directories are ignored by Git and should be moved to external custody or deleted manually after verification when local space matters.
+This retains the 0.3 bounded acquisition and analysis path for current NOAA SWPC solar-wind products and USGS Geomagnetism observations, plus generic HAPI adapters for INTERMAGNET and NASA CDAWeb.
+
+Generated run directories are ignored by Git. No daemon or persistent local service is required.
 
 ## Colab
 
-Open notebooks/DarkPipe_RealData_v03_Colab.ipynb and execute from top to bottom. It installs this public repository, runs the live pipeline, renders the report and prepares a ZIP containing the bounded receipt.
+Open `notebooks/DarkPipe_AION_v04_Colab.ipynb`. It shallow-clones the public repository, installs the package, runs the AION test module, executes the preregistered validation, renders the checked figure and creates a small ZIP containing only the result receipt.
 
-## Scientific interpretation
+## Evidence and licensing
 
-The default target is the first difference of the observed geomagnetic field magnitude F. Measured solar-wind Bz, total field, speed and density are standardized and projected as nuisance channels. Diagnostics of the remaining residual are descriptive and conditional on a short window. A residual is not automatically signal; non-Gaussianity is not automatically new physics; a lagged association is not causality.
+The AION subset derives from Charles Baynham and the AION Collaboration, Zenodo DOI [10.5281/zenodo.19592552](https://doi.org/10.5281/zenodo.19592552), associated with [Baynham et al., Nature 654, 622–628 (2026)](https://doi.org/10.1038/s41586-026-10617-1).
 
-Before any detection claim, DarkPipe still requires a preregistered sensor-level likelihood, real facility data, transfer functions, clock/systematics models, blind injection-recovery, long-baseline and multi-site replication, multiple-testing control, and held-out validation.
+Zenodo declares the record `CC-BY-4.0`; the upstream bundle contains an MIT software notice. Both are preserved under `evidence/aion_sensor_validation_2026-08-25/`. DarkPipe’s original code is licensed separately under GNU GPL version 3 or later, SPDX `GPL-3.0-or-later`—explicitly not `GPL-3.0-only`.
 
 ## Sources
 
-- NOAA SWPC current products: https://services.swpc.noaa.gov/products/
+- AION data/code: https://doi.org/10.5281/zenodo.19592552
+- AION article: https://doi.org/10.1038/s41586-026-10617-1
+- NOAA SWPC products: https://services.swpc.noaa.gov/products/
 - USGS Geomagnetism Web Services: https://geomag.usgs.gov/ws/
 - INTERMAGNET HAPI: https://imag-data.bgs.ac.uk/GIN_V1/hapi
 - NASA CDAWeb HAPI: https://cdaweb.gsfc.nasa.gov/hapi
-- USGS ComCat interface (supported adapter constant; not part of the default run): https://earthquake.usgs.gov/fdsnws/event/1/
-
-See docs/SCIENTIFIC_SCOPE.md, docs/SOURCE_ENDPOINTS.md, docs/ARCHAEOLOGY_AND_CUSTODY.md, SECURITY.md and the latest release receipt under evidence/.
 
 ## License
 
-DarkPipe is released under GNU GPL version 3 or later (SPDX: GPL-3.0-or-later). See LICENSE and LICENSE-NOTICE.
+DarkPipe original code and derived project documentation are released under GNU GPL version 3 or later (SPDX: `GPL-3.0-or-later`). See `LICENSE` and `LICENSE-NOTICE`. Upstream evidence retains the separate licenses documented in its evidence notice.

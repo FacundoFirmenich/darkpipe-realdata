@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "record_doi": "10.5281/zenodo.19592552",
+  "record_license": "CC-BY-4.0",
+  "bundle_software_license": "MIT",
+  "darkpipe_code_license": "GPL-3.0-or-later",
+  "upstream_archive": {
+    "name": "data_analysis.zip",
+    "byte_count": 134533837,
+    "md5": "f2898d155564d1ec9e11cdea17e76de6"
+  },
+  "frozen_selected_inventory_sha256": "d2382637d12b99252a3ede1c6109791d98277c04d0757c32e2b593c0847234bd",
+  "entries": [
+    {
+      "original_path": "data_analysis/README.md",
+      "stored_path": "upstream/bundle_README.md",
+      "byte_count": 4747,
+      "sha256": "7c2c7e0f1ceb35eed574673991a9f70290df818fc716894717c87224bcded961",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/LICENSE.txt",
+      "stored_path": "upstream/bundle_LICENSE.txt",
+      "byte_count": 1072,
+      "sha256": "74e79dd3f9c99aa78416bd3e6e09f60baf58dacff36e794db81dcd0bb81729be",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/pyproject.toml",
+      "stored_path": "upstream/bundle_pyproject.toml",
+      "byte_count": 937,
+      "sha256": "0208b0abfaa48f2cb816a6b7a5247b5598bd7da0e5341af62ef8173d43f4405b",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/utilities/analysis/signal_extraction.py",
+      "stored_path": "upstream/bundle_signal_extraction.py",
+      "byte_count": 906,
+      "sha256": "6fe690d5991771930cbac111190dfcc25f5a82f9405d40e456193025af2785f7",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/utilities/adevtools.py",
+      "stored_path": "upstream/bundle_adevtools.py",
+      "byte_count": 4403,
+      "sha256": "fb5fa88633fdb98da10594d5183f00dd15efe3c583e224e2f2a5c8196fd46c01",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/figures/Figure 4.ipynb",
+      "stored_path": "upstream/figure_4.ipynb",
+      "byte_count": 2587235,
+      "sha256": "7f9171dca44ed21d5fda08651464ee8e075c8c071eb2518abecd1de4ce251d4d",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/figures/Figure 5a.ipynb",
+      "stored_path": "upstream/figure_5a.ipynb",
+      "byte_count": 284862,
+      "sha256": "83d55fa9368cdfde620ec8660ac032ea4fec7ea2df20e58c92eb49b3af5c0c0e",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_with_phi_hln-lnl-repeat_63132_63134_63133_63135_63150_63149_63148_63151_63164_63163_63162_63331_63333_63332_0.csv",
+      "stored_path": "upstream/control_lln.csv",
+      "byte_count": 3450487,
+      "sha256": "d582be3ecccdb5fa139d2a5280da51f926fee8b31963662a68be980c27a7d224",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_with_phi_hln-lnl-repeat_63132_63134_63133_63135_63150_63149_63148_63151_63164_63163_63162_63331_63333_63332_2.csv",
+      "stored_path": "upstream/control_hln.csv",
+      "byte_count": 3451007,
+      "sha256": "ba800196b6db0f3be93c4fe66cd18332d11189d78234488c5d283719218c5319",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.csv",
+      "stored_path": "upstream/injection_0p1_mhz.csv",
+      "byte_count": 806193,
+      "sha256": "70d051e74fc286c5b66bb1af3fb8249fabc5a4dc156f9d51ef07011191b71904",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-0_3mHz_63846_63845_63844_63866_63868_63867_0.6.csv",
+      "stored_path": "upstream/injection_0p3_mhz.csv",
+      "byte_count": 1285011,
+      "sha256": "ccc17ef2a47f923c2869ce476b98cc76a2767e41d824a60bdd0517e944382fef",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-1mHz-again_65278_0.6.csv",
+      "stored_path": "upstream/injection_1_mhz.csv",
+      "byte_count": 571156,
+      "sha256": "41e4f32886c7ba4c98eed14ea20d7a516235b3c52e77d870fa2640273db96849",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-3mHz_63900_63902_63901_0.6.csv",
+      "stored_path": "upstream/injection_3_mhz.csv",
+      "byte_count": 675282,
+      "sha256": "ab1ee425f2fbbb1d099877743052dd22252165526a56a0c579832c6a9b700065",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-10mHz_64979_0.6.csv",
+      "stored_path": "upstream/injection_10_mhz.csv",
+      "byte_count": 630712,
+      "sha256": "9c1035d0225e0d06f48a76d0a233c484f13ee2709151799e0a643f288ea55c41",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-30mHz_65093_0.6.csv",
+      "stored_path": "upstream/injection_30_mhz.csv",
+      "byte_count": 634969,
+      "sha256": "508f43c5b8b850acf523ec9b773152c69fa3b23e0d6b6236dcadad7194d51a0e",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/excitation_fraction_corrected_signal-100mHz_64835_0.6.csv",
+      "stored_path": "upstream/injection_100_mhz.csv",
+      "byte_count": 1474406,
+      "sha256": "9148847dff7ccd0adabf6071e3c270afd1c8bdfbf4294d567ed5327af8cc332f",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/signal_fitting_results_by_frequency.csv",
+      "stored_path": "upstream/mle_scan.csv",
+      "byte_count": 2424323,
+      "sha256": "9cda3e4bc768aadb594ad4b4f5619fa3183f0545b2490cf59526a38caeb35809",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/montecarlo_std_devs.csv",
+      "stored_path": "upstream/sql_montecarlo_std_devs.csv",
+      "byte_count": 134206,
+      "sha256": "4190e17fb09a0a375381f494920ab0b5e26affefec806a375445b7eab8283fdd",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/sigma_delta_phi_randomised.npy",
+      "stored_path": "upstream/sigma_hln.npy",
+      "byte_count": 64128,
+      "sha256": "526050bf7438b9b4b97e3ad4114cc28e21f8b15c367016275a803b057191310b",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/intermediate_data/sigma_delta_phi_nonrandomised.npy",
+      "stored_path": "upstream/sigma_lln.npy",
+      "byte_count": 64128,
+      "sha256": "82c544f65cb507418f4ae7a99d3f06a6a5b5c2282a2e47a790525aad08e59654",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-1mHz-again_65278_0.6.npz",
+      "stored_path": "upstream/truth_1_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "93088da2b116ab85df4941ab9361729c921fe94d293060805c45d4279f578fdc",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-3mHz_63900_63902_63901_0.6.npz",
+      "stored_path": "upstream/truth_3_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "7645168302d60cac956831e3d4ac8b22644616b7158648af379c2e2fe01cf5e9",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-0_3mHz_63846_63845_63844_63866_63868_63867_0.6.npz",
+      "stored_path": "upstream/truth_0p3_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "a6ca6af08b1d9ccb3032002bc045c56ca4324af4b66f233e5002b32aea8daf9b",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-0_1mHz_63483_63489_63668_63667_0.6.npz",
+      "stored_path": "upstream/truth_0p1_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "8ef90bd98f6752287766c496842723e070b95139003fbd02dee8b7f25505d421",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-30mHz_65093_0.6.npz",
+      "stored_path": "upstream/truth_30_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "60d135afc4041b8e07b67bfdfb28e69e4c8e7c598a38a023e7e2b63c945559e6",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-100mHz_64835_0.6.npz",
+      "stored_path": "upstream/truth_100_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "855fe4eccc3e0775335a71ef8dae8675dd52d4afd0bb2e3673ca5e816cfec91d",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    },
+    {
+      "original_path": "data_analysis/data/precomputed_true_signals/signal_extraction_excitation_fraction_corrected_signal-10mHz_64979_0.6.npz",
+      "stored_path": "upstream/truth_10_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "478946ff3f18ac228cf5e3bf54fb93854dc8c359a541a6161d6e244d4137551c",
+      "upstream_license_scope": "CC-BY-4.0 data/derived evidence; MIT bundled software notice preserved"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "campaign_id": "DP-AION-0.4-20260825",
+  "files": [
+    {
+      "byte_count": 19387,
+      "path": "report.json",
+      "sha256": "bd239b4972ffc031b57d40b098044d5e2e01b0db7b74e3a5af97155ebc0ce715"
+    },
+    {
+      "byte_count": 1891,
+      "path": "report.md",
+      "sha256": "7b5c33b16455173badc579c6a2a98f3d6155ec3fbdf9c0e58a10bcb9bac489ea"
+    },
+    {
+      "byte_count": 99211,
+      "path": "validation.png",
+      "sha256": "5e4dd131331e8738f1c40648cbb52950521e62434dcaed9861260ec377c46b91"
+    }
+  ],
+  "generated_at_utc": "2026-08-25T07:03:46.085182Z",
+  "schema_version": "1.0"
+}
