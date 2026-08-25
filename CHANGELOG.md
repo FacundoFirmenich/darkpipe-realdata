@@ -1,5 +1,18 @@
 # Changelog
 
+
+## 0.8.0 — 2026-08-25
+
+- Added a second, historically independent AION acquisition epoch from RID34056 (2024-12-13), explicitly treated as the same instrument family rather than an independent instrument.
+- Inventoried the 564,439,752-byte HDF5 source without endpoint access, verified MD5 and SHA-256, and deleted raw bytes from every ephemeral runner before artifact upload.
+- Preregistered a chronological 40/60 development/holdout split, fixed nuisance model, adaptive 0.112–74.987 mHz grid, maximum family of eight separated development maxima and 4,095-rotation holdout FWER gate.
+- Preserved the source's missing machine-readable reuse license by publishing links, metadata, hashes and derived aggregate results only; no raw or row-level upstream data are redistributed.
+- Recorded adverse development sensitivity: maximum declared fixed-family injected-signal detection power was 0.4375, so a null result cannot support a strong physical exclusion.
+- Frozen candidate family commit: `7b5052a0f8534a258413eb06fe58e2f846d6c5e5`; confirmation was executed once from merged commit `2b4eba96bd813effcd6c4c0e0f165950b5a492ea`.
+- Recorded `NO_INDEPENDENT_HOLDOUT_CANDIDATE`: 0/8 development maxima survived holdout FWER; all corrected p-values were between 0.837890625 and 1.0.
+- Kept false-positive rate across only two epochs, independent-instrument transfer, continuous-search physical power, physical coupling/exclusion, dark-matter or gravitational-wave detection, and the morphotopological plasma-hyperstate conjecture as `NOT_ESTIMABLE`.
+- Added checked compact evidence, a full reproduction test, Spanish substantive closure and a Colab workflow that uses ephemeral raw storage and exports only compact results.
+- Preserved GNU GPL version 3 or later (`GPL-3.0-or-later`), never `GPL-3.0-only`.
 ## 0.7.0 — 2026-08-25
 
 - Added a development-only 0.1–75 mHz continuous scan at one Rayleigh-cell spacing and a maximum frozen family of eight separated local maxima.
