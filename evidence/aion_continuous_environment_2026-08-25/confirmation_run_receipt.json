@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "DP-AION-CONTINUOUS-0.7-20260825",
+  "stage": "frozen_family_holdout_confirmation",
+  "github": {
+    "repository": "FacundoFirmenich/darkpipe-realdata",
+    "workflow": "DarkPipe v0.7 holdout and environment",
+    "run_id": 32869337633,
+    "run_url": "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/32869337633",
+    "job_id": 97872319545,
+    "job_url": "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/32869337633/job/97872319545",
+    "head_branch": "feat/v0.7-continuous-environmental",
+    "head_sha": "0fa86e0906e613207ba4e69120bcc5fea5bf7949",
+    "created_at_utc": "2026-08-25T16:00:43Z",
+    "job_started_at_utc": "2026-08-25T16:00:48Z",
+    "job_completed_at_utc": "2026-08-25T16:01:30Z",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "cloud_artifacts": [
+    {
+      "id": 9571413401,
+      "name": "darkpipe-v07-confirmation-compact",
+      "size_in_bytes": 57716,
+      "expired_at_receipt": false
+    },
+    {
+      "id": 9571414457,
+      "name": "darkpipe-v07-confirmation-full",
+      "size_in_bytes": 216806,
+      "expired_at_receipt": false
+    }
+  ],
+  "checked_outputs": [
+    {
+      "path": "report.json",
+      "sha256": "c4cade6df302546c2e8d86bc950d154b1737ac044a3bbaaf67642c1d2101336f"
+    },
+    {
+      "path": "report.md",
+      "sha256": "3e7b5e66880342aa8d32ebb7025e0f2adc4adadc3c592b5090ce5490c761fd68"
+    },
+    {
+      "path": "holdout_confirmation.png",
+      "sha256": "b70d223572ff3e3c79b05b7835904ecfbf3eddd6ede7e4ac5a4a1b4d0770d854"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "21e7569bf27b39bf2e4fbe9c1d5269c6ff2f46f52f6c5cc0b13a24c2a2757fca"
+    }
+  ],
+  "adjudication": {
+    "decision": "NO_HOLDOUT_CANDIDATE",
+    "frozen_candidate_count": 8,
+    "confirmed_candidate_count": 0,
+    "smallest_familywise_p": 0.405517578125,
+    "best_candidate_id": "c005",
+    "best_candidate_frequency_hz": 0.047544655688580566
+  },
+  "environment": {
+    "status": "NOT_APPLICABLE",
+    "hapi_acquisition_triggered": false,
+    "source_file_count": 0,
+    "reason": "no holdout candidate survived the frozen FWER gate"
+  },
+  "authority": {
+    "detector_injection_validation_v06_preserved": true,
+    "physical_detection": "NOT_ESTIMABLE",
+    "morphotopological_plasma_hyperstate_hypothesis": "NOT_ESTIMABLE"
+  }
+}

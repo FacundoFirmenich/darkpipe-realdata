@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
         with:
           python-version: "3.12"
           cache: pip
@@ -24,7 +24,7 @@ jobs:
           --mode discover
           --campaign v07_discovery_artifact
           --preregistration-commit "$GITHUB_SHA"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7.0.0
         with:
           name: darkpipe-v07-development-candidates
           path: v07_discovery_artifact

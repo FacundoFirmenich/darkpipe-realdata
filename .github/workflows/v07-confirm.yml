@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
         with:
           python-version: "3.12"
           cache: pip
@@ -25,7 +25,7 @@ jobs:
           --campaign evidence/aion_continuous_environment_2026-08-25
           --candidate-commit "$GITHUB_SHA"
       - name: Upload compact adjudication receipt
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: darkpipe-v07-confirmation-compact
           path: |
@@ -36,7 +36,7 @@ jobs:
             evidence/aion_continuous_environment_2026-08-25/manifest.json
           if-no-files-found: error
       - name: Upload complete cloud evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: darkpipe-v07-confirmation-full
           path: evidence/aion_continuous_environment_2026-08-25

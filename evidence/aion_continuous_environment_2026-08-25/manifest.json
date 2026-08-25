@@ -1,0 +1,37 @@
+{
+  "campaign_id": "DP-AION-CONTINUOUS-0.7-20260825",
+  "files": [
+    {
+      "byte_count": 166559,
+      "path": "development_continuous_scan.png",
+      "sha256": "427945a924ad8426ecfdf3a0f5cf194a3ae3352411850500f2fe07048d054e56"
+    },
+    {
+      "byte_count": 3209,
+      "path": "discovery_candidates.json",
+      "sha256": "055fb74db1aa0aca1f138095e465fde4e351fa2da5a631a12d65c0124d7fe1a6"
+    },
+    {
+      "byte_count": 1027,
+      "path": "discovery_run_receipt.json",
+      "sha256": "da051659526ba263e31cb7319232c776afbdd6472d092ae60a13c93187cb8c29"
+    },
+    {
+      "byte_count": 63777,
+      "path": "holdout_confirmation.png",
+      "sha256": "b70d223572ff3e3c79b05b7835904ecfbf3eddd6ede7e4ac5a4a1b4d0770d854"
+    },
+    {
+      "byte_count": 4716,
+      "path": "report.json",
+      "sha256": "c4cade6df302546c2e8d86bc950d154b1737ac044a3bbaaf67642c1d2101336f"
+    },
+    {
+      "byte_count": 2577,
+      "path": "report.md",
+      "sha256": "3e7b5e66880342aa8d32ebb7025e0f2adc4adadc3c592b5090ce5490c761fd68"
+    }
+  ],
+  "generated_at_utc": "2026-08-25T16:01:24.123866Z",
+  "schema_version": "1.0"
+}
