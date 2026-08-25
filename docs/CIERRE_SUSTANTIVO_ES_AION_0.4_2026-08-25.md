@@ -44,6 +44,8 @@ Quedan obligatoriamente `NOT_ESTIMABLE`: tasa de falsa alarma de búsqueda ciega
 
 Verde: autenticidad del depósito, custodia 27/27, preregistro previo, E1 7/7, E2 consistente con cero, reproducción local, suite 10/10, Colab/script y techo de afirmación explícito.
 
-Pendiente: búsqueda ciega, distribución nula con trials, cobertura desde HDF5, transferencia instrumental, réplica independiente y ejecución CI pública de la rama 0.4.
+La publicación se realizó mediante el PR público `#3` (`https://github.com/FacundoFirmenich/darkpipe-realdata/pull/3`). Los checks GitHub Actions de los eventos push y pull request terminaron PASS: `https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/32821026078` y `https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/32821060255`.
+
+Pendiente: búsqueda ciega, distribución nula con trials, cobertura desde HDF5, transferencia instrumental y réplica independiente.
 
 La siguiente acción científica crítica es un null/injection challenge ciego o held-out con ensemble nulo completo y corrección de múltiples pruebas, seguido por réplica en otro intervalo o instrumento. Añadir más APIs sin ese gate no aumenta autoridad científica.
