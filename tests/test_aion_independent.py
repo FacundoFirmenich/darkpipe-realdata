@@ -9,6 +9,7 @@ from darkpipe.aion_independent import (
     SOURCE_SIZE_BYTES,
     ZENODO_RECORD_ID,
     _source_entry,
+    _source_url,
     inventory_hdf5,
 )
 
@@ -29,6 +30,13 @@ def test_frozen_source_metadata_gate():
     }
     assert _source_entry(record)["key"] == SOURCE_FILENAME
 
+
+
+def test_official_zenodo_self_link_is_supported():
+    item = {
+        "links": {"self": "https://zenodo.org/api/records/15166670/files/x/content"}
+    }
+    assert _source_url(item).endswith("/content")
 
 def test_inventory_records_schema_but_not_values(tmp_path: Path):
     source = tmp_path / "schema.h5"

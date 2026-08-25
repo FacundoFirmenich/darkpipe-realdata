@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T17:36:55.546135Z",
+  "generated_at_utc": "2026-08-25T17:43:04.780131Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
   "file_count": 135,
-  "total_bytes": 28425815,
+  "total_bytes": 28426297,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -607,8 +607,8 @@
     },
     {
       "path": "src/darkpipe/aion_independent.py",
-      "byte_count": 6175,
-      "sha256": "b407ae6dc9180b68af88f9c17cb8189653545a26a402659a43006e80e5be0ee3"
+      "byte_count": 6433,
+      "sha256": "c108f454104712cbd55aff61dcd897d23d4d6e7706da0f5995c60eccc0f3c1cc"
     },
     {
       "path": "src/darkpipe/analysis.py",
@@ -672,8 +672,8 @@
     },
     {
       "path": "tests/test_aion_independent.py",
-      "byte_count": 1393,
-      "sha256": "3767856f2bd437d6bc07ee7daa998fde00c392e1d902e2ff299e8ece7cc6e819"
+      "byte_count": 1617,
+      "sha256": "391326b92785a43c376c7055d32c6b82997666e7cbe95c842a22ef7e92a04af8"
     },
     {
       "path": "tests/test_authority.py",
