@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.7.0 candidate — preregistered 2026-08-25, not yet adjudicated
+
+- Added a development-only 0.1–75 mHz continuous scan at one Rayleigh-cell spacing and a maximum frozen family of eight separated local maxima.
+- Added chronological holdout confirmation with 4,095 condition-wise circular rotations and familywise alpha 0.05.
+- Added measured INTERMAGNET/BGS Hartland one-second environmental classification and NASA CDAWeb OMNI one-minute context for holdout survivors.
+- Preserved the first failed engineering equivalence probe, repaired the time-origin defect and excluded all four exposed development frequencies plus two-Rayleigh-cell neighborhoods.
+- Kept dark-plasma, dark-matter and gravitational-wave detection, causal coupling and independent-epoch false-positive rate as `NOT_ESTIMABLE` by construction.
+- Reduced the upper bound from 100 to 75 mHz before freeze after cadence checks put the lower nominal median Nyquist at 79.056 mHz; 75–100 mHz remains `NOT_ESTIMABLE`.
+- Split compact adjudication artifacts from potentially large raw environmental receipts so heavy HAPI evidence can remain in cloud custody.
+- No v0.7 scientific result is claimed before the prospectively frozen workflows execute.
+
 ## 0.6.0 — 2026-08-25
 
 - Froze seed-committed campaign `DP-AION-BLIND-0.6-20260825` in commit `dbd2da7` before challenge construction.

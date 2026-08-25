@@ -9,6 +9,10 @@ from .aion_blind import (
     prepare_blind_challenge,
     reveal_blind_challenge,
 )
+from .aion_continuous import (
+    confirm_continuous_candidates,
+    discover_continuous_candidates,
+)
 from .pipeline import run_live
 from .provenance import write_bytes
 from .sources import fetch_hapi
@@ -54,6 +58,20 @@ def main(argv=None):
     blind_reveal.add_argument("--campaign", required=True)
     blind_reveal.add_argument("--seed-file", required=True)
 
+    continuous_discover = sub.add_parser(
+        "aion-continuous-discover", help="freeze v0.7 development candidates"
+    )
+    continuous_discover.add_argument("--evidence", default=str(Path("evidence") / EVIDENCE_DIRECTORY))
+    continuous_discover.add_argument("--campaign", required=True)
+    continuous_discover.add_argument("--preregistration-commit", required=True)
+
+    continuous_confirm = sub.add_parser(
+        "aion-continuous-confirm", help="confirm v0.7 candidates and classify environment"
+    )
+    continuous_confirm.add_argument("--evidence", default=str(Path("evidence") / EVIDENCE_DIRECTORY))
+    continuous_confirm.add_argument("--campaign", required=True)
+    continuous_confirm.add_argument("--candidate-commit", required=True)
+
     args = parser.parse_args(argv)
     if args.command == "run":
         result = run_live(args.output, args.station, args.raw_retention == "full")
@@ -75,6 +93,12 @@ def main(argv=None):
     elif args.command == "aion-blind-analyze":
         result = analyze_blind_challenge(args.evidence, args.campaign)
         payload = {"status": "PREDICTED_BLIND", "campaign": str(Path(args.campaign).resolve()), "case_count": len(result["cases"]), "mapping_accessed": result["mapping_accessed"]}
+    elif args.command == "aion-continuous-discover":
+        result = discover_continuous_candidates(args.evidence, args.campaign, args.preregistration_commit)
+        payload = {"status": "CANDIDATES_FROZEN_FOR_COMMIT", "campaign": str(Path(args.campaign).resolve()), "candidate_count": len(result["candidates"]), "holdout_endpoints_accessed": result["holdout_endpoints_accessed"]}
+    elif args.command == "aion-continuous-confirm":
+        result = confirm_continuous_candidates(args.evidence, args.campaign, args.candidate_commit)
+        payload = {"status": result["decision"], "campaign": str(Path(args.campaign).resolve()), "confirmed_count": sum(item["detected"] for item in result["holdout_confirmation"]), "environment": result["environment"]["status"]}
     else:
         result = reveal_blind_challenge(args.campaign, _read_seed(args.seed_file))
         payload = {"status": result["decision"], "campaign": str(Path(args.campaign).resolve()), "null_passed": result["gates"]["null_holdout"]["passed"], "signals_passed": result["gates"]["signal_identification"]["passed_count"]}

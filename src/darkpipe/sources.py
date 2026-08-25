@@ -79,11 +79,11 @@ def parse_hapi(payload):
     if first not in frame: raise ValueError("HAPI time missing")
     frame=frame.rename(columns={first:"time"});frame["time"]=pd.to_datetime(frame["time"],utc=True,errors="coerce");frame=_numeric(frame,{"time"})
     return frame.dropna(subset=["time"]).sort_values("time").reset_index(drop=True)
-def fetch_hapi(provider,dataset_id,start,stop):
+def fetch_hapi(provider,dataset_id,start,stop,*,max_bytes=10_000_000):
     if provider not in HAPI_BASES: raise ValueError(f"unknown HAPI provider: {provider}")
     base=HAPI_BASES[provider]
     info=fetch_json(base+"/info",params={"id":dataset_id},max_bytes=2_000_000)
-    data=fetch_json(base+"/data",params={"id":dataset_id,"time.min":_iso(start),"time.max":_iso(stop),"format":"json"},max_bytes=10_000_000)
+    data=fetch_json(base+"/data",params={"id":dataset_id,"time.min":_iso(start),"time.max":_iso(stop),"format":"json"},max_bytes=max_bytes)
     combined=dict(data.payload);combined["parameters"]=info.payload.get("parameters")
     return SourceBundle(parse_hapi(combined),(info,data),f"HAPI {provider}:{dataset_id}")
 def fetch_zenodo_metadata(record_id): return fetch_json(ZENODO_RECORD.format(record_id=record_id),max_bytes=2_000_000)

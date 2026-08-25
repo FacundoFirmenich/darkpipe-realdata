@@ -1,0 +1,43 @@
+name: DarkPipe v0.7 holdout and environment
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q
+      - name: Frozen-family holdout and environmental classification
+        run: >
+          python run_darkpipe_aion_continuous_v07.py
+          --mode confirm
+          --campaign evidence/aion_continuous_environment_2026-08-25
+          --candidate-commit "$GITHUB_SHA"
+      - name: Upload compact adjudication receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: darkpipe-v07-confirmation-compact
+          path: |
+            evidence/aion_continuous_environment_2026-08-25/discovery_candidates.json
+            evidence/aion_continuous_environment_2026-08-25/report.json
+            evidence/aion_continuous_environment_2026-08-25/report.md
+            evidence/aion_continuous_environment_2026-08-25/holdout_confirmation.png
+            evidence/aion_continuous_environment_2026-08-25/manifest.json
+          if-no-files-found: error
+      - name: Upload complete cloud evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: darkpipe-v07-confirmation-full
+          path: evidence/aion_continuous_environment_2026-08-25
+          if-no-files-found: error
