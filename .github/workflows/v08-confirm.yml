@@ -1,0 +1,37 @@
+name: DarkPipe v0.8 independent-epoch holdout
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q
+      - name: Frozen-family independent epoch holdout
+        run: >
+          python run_darkpipe_aion_independent_search_v08.py
+          --mode confirm
+          --output v08_confirmation
+          --scratch "$RUNNER_TEMP/darkpipe-v08"
+          --discovery evidence/aion_independent_epoch_2026-08-25/discovery.json
+          --candidate-commit "$GITHUB_SHA"
+      - name: Assert raw source was removed
+        run: >
+          test ! -f
+          "$RUNNER_TEMP/darkpipe-v08/000034056-DifferentialClockInterferometryWithNoiseFrag.h5"
+      - uses: actions/upload-artifact@v7.0.0
+        with:
+          name: darkpipe-v08-independent-holdout
+          path: v08_confirmation
+          if-no-files-found: error

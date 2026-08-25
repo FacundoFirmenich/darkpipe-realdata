@@ -1,0 +1,653 @@
+{
+  "campaign_id": "DP-AION-INDEPENDENT-0.8-20260825",
+  "claim_ceiling": "source integrity and schema readability only",
+  "generated_at_utc": "2026-08-25T17:47:31.318835Z",
+  "inventory": {
+    "dataset_count": 63,
+    "datasets": [
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "artiq_version",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.analysis_results",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.annotations",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.axes",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.channels",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "bool",
+        "path": "datasets/ndscan.rid_34056.completed",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.fragment_fqn",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.ndscan_schema_revision",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.online_analyses",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.axis_0",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.axis_1",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_image_0",
+        "shape": [
+          22839,
+          0
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_image_1",
+        "shape": [
+          22839,
+          0
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_image_2",
+        "shape": [
+          22839,
+          0
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_image_3",
+        "shape": [
+          22839,
+          0
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_0",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_1",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_2",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_3",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_4",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_5",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_6",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_mean_7",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_0",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_1",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_2",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_3",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_4",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_5",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_6",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_7",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_x_0",
+        "shape": [
+          22839,
+          512
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_x_1",
+        "shape": [
+          22839,
+          512
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_x_2",
+        "shape": [
+          22839,
+          512
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_x_3",
+        "shape": [
+          22839,
+          512
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_y_0",
+        "shape": [
+          22839,
+          251
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_y_1",
+        "shape": [
+          22839,
+          251
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_y_2",
+        "shape": [
+          22839,
+          251
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_andor_sum_slice_y_3",
+        "shape": [
+          22839,
+          251
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_atom_number_backward",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_atom_number_forward",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_blue_IJD1_relocker_num_relocks",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_blue_IJD2_relocker_num_relocks",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_blue_IJD3_relocker_num_relocks",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_excitation_fraction_backward",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_excitation_fraction_forward",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_image_horizontal",
+        "shape": [
+          22839,
+          1,
+          1
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_image_horizontal_mean",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_image_horizontal_timestamp",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_image_vertical",
+        "shape": [
+          22839,
+          1,
+          1
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_image_vertical_mean",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_image_vertical_timestamp",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_random_phase_one",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_random_phase_two",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.points.channel_red_IJD1_relocker_num_relocks",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_rigol_counter_frequency",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "datasets/ndscan.rid_34056.points.channel_timestamp_utc",
+        "shape": [
+          22839
+        ]
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "datasets/ndscan.rid_34056.seed",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "datasets/ndscan.rid_34056.source_id",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "object",
+        "path": "expid",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "int64",
+        "path": "rid",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "run_time",
+        "shape": []
+      },
+      {
+        "attributes": [],
+        "chunks": null,
+        "compression": null,
+        "dtype": "float64",
+        "path": "start_time",
+        "shape": []
+      }
+    ],
+    "endpoint_values_read": false,
+    "group_count": 2,
+    "groups": [
+      {
+        "attributes": [],
+        "path": "archive"
+      },
+      {
+        "attributes": [],
+        "path": "datasets"
+      }
+    ],
+    "root_attributes": []
+  },
+  "raw_retained": false,
+  "schema_version": "1.0",
+  "source": {
+    "byte_count": 564439752,
+    "md5": "e7053ad0a8401c4198b4729feec8441c",
+    "sha256": "daa120265407b82fd35f60035c806beb81c52103ab80f1c06db2aa08c98be981",
+    "url": "https://zenodo.org/api/records/15166670/files/000034056-DifferentialClockInterferometryWithNoiseFrag.h5/content"
+  },
+  "source_record": {
+    "byte_count": 17648,
+    "path": "zenodo_record.json",
+    "sha256": "0be3b8ebede438050d5d6980e1721f3ffaab3ee0dbdbf937ee659520b5da726a"
+  },
+  "stage": "ENDPOINT_BLIND_SOURCE_INVENTORY"
+}
