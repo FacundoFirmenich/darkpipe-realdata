@@ -42,4 +42,4 @@ See docs/SCIENTIFIC_SCOPE.md, docs/SOURCE_ENDPOINTS.md, docs/ARCHAEOLOGY_AND_CUS
 
 ## License
 
-DarkPipe is released under GNU GPL version 3 or later (SPDX: GPL-3.0-or-later). See LICENSE.
+DarkPipe is released under GNU GPL version 3 or later (SPDX: GPL-3.0-or-later). See LICENSE and LICENSE-NOTICE.
