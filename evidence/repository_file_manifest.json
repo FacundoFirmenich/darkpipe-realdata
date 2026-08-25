@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T18:17:49.267256Z",
+  "generated_at_utc": "2026-08-25T18:34:43.815227Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 148,
-  "total_bytes": 28725600,
+  "file_count": 153,
+  "total_bytes": 28788405,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -52,13 +52,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 4979,
-      "sha256": "534f9734d4a765f67ce1c200c9a169c29474a995faa9ef0dcf50243bf02bdfae"
+      "byte_count": 6788,
+      "sha256": "d92bca93415a7209cc1e75dd1453ba0f108fad43165da72f3793695835125874"
     },
     {
       "path": "CITATION.cff",
       "byte_count": 440,
-      "sha256": "24f4e0212e90848cafc9cd8a33cbd46b2faa2c2e494aa1e922b24a97ad48120d"
+      "sha256": "3a9a0a519768c5745a39b5c6132372f5d8c0b523ce7bcad34dbd60d84be37af8"
     },
     {
       "path": "LICENSE",
@@ -72,8 +72,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 4957,
-      "sha256": "0597ae6e63ceea5e39d464ddf77a8778111fa4265b266b2846a81c3001fc85eb"
+      "byte_count": 5640,
+      "sha256": "e6ddc9d783c3872dbe522da2207e652d36d5291753033578208d2a5ff05ee6ba"
     },
     {
       "path": "SECURITY.md",
@@ -114,6 +114,11 @@
       "path": "docs/CIERRE_SUSTANTIVO_ES_AION_CONTINUOUS_0.7_2026-08-25.md",
       "byte_count": 4805,
       "sha256": "48e85044c040e6f72f22e183a7a5c3550e3c890cf854113a3d296f439c94c336"
+    },
+    {
+      "path": "docs/CIERRE_SUSTANTIVO_ES_AION_INDEPENDENT_0.8_2026-08-25.md",
+      "byte_count": 1946,
+      "sha256": "99ac072c19923a119329c18c221c798dea7941696dc5365bda48a1ffbac5b361"
     },
     {
       "path": "docs/OBSERVATIONAL_AUTHORITY_0.5.md",
@@ -246,6 +251,11 @@
       "sha256": "3e7b5e66880342aa8d32ebb7025e0f2adc4adadc3c592b5090ce5490c761fd68"
     },
     {
+      "path": "evidence/aion_independent_epoch_2026-08-25/confirmation_manifest.json",
+      "byte_count": 548,
+      "sha256": "926ddcf364171892c4ce256406ebaeb5140771203c8ad21714def099b7a82f49"
+    },
+    {
       "path": "evidence/aion_independent_epoch_2026-08-25/development_scan.png",
       "byte_count": 193271,
       "sha256": "1fb760e2a0a254b16d4c689e9da8a849d6f9b8c076bb52deff4730846a02cc1c"
@@ -256,9 +266,19 @@
       "sha256": "a3499c5af9d5ed3aed27c5cc9f094884b64e45cb6de6dfa7f55b358db9b451e8"
     },
     {
+      "path": "evidence/aion_independent_epoch_2026-08-25/holdout_confirmation.png",
+      "byte_count": 43752,
+      "sha256": "e821f9abcaf85d81ec027e3a46dfadabc0666afef5761327dbc55b2a28f4d8be"
+    },
+    {
       "path": "evidence/aion_independent_epoch_2026-08-25/manifest.json",
       "byte_count": 548,
       "sha256": "21b505d07be77ee40e371e1483448a6ba4dc8791ef5da39aa26aabaac7e5f9ef"
+    },
+    {
+      "path": "evidence/aion_independent_epoch_2026-08-25/report.json",
+      "byte_count": 8240,
+      "sha256": "f12e59aab7a2a8871d4c8f037a6413796a5042f20c7dd5745df5a457dec95aef"
     },
     {
       "path": "evidence/aion_independent_epoch_2026-08-25/zenodo_record.json",
@@ -571,6 +591,11 @@
       "sha256": "3046178fc0faab77733966ef20dbe4fe4aea9419b73804c89fd1b48cc3148e28"
     },
     {
+      "path": "notebooks/DarkPipe_AION_Independent_v08_Colab.ipynb",
+      "byte_count": 4085,
+      "sha256": "7f1052c919041ed730701fbafb5350038f8b8c5aa764341274fccd9dc1bd987f"
+    },
+    {
       "path": "notebooks/DarkPipe_AION_v04_Colab.ipynb",
       "byte_count": 6949,
       "sha256": "083d2565e0e554e59579d9a6099f14d779c6c22c890a1d8d26c7f1b6decbf68e"
@@ -588,7 +613,7 @@
     {
       "path": "pyproject.toml",
       "byte_count": 1002,
-      "sha256": "14bfa38ee65b96ece78914ff27eab6daf67be78b26546a823b77b75dbd784239"
+      "sha256": "bcf9708d13353060e9744cd23a3f34b06ade3014d34981fe39b6f0feba07bb08"
     },
     {
       "path": "requirements.txt",
@@ -637,8 +662,8 @@
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 1217,
-      "sha256": "621685e77d95ec4e4a00ea1ca85c6fb34fcfc0892e4d6be53ceefcc422033e92"
+      "byte_count": 1499,
+      "sha256": "86a6b032a2dbbff71d081d47ea25e6e474669a5330d4422d3ae22832ad89dc7b"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -737,8 +762,8 @@
     },
     {
       "path": "tests/test_aion_independent_search.py",
-      "byte_count": 5268,
-      "sha256": "faa995b4b446751cbcac18c696123b8f88f4d6041ccd911a07e46489e66a9b1c"
+      "byte_count": 6728,
+      "sha256": "cbb0768d8447e72e97f6908ba0fa52d3be21f8fafcdb93e8aa9df7b9cfe08d48"
     },
     {
       "path": "tests/test_authority.py",

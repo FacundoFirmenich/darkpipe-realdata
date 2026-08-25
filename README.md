@@ -1,40 +1,49 @@
-# DarkPipe 0.7.0 — split-sample continuous AION search
+# DarkPipe 0.8.0 — independent-epoch AION holdout
 
-DarkPipe acquires bounded official observations, preserves byte-level provenance and runs reproducible environmental and atom-interferometer validation.
-Version 0.7 executes a prospectively frozen 0.1–75 mHz development scan and a
-chronological holdout gate on authentic AION LLN/HLN control noise.
+DarkPipe acquires bounded official observations, preserves provenance and runs
+reproducible environmental and atom-interferometer validation. Version 0.8 adds
+a historical AION acquisition epoch from 2024-12-13, independent in time from
+the v0.7 epoch but belonging to the same instrument family.
 
-**Terminal result:** `NO_HOLDOUT_CANDIDATE`. None of the eight development
-maxima survived holdout familywise correction.
+**Terminal result:** `NO_INDEPENDENT_HOLDOUT_CANDIDATE`. None of eight
+development maxima survived the frozen holdout familywise gate.
 
-**v0.7 authority ceiling:** at most one single-epoch split-sample sensor candidate
-and its measured environmental classification. It cannot establish the
-morphotopological plasma-hyperstate conjecture, causation or physical detection.
+**v0.8 authority ceiling:** a split-sample sensor result in a second temporal
+epoch. It is not an independent-instrument replication and cannot establish a
+physical exclusion, dark-matter detection, gravity mechanism or the
+morphotopological plasma-hyperstate conjecture.
 
-## v0.7 checked result
+## v0.8 checked result
 
 | Gate | Result |
 |---|---|
-| Development grid | 5,578 frequencies; 0.1–75 mHz |
-| Frozen family | 8 maxima; commit `0fa86e0` |
+| Source | AION RID34056; 22,839 rows; 564,439,752 bytes |
+| Development grid | 2,007 frequencies; 0.112–74.987 mHz |
+| Frozen family | 8 maxima; commit `7b5052a` |
 | Holdout | 0/8 confirmed |
-| Best holdout candidate | c005 at 47.5447 mHz; p FWER = 0.405517578125 |
-| Regional environment | `NOT_APPLICABLE`; no survivor triggered HAPI acquisition |
-| Terminal decision | `NO_HOLDOUT_CANDIDATE` |
+| Smallest corrected p | c007 at 16.5725 mHz; p FWER = 0.837890625 |
+| Maximum declared calibration power | 0.4375 |
+| Terminal decision | `NO_INDEPENDENT_HOLDOUT_CANDIDATE` |
 
 Protocol facts:
 
-- Grid spacing was one development Rayleigh cell with no development threshold.
-- Holdout FWER used 4,095 frozen condition-wise circular rotations.
-- The four engineering-probe neighborhoods remained excluded.
-- The unsearched 75–100 mHz interval and the morphotopological plasma-hyperstate
-  conjecture remain `NOT_ESTIMABLE`.
+- Discovery used only the first 40% per condition; holdout excitation values
+  were not accessed before the candidate family was committed.
+- Holdout FWER used 4,095 fixed condition-wise circular rotations.
+- Raw HDF5 bytes were verified and removed in ephemeral GitHub storage.
+- No raw or row-level source data are redistributed because the Zenodo v1
+  record exposes no machine-readable reuse license.
+- Low and heterogeneous calibration power prevents a strong physical exclusion.
 
-Read the [v0.7 preregistration](docs/PREREGISTRATION_AION_CONTINUOUS_ENVIRONMENT_0.7.md),
-[checked report](evidence/aion_continuous_environment_2026-08-25/report.md) and
-[Spanish substantive closure](docs/CIERRE_SUSTANTIVO_ES_AION_CONTINUOUS_0.7_2026-08-25.md).
+Read the [v0.8 preregistration](docs/PREREGISTRATION_AION_INDEPENDENT_EPOCH_0.8.md),
+[checked report](evidence/aion_independent_epoch_2026-08-25/report.json) and
+[Spanish substantive closure](docs/CIERRE_SUSTANTIVO_ES_AION_INDEPENDENT_0.8_2026-08-25.md).
 
-The post-discovery [terminology erratum](docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md) changes no analytical rule and preserves frozen historical wording as provenance.
+## What 0.7 established
+
+Version 0.7 froze a continuous 0.1–75 mHz scan on the 2025 AION family and
+recorded `NO_HOLDOUT_CANDIDATE` with 0/8 confirmations. Its terminology
+erratum and all historical bytes remain preserved as provenance.
 
 ## What 0.6 established
 
@@ -63,26 +72,31 @@ The synthetic component is only the explicitly declared first-order differential
 ## Reproduce
 
     python -m pip install -e .
+    python run_darkpipe_aion_independent_search_v08.py --mode confirm \
+      --output darkpipe_v08_reproduction \
+      --scratch /temporary/darkpipe-v08 \
+      --discovery evidence/aion_independent_epoch_2026-08-25/discovery.json \
+      --candidate-commit 2b4eba96bd813effcd6c4c0e0f165950b5a492ea
+
+This downloads the 564 MB source, verifies it and removes it in `finally`.
+Use ephemeral scratch storage. The historical v0.7 replay remains available:
+
     python run_darkpipe_aion_continuous_v07.py --mode confirm \
       --campaign evidence/aion_continuous_environment_2026-08-25 \
       --candidate-commit 0fa86e0906e613207ba4e69120bcc5fea5bf7949
 
-Because no candidate survived, this reproduction performs no HAPI acquisition.
-The historical v0.6 injected-detector replay remains available:
+The historical commands remain available:
 
     python run_darkpipe_aion_blind_v06.py --mode reproduce \
       --campaign darkpipe_aion_blind_reproduction
-
-The historical commands remain available:
-
     darkpipe aion-validate --evidence evidence/aion_sensor_validation_2026-08-25 --output darkpipe_aion_run
     darkpipe run --output darkpipe_run --station BOU
 
 ## Colab
 
-Open `notebooks/DarkPipe_AION_Continuous_v07_Colab.ipynb`. It installs the
-tagged release, verifies the checked receipt, reproduces the holdout decision and
-exports a compact ZIP. The v0.6 notebook remains preserved.
+Open `notebooks/DarkPipe_AION_Independent_v08_Colab.ipynb`. It installs the
+tagged release, verifies the checked receipt, reproduces the holdout in Colab
+ephemeral storage and exports only a compact result ZIP.
 
 ## Preserved history and privacy
 
@@ -90,6 +104,11 @@ The v0.4 AION result remains 27/27 integrity, 7/7 published-injection recovery a
 
 ## Evidence and license
 
-AION evidence: [Zenodo 10.5281/zenodo.19592552](https://doi.org/10.5281/zenodo.19592552), associated with [Baynham et al. (2026)](https://doi.org/10.1038/s41586-026-10617-1). Upstream CC-BY-4.0/MIT jurisdictions remain separate.
+The v0.8 source is
+[AION v1 RID34056](https://zenodo.org/records/15166670). Its source links,
+metadata and hashes are preserved, but its raw/row-level bytes are not
+redistributed because the record exposes no machine-readable reuse license.
+The current AION v2 evidence remains separately cited under its own jurisdiction.
 
-DarkPipe code and derived documentation use GNU GPL version 3 or later, SPDX `GPL-3.0-or-later` — explicitly not `GPL-3.0-only`.
+DarkPipe code and derived documentation use GNU GPL version 3 or later,
+SPDX `GPL-3.0-or-later` — explicitly not `GPL-3.0-only`.

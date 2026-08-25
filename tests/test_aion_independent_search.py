@@ -1,3 +1,4 @@
+import hashlib
 from pathlib import Path
 import json
 
@@ -138,6 +139,8 @@ def test_checked_v08_discovery_is_frozen_and_holdout_blind():
             root
             / "evidence"
             / "aion_independent_epoch_2026-08-25"
+
+
             / "discovery.json"
         ).read_text(encoding="utf-8")
     )
@@ -156,3 +159,39 @@ def test_checked_v08_discovery_is_frozen_and_holdout_blind():
         for row in report["power"]["rows"]
     )
     assert maximum_power == 0.4375
+
+
+def test_checked_v08_holdout_preserves_adverse_result():
+    root = Path(__file__).parents[1]
+    campaign = (
+        root / "evidence" / "aion_independent_epoch_2026-08-25"
+    )
+    report = json.loads(
+        (campaign / "report.json").read_text(encoding="utf-8")
+    )
+    assert report["stage"] == "FROZEN_FAMILY_HOLDOUT_CONFIRMATION"
+    assert report["decision"] == "NO_INDEPENDENT_HOLDOUT_CANDIDATE"
+    assert report["confirmed_count"] == 0
+    assert report["candidate_commit"] == (
+        "2b4eba96bd813effcd6c4c0e0f165950b5a492ea"
+    )
+    assert report["source"]["raw_retained"] is False
+    assert report["source"]["sha256"] == (
+        "daa120265407b82fd35f60035c806beb"
+        "81c52103ab80f1c06db2aa08c98be981"
+    )
+    rows = report["holdout_confirmation"]
+    assert len(rows) == 8
+    assert not any(row["confirmed"] for row in rows)
+    assert min(row["familywise_p"] for row in rows) == 0.837890625
+    manifest = json.loads(
+        (campaign / "confirmation_manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    for item in manifest["files"]:
+        payload = (campaign / item["path"]).read_bytes()
+        assert len(payload) == item["byte_count"]
+        assert hashlib.sha256(payload).hexdigest() == item["sha256"]
+    assert report["cross_epoch_update"]["false_positive_rate"] == "NOT_ESTIMABLE"
+    assert "morphotopological plasma-hyperstate conjecture" in report["not_estimable"]

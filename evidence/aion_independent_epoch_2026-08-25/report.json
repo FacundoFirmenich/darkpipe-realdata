@@ -1,0 +1,248 @@
+{
+  "campaign_id": "DP-AION-INDEPENDENT-0.8-20260825",
+  "candidate_commit": "2b4eba96bd813effcd6c4c0e0f165950b5a492ea",
+  "claim_ceiling": "independent-epoch split-sample sensor candidate only",
+  "confirmed_count": 0,
+  "critical_max_statistic": 3.097171182812119,
+  "cross_epoch_update": {
+    "false_positive_rate": "NOT_ESTIMABLE",
+    "independent_epochs_observed": 2,
+    "v07_decision": "NO_HOLDOUT_CANDIDATE",
+    "v08_decision": "NO_INDEPENDENT_HOLDOUT_CANDIDATE"
+  },
+  "decision": "NO_INDEPENDENT_HOLDOUT_CANDIDATE",
+  "family_alpha": 0.05,
+  "generated_at_utc": "2026-08-25T18:21:57.961471Z",
+  "holdout_confirmation": [
+    {
+      "candidate_id": "c001",
+      "confirmed": false,
+      "development_statistic": 5.325122333173505,
+      "familywise_p": 0.868408203125,
+      "frequency_hz": 0.0697614586889701,
+      "grid_index": 1866,
+      "holdout_amplitude_rad": 0.3916708941764363,
+      "holdout_phase_rad": -2.6454769427918494,
+      "holdout_statistic": 0.9169726618471925,
+      "rank": 1
+    },
+    {
+      "candidate_id": "c002",
+      "confirmed": false,
+      "development_statistic": 5.0506722455598165,
+      "familywise_p": 0.999755859375,
+      "frequency_hz": 0.06841773877842815,
+      "grid_index": 1830,
+      "holdout_amplitude_rad": 0.2202731954483048,
+      "holdout_phase_rad": -1.3263199061377504,
+      "holdout_statistic": 0.2921833595716807,
+      "rank": 2
+    },
+    {
+      "candidate_id": "c003",
+      "confirmed": false,
+      "development_statistic": 4.802816393849664,
+      "familywise_p": 1.0,
+      "frequency_hz": 0.06106460482351797,
+      "grid_index": 1633,
+      "holdout_amplitude_rad": 0.031668888693246786,
+      "holdout_phase_rad": 0.596775326746874,
+      "holdout_statistic": 0.005973989106261079,
+      "rank": 3
+    },
+    {
+      "candidate_id": "c004",
+      "confirmed": false,
+      "development_statistic": 4.308142470608445,
+      "familywise_p": 1.0,
+      "frequency_hz": 0.05610030626512684,
+      "grid_index": 1500,
+      "holdout_amplitude_rad": 0.035555454359025046,
+      "holdout_phase_rad": 3.1230399085161986,
+      "holdout_statistic": 0.00748762649434868,
+      "rank": 4
+    },
+    {
+      "candidate_id": "c005",
+      "confirmed": false,
+      "development_statistic": 4.0947466912006885,
+      "familywise_p": 0.925537109375,
+      "frequency_hz": 0.05053879885760595,
+      "grid_index": 1351,
+      "holdout_amplitude_rad": 0.3611102595843961,
+      "holdout_phase_rad": -2.363502977974301,
+      "holdout_statistic": 0.7786333376711703,
+      "rank": 5
+    },
+    {
+      "candidate_id": "c006",
+      "confirmed": false,
+      "development_statistic": 4.064964462922467,
+      "familywise_p": 0.999267578125,
+      "frequency_hz": 0.016684522222562673,
+      "grid_index": 444,
+      "holdout_amplitude_rad": 0.2509456671804205,
+      "holdout_phase_rad": -0.554115646804069,
+      "holdout_statistic": 0.36896423756337465,
+      "rank": 6
+    },
+    {
+      "candidate_id": "c007",
+      "confirmed": false,
+      "development_statistic": 3.9924155923456257,
+      "familywise_p": 0.837890625,
+      "frequency_hz": 0.016572545563350843,
+      "grid_index": 441,
+      "holdout_amplitude_rad": 0.40295190730041075,
+      "holdout_phase_rad": -2.4460083133665282,
+      "holdout_statistic": 0.9757729213376622,
+      "rank": 7
+    },
+    {
+      "candidate_id": "c008",
+      "confirmed": false,
+      "development_statistic": 3.9329209030336143,
+      "familywise_p": 1.0,
+      "frequency_hz": 0.0611765814827298,
+      "grid_index": 1636,
+      "holdout_amplitude_rad": 0.2068156408555171,
+      "holdout_phase_rad": 1.3650102581247612,
+      "holdout_statistic": 0.25728602239260256,
+      "rank": 8
+    }
+  ],
+  "not_estimable": [
+    "morphotopological plasma-hyperstate conjecture",
+    "dark-matter or gravitational-wave detection",
+    "physical coupling or exclusion limit",
+    "independent-instrument transfer",
+    "false-positive rate from only two epochs",
+    "continuous-search physical power"
+  ],
+  "null_surrogates": 4095,
+  "preregistration_commit": "30b0d2595820d2ff89398735284a63c4a1a47169",
+  "quality": {
+    "conditions": {
+      "hln": {
+        "development": {
+          "accepted_rows": 2638,
+          "duplicate_timestamp_rows": 0,
+          "input_rows": 4566,
+          "monitor_rejections": {
+            "blue_IJD1_relocker_num_relocks": 0,
+            "blue_IJD2_relocker_num_relocks": 1,
+            "blue_IJD3_relocker_num_relocks": 0,
+            "red_IJD1_relocker_num_relocks": 51,
+            "rigol_counter_frequency": 1896
+          },
+          "rejected_rows": 1928
+        },
+        "holdout": {
+          "accepted_rows": 3967,
+          "duplicate_timestamp_rows": 0,
+          "input_rows": 6850,
+          "monitor_rejections": {
+            "blue_IJD1_relocker_num_relocks": 0,
+            "blue_IJD2_relocker_num_relocks": 0,
+            "blue_IJD3_relocker_num_relocks": 1,
+            "red_IJD1_relocker_num_relocks": 121,
+            "rigol_counter_frequency": 2811
+          },
+          "rejected_rows": 2883
+        },
+        "monitor_references": {
+          "blue_IJD1_relocker_num_relocks": {
+            "development_share": 1.0,
+            "value": 0
+          },
+          "blue_IJD2_relocker_num_relocks": {
+            "development_share": 0.9997809899255365,
+            "value": 0
+          },
+          "blue_IJD3_relocker_num_relocks": {
+            "development_share": 1.0,
+            "value": 0
+          },
+          "red_IJD1_relocker_num_relocks": {
+            "development_share": 0.9888304862023654,
+            "value": 0
+          },
+          "rigol_counter_frequency": {
+            "development_share": 0.5847568988173456,
+            "value": 0.2199999988079071
+          }
+        },
+        "source_rows": 11416,
+        "timestamp_reversals_source": 0
+      },
+      "lln": {
+        "development": {
+          "accepted_rows": 2588,
+          "duplicate_timestamp_rows": 0,
+          "input_rows": 4569,
+          "monitor_rejections": {
+            "blue_IJD1_relocker_num_relocks": 1,
+            "blue_IJD2_relocker_num_relocks": 1,
+            "blue_IJD3_relocker_num_relocks": 2,
+            "red_IJD1_relocker_num_relocks": 56,
+            "rigol_counter_frequency": 1943
+          },
+          "rejected_rows": 1981
+        },
+        "holdout": {
+          "accepted_rows": 4097,
+          "duplicate_timestamp_rows": 0,
+          "input_rows": 6854,
+          "monitor_rejections": {
+            "blue_IJD1_relocker_num_relocks": 0,
+            "blue_IJD2_relocker_num_relocks": 1,
+            "blue_IJD3_relocker_num_relocks": 1,
+            "red_IJD1_relocker_num_relocks": 126,
+            "rigol_counter_frequency": 2678
+          },
+          "rejected_rows": 2757
+        },
+        "monitor_references": {
+          "blue_IJD1_relocker_num_relocks": {
+            "development_share": 0.9997811337272926,
+            "value": 0
+          },
+          "blue_IJD2_relocker_num_relocks": {
+            "development_share": 0.9997811337272926,
+            "value": 0
+          },
+          "blue_IJD3_relocker_num_relocks": {
+            "development_share": 0.9995622674545852,
+            "value": 0
+          },
+          "red_IJD1_relocker_num_relocks": {
+            "development_share": 0.9877434887283869,
+            "value": 0
+          },
+          "rigol_counter_frequency": {
+            "development_share": 0.5747428321295688,
+            "value": 0.2199999988079071
+          }
+        },
+        "source_rows": 11423,
+        "timestamp_reversals_source": 0
+      }
+    },
+    "holdout_excitation_values_accessed": true,
+    "structural": {
+      "structural_rows": 22839,
+      "total_rows": 22839
+    }
+  },
+  "schema_version": "1.0",
+  "source": {
+    "byte_count": 564439752,
+    "filename": "000034056-DifferentialClockInterferometryWithNoiseFrag.h5",
+    "md5": "e7053ad0a8401c4198b4729feec8441c",
+    "raw_retained": false,
+    "record_id": 15166670,
+    "sha256": "daa120265407b82fd35f60035c806beb81c52103ab80f1c06db2aa08c98be981",
+    "url": "https://zenodo.org/api/records/15166670/files/000034056-DifferentialClockInterferometryWithNoiseFrag.h5/content"
+  },
+  "stage": "FROZEN_FAMILY_HOLDOUT_CONFIRMATION"
+}
