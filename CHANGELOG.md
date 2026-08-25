@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 — 2026-08-25
+
+- Added typed `ObservationEnvelope`, `ObservedDecoupling`, `ClaimLedger` and contextual `ConducenceVector` primitives.
+- Prohibited automatic promotion from observational receipts to causal, detection, generalization or intervention claims.
+- Added authority receipts to new AION and NOAA-USGS runs while preserving frozen v0.4 endpoint values.
+- Replaced the invalid native-thread manifest (`undefined`) with valid public-safe JSON containing hashes, counts, privacy policy and one explicit 20,000-character truncation.
+- Kept raw native conversation pages and adjacent attachments out of the public repository.
+- Added integration tests, authority contract, v0.5 Colab and substantive Spanish closure.
+- Preserved GNU GPL version 3 or later (`GPL-3.0-or-later`), never `GPL-3.0-only`.
+
 ## 0.4.0 — 2026-08-25
 
 - Added a bounded 27-file AION differential atom-interferometer evidence slice with byte-level hashes, record metadata, attribution and explicit CC-BY-4.0/MIT/GPL jurisdiction boundaries.
