@@ -31,6 +31,10 @@
       "stage": "initial GitHub Actions CI",
       "exit_code": 1,
       "finding": "Git text normalization changed evidence/report.md from local CRLF bytes to LF in the Linux checkout, invalidating the byte-count/hash receipt; analysis tests otherwise passed 4/5."
+    },
+    {
+      "stage": "initial GitHub license detection",
+      "finding": "GitHub classified LICENSE as Other because the GPL-3.0-or-later project notice was prepended to the canonical GPLv3 text."
     }
   ],
   "repairs": [
@@ -47,6 +51,10 @@
     {
       "stage": "cross-platform evidence byte custody",
       "mechanism": "evidence/** -text in .gitattributes; exact evidence files re-indexed; CI rerun required"
+    },
+    {
+      "stage": "GitHub GPL detection",
+      "mechanism": "Keep canonical GPLv3 text in LICENSE and the or-later grant plus SPDX identifier in LICENSE-NOTICE and package metadata."
     }
   ]
 }

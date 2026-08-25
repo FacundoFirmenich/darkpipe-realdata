@@ -1,10 +1,10 @@
 {
-  "file_count": 48,
+  "file_count": 49,
   "files": [
     {
-      "byte_count": 94,
+      "byte_count": 95,
       "path": ".gitattributes",
-      "sha256": "c421530685ca4b5cd698913b3201e7dc9f615d72fb617369b91bea4c1c984695"
+      "sha256": "87caec38613a72c63f925bff140cc67ec3c019d7cd83cfd2d39af07f11729f15"
     },
     {
       "byte_count": 340,
@@ -17,24 +17,24 @@
       "sha256": "3aa2c2a86c1c393b41a2496e04ae6df62abc0cfa4e7a3e3348cf7f11b8766e8e"
     },
     {
-      "byte_count": 730,
+      "byte_count": 740,
       "path": "CHANGELOG.md",
-      "sha256": "dabcabfe0561237458489e378a41411ec3161651bd8d147ba8f23bfafcf0c0cb"
+      "sha256": "fa1bc39e2acf836d8548a3778f92777e508ca9e03348209a65548b0d5573d5eb"
     },
     {
-      "byte_count": 378,
+      "byte_count": 389,
       "path": "CITATION.cff",
-      "sha256": "360466800d194bce8b45b0d149277919e1628305004d0ae2cb0ae71c9cc3a62e"
+      "sha256": "75119f8c8128b93abc36ac4f11d6ae7732944c50177ee9c0fd4633472e3bf068"
     },
     {
-      "byte_count": 2364,
+      "byte_count": 2392,
       "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
-      "sha256": "99b495407bae52e8685fb5058d01d35fd80c332b1a70820de45373a5f78fccb3"
+      "sha256": "5d0ca2634ec798f3af876aead1bcfbf33770415d6fe27600d7f1ab2a0ea465e7"
     },
     {
-      "byte_count": 5333,
+      "byte_count": 5391,
       "path": "docs/CIERRE_SUSTANTIVO_ES_2026-08-25.md",
-      "sha256": "a4e0509a40e979c98983682ab1ba8df29973a8adcb618fcfec8503acfd9f02ec"
+      "sha256": "fdef9b76499a7f7a6f2eb875005924569471c7d45dd49c43e41400ca2859aaa9"
     },
     {
       "byte_count": 1695,
@@ -52,9 +52,9 @@
       "sha256": "d901a4814c391e5a158df93a8ed998cc5ccad35b23a327c3cf1de97f98c14e74"
     },
     {
-      "byte_count": 1887,
+      "byte_count": 2294,
       "path": "evidence/failure_receipt.json",
-      "sha256": "b6a4d79cd97c216ba4b73cc246e51183c211db79edba993c2bf8f035a66887a4"
+      "sha256": "86c90f577bc3bab7820517aca9bcac1b92110b32d5752bf90a3be3eea58a5095"
     },
     {
       "byte_count": 3764,
@@ -152,9 +152,14 @@
       "sha256": "99b3e1bd3f41cd51680c075b017525df55fa7cea200dad9545ff265c2161a30b"
     },
     {
-      "byte_count": 35492,
+      "byte_count": 35149,
       "path": "LICENSE",
-      "sha256": "15a8f64bf55ae3aedf117d03396e4ddd7338391fb8e68f5a3eccb0199dfc0dc7"
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "byte_count": 379,
+      "path": "LICENSE-NOTICE",
+      "sha256": "dcaced1588976a67ae9dda89586d1589c1bb84b967213b76c300dd07fa84b136"
     },
     {
       "byte_count": 2746,
@@ -162,14 +167,14 @@
       "sha256": "fb99c725a7a8bce492a65dd233ba80f45ac68aca0d54cebfbbd0deb3bc70d84c"
     },
     {
-      "byte_count": 999,
+      "byte_count": 1030,
       "path": "pyproject.toml",
-      "sha256": "bd3c845844e4f10653ae7e2f705558709d1b4611c688a8a5d0a72031642f7177"
+      "sha256": "6e49fbab20bc384f6cf9032724bbf05228b83497ee74daf31044a898a8a118f2"
     },
     {
-      "byte_count": 3228,
+      "byte_count": 3291,
       "path": "README.md",
-      "sha256": "3abdfb0cdf03141718ca9667eaf1d7150528cae08c24ff5bde5af31b6bca950a"
+      "sha256": "ff49e02fc4a4ff0fa77d3b2634cd61ccfcda5ebfb69ac23b7964745e9cd5bdfb"
     },
     {
       "byte_count": 66,
@@ -242,7 +247,7 @@
       "sha256": "e5b797c3307a5ab155d0c3c8f37166447ff12a32408ffe5a93b3714728495e45"
     }
   ],
-  "generated_at_utc": "2026-08-25T06:21:53.318162Z",
+  "generated_at_utc": "2026-08-25T06:27:55.380434Z",
   "schema_version": "1.0",
-  "total_bytes": 4498288
+  "total_bytes": 4498933
 }
