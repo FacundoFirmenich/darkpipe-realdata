@@ -1,0 +1,88 @@
+{
+  "alpha": 0.05,
+  "campaign_id": "DP-GPS-NETWORK-TRANSIENT-0.9-20260825",
+  "claim_ceiling": "A GPS clock-network transient candidate/no-candidate within the frozen operator, velocity bank, and UTC window.",
+  "created_utc": "2026-08-25T21:54:50.790673Z",
+  "decision": "NO_GPS_NETWORK_TRANSIENT_CANDIDATE",
+  "exact_familywise_rank_p": 0.3023255813953488,
+  "hits": [
+    {
+      "center_second": 787395810.0,
+      "direction_xyz": [
+        0.43905342393461944,
+        -0.6952616965840366,
+        0.5690722838044165
+      ],
+      "segment": "target-a",
+      "statistic": 6.91180496918853,
+      "template_index": 144,
+      "velocity_km_s": 747.370379326128
+    },
+    {
+      "center_second": 787407660.0,
+      "direction_xyz": [
+        -0.9424870791761149,
+        -0.26189560811165113,
+        -0.20767473615705967
+      ],
+      "segment": "target-b",
+      "statistic": 7.6678744897237845,
+      "template_index": 209,
+      "velocity_km_s": 58.16301997204818
+    }
+  ],
+  "not_estimable": [
+    "dark matter",
+    "plasma hyperstates",
+    "gravity mechanism",
+    "physical coupling or exclusion limits",
+    "cross-instrument confirmation of AION"
+  ],
+  "null_count": 42,
+  "receipts": [
+    {
+      "compressed_bytes": 5144294,
+      "media": "application/gzip",
+      "sha256": "a7a3cec38659a5298c70eaf2ca1000aae22d318139bb89a310110af750c8be19",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-13_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 872632,
+      "media": "application/gzip",
+      "sha256": "c2ad219b543f05bd64de662dc24e2aab0c72c4bf30c0f9b6ae03c15b841e9b56",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-13.pos.gz"
+    },
+    {
+      "compressed_bytes": 5140824,
+      "media": "application/gzip",
+      "sha256": "4eb5a57924f67535c3cf12988a4d06b9f445bc02dafe17a72616eb3941582f0b",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-14_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 872161,
+      "media": "application/gzip",
+      "sha256": "b0abe930f6c2f01e14d6256b873be9ae15332f8334ee216cd29730b43c6f59db",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-14.pos.gz"
+    }
+  ],
+  "schema": "darkpipe.gps_network.target.v1",
+  "split_reason": "JPL products and first differences are processed within their UTC product day; no cross-day difference.",
+  "stage": "TARGET_OPENED_ONCE_AFTER_GREEN_POWER_GATE",
+  "target_window_utc": [
+    "2024-12-13T20:10:45.136597+00:00",
+    "2024-12-14T03:37:16.434186+00:00"
+  ],
+  "winning_hit": {
+    "center_second": 787407660.0,
+    "center_utc": "2024-12-14T00:20:42+00:00",
+    "direction_xyz": [
+      -0.9424870791761149,
+      -0.26189560811165113,
+      -0.20767473615705967
+    ],
+    "segment": "target-b",
+    "statistic": 7.6678744897237845,
+    "template_index": 209,
+    "velocity_km_s": 58.16301997204818
+  }
+}

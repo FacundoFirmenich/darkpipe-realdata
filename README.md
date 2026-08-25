@@ -1,4 +1,88 @@
-# DarkPipe 0.8.0 — independent-epoch AION holdout
+# DarkPipe 0.9.0 - independent GPS clock-network transient search
+
+DarkPipe acquires bounded official observations, preserves provenance and runs
+reproducible environmental, atom-interferometer and clock-network validation.
+Version 0.9 tests one frozen AION-genealogical UTC window with a genuinely
+independent sensor family: JPL Final high-rate GPS clock and orbit products.
+
+**Terminal result:** `NO_GPS_NETWORK_TRANSIENT_CANDIDATE`. The largest coherent
+GPS-network statistic was not exceptional against authentic daily background
+maxima: exact familywise rank p = 0.3023255813953488.
+
+**v0.9 authority ceiling:** a candidate/no-candidate decision for a propagating
+transient under the frozen GPS operator, velocity bank and UTC window. It is
+not a physical exclusion and cannot establish or refute dark matter, a gravity
+mechanism or the morphotopological plasma-hyperstate conjecture.
+
+## v0.9 checked result
+
+| Gate | Result |
+|---|---|
+| Source | JPL Final high-rate clocks and orbits; 30 s cadence |
+| Calibrated network | 22 GPS nodes; Ledoit-Wolf coherent combination |
+| Authentic null | 42 daily background maxima |
+| Frozen search | 2 target parts x centers x signs x 256 velocity templates |
+| Power gate at 8 sigma | 120/128 joint detections; Wilson lower 0.881512 |
+| Adverse power at 4 sigma | 38/128; Wilson lower 0.224582 |
+| Target maximum | 7.6678744897237845 at 2024-12-14T00:20:42Z |
+| Exact corrected p | 0.3023255813953488 |
+| Terminal decision | `NO_GPS_NETWORK_TRANSIENT_CANDIDATE` |
+
+Protocol facts:
+
+- Node selection, covariance, 42 null maxima and power were frozen before the
+  target was opened.
+- The target was opened exactly once after the 8-sigma power gate passed; it
+  was not relaunched, retuned or recycled.
+- Target multiplicity is internal to each daily maximum, so the rank p covers
+  both target parts, all centers, signs and velocity templates.
+- The only synthetic component is the explicitly declared power injection;
+  calibration and target backgrounds are authentic JPL observations.
+- Raw JPL bytes were verified in ephemeral GitHub storage and are not
+  redistributed or retained locally.
+- Poor 4-sigma power prevents a strong physical exclusion despite the clear
+  detector-level null.
+
+Read the [v0.9 preregistration](docs/PREREGISTRATION_GPS_NETWORK_TRANSIENT_0.9.md),
+[checked result](evidence/gps_network_v09/target_result.json),
+[deep-research sensor selection](docs/DEEP_RESEARCH_V09_INDEPENDENT_SENSOR_SELECTION_2026-08-25.md)
+and [Spanish substantive closure](docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md).
+
+## Inspect without reopening the target
+
+The historical target has a one-launch/no-relaunch constraint. Inspect its
+checked receipt instead of reopening it:
+
+```python
+import json
+from pathlib import Path
+result = json.loads(
+    Path("evidence/gps_network_v09/target_result.json").read_text()
+)
+print(result["decision"], result["exact_familywise_rank_p"])
+```
+
+The calibration operator remains executable on ephemeral storage through
+`.github/workflows/v09-calibrate.yml`.
+
+## v0.9 Colab
+
+Open `notebooks/DarkPipe_GPS_Network_v09_Colab.ipynb`. It installs the tagged
+release, verifies and explains the checked target receipt, checks calibration
+power and exports only a compact result ZIP. It deliberately does not relaunch
+the historical target.
+
+## v0.9 source jurisdiction
+
+The data source is the
+[JPL GNSS Final-products archive](https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/README/).
+JPL makes these products available for research and education; DarkPipe
+preserves source links and cryptographic receipts without redistributing raw
+products. Earlier AION sources remain under their own separate license and
+evidential jurisdictions.
+
+## What 0.8 established
+### DarkPipe 0.8.0 — independent-epoch AION holdout
 
 DarkPipe acquires bounded official observations, preserves provenance and runs
 reproducible environmental and atom-interferometer validation. Version 0.8 adds

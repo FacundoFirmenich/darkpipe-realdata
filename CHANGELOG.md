@@ -1,4 +1,16 @@
 # Changelog
+## 0.9.0 - 2026-08-26
+
+- Selected native JPL Final high-rate GPS clock and orbit products through a primary-source deep-research comparison with combined IGS clocks, GNOME magnetometers and contextual geomagnetic/solar-wind networks.
+- Preregistered `DP-GPS-NETWORK-TRANSIENT-0.9-20260825` before target access: 22 coverage-qualified nodes, 42 authentic daily null maxima, robust location/scale, Ledoit-Wolf covariance and 256 scrambled-Sobol velocity templates.
+- Corrected the JPL GPS-time origin, product-name asymmetry and HTTP user-agent/retry behavior before freeze; excluded the structurally opened 2024-12-12 smoke day from the prospective null.
+- Passed the target-opening power gate at 8 sigma with 120/128 jointly detected and localized injections and a 95% Wilson lower bound of 0.8815120889557413.
+- Preserved adverse sensitivity at 4 sigma: 38/128 joint successes and Wilson lower bound 0.2245816608356667, prohibiting a strong physical exclusion.
+- Opened the frozen target exactly once from merged commit `45cfe3108b2588c97167d5ee4cbaa7d93c10773f`; no relaunch, retuning or target recycling occurred.
+- Recorded `NO_GPS_NETWORK_TRANSIENT_CANDIDATE`: target maximum 7.6678744897237845 and exact familywise rank p 0.3023255813953488 against 42 authentic daily maxima.
+- Kept dark matter, plasma hyperstates, gravity mechanism, physical coupling/exclusion limits and cross-instrument confirmation of AION as `NOT_ESTIMABLE`.
+- Added exact compact calibration/target receipts, Spanish substantive closure and a Colab that verifies the frozen result without reopening the target.
+- Preserved GNU GPL version 3 or later (`GPL-3.0-or-later`), never `GPL-3.0-only`.
 
 
 ## 0.8.0 — 2026-08-25

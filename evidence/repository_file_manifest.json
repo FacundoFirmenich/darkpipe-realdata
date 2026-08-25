@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T21:49:40.191018Z",
+  "generated_at_utc": "2026-08-25T22:15:36.386063Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 165,
-  "total_bytes": 28920489,
+  "file_count": 169,
+  "total_bytes": 28937869,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -62,8 +62,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 6788,
-      "sha256": "d92bca93415a7209cc1e75dd1453ba0f108fad43165da72f3793695835125874"
+      "byte_count": 8462,
+      "sha256": "875fddc48d4155b38285651631cd16e9bda1d621bee4c3ed3e2f2204c4217d8a"
     },
     {
       "path": "CITATION.cff",
@@ -82,8 +82,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 5640,
-      "sha256": "e6ddc9d783c3872dbe522da2207e652d36d5291753033578208d2a5ff05ee6ba"
+      "byte_count": 9385,
+      "sha256": "44cae4efdf964d7e45d2b31ef306f12a684b8c83ca71543ada2df67081c9f59f"
     },
     {
       "path": "SECURITY.md",
@@ -186,9 +186,19 @@
       "sha256": "f8506de67d33dca9c7e58751b3ace3616f639b6d899b1b6d449793402d2cb30c"
     },
     {
+      "path": "docs/TARGET_CLOSURE_GPS_NETWORK_V09_2026-08-25.md",
+      "byte_count": 500,
+      "sha256": "4ca1f3f0cfaa637b3373c350de36816b444c6e86124ee85a209337e8a20488ca"
+    },
+    {
       "path": "docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md",
       "byte_count": 9683,
       "sha256": "c2c46b5215f78654f327c191cf60585599e2fad362390cbb8586304defcd2c08"
+    },
+    {
+      "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
+      "byte_count": 3821,
+      "sha256": "d35e7eb91fa050250d07baa5b2e10a29a15c1319137ab96ca57c16c55f95d372"
     },
     {
       "path": "evidence/adjacent_zenodo_manifest.json",
@@ -526,6 +536,11 @@
       "sha256": "150c17f77156b705470ff20c5c5a1d22d828b5d55188afc2f03030a4faa9db94"
     },
     {
+      "path": "evidence/gps_network_v09/target_result.json",
+      "byte_count": 2953,
+      "sha256": "cee533077827c32e6412927dce95583c2dab4d5aacf9c1082d841c812efe1c24"
+    },
+    {
       "path": "evidence/hapi_intermagnet_probe_2026-08-25/data.csv",
       "byte_count": 3764,
       "sha256": "463387a7b240489af3673d2a70a82457bba2ef572349700b56978e828fde7cf5"
@@ -644,6 +659,11 @@
       "path": "notebooks/DarkPipe_Authority_v05_Colab.ipynb",
       "byte_count": 7509,
       "sha256": "3f125dcb1a64b3656606aa7e8fdbbe485792d375744b58e9232f71f31edea81d"
+    },
+    {
+      "path": "notebooks/DarkPipe_GPS_Network_v09_Colab.ipynb",
+      "byte_count": 4687,
+      "sha256": "a8bc11e3ccca5aecc3fd24c8d795c0afda051fcbf31918c474a0e9880febf9e3"
     },
     {
       "path": "notebooks/DarkPipe_RealData_v03_Colab.ipynb",
