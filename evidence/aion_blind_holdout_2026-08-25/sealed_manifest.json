@@ -1,0 +1,57 @@
+{
+  "campaign_id": "DP-AION-BLIND-0.6-20260825",
+  "case_count": 8,
+  "case_ids": [
+    "f6b1d36179ba21f7",
+    "9f4ae372a6cf1796",
+    "7f8ba77908f78da1",
+    "350e9e4edd88ad61",
+    "db4f342d99866f65",
+    "dd4d4113b85e7ea4",
+    "95215dec97ba41d8",
+    "7ca816d867007d78"
+  ],
+  "challenge_file": {
+    "byte_count": 4088347,
+    "path": "sealed_challenge.npz",
+    "sha256": "12c690ea2f83966dfc058a590745c4952d6e8c690c7e0d1f4e3bc9ceabfc78ef"
+  },
+  "created_at_utc": "2026-08-25T12:18:45.084772Z",
+  "injection_model": {
+    "amplitude_rad": 0.6,
+    "backward_sign": -0.5,
+    "forward_sign": 0.5,
+    "frequency_family": [
+      "0p1_mhz",
+      "0p3_mhz",
+      "1_mhz",
+      "3_mhz",
+      "10_mhz",
+      "30_mhz",
+      "100_mhz"
+    ],
+    "kind": "first-order tangent differential-phase perturbation"
+  },
+  "mapping_disclosed": false,
+  "preregistration_commit": "dbd2da7",
+  "schema_version": "1.0",
+  "seed_commitment_sha256": "0a1ad503b576ba7ec553d43da1199d2f05c3eb4d8e577e36be8a38d457eb382d",
+  "source": {
+    "hln": {
+      "development_rows": 11325,
+      "holdout_rows": 16989,
+      "path": "upstream/control_hln.csv",
+      "raw_timestamp_reversals": 5,
+      "rows": 28314,
+      "sha256": "ba800196b6db0f3be93c4fe66cd18332d11189d78234488c5d283719218c5319"
+    },
+    "lln": {
+      "development_rows": 11323,
+      "holdout_rows": 16986,
+      "path": "upstream/control_lln.csv",
+      "raw_timestamp_reversals": 5,
+      "rows": 28309,
+      "sha256": "d582be3ecccdb5fa139d2a5280da51f926fee8b31963662a68be980c27a7d224"
+    }
+  }
+}
