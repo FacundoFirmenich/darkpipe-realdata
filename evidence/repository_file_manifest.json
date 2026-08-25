@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T17:43:04.780131Z",
+  "generated_at_utc": "2026-08-25T18:08:35.349181Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 135,
-  "total_bytes": 28426297,
+  "file_count": 143,
+  "total_bytes": 28502207,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -29,6 +29,16 @@
       "path": ".github/workflows/v07-discover.yml",
       "byte_count": 828,
       "sha256": "2842935089379bf998a1d43ccc11834b6d691d4ade89dc4332d5ee466dfc2ca8"
+    },
+    {
+      "path": ".github/workflows/v08-confirm.yml",
+      "byte_count": 1125,
+      "sha256": "3ece2d1b87a9ca6f617d3bc043e8830749ae4347e68d6dc5b5af2c8a6aa777e8"
+    },
+    {
+      "path": ".github/workflows/v08-discover.yml",
+      "byte_count": 1057,
+      "sha256": "fa88388eb5645173f39d1f1145d490ca79ff190870b07831a8531c1e82923dce"
     },
     {
       "path": ".github/workflows/v08-inventory.yml",
@@ -116,6 +126,11 @@
       "sha256": "cd34cbb28b2edaa51d4c496248a3cabd3e0d29daaa33e4206013b6df9f1c20ae"
     },
     {
+      "path": "docs/PREREGISTRATION_AION_INDEPENDENT_EPOCH_0.8.md",
+      "byte_count": 6612,
+      "sha256": "16c608438dc0e95a6dc7275a3480eee9524c9151d0c9ecdef7a3ed78fa6563fb"
+    },
+    {
       "path": "docs/PREREGISTRATION_AION_SENSOR_VALIDATION_0.4.md",
       "byte_count": 6407,
       "sha256": "792ebb6501968b695cc699154cbfabbfbe269b9cdaea7980b9aa1ad1cfdb56c4"
@@ -132,8 +147,8 @@
     },
     {
       "path": "docs/SOURCE_INVENTORY_PROTOCOL_AION_INDEPENDENT_0.8.md",
-      "byte_count": 1302,
-      "sha256": "75a0830158412c500e124f082d4f401f5a604e0ced69b3f1f6e2804b5bcf184c"
+      "byte_count": 1747,
+      "sha256": "f8506de67d33dca9c7e58751b3ace3616f639b6d899b1b6d449793402d2cb30c"
     },
     {
       "path": "docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md",
@@ -224,6 +239,16 @@
       "path": "evidence/aion_continuous_environment_2026-08-25/report.md",
       "byte_count": 2577,
       "sha256": "3e7b5e66880342aa8d32ebb7025e0f2adc4adadc3c592b5090ce5490c761fd68"
+    },
+    {
+      "path": "evidence/aion_independent_inventory_2026-08-25/inventory.json",
+      "byte_count": 15923,
+      "sha256": "26202a3489f0f1f06e287e94eaa669fada0dd4cc975cb220ffe02d23b5be2250"
+    },
+    {
+      "path": "evidence/aion_independent_inventory_2026-08-25/zenodo_record.json",
+      "byte_count": 17648,
+      "sha256": "0be3b8ebede438050d5d6980e1721f3ffaab3ee0dbdbf937ee659520b5da726a"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/CC-BY-4.0.txt",
@@ -556,6 +581,11 @@
       "sha256": "dbda6c673b2e6b0f7f8c69d81205cb4b513f67f88e003a9ae1d551967b4d98a9"
     },
     {
+      "path": "run_darkpipe_aion_independent_search_v08.py",
+      "byte_count": 2980,
+      "sha256": "dc436854c76e1a685fcefc310b5b9e3f88ab6e2b99d9ceee66af156cdd1214ec"
+    },
+    {
       "path": "run_darkpipe_aion_independent_v08.py",
       "byte_count": 842,
       "sha256": "3bc5044ac56bf5fea76080a7c5bcea99053e28cc7415be439d21d359e27d0f1f"
@@ -609,6 +639,11 @@
       "path": "src/darkpipe/aion_independent.py",
       "byte_count": 6433,
       "sha256": "c108f454104712cbd55aff61dcd897d23d4d6e7706da0f5995c60eccc0f3c1cc"
+    },
+    {
+      "path": "src/darkpipe/aion_independent_search.py",
+      "byte_count": 25770,
+      "sha256": "ef88bbd1f65c17c36f1b7ff55dc33e36cf511e03781e5d89ebddc558d041b454"
     },
     {
       "path": "src/darkpipe/analysis.py",
@@ -674,6 +709,11 @@
       "path": "tests/test_aion_independent.py",
       "byte_count": 1617,
       "sha256": "391326b92785a43c376c7055d32c6b82997666e7cbe95c842a22ef7e92a04af8"
+    },
+    {
+      "path": "tests/test_aion_independent_search.py",
+      "byte_count": 4350,
+      "sha256": "df9a3a3e3e40f3fbdefa1ce0b9be8e964b9b9fe39a3c323ab7103de162714044"
     },
     {
       "path": "tests/test_authority.py",
