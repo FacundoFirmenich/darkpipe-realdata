@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T18:08:35.349181Z",
+  "generated_at_utc": "2026-08-25T18:17:49.267256Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 143,
-  "total_bytes": 28502207,
+  "file_count": 148,
+  "total_bytes": 28725600,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -84,6 +84,11 @@
       "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
       "byte_count": 2364,
       "sha256": "99b495407bae52e8685fb5058d01d35fd80c332b1a70820de45373a5f78fccb3"
+    },
+    {
+      "path": "docs/CIERRE_INTERMEDIO_ES_AION_INDEPENDENT_DISCOVERY_0.8_2026-08-25.md",
+      "byte_count": 1675,
+      "sha256": "9fe996657ef3ad17247a0c00cb903714bfb48bca10a6bc81648578a52a06c814"
     },
     {
       "path": "docs/CIERRE_SUSTANTIVO_ES_0.5_2026-08-25.md",
@@ -239,6 +244,26 @@
       "path": "evidence/aion_continuous_environment_2026-08-25/report.md",
       "byte_count": 2577,
       "sha256": "3e7b5e66880342aa8d32ebb7025e0f2adc4adadc3c592b5090ce5490c761fd68"
+    },
+    {
+      "path": "evidence/aion_independent_epoch_2026-08-25/development_scan.png",
+      "byte_count": 193271,
+      "sha256": "1fb760e2a0a254b16d4c689e9da8a849d6f9b8c076bb52deff4730846a02cc1c"
+    },
+    {
+      "path": "evidence/aion_independent_epoch_2026-08-25/discovery.json",
+      "byte_count": 9333,
+      "sha256": "a3499c5af9d5ed3aed27c5cc9f094884b64e45cb6de6dfa7f55b358db9b451e8"
+    },
+    {
+      "path": "evidence/aion_independent_epoch_2026-08-25/manifest.json",
+      "byte_count": 548,
+      "sha256": "21b505d07be77ee40e371e1483448a6ba4dc8791ef5da39aa26aabaac7e5f9ef"
+    },
+    {
+      "path": "evidence/aion_independent_epoch_2026-08-25/zenodo_record.json",
+      "byte_count": 17648,
+      "sha256": "0be3b8ebede438050d5d6980e1721f3ffaab3ee0dbdbf937ee659520b5da726a"
     },
     {
       "path": "evidence/aion_independent_inventory_2026-08-25/inventory.json",
@@ -712,8 +737,8 @@
     },
     {
       "path": "tests/test_aion_independent_search.py",
-      "byte_count": 4350,
-      "sha256": "df9a3a3e3e40f3fbdefa1ce0b9be8e964b9b9fe39a3c323ab7103de162714044"
+      "byte_count": 5268,
+      "sha256": "faa995b4b446751cbcac18c696123b8f88f4d6041ccd911a07e46489e66a9b1c"
     },
     {
       "path": "tests/test_authority.py",

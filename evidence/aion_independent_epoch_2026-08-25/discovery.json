@@ -1,0 +1,322 @@
+{
+  "campaign_id": "DP-AION-INDEPENDENT-0.8-20260825",
+  "candidates": [
+    {
+      "candidate_id": "c001",
+      "development_statistic": 5.325122333173505,
+      "frequency_hz": 0.0697614586889701,
+      "grid_index": 1866,
+      "rank": 1
+    },
+    {
+      "candidate_id": "c002",
+      "development_statistic": 5.0506722455598165,
+      "frequency_hz": 0.06841773877842815,
+      "grid_index": 1830,
+      "rank": 2
+    },
+    {
+      "candidate_id": "c003",
+      "development_statistic": 4.802816393849664,
+      "frequency_hz": 0.06106460482351797,
+      "grid_index": 1633,
+      "rank": 3
+    },
+    {
+      "candidate_id": "c004",
+      "development_statistic": 4.308142470608445,
+      "frequency_hz": 0.05610030626512684,
+      "grid_index": 1500,
+      "rank": 4
+    },
+    {
+      "candidate_id": "c005",
+      "development_statistic": 4.0947466912006885,
+      "frequency_hz": 0.05053879885760595,
+      "grid_index": 1351,
+      "rank": 5
+    },
+    {
+      "candidate_id": "c006",
+      "development_statistic": 4.064964462922467,
+      "frequency_hz": 0.016684522222562673,
+      "grid_index": 444,
+      "rank": 6
+    },
+    {
+      "candidate_id": "c007",
+      "development_statistic": 3.9924155923456257,
+      "frequency_hz": 0.016572545563350843,
+      "grid_index": 441,
+      "rank": 7
+    },
+    {
+      "candidate_id": "c008",
+      "development_statistic": 3.9329209030336143,
+      "frequency_hz": 0.0611765814827298,
+      "grid_index": 1636,
+      "rank": 8
+    }
+  ],
+  "claim_ceiling": "independent-epoch detector and false-candidate validation",
+  "generated_at_utc": "2026-08-25T18:13:01.270479Z",
+  "grid": {
+    "count": 2007,
+    "duration_seconds": 26791.297589302063,
+    "frequency_max_hz": 0.0749870361188555,
+    "frequency_min_hz": 0.00011197665921183002,
+    "nominal_median_cadence_seconds": {
+      "hln": 5.849107265472412,
+      "lln": 5.854563474655151
+    },
+    "nominal_median_nyquist_hz": {
+      "hln": 0.08548313055421744,
+      "lln": 0.08540346383885628
+    },
+    "nyquist_safety_factor": 0.9,
+    "rayleigh_hz": 3.732555307061001e-05,
+    "start_unix": 1734120645.1365972,
+    "stop_unix": 1734147436.4341865
+  },
+  "holdout_excitation_values_accessed": false,
+  "independence": {
+    "from_v07_acquisition_epoch": true,
+    "rid": 34056,
+    "run_date": "2024-12-13",
+    "same_AION_instrument_family": true
+  },
+  "power": {
+    "amplitudes_rad": [
+      0.3,
+      0.6,
+      1.2
+    ],
+    "authentic_component": "RID34056 development noise, timestamps and phase steps",
+    "critical_max_statistic": 3.3384556447807476,
+    "frequency_family_hz": [
+      0.0003,
+      0.001,
+      0.003,
+      0.01,
+      0.03
+    ],
+    "kind": "FIXED_FAMILY_TANGENT_INJECTION_POWER",
+    "limit": "not continuous-search power and not a physical coupling limit",
+    "null_surrogates": 4095,
+    "phase_count": 16,
+    "rows": [
+      {
+        "amplitude_rad": 0.3,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.0003,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.6,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.0003,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 1.2,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.0003,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.3,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.001,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.6,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.001,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 1.2,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.001,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.3,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.003,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.6,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.003,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 1.2,
+        "correct_identification_power": 0.125,
+        "familywise_detection_power": 0.125,
+        "frequency_hz": 0.003,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.3,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.01,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.6,
+        "correct_identification_power": 0.1875,
+        "familywise_detection_power": 0.1875,
+        "frequency_hz": 0.01,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 1.2,
+        "correct_identification_power": 0.4375,
+        "familywise_detection_power": 0.4375,
+        "frequency_hz": 0.01,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.3,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.03,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 0.6,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.03,
+        "phases": 16
+      },
+      {
+        "amplitude_rad": 1.2,
+        "correct_identification_power": 0.0,
+        "familywise_detection_power": 0.0,
+        "frequency_hz": 0.03,
+        "phases": 16
+      }
+    ],
+    "synthetic_component": "declared first-order differential-phase perturbation only"
+  },
+  "preregistration_commit": "30b0d2595820d2ff89398735284a63c4a1a47169",
+  "quality": {
+    "conditions": {
+      "hln": {
+        "development": {
+          "accepted_rows": 2638,
+          "duplicate_timestamp_rows": 0,
+          "input_rows": 4566,
+          "monitor_rejections": {
+            "blue_IJD1_relocker_num_relocks": 0,
+            "blue_IJD2_relocker_num_relocks": 1,
+            "blue_IJD3_relocker_num_relocks": 0,
+            "red_IJD1_relocker_num_relocks": 51,
+            "rigol_counter_frequency": 1896
+          },
+          "rejected_rows": 1928
+        },
+        "monitor_references": {
+          "blue_IJD1_relocker_num_relocks": {
+            "development_share": 1.0,
+            "value": 0
+          },
+          "blue_IJD2_relocker_num_relocks": {
+            "development_share": 0.9997809899255365,
+            "value": 0
+          },
+          "blue_IJD3_relocker_num_relocks": {
+            "development_share": 1.0,
+            "value": 0
+          },
+          "red_IJD1_relocker_num_relocks": {
+            "development_share": 0.9888304862023654,
+            "value": 0
+          },
+          "rigol_counter_frequency": {
+            "development_share": 0.5847568988173456,
+            "value": 0.2199999988079071
+          }
+        },
+        "source_rows": 11416,
+        "timestamp_reversals_source": 0
+      },
+      "lln": {
+        "development": {
+          "accepted_rows": 2588,
+          "duplicate_timestamp_rows": 0,
+          "input_rows": 4569,
+          "monitor_rejections": {
+            "blue_IJD1_relocker_num_relocks": 1,
+            "blue_IJD2_relocker_num_relocks": 1,
+            "blue_IJD3_relocker_num_relocks": 2,
+            "red_IJD1_relocker_num_relocks": 56,
+            "rigol_counter_frequency": 1943
+          },
+          "rejected_rows": 1981
+        },
+        "monitor_references": {
+          "blue_IJD1_relocker_num_relocks": {
+            "development_share": 0.9997811337272926,
+            "value": 0
+          },
+          "blue_IJD2_relocker_num_relocks": {
+            "development_share": 0.9997811337272926,
+            "value": 0
+          },
+          "blue_IJD3_relocker_num_relocks": {
+            "development_share": 0.9995622674545852,
+            "value": 0
+          },
+          "red_IJD1_relocker_num_relocks": {
+            "development_share": 0.9877434887283869,
+            "value": 0
+          },
+          "rigol_counter_frequency": {
+            "development_share": 0.5747428321295688,
+            "value": 0.2199999988079071
+          }
+        },
+        "source_rows": 11423,
+        "timestamp_reversals_source": 0
+      }
+    },
+    "holdout_excitation_values_accessed": false,
+    "structural": {
+      "structural_rows": 22839,
+      "total_rows": 22839
+    }
+  },
+  "schema_version": "1.0",
+  "selection_rule": {
+    "maximum_candidates": 8,
+    "minimum_separation_rayleigh_cells": 2,
+    "threshold_used": false,
+    "tie_break": "higher statistic, then lower frequency"
+  },
+  "source": {
+    "byte_count": 564439752,
+    "filename": "000034056-DifferentialClockInterferometryWithNoiseFrag.h5",
+    "md5": "e7053ad0a8401c4198b4729feec8441c",
+    "raw_retained": false,
+    "record_id": 15166670,
+    "sha256": "daa120265407b82fd35f60035c806beb81c52103ab80f1c06db2aa08c98be981",
+    "url": "https://zenodo.org/api/records/15166670/files/000034056-DifferentialClockInterferometryWithNoiseFrag.h5/content"
+  },
+  "source_license": "NO_MACHINE_READABLE_REUSE_LICENSE_DECLARED",
+  "stage": "DEVELOPMENT_DISCOVERY_ONLY"
+}

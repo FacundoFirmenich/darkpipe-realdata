@@ -1,0 +1,20 @@
+{
+  "campaign_id": "DP-AION-INDEPENDENT-0.8-20260825",
+  "files": [
+    {
+      "byte_count": 193271,
+      "path": "development_scan.png",
+      "sha256": "1fb760e2a0a254b16d4c689e9da8a849d6f9b8c076bb52deff4730846a02cc1c"
+    },
+    {
+      "byte_count": 9333,
+      "path": "discovery.json",
+      "sha256": "a3499c5af9d5ed3aed27c5cc9f094884b64e45cb6de6dfa7f55b358db9b451e8"
+    },
+    {
+      "byte_count": 17648,
+      "path": "zenodo_record.json",
+      "sha256": "0be3b8ebede438050d5d6980e1721f3ffaab3ee0dbdbf937ee659520b5da726a"
+    }
+  ]
+}

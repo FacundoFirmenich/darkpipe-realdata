@@ -1,0 +1,140 @@
+{
+  "conceptdoi": "10.5281/zenodo.15166669",
+  "conceptrecid": "15166669",
+  "created": "2025-04-07T10:37:47.714481+00:00",
+  "doi": "10.5281/zenodo.15166670",
+  "doi_url": "https://doi.org/10.5281/zenodo.15166670",
+  "files": [
+    {
+      "checksum": "md5:77a66c980d2667513ac1501d5c1aa568",
+      "id": "79b9c77d-13c2-44df-a86c-6638dca6ebff",
+      "key": "icl_experiments.zip",
+      "links": {
+        "self": "https://zenodo.org/api/records/15166670/files/icl_experiments.zip/content"
+      },
+      "size": 259428
+    },
+    {
+      "checksum": "md5:e7053ad0a8401c4198b4729feec8441c",
+      "id": "08bbedc1-6e99-4fbb-a281-f570c170b10c",
+      "key": "000034056-DifferentialClockInterferometryWithNoiseFrag.h5",
+      "links": {
+        "self": "https://zenodo.org/api/records/15166670/files/000034056-DifferentialClockInterferometryWithNoiseFrag.h5/content"
+      },
+      "size": 564439752
+    },
+    {
+      "checksum": "md5:9ad757d143b6d42504ed3731df5094d3",
+      "id": "d51eb8cc-c27a-46d5-834e-5e2a62221859",
+      "key": "readme.md",
+      "links": {
+        "self": "https://zenodo.org/api/records/15166670/files/readme.md/content"
+      },
+      "size": 11746
+    }
+  ],
+  "id": 15166670,
+  "links": {
+    "access": "https://zenodo.org/api/records/15166670/access",
+    "access_grants": "https://zenodo.org/api/records/15166670/access/grants",
+    "access_links": "https://zenodo.org/api/records/15166670/access/links",
+    "access_request": "https://zenodo.org/api/records/15166670/access/request",
+    "access_users": "https://zenodo.org/api/records/15166670/access/users",
+    "archive": "https://zenodo.org/api/records/15166670/files-archive",
+    "archive_media": "https://zenodo.org/api/records/15166670/media-files-archive",
+    "communities": "https://zenodo.org/api/records/15166670/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/15166670/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.15166670",
+    "draft": "https://zenodo.org/api/records/15166670/draft",
+    "file_modification": "https://zenodo.org/api/records/15166670/file-modification",
+    "files": "https://zenodo.org/api/records/15166670/files",
+    "latest": "https://zenodo.org/api/records/15166670/versions/latest",
+    "latest_html": "https://zenodo.org/records/15166670/latest",
+    "media_files": "https://zenodo.org/api/records/15166670/media-files",
+    "parent": "https://zenodo.org/api/records/15166669",
+    "parent_doi": "https://doi.org/10.5281/zenodo.15166669",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15166669",
+    "parent_html": "https://zenodo.org/records/15166669",
+    "preview_html": "https://zenodo.org/records/15166670?preview=1",
+    "quota_increase": "https://zenodo.org/api/records/15166670/quota-increase",
+    "request_deletion": "https://zenodo.org/api/records/15166670/request-deletion",
+    "requests": "https://zenodo.org/api/records/15166670/requests",
+    "reserve_doi": "https://zenodo.org/api/records/15166670/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/15166670",
+    "self_doi": "https://doi.org/10.5281/zenodo.15166670",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15166670",
+    "self_html": "https://zenodo.org/records/15166670",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:15166670/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:15166670/sequence/default",
+    "versions": "https://zenodo.org/api/records/15166670/versions"
+  },
+  "metadata": {
+    "access_right": "open",
+    "creators": [
+      {
+        "affiliation": "Imperial College London",
+        "name": "Baynham, Charles",
+        "orcid": "0000-0003-4191-8486"
+      }
+    ],
+    "custom": {
+      "code:codeRepository": "https://gitlab.com/aion-physics/code/artiq/experiment-repositories/icl_experiments",
+      "code:programmingLanguage": [
+        {
+          "id": "python",
+          "title": {
+            "en": "Python"
+          }
+        }
+      ]
+    },
+    "description": "<h1>Summary</h1>\n<p dir=\"auto\"><em>This is an archived copy of the data and code used to produce the results presented in the work \"A Prototype Atom Interferometer to Detect Dark Matter and Gravitational Waves\", stored on Zenodo under DOI:10.5281/zenodo.15166670.</em></p>\n<p dir=\"auto\">This repository contains the experimental code that produced the interferometry data presented in this work, as well as the raw data created by that experiment. The Imperial laboratory uses ARTIQ as an experimental control platform: to reproduce our experiment, you need to know the git commit of the repository (<code>icl_experiments</code>) containing the experiment running at a given moment, which is recorded in the raw dataset.</p>\n<h2>Data - <code>000034056-DifferentialClockInterferometryWithNoiseFrag.h5</code></h2>\n<p dir=\"auto\">The data presented here was RID34056, output as an HDF5 binary file, included in this repository.</p>\n<p dir=\"auto\">Within this file, the dataset \"ndscan.rid_34056.points.axis_0\" contains the applied, deterministic phase step</p>\n<div>$\\phi$</div>\n<p>whereas \"ndscan.rid_34056.points.axis_1\" contains the standard deviation of the distribution from which an additional, random phase is drawn, expressed as multiples of $2\\pi$. This value is 0 for the \"Low Laser Noise\" dataset and 2 for the \"High Laser Noise\" dataset.</p>\n<p>&nbsp;</p>\n<p dir=\"auto\">Also in this dataset are:</p>\n<p dir=\"auto\"><code>channel_atom_number_forward</code>: The total fluorescence collected from both atomic states in the readout phase, background-corrected, in the lower dipole trap. This is proportional to atom-number, and was converted to atom number through a calibration performed using absorption spectroscopy.</p>\n<p dir=\"auto\"><code>channel_atom_number_backward</code>: The same but for the upper dipole trap which experiences the biasing additional Stark shift.</p>\n<p dir=\"auto\"><code>channel_excitation_fraction_forward</code>: The deduced excitation fraction of atoms in the lower trap after the interferometry sequence.</p>\n<p dir=\"auto\"><code>channel_excitation_fraction_backward</code>: The deduced excitation fraction of atoms in the upper, Stark-shifted trap after the interferometry sequence.</p>\n<p dir=\"auto\"><code>channel_random_phase_one</code> / <code>channel_random_phase_two</code>: The randomised phase steps applied to the second and third interferometry pulses. These quantities were not used in the data analysis which was performed blind to these steps, but are recorded none-the-less.</p>\n<p dir=\"auto\"><code>channel_rigol_counter_frequency</code>, <code>channel_xxx_IJDx_relocker_num_relocks</code>: Monitor channels for laser locks. If these deviate from their modal values, a glitch has occurred: such datapoints were discarded from the analysis.</p>\n<h2>Code - <code>icl_experiments</code></h2>\n<p dir=\"auto\">The full <code>icl_experiments</code> repository is available open-source at <a href=\"https://gitlab.com/aion-physics/code/artiq/experiment-repositories/icl_experiments\">https://gitlab.com/aion-physics/code/artiq/experiment-repositories/icl_experiments</a>. For this work, commit <code>5a4fa941fbbc53d9684549adba3e69da85111f38</code> was used.</p>\n<p dir=\"auto\">In this archived repository, only the files relevant to the presented experiment are retained. The experiment run was <code>repository/clock_interferometry/clock_interferometry_from_xodt.py/DifferentialClockInterferometryWithNoise</code>, with parameters summarised in the dataset file and duplicated here:</p>\n<div>\n<pre><code>Experiment: repository/clock_interferometry/clock_interferometry_from_xodt.py/DifferentialClockInterferometryWithNoise\nRun time: 2024-12-13 20:10:03.601739\nGit hash: 5a4fa941fbbc53d9684549adba3e69da85111f38\n\nScan settings\n=============\n\n - Axes:\n   - Phase step in interferometry sequence (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.phase_step@*):\n     0.0 to 1.0, 100 points\n   - Std. dev. of phase step 1 in turns (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.phase_step_std@*):\n     list: [[0, 2]]\n - Number of repeats: 2147483647\n - Randomise order globally: True\n\n\nOverrides\n=========\n\n - 689 injection AOM nominal static frequency: 365.3443 MHz\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.injection_aom_static_frequency@*)\n - Blue MOT loading time: 1000.0 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.blue_loading_time@*)\n - Load via magnetic trap instead of blue MOT: False\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.magnetic_trap_loading_bool@*)\n - True = sr87, false = sr88: True\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.sr87@*)\n - Delay after experiment before imaging: 6.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_after_experiment@*)\n - Time to hold final dipole trap before experiment: 0.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.dipole_hold_time@*)\n - Time to delay experiment after dipole trap: 0.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.dipole_pre_experiment_delay@*)\n - Time in lattice before the spin polarization pulse: 20.0 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_before_spinpol_pulse@*)\n - Duration of the spin polarizing pulse: 20.0 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.duration_spinpol_pulse@*)\n - Time in lattice after the spin polarization pulse: 0.0 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_after_spinpol_pulse@*)\n - Bias field for optical pumping x: 0.31 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.bias_x_for_pumping@*)\n - Bias field for optical pumping y: 0.491 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.bias_y_for_pumping@*)\n - Bias field for optical pumping z: -0.69 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.bias_z_for_pumping@*)\n - Start value for chamber_2_mot_current: 10.0 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.chamber_2_red_narrowband_mot_current_start@*)\n - End value for chamber_2_mot_current: 10.0 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.chamber_2_red_narrowband_mot_current_end@*)\n - Bias current for narrowband MOT - X: 0.5 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.narrowband_bias_x@*)\n - Bias current for narrowband MOT - Y: 0.041 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.narrowband_bias_y@*)\n - Bias current for narrowband MOT - Z: -1.2 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.narrowband_bias_z@*)\n - Multiple of nominal setpoint at start of ramp for suservo_aom_singlepass_689_up: 3.5\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.red_narrowband_mot_689_up_start@*)\n - Multiple of nominal setpoint at end of ramp for suservo_aom_singlepass_689_up: 0.2\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.red_narrowband_mot_689_up_end@*)\n - Time to hold in dipole trap before molasses starts: 11.0 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_before_molasses@*)\n - MOT coil current during first molasses: 10.0 A\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.mot_coil_current_first_molasses@*)\n - Detuning of the 689 stir beam during 1st molasses: 0.0 kHz\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.stir_beam_detuning_molasses_1@*)\n - Horizontal camera exposure time: 200.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.exposure_horiz@*)\n - Vertical camera exposure time: 200.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.exposure_vert@*)\n - andor driver mode: True\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.use_andor_driver@*)\n - Enable EM gain. Might blow up the camera: True\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.em_gain_enabled@*)\n - EM gain level. Ignored if not enabled: 30.0\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.em_gain@*)\n - Time between the start of each fluorescence pulse: 3.5 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_between_imaging_pulses@*)\n - Delay before bg image series: 400.0 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_before_bg_img@*)\n - Length of clock shelving pulse: 200.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.shelving_pulse_time@*)\n - Frequency detuning of AOM during clock shelving pulse: 4.0 kHz\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.shelving_pulse_aom_detuning@*)\n - Duration of 461 clearout pulse after shelving: 500.00000000000006 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.shelving_pulse_clearout_duration@*)\n - Preempt time before shelving pulse: 130.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.clock_delivery_preempt_time_shelving@*)\n - Setpoint for clock delivery AOM during shelving: 0.12 V\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.shelving_clock_delivery_setpoint@*)\n - Frequency detuning of delivery AOM during spectroscopy pulse: 15.0 kHz\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.spectroscopy_pulse_aom_detuning@*)\n - Setpoint for clock delivery AOM: 3.8 V\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.spectroscopy_clock_delivery_setpoint@*)\n - Preempt time before spectroscopy pulse: 80.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.clock_delivery_preempt_time@*)\n - Delay after first fluorescence pulse before repumps turn on: 0.01 ms\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_repumps_after_first_pulse@*)\n - Length of spectroscopy pulse: 44.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.spectroscopy_pulse_time@*)\n - Delay between interferometry pulses: 100.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.delay_between_interferometry_pulses@*)\n - Duration of Stark shifting pulse: 30.0 us\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.stark_pulse_duration@*)\n - Mean of phase step 1 in turns: 0.0\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.phase_step_one_mean@*)\n - Mean of phase step 2 in turns: 0.0\n   (clock_interferometry_from_xodt.DifferentialClockInterferometryWithNoiseFrag.phase_step_two_mean@*)\n\n\n\nData outputs\n============\n\n- andor_sum_0\n- andor_mean_0\n- andor_sum_1\n- andor_mean_1\n- andor_sum_2\n- andor_mean_2\n- andor_sum_3\n- andor_mean_3\n- andor_sum_4\n- andor_mean_4\n- andor_sum_5\n- andor_mean_5\n- andor_sum_6\n- andor_mean_6\n- andor_sum_7\n- andor_mean_7\n- andor_sum_slice_x_0\n- andor_sum_slice_y_0\n- andor_image_0\n- andor_sum_slice_x_1\n- andor_sum_slice_y_1\n- andor_image_1\n- andor_sum_slice_x_2\n- andor_sum_slice_y_2\n- andor_image_2\n- andor_sum_slice_x_3\n- andor_sum_slice_y_3\n- andor_image_3\n- excitation_fraction_forward\n- atom_number_forward\n- excitation_fraction_backward\n- atom_number_backward\n- random_phase_one\n- random_phase_two\n- rigol_counter_frequency\n- blue_IJD1_relocker_num_relocks\n- blue_IJD2_relocker_num_relocks\n- blue_IJD3_relocker_num_relocks\n- red_IJD1_relocker_num_relocks\n- timestamp_utc\n- image_horizontal\n- image_vertical\n- image_horizontal_timestamp\n- image_horizontal_mean\n- image_vertical_timestamp\n- image_vertical_mean</code></pre>\n</div>",
+    "doi": "10.5281/zenodo.15166670",
+    "language": "eng",
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "publication_date": "2025-04-07",
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": false,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "15166669"
+          }
+        }
+      ]
+    },
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "title": "Supporting data for \"A Prototype Atom Interferometer to Detect Dark Matter and Gravitational Waves\""
+  },
+  "modified": "2025-05-29T13:03:43.774953+00:00",
+  "owners": [
+    {
+      "id": "199664"
+    }
+  ],
+  "recid": "15166670",
+  "revision": 8,
+  "state": "done",
+  "stats": {
+    "downloads": 187,
+    "unique_downloads": 169,
+    "unique_views": 476,
+    "version_downloads": 136,
+    "version_unique_downloads": 129,
+    "version_unique_views": 136,
+    "version_views": 152,
+    "views": 502
+  },
+  "status": "published",
+  "submitted": true,
+  "swh": {},
+  "title": "Supporting data for \"A Prototype Atom Interferometer to Detect Dark Matter and Gravitational Waves\"",
+  "updated": "2025-05-29T13:03:43.774953+00:00"
+}

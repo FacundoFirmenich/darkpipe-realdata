@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import h5py
 import numpy as np
@@ -128,3 +129,30 @@ def test_v08_protocol_constants_and_claim_ceiling():
     assert "no es una detección física" in prereg.lower()
     assert "dos épocas" in prereg
     assert "GPL-3.0-or-later" in prereg
+
+
+def test_checked_v08_discovery_is_frozen_and_holdout_blind():
+    root = Path(__file__).parents[1]
+    report = json.loads(
+        (
+            root
+            / "evidence"
+            / "aion_independent_epoch_2026-08-25"
+            / "discovery.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert report["stage"] == "DEVELOPMENT_DISCOVERY_ONLY"
+    assert report["holdout_excitation_values_accessed"] is False
+    assert report["quality"]["holdout_excitation_values_accessed"] is False
+    assert report["grid"]["count"] == 2007
+    assert len(report["candidates"]) == 8
+    assert report["candidates"][0]["candidate_id"] == "c001"
+    assert np.isclose(
+        report["candidates"][0]["frequency_hz"],
+        0.0697614586889701,
+    )
+    maximum_power = max(
+        row["familywise_detection_power"]
+        for row in report["power"]["rows"]
+    )
+    assert maximum_power == 0.4375
