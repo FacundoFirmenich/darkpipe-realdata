@@ -1,0 +1,42 @@
+{
+  "campaign_id": "DP-AION-BLIND-0.6-20260825",
+  "files": [
+    {
+      "byte_count": 26200,
+      "path": "blind_predictions.json",
+      "sha256": "46bffb7b7013c57ff15022c0da52cbd5efa79c7443030d402750ca5743503bf2"
+    },
+    {
+      "byte_count": 58905,
+      "path": "blind_validation.png",
+      "sha256": "69cadcff3ecb38d1462bd2f6e7ba5596ade67ce02e11de53ea269cc06c357e07"
+    },
+    {
+      "byte_count": 30887,
+      "path": "report.json",
+      "sha256": "414cac4f8a2e5d4966e96770475bfadd89ca196955c8def2fb42d6a4711fa64d"
+    },
+    {
+      "byte_count": 2150,
+      "path": "report.md",
+      "sha256": "57c05bc377fee47b1b4f12d36d199d74e76ac446a42cf743d693a18e9e306ac5"
+    },
+    {
+      "byte_count": 4088347,
+      "path": "sealed_challenge.npz",
+      "sha256": "12c690ea2f83966dfc058a590745c4952d6e8c690c7e0d1f4e3bc9ceabfc78ef"
+    },
+    {
+      "byte_count": 1558,
+      "path": "sealed_manifest.json",
+      "sha256": "0004f33062857c6e5f9b81144218716b47cff70f80100e99fbaf68d216b68f9b"
+    },
+    {
+      "byte_count": 228,
+      "path": "seed_reveal.json",
+      "sha256": "62a10a76e1cf8c88ac7275b32f629f8c174ec9b9c7fd3e131c958dbf1d0fbb67"
+    }
+  ],
+  "generated_at_utc": "2026-08-25T12:32:50.093665Z",
+  "schema_version": "1.0"
+}

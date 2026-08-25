@@ -379,7 +379,7 @@ def reveal_blind_challenge(campaign_dir: str | Path, seed_hex: str) -> dict[str,
     }
     write_json(target / "seed_reveal.json", {"seed_hex": seed_hex, "commitment_sha256": manifest["seed_commitment_sha256"], "revealed_at_utc": utc_now()})
     write_json(target / "report.json", report)
-    (target / "report.md").write_text(_render_report(report), encoding="utf-8")
+    (target / "report.md").write_text(_render_report(report), encoding="utf-8", newline="\n")
     _write_figure(report, target / "blind_validation.png")
     files = [file_record(path, target) for path in sorted(target.iterdir()) if path.is_file() and path.name != "manifest.json"]
     write_json(target / "manifest.json", {"schema_version": "1.0", "campaign_id": CAMPAIGN_ID, "generated_at_utc": utc_now(), "files": files})

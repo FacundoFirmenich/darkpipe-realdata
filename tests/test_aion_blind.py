@@ -57,3 +57,83 @@ def test_preregistered_constants_are_frozen():
     prereg = (ROOT / "docs" / "PREREGISTRATION_AION_BLIND_HOLDOUT_0.6.md").read_text(encoding="utf-8")
     assert "0a1ad503b576ba7ec553d43da1199d2f05c3eb4d8e577e36be8a38d457eb382d" in prereg
     assert "independent repeated-instrument false-positive rate" in prereg
+
+
+@pytest.fixture(scope="session")
+def reproduced_blind(tmp_path_factory):
+    import json
+
+    from darkpipe.aion_blind import (
+        analyze_blind_challenge,
+        prepare_blind_challenge,
+        reveal_blind_challenge,
+    )
+
+    checked = ROOT / "evidence" / "aion_blind_holdout_2026-08-25"
+    evidence = ROOT / "evidence" / "aion_sensor_validation_2026-08-25"
+    seed = json.loads((checked / "seed_reveal.json").read_text(encoding="utf-8"))["seed_hex"]
+    target = tmp_path_factory.mktemp("aion_blind") / "campaign"
+    prepare_blind_challenge(evidence, target, seed, "dbd2da7")
+    analyze_blind_challenge(evidence, target)
+    return reveal_blind_challenge(target, seed)
+
+
+def test_checked_blind_campaign_reproduces(reproduced_blind):
+    import json
+
+    checked = json.loads(
+        (ROOT / "evidence" / "aion_blind_holdout_2026-08-25" / "report.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert reproduced_blind["decision"] == checked["decision"] == "PASS_BOUNDED"
+    assert reproduced_blind["gates"] == checked["gates"]
+    observed = [
+        (
+            item["label"],
+            item["prediction"]["peak_dataset_id"],
+            item["prediction"]["global_p"],
+            item["passed"],
+        )
+        for item in reproduced_blind["cases"]
+    ]
+    expected = [
+        (
+            item["label"],
+            item["prediction"]["peak_dataset_id"],
+            item["prediction"]["global_p"],
+            item["passed"],
+        )
+        for item in checked["cases"]
+    ]
+    assert observed == expected
+
+
+def test_checked_blind_manifest_hashes_every_material_file():
+    import json
+
+    from darkpipe.provenance import sha256_file
+
+    checked = ROOT / "evidence" / "aion_blind_holdout_2026-08-25"
+    manifest = json.loads((checked / "manifest.json").read_text(encoding="utf-8"))
+    assert len(manifest["files"]) == 7
+    for item in manifest["files"]:
+        path = checked / item["path"]
+        assert path.stat().st_size == item["byte_count"]
+        assert sha256_file(path) == item["sha256"]
+
+
+def test_blind_temporal_and_authority_boundaries_are_preserved():
+    import json
+
+    checked = ROOT / "evidence" / "aion_blind_holdout_2026-08-25"
+    sealed = json.loads((checked / "sealed_manifest.json").read_text(encoding="utf-8"))
+    predictions = json.loads((checked / "blind_predictions.json").read_text(encoding="utf-8"))
+    report = json.loads((checked / "report.json").read_text(encoding="utf-8"))
+    assert sealed["preregistration_commit"] == "dbd2da7"
+    assert sealed["mapping_disclosed"] is False
+    assert predictions["mapping_accessed"] is False
+    statuses = {item["claim_id"]: item["status"] for item in report["claim_ledger"]}
+    assert statuses["fixed_grid_signal_identification_0p6rad"] == "SUPPORTED"
+    assert statuses["continuous_band_blind_search"] == "NOT_ESTIMABLE"
+    assert statuses["dark_matter_or_gravitational_wave_detection"] == "NOT_ESTIMABLE"
