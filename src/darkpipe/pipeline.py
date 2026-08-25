@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 from . import __version__
 from .analysis import align_environment,projection_aware_diagnostics
+from .authority import environmental_authority_payload
 from .provenance import file_record,utc_now,write_bytes,write_json
 from .report import render_markdown,write_figure
 from .sources import fetch_noaa_rtsw,fetch_usgs_geomag
@@ -18,6 +19,7 @@ def run_live(output,station="BOU",retain_raw=True,hours=24):
     aligned=align_environment(solar_frame,geomag.frame);analysis,finite=projection_aware_diagnostics(aligned);data_records.append(_csv(root/"data"/"aligned_observations.csv",finite));write_figure(finite,root/"analysis"/"diagnostics.png")
     source_rows=[{"name":solar.source_name,**a.provenance()} for a in solar.artifacts]+[{"name":geomag.source_name,**geomag.artifact.provenance()}]
     report={"schema_version":"1.0","run":{"software_version":__version__,"started_at_utc":started,"finished_at_utc":utc_now(),"station":station.upper(),"requested_hours":hours,"raw_retention":"full" if retain_raw else "hash-only","raw_byte_count":sum(a.byte_count for a in solar.artifacts)+geomag.artifact.byte_count},"sources":source_rows,"analysis":analysis}
+    report["authority"]=environmental_authority_payload(analysis,station=station,source_refs=(row["sha256"] for row in source_rows))
     write_json(root/"analysis"/"report.json",report);(root/"analysis"/"report.md").write_text(render_markdown(report),encoding="utf-8");files=[]
     for p in sorted(root.rglob("*")):
         if p.is_file() and p.name!="manifest.json": files.append(file_record(p,root))

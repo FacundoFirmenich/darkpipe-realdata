@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from .authority import aion_authority_payload
 from .provenance import file_record, sha256_file, utc_now, write_json
 
 CAMPAIGN_ID = "DP-AION-0.4-20260825"
@@ -215,7 +216,24 @@ def _noise_summary(values: np.ndarray, shots: int) -> dict[str, float]:
     }
 
 
+def _authority_markdown(report: dict[str, Any]) -> str:
+    records = report.get("authority", {}).get("claim_ledger", {}).get("records", [])
+    if not records:
+        return "## Autoridad observacional\n\nNo se generó ledger de autoridad."
+    rows = "\n".join(
+        f"| {item['claim_id']} | {item['kind']} | {item['status']} |"
+        for item in records
+    )
+    return (
+        "## Autoridad observacional\n\n"
+        "| Claim | Tipo | Estado |\n|---|---|---|\n"
+        f"{rows}\n\n"
+        "La promoción automática está desactivada. Un estado NOT_ESTIMABLE "
+        "se conserva con blockers; no equivale a cero ni a refutación."
+    )
+
 def _render_markdown(report: dict[str, Any]) -> str:
+    authority_section = _authority_markdown(report)
     if report["decision"] == "ABSTAIN_INTEGRITY":
         failures = "\n".join(f"- {item}" for item in report["gate_0"]["failures"])
         return f"""# DarkPipe 0.4 — recibo AION
@@ -225,6 +243,8 @@ Decisión preregistrada: **ABSTAIN_INTEGRITY**.
 La custodia o el contrato de datos falló antes de promover resultados científicos. No se calculan ni se reinterpretan E1/E2.
 
 {failures}
+
+{authority_section}
 """
     rows = "\n".join(
         f"| {item['dataset_id']} | {1e3*item['truth_frequency_hz']:.6g} | {1e3*item['recovered_frequency_hz']:.6g} | {item['resolution_normalized_error']:.6g} | {'PASS' if item['passed'] else 'FAIL'} |"
@@ -260,6 +280,8 @@ Un PASS sólo significa que no se resuelve un exceso HLN–LLN dentro de esta re
 ## Límites obligatorios
 
 {limits}
+
+{authority_section}
 
 Consulte `report.json`, `validation.png`, `manifest.json` y el preregistro `DP-AION-0.4-20260825` para los números, hashes y reglas exactas.
 """
@@ -301,7 +323,7 @@ def run_aion_validation(evidence_root: str | Path, output: str | Path) -> dict[s
         "schema_version": "1.0",
         "campaign_id": CAMPAIGN_ID,
         "preregistration_commit": PREREGISTRATION_COMMIT,
-        "software_version": "0.4.0",
+        "software_version": "0.5.0",
         "generated_at_utc": utc_now(),
         "source_manifest_sha256": sha256_file(root / "source_manifest.json") if (root / "source_manifest.json").is_file() else None,
         "gate_0": gate,
@@ -315,6 +337,7 @@ def run_aion_validation(evidence_root: str | Path, output: str | Path) -> dict[s
     }
     if not gate["passed"]:
         base["decision"] = "ABSTAIN_INTEGRITY"
+        base["authority"] = aion_authority_payload(base)
         write_json(target / "report.json", base)
         (target / "report.md").write_text(_render_markdown(base), encoding="utf-8")
     else:
@@ -394,6 +417,7 @@ def run_aion_validation(evidence_root: str | Path, output: str | Path) -> dict[s
             },
         )
         base["decision"] = "PASS_BOUNDED" if e1_passed == 7 and e2_passed else "FAIL_BOUNDED"
+        base["authority"] = aion_authority_payload(base)
         write_json(target / "report.json", base)
         (target / "report.md").write_text(_render_markdown(base), encoding="utf-8")
         _write_figure(base, target / "validation.png")

@@ -1,11 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using this metadata. Cite the upstream AION dataset separately when using the bundled evidence."
-title: "DarkPipe: real-data-first environmental and quantum-sensor validation"
+title: "DarkPipe: authority-typed real-data validation"
 type: software
 authors:
   - family-names: Firmenich
     given-names: Facundo
-version: 0.4.0
+version: 0.5.0
 date-released: 2026-08-25
 repository-code: "https://github.com/FacundoFirmenich/darkpipe-realdata"
 license: GPL-3.0-or-later

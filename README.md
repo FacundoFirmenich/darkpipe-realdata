@@ -1,63 +1,50 @@
-# DarkPipe 0.4.0 — real-data-first environmental and quantum-sensor validation
+# DarkPipe 0.5.0 — authority-typed real-data validation
 
-DarkPipe preserves byte-level provenance for bounded official observations and applies preregistered diagnostics without promoting residuals or control injections into discovery claims.
+DarkPipe acquires bounded official observations, preserves byte-level provenance and runs reproducible environmental and atom-interferometer validation. Version 0.5 adds an executable observational-authority layer: observations, associations, causal claims, detections, generalizations and interventions are different types and cannot be promoted by adjacency or rhetoric.
 
-Version 0.4 adds an authentic AION differential atom-interferometer evidence track to the 0.3 NOAA–USGS environmental-foreground pipeline.
+**Authority ceiling:** DarkPipe establishes reproducible software, transport and selected instrument-control results. It does not claim dark matter, gravitational waves, hidden plasma or topological transients; AION-10/AION-km sensitivity; a blind-search false-positive rate; or causation from lag/coherence.
 
-**Current authority ceiling:** DarkPipe 0.4 establishes a reproducible software-and-instrument validation on selected AION controls. It does not claim detection of dark matter, gravitational waves, hidden plasma or topological transients; it does not establish AION-10/AION-km sensitivity or a blind-search false-positive rate.
+## What 0.5 changes
 
-## AION 0.4 result
+- `ObservationEnvelope` declares source, observable, time basis, scale, layer, resolution, preprocessing and provenance.
+- `ObservedDecoupling` records a difference without fields for cause, duration, meaning, intent or provisionality.
+- `ClaimLedger` separates `OBSERVATION`, `ASSOCIATION`, `CAUSAL`, `DETECTION`, `GENERALIZATION` and `INTERVENTION`.
+- Observational receipts can promote only observations and associations. Higher-authority claims remain `NOT_ESTIMABLE` with explicit blockers.
+- `ConducenceVector` preserves contextual per-axis outcomes; scalar collapse raises an error.
+- New evidence is future-only: it does not rewrite the adjudicated v0.4 receipt.
 
-The preregistered campaign `DP-AION-0.4-20260825` was committed before endpoint calculation.
+Read [the authority contract](docs/OBSERVATIONAL_AUTHORITY_0.5.md), [scientific scope](docs/SCIENTIFIC_SCOPE.md) and [Spanish substantive closure](docs/CIERRE_SUSTANTIVO_ES_0.5_2026-08-25.md).
 
-- Integrity/schema gate: 27/27 selected files, 19,018,652 bytes, PASS.
-- Injected-frequency recovery: 7/7 within one Fourier-resolution cell, PASS.
-- High- versus low-laser-noise consistency: HLN−LLN = 14.2767 µrad, 95% interval [−23.5180, 52.0714] µrad, PASS under the frozen rule.
-- Terminal decision: `PASS_BOUNDED`.
-- Blind discovery false-positive rate and global new-physics significance: `NOT_ESTIMABLE` from this evidence slice.
+## Preserved AION result
 
-Read [the preregistration](docs/PREREGISTRATION_AION_SENSOR_VALIDATION_0.4.md), [scientific scope](docs/SCIENTIFIC_SCOPE.md) and [substantive Spanish closure](docs/CIERRE_SUSTANTIVO_ES_AION_0.4_2026-08-25.md).
+Campaign `DP-AION-0.4-20260825` remains unchanged:
 
-## Run the checked AION validation
+- 27/27 selected files pass integrity/schema.
+- Injected-frequency recovery is 7/7 within one Fourier cell.
+- HLN−LLN = 14.2767 µrad; frozen 95% interval [−23.5180, 52.0714] µrad.
+- Decision: `PASS_BOUNDED`.
+- Blind significance and facility transfer: `NOT_ESTIMABLE`.
+
+Version 0.5 reproduces the endpoint values exactly and adds a separate authority receipt. An interval including zero is observed consistency under the frozen rule, not causal equivalence.
+
+## Run
 
     python -m pip install -e .
-    darkpipe aion-validate \
-      --evidence evidence/aion_sensor_validation_2026-08-25 \
-      --output darkpipe_aion_run
-
-The command re-hashes all 27 files, validates schemas/mappings, executes the frozen E1/E2 rules and writes `report.json`, `report.md`, `validation.png` and `manifest.json`.
-
-A direct script is also provided:
-
-    python run_darkpipe_aion_v04.py --output darkpipe_aion_run
-
-## Run the live environmental pipeline
-
+    darkpipe aion-validate --evidence evidence/aion_sensor_validation_2026-08-25 --output darkpipe_aion_run
     darkpipe run --output darkpipe_run --station BOU
 
-This retains the 0.3 bounded acquisition and analysis path for current NOAA SWPC solar-wind products and USGS Geomagnetism observations, plus generic HAPI adapters for INTERMAGNET and NASA CDAWeb.
-
-Generated run directories are ignored by Git. No daemon or persistent local service is required.
+The live path acquires NOAA SWPC and USGS Geomagnetism observations, aligns them, projects declared nuisance channels and calculates residual diagnostics. Correlation and coherence remain descriptive.
 
 ## Colab
 
-Open `notebooks/DarkPipe_AION_v04_Colab.ipynb`. It shallow-clones the public repository, installs the package, runs the AION test module, executes the preregistered validation, renders the checked figure and creates a small ZIP containing only the result receipt.
+Open `notebooks/DarkPipe_Authority_v05_Colab.ipynb`. It installs the package, runs all tests, reproduces AION, verifies typed claims and creates a compact result ZIP. The v0.4 notebook remains as historical workflow.
 
-## Evidence and licensing
+## Genealogy and privacy
 
-The AION subset derives from Charles Baynham and the AION Collaboration, Zenodo DOI [10.5281/zenodo.19592552](https://doi.org/10.5281/zenodo.19592552), associated with [Baynham et al., Nature 654, 622–628 (2026)](https://doi.org/10.1038/s41586-026-10617-1).
+Two adjacent native threads were read to EOF as genealogical/correction sources. Raw pages remain private and ignored by Git. `evidence/native_thread_trace_manifest.json` contains hashes, counts and one adverse record: one early assistant message was cut at 20,000 characters. The transport is therefore not called complete.
 
-Zenodo declares the record `CC-BY-4.0`; the upstream bundle contains an MIT software notice. Both are preserved under `evidence/aion_sensor_validation_2026-08-25/`. DarkPipe’s original code is licensed separately under GNU GPL version 3 or later, SPDX `GPL-3.0-or-later`—explicitly not `GPL-3.0-only`.
+## Evidence and license
 
-## Sources
+AION evidence: [Zenodo 10.5281/zenodo.19592552](https://doi.org/10.5281/zenodo.19592552), associated with [Baynham et al. (2026)](https://doi.org/10.1038/s41586-026-10617-1). Upstream CC-BY-4.0/MIT jurisdictions remain separate.
 
-- AION data/code: https://doi.org/10.5281/zenodo.19592552
-- AION article: https://doi.org/10.1038/s41586-026-10617-1
-- NOAA SWPC products: https://services.swpc.noaa.gov/products/
-- USGS Geomagnetism Web Services: https://geomag.usgs.gov/ws/
-- INTERMAGNET HAPI: https://imag-data.bgs.ac.uk/GIN_V1/hapi
-- NASA CDAWeb HAPI: https://cdaweb.gsfc.nasa.gov/hapi
-
-## License
-
-DarkPipe original code and derived project documentation are released under GNU GPL version 3 or later (SPDX: `GPL-3.0-or-later`). See `LICENSE` and `LICENSE-NOTICE`. Upstream evidence retains the separate licenses documented in its evidence notice.
+DarkPipe code and derived documentation use GNU GPL version 3 or later, SPDX `GPL-3.0-or-later` — explicitly not `GPL-3.0-only`.

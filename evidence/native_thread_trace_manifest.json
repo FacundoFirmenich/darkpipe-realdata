@@ -1,1 +1,212 @@
-undefined
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-08-25T10:26:16.0356026Z",
+  "jurisdiction": "genealogical sources and correction history; not automatic scientific canon",
+  "publication_policy": {
+    "raw_conversation_pages": "private local custody; gitignored",
+    "public_repository": "hash/count manifest only",
+    "attachment_bytes": "not vendored"
+  },
+  "transport": {
+    "requested_max_characters_per_item": 20000,
+    "page_count": 13,
+    "unique_turn_count": 116,
+    "message_item_count": 221,
+    "truncated_item_count": 1,
+    "complete_transport": false,
+    "adverse_records": [
+      {
+        "source_alias": "aad_tcs_adjacent_genealogy",
+        "turn_id_sha256": "3daaf80065154b00548ee4a0552fd72f63d0d9668c9ec50afce18505398ea2da",
+        "item_id_sha256": "2f88cf3ef28bd1e6ace9565e036676463cf962560c98590a71b7645c704da27f",
+        "item_type": "agentMessage",
+        "retained_characters": 20000,
+        "transport_limit_characters": 20000
+      }
+    ]
+  },
+  "sources": [
+    {
+      "source_alias": "observational_certainty_genealogy",
+      "conversation_id_sha256": "14e1ef92fb6bb121f7cabd75e50f0ade42b5f22ab8711212b933d31d8bc2d429",
+      "page_count": 3,
+      "unique_turn_count": 22,
+      "user_message_count": 22,
+      "agent_message_count": 21,
+      "reached_eof": true,
+      "pages": [
+        {
+          "page_file": "page-01-newest.json",
+          "byte_count": 114919,
+          "sha256": "8414d81acb8099484097546ccb132bb2ba20a4445ee01e296eb65ef39064b1cb",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-02.json",
+          "byte_count": 73794,
+          "sha256": "d88c6ed1ec57b7d229fb095b9c31f43868681fd7598241e1758775dc2f78ae33",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-03-oldest.json",
+          "byte_count": 23394,
+          "sha256": "8d00170cf319e50e36c003f976338d0acad6d3872ff9efab6f26aedcaedd937e",
+          "turn_count": 2,
+          "has_more": false
+        }
+      ]
+    },
+    {
+      "source_alias": "aad_tcs_adjacent_genealogy",
+      "conversation_id_sha256": "dd4c1f01a88b06b932915fb1664096026cadbfe2f81f2aa59b87f5a95ee6b03a",
+      "page_count": 10,
+      "unique_turn_count": 94,
+      "user_message_count": 94,
+      "agent_message_count": 84,
+      "reached_eof": true,
+      "pages": [
+        {
+          "page_file": "page-01-newest.json",
+          "byte_count": 103914,
+          "sha256": "7746ce64c19d3abd7aefea6959b026b910ebccc90cac571caf8fb0cb1a608767",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-02.json",
+          "byte_count": 77067,
+          "sha256": "1e0f8781a747ef5fe89d3069dd560f6799c838a5c3f12b803f4064a67bdab02e",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-03.json",
+          "byte_count": 74771,
+          "sha256": "00b830e54ef8e76d02af77d093feb291cd715c438839697c66a2b8168dd884eb",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-04.json",
+          "byte_count": 96954,
+          "sha256": "13d28c0946683ac658619cd8f7c72a1e22261f94387bf176726a8d1463e5aa19",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-05.json",
+          "byte_count": 89455,
+          "sha256": "46e418861c0ceed18fe926b298964f63da22dbb7a7d99348637ce1b0e8f94311",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-06.json",
+          "byte_count": 102888,
+          "sha256": "8d9d43fe88cb74f54a7562f9e2f6677a530e56c695b7a299aec9895ad9866efb",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-07.json",
+          "byte_count": 51734,
+          "sha256": "d351689e02c1666139ef4de6c661fcc900bdfba37cc0b0ac0d82928194f2c544",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-08.json",
+          "byte_count": 55933,
+          "sha256": "e01913cbbbc7fed1768e2068cf196731cafa08343577f8cad5028717eeb19efd",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-09.json",
+          "byte_count": 54403,
+          "sha256": "eabae875ce4ef1e8a239081d222527e3048086c10468ed2df5323f2e2d051ad3",
+          "turn_count": 10,
+          "has_more": true
+        },
+        {
+          "page_file": "page-10-oldest.json",
+          "byte_count": 52716,
+          "sha256": "d22f3b1d3b538d38d90a39cb6fed7fd29e0002fa4ba9c5c1084554cd8d009d16",
+          "turn_count": 4,
+          "has_more": false
+        }
+      ]
+    }
+  ],
+  "adjacent_attachments": [
+    {
+      "name": "QAN_Science_Chat_Complete_Backup_2026-07-15.zip",
+      "byte_count": 28882000,
+      "sha256": "6a26a9233e433595ace909dc11026207a3ed4d61e1a9aa9a253341519865b681",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "RDS_Yijing(1).txt",
+      "byte_count": 91437,
+      "sha256": "05e3ae1814097dc013650f624b465cb6a5f8773f687cbc959d2a8c536de9486d",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "11julio2026_CLAVE_gpt_cuasivectores+IA_nueva.txt",
+      "byte_count": 133327,
+      "sha256": "f1ff0614f1836e9347c223a064b14e708c012225a2f2968a904b500cd76000a6",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "Texto pegado (2)(5).txt",
+      "byte_count": 24365,
+      "sha256": "f713a30b0bbf339b4a95fe15640c14b97235326b31d766441d2cfcaefb3dd2fc",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "Se ha pegado el markdown(8).md",
+      "byte_count": 47848,
+      "sha256": "24673c940ac9a8c95ba781bf6416fcd653697d7270aae88d37b3c0f182835bc0",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "arnes_ml_fase_04.txt",
+      "byte_count": 20856,
+      "sha256": "3c77335be3e169b8911a046d7de3ff8ea62ad0df011beb9146ed2eff53f11264",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "arnes_ml_fase_03.txt",
+      "byte_count": 14418,
+      "sha256": "36c99bd1e1cc467d7c5e28d4177e000776c167819183a198ab42b5759b36f7f1",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "arnes_ml_fase_02.txt",
+      "byte_count": 21601,
+      "sha256": "ee3a7e1a09ff38c0fd03e8c316dae216724547c726bd6a98509968a96a83c487",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "arnes_ml_fase_01.txt",
+      "byte_count": 13341,
+      "sha256": "7d25b0d663ce042f6331f12977fb2e13e9aef7c7ce415ae6a21d3fa079fecac5",
+      "vendored_in_public_repo": false
+    },
+    {
+      "name": "arnes_ml_fase_00.txt",
+      "byte_count": 15944,
+      "sha256": "8c17217edba8e8af38def8395947d0db6b44ae672fa31531ca7b88d7a6a88384",
+      "vendored_in_public_repo": false
+    }
+  ],
+  "authority_rules": [
+    "later explicit user corrections outrank earlier assistant syntheses",
+    "source recurrence does not imply canon",
+    "observations do not automatically authorize causal, detection or intervention claims",
+    "discarded neoHEOM-and-later assistant constructions are excluded from DarkPipe",
+    "FEE and FEE+ are exact terms; Fi is excluded"
+  ]
+}
