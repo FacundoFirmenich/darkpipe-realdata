@@ -1,0 +1,36 @@
+name: DarkPipe v0.8 endpoint-blind source inventory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q
+      - name: Download, verify and inventory without reading endpoints
+        run: >
+          python run_darkpipe_aion_independent_v08.py
+          --mode inventory
+          --workspace v08_inventory
+      - name: Assert raw source was removed
+        run: >
+          test ! -f
+          "v08_inventory/000034056-DifferentialClockInterferometryWithNoiseFrag.h5"
+      - uses: actions/upload-artifact@v7.0.0
+        with:
+          name: darkpipe-v08-endpoint-blind-inventory
+          path: |
+            v08_inventory/inventory.json
+            v08_inventory/zenodo_record.json
+          if-no-files-found: error
