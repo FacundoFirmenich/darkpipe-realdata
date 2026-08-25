@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.6.0 — 2026-08-25
+
+- Froze seed-committed campaign `DP-AION-BLIND-0.6-20260825` in commit `dbd2da7` before challenge construction.
+- Split authentic LLN/HLN controls 40/60 into development and holdout after stable timestamp ordering while preserving raw reversals.
+- Added a fixed seven-frequency differential-phase score detector and 4,095-rotation familywise null calibration.
+- Sealed eight opaque cases and committed blind predictions in `3dd30b6` before seed reveal.
+- Recorded `PASS_BOUNDED`: null 0/7 detections and signal identification 7/7, with each injected-case global p equal to 1/4096.
+- Preserved independent repeated false-positive rate, continuous-band search, nonlinear likelihood equivalence and physical detection as `NOT_ESTIMABLE`.
+- Added staged CLI, direct reproduction script, Colab, complete reproduction tests and substantive Spanish closure.
+- Preserved GNU GPL version 3 or later (`GPL-3.0-or-later`), never `GPL-3.0-only`.
+
 ## 0.5.0 — 2026-08-25
 
 - Added typed `ObservationEnvelope`, `ObservedDecoupling`, `ClaimLedger` and contextual `ConducenceVector` primitives.

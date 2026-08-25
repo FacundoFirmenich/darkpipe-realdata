@@ -1,0 +1,839 @@
+{
+  "calibration": {
+    "alpha": 0.05,
+    "critical_max_statistic": 0.04569101435380412,
+    "method": "paired-arm condition-wise circular rotations of development residuals",
+    "seed": 2026082506,
+    "surrogates": 4095
+  },
+  "campaign_id": "DP-AION-BLIND-0.6-20260825",
+  "cases": [
+    {
+      "case_id": "f6b1d36179ba21f7",
+      "detected_dataset_ids": [
+        "0p1_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.31794423497830915,
+      "peak_dataset_id": "0p1_mhz",
+      "peak_frequency_hz": 9.99875251410979e-05,
+      "scan": [
+        {
+          "amplitude_rad": 0.5411104162057899,
+          "dataset_id": "0p1_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": -1.2996855682025708,
+          "quadrature_rad": [
+            0.1449103373594323,
+            -0.5213458321045433
+          ],
+          "statistic": 0.31794423497830915
+        },
+        {
+          "amplitude_rad": 0.10992177507629405,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.855712890625,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.338874621604546,
+          "quadrature_rad": [
+            0.025265322273307984,
+            0.10697878353369544
+          ],
+          "statistic": 0.01304443168027009
+        },
+        {
+          "amplitude_rad": 0.15272960774133965,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.388427734375,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -0.9605225969099681,
+          "quadrature_rad": [
+            0.08752808593494868,
+            -0.1251605658879334
+          ],
+          "statistic": 0.025250845528329555
+        },
+        {
+          "amplitude_rad": 0.10596853821892575,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.888916015625,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.5544825778061293,
+          "quadrature_rad": [
+            0.0017286674533625198,
+            0.10595443738273358
+          ],
+          "statistic": 0.012171117148449853
+        },
+        {
+          "amplitude_rad": 0.05968199268020858,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.999755859375,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.6128970652179146,
+          "quadrature_rad": [
+            -0.0025119137593769317,
+            -0.059629108156553236
+          ],
+          "statistic": 0.0038760051207082035
+        },
+        {
+          "amplitude_rad": 0.10614486729702195,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.887451171875,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -1.1019109334521011,
+          "quadrature_rad": [
+            0.04796604357903326,
+            -0.09468891971543811
+          ],
+          "statistic": 0.012233566713152589
+        },
+        {
+          "amplitude_rad": 0.10083048568776115,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.92578125,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 2.933247792673657,
+          "quadrature_rad": [
+            -0.09864998661114532,
+            0.020855862141150035
+          ],
+          "statistic": 0.010956145771147093
+        }
+      ]
+    },
+    {
+      "case_id": "9f4ae372a6cf1796",
+      "detected_dataset_ids": [],
+      "global_p": 0.3857421875,
+      "max_statistic": 0.025311118407054196,
+      "peak_dataset_id": "1_mhz",
+      "peak_frequency_hz": 0.000999921209195054,
+      "scan": [
+        {
+          "amplitude_rad": 0.0727384533840027,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.9951171875,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.1761514474508548,
+          "quadrature_rad": [
+            0.027966508881838045,
+            0.06714727828928592
+          ],
+          "statistic": 0.005903387295314834
+        },
+        {
+          "amplitude_rad": 0.08794166593971833,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.97607421875,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.3293570548238955,
+          "quadrature_rad": [
+            0.02102688743822784,
+            0.08539090474349778
+          ],
+          "statistic": 0.008349646472924504
+        },
+        {
+          "amplitude_rad": 0.1529082792024238,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.3857421875,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -0.9920295874155051,
+          "quadrature_rad": [
+            0.08363959687217615,
+            -0.12800531115428865
+          ],
+          "statistic": 0.025311118407054196
+        },
+        {
+          "amplitude_rad": 0.10940244947892687,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.857421875,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.5974020362491084,
+          "quadrature_rad": [
+            -0.002910386396540087,
+            0.10936373074750139
+          ],
+          "statistic": 0.012974936741723748
+        },
+        {
+          "amplitude_rad": 0.05649278285501222,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.999755859375,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.5422499807236765,
+          "quadrature_rad": [
+            0.0016124435140266557,
+            -0.05646976660672183
+          ],
+          "statistic": 0.0034734205231292956
+        },
+        {
+          "amplitude_rad": 0.09782573436054975,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.9423828125,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -1.0206541813802155,
+          "quadrature_rad": [
+            0.0511441162567413,
+            -0.08339156837173513
+          ],
+          "statistic": 0.01037931794475009
+        },
+        {
+          "amplitude_rad": 0.10150331101489476,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.92138671875,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 2.95463087748144,
+          "quadrature_rad": [
+            -0.09973446331177034,
+            0.01886687506980403
+          ],
+          "statistic": 0.011105516679028279
+        }
+      ]
+    },
+    {
+      "case_id": "7f8ba77908f78da1",
+      "detected_dataset_ids": [
+        "10_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.3385633188494064,
+      "peak_dataset_id": "10_mhz",
+      "peak_frequency_hz": 0.010000029621487978,
+      "scan": [
+        {
+          "amplitude_rad": 0.0696474733299642,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.9970703125,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.23684045188011,
+          "quadrature_rad": [
+            0.022829251367077853,
+            0.06579966430968207
+          ],
+          "statistic": 0.005409071243345674
+        },
+        {
+          "amplitude_rad": 0.0807034267759886,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.988037109375,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.304822787188101,
+          "quadrature_rad": [
+            0.02121279078608167,
+            0.07786565738792219
+          ],
+          "statistic": 0.007032650349925211
+        },
+        {
+          "amplitude_rad": 0.1542755562930408,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.37109375,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -1.0266597708461807,
+          "quadrature_rad": [
+            0.07986529944304449,
+            -0.13199424689887068
+          ],
+          "statistic": 0.025767150524143443
+        },
+        {
+          "amplitude_rad": 0.10764615401516109,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.872802734375,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.6022819215730635,
+          "quadrature_rad": [
+            -0.0033887432190231864,
+            0.10759280130961972
+          ],
+          "statistic": 0.012561934264624696
+        },
+        {
+          "amplitude_rad": 0.5589212432387788,
+          "dataset_id": "10_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": 2.3900612380251816,
+          "quadrature_rad": [
+            -0.4083725305824009,
+            0.38160821847715504
+          ],
+          "statistic": 0.3385633188494064
+        },
+        {
+          "amplitude_rad": 0.10712494051641314,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.879638671875,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -1.0191680097647566,
+          "quadrature_rad": [
+            0.056141472733147915,
+            -0.09123534359007074
+          ],
+          "statistic": 0.012446135949733218
+        },
+        {
+          "amplitude_rad": 0.09736631808945975,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.9453125,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 2.9516427429407597,
+          "quadrature_rad": [
+            -0.09561505766947109,
+            0.018383705969188393
+          ],
+          "statistic": 0.010218356438564856
+        }
+      ]
+    },
+    {
+      "case_id": "350e9e4edd88ad61",
+      "detected_dataset_ids": [
+        "0p3_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.32384819829483436,
+      "peak_dataset_id": "0p3_mhz",
+      "peak_frequency_hz": 0.0003000125880430458,
+      "scan": [
+        {
+          "amplitude_rad": 0.08435082975867032,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.979248046875,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.2673098864738004,
+          "quadrature_rad": [
+            0.025208171877958645,
+            0.08049602817249729
+          ],
+          "statistic": 0.007930221727288087
+        },
+        {
+          "amplitude_rad": 0.5458989265516165,
+          "dataset_id": "0p3_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": -2.782441881182911,
+          "quadrature_rad": [
+            -0.5110681988284088,
+            -0.19187218182032856
+          ],
+          "statistic": 0.32384819829483436
+        },
+        {
+          "amplitude_rad": 0.15524445674016646,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.360595703125,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -1.0235449323482835,
+          "quadrature_rad": [
+            0.08078021170514071,
+            -0.13257223972394094
+          ],
+          "statistic": 0.026091693307104154
+        },
+        {
+          "amplitude_rad": 0.09875665702085035,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.93701171875,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.5435263243248973,
+          "quadrature_rad": [
+            0.002692760505342562,
+            0.09871993895254766
+          ],
+          "statistic": 0.010570363189958227
+        },
+        {
+          "amplitude_rad": 0.05527479156835402,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.999755859375,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.6054677561223998,
+          "quadrature_rad": [
+            -0.0019160720880078458,
+            -0.05524157176147813
+          ],
+          "statistic": 0.003324770675241222
+        },
+        {
+          "amplitude_rad": 0.10155454687071615,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.918212890625,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -0.9778870122643935,
+          "quadrature_rad": [
+            0.05674625696310128,
+            -0.0842210680934062
+          ],
+          "statistic": 0.011178755578292742
+        },
+        {
+          "amplitude_rad": 0.09670858989054984,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.948486328125,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 2.9940388418104926,
+          "quadrature_rad": [
+            -0.09565772273392004,
+            0.014217997045260545
+          ],
+          "statistic": 0.010085795754492947
+        }
+      ]
+    },
+    {
+      "case_id": "db4f342d99866f65",
+      "detected_dataset_ids": [
+        "100_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.5193563773806,
+      "peak_dataset_id": "100_mhz",
+      "peak_frequency_hz": 0.10000005848595471,
+      "scan": [
+        {
+          "amplitude_rad": 0.07190532147490218,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.995849609375,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.2394993231064213,
+          "quadrature_rad": [
+            0.02338862780246792,
+            0.06799520090364211
+          ],
+          "statistic": 0.005765249075788442
+        },
+        {
+          "amplitude_rad": 0.0899224001265837,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.9716796875,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.3100160547540645,
+          "quadrature_rad": [
+            0.023185098931225587,
+            0.08688204205746261
+          ],
+          "statistic": 0.008730892971671634
+        },
+        {
+          "amplitude_rad": 0.15300173889487736,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.385009765625,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -1.024633653857405,
+          "quadrature_rad": [
+            0.07947093510834076,
+            -0.1307436521513076
+          ],
+          "statistic": 0.025343321011140226
+        },
+        {
+          "amplitude_rad": 0.10413821882437936,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.901123046875,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.6801868242798428,
+          "quadrature_rad": [
+            -0.011369025710502792,
+            0.103515766307883
+          ],
+          "statistic": 0.011760000243657488
+        },
+        {
+          "amplitude_rad": 0.06367933630503526,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.999267578125,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.5793778505290936,
+          "quadrature_rad": [
+            -0.000546459028715931,
+            -0.06367699156508352
+          ],
+          "statistic": 0.004413011692364965
+        },
+        {
+          "amplitude_rad": 0.10135951128931878,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.919921875,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -1.0001642687055274,
+          "quadrature_rad": [
+            0.05475076627587427,
+            -0.08530008277261007
+          ],
+          "statistic": 0.011139451711973945
+        },
+        {
+          "amplitude_rad": 0.6922295554892894,
+          "dataset_id": "100_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": -2.9294795746960642,
+          "quadrature_rad": [
+            -0.6767154723658125,
+            -0.14573238128025803
+          ],
+          "statistic": 0.5193563773806
+        }
+      ]
+    },
+    {
+      "case_id": "dd4d4113b85e7ea4",
+      "detected_dataset_ids": [
+        "1_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.2167914883445446,
+      "peak_dataset_id": "1_mhz",
+      "peak_frequency_hz": 0.000999921209195054,
+      "scan": [
+        {
+          "amplitude_rad": 0.07548006102287846,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.9931640625,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.1082081150780618,
+          "quadrature_rad": [
+            0.033684169135699625,
+            0.06754714177265414
+          ],
+          "statistic": 0.006357601115484177
+        },
+        {
+          "amplitude_rad": 0.08426364711605397,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.9833984375,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.247940207251874,
+          "quadrature_rad": [
+            0.02673486692248748,
+            0.07991000635674957
+          ],
+          "statistic": 0.007669335687959746
+        },
+        {
+          "amplitude_rad": 0.4474749241946537,
+          "dataset_id": "1_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": 2.067547458676477,
+          "quadrature_rad": [
+            -0.213253958453914,
+            0.3933910992724001
+          ],
+          "statistic": 0.2167914883445446
+        },
+        {
+          "amplitude_rad": 0.10406273484245111,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.90185546875,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.6214850707223298,
+          "quadrature_rad": [
+            -0.005272550804851175,
+            0.10392907673457198
+          ],
+          "statistic": 0.011740385368432537
+        },
+        {
+          "amplitude_rad": 0.06277714940832191,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.99951171875,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.6149855495031642,
+          "quadrature_rad": [
+            -0.0027731707079604374,
+            -0.06271586730692068
+          ],
+          "statistic": 0.004288427461107422
+        },
+        {
+          "amplitude_rad": 0.10222989386480835,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.914306640625,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -1.0841050018148342,
+          "quadrature_rad": [
+            0.04781332667786422,
+            -0.0903594875572334
+          ],
+          "statistic": 0.011345021412435959
+        },
+        {
+          "amplitude_rad": 0.10593465442601842,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.892333984375,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 2.8725431609618575,
+          "quadrature_rad": [
+            -0.10212354836175609,
+            0.028159046119568917
+          ],
+          "statistic": 0.012085817886494564
+        }
+      ]
+    },
+    {
+      "case_id": "95215dec97ba41d8",
+      "detected_dataset_ids": [
+        "3_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.4183674585916166,
+      "peak_dataset_id": "3_mhz",
+      "peak_frequency_hz": 0.003000006095456221,
+      "scan": [
+        {
+          "amplitude_rad": 0.0683971211986333,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.99755859375,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.165055973992432,
+          "quadrature_rad": [
+            0.026996283025003794,
+            0.06284398850402816
+          ],
+          "statistic": 0.005220054491428851
+        },
+        {
+          "amplitude_rad": 0.08946016172000318,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.97265625,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.4022282217699316,
+          "quadrature_rad": [
+            0.015008813835041237,
+            0.08819215408546384
+          ],
+          "statistic": 0.00863753749532094
+        },
+        {
+          "amplitude_rad": 0.1563528011863513,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.347412109375,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -0.9629505381439557,
+          "quadrature_rad": [
+            0.08929315311065537,
+            -0.1283469175569704
+          ],
+          "statistic": 0.026463195519461667
+        },
+        {
+          "amplitude_rad": 0.6220424028469853,
+          "dataset_id": "3_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 0.316497254286271,
+          "quadrature_rad": [
+            0.5911464520122117,
+            0.19360429544053265
+          ],
+          "statistic": 0.4183674585916166
+        },
+        {
+          "amplitude_rad": 0.05676955777642156,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.999755859375,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.5285198138208251,
+          "quadrature_rad": [
+            0.0023993040826906873,
+            -0.05671883311607573
+          ],
+          "statistic": 0.003507613845674202
+        },
+        {
+          "amplitude_rad": 0.10454960489361881,
+          "dataset_id": "30_mhz",
+          "detected": false,
+          "familywise_p": 0.899169921875,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": -0.9529383401309026,
+          "quadrature_rad": [
+            0.06056459189036799,
+            -0.08522059664520645
+          ],
+          "statistic": 0.011843539939549442
+        },
+        {
+          "amplitude_rad": 0.09122993605053273,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.968505859375,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 2.9543538720639773,
+          "quadrature_rad": [
+            -0.08963541663419919,
+            0.016982146996119756
+          ],
+          "statistic": 0.008971224331042783
+        }
+      ]
+    },
+    {
+      "case_id": "7ca816d867007d78",
+      "detected_dataset_ids": [
+        "30_mhz"
+      ],
+      "global_p": 0.000244140625,
+      "max_statistic": 0.27623460220947005,
+      "peak_dataset_id": "30_mhz",
+      "peak_frequency_hz": 0.029999989417143824,
+      "scan": [
+        {
+          "amplitude_rad": 0.07439432638541826,
+          "dataset_id": "0p1_mhz",
+          "detected": false,
+          "familywise_p": 0.993896484375,
+          "frequency_hz": 9.99875251410979e-05,
+          "phase_rad": 1.2942987167251487,
+          "quadrature_rad": [
+            0.020308756107269253,
+            0.07156863994596792
+          ],
+          "statistic": 0.006165433228201344
+        },
+        {
+          "amplitude_rad": 0.09013726175477625,
+          "dataset_id": "0p3_mhz",
+          "detected": false,
+          "familywise_p": 0.97119140625,
+          "frequency_hz": 0.0003000125880430458,
+          "phase_rad": 1.2826856321161881,
+          "quadrature_rad": [
+            0.025611718785660972,
+            0.08642202160036104
+          ],
+          "statistic": 0.00877399279924419
+        },
+        {
+          "amplitude_rad": 0.15552609896472844,
+          "dataset_id": "1_mhz",
+          "detected": false,
+          "familywise_p": 0.357666015625,
+          "frequency_hz": 0.000999921209195054,
+          "phase_rad": -0.9832805751100419,
+          "quadrature_rad": [
+            0.08620734606581208,
+            -0.12944752196730464
+          ],
+          "statistic": 0.02618486160472662
+        },
+        {
+          "amplitude_rad": 0.10569723117150538,
+          "dataset_id": "3_mhz",
+          "detected": false,
+          "familywise_p": 0.89111328125,
+          "frequency_hz": 0.003000006095456221,
+          "phase_rad": 1.6691830968338959,
+          "quadrature_rad": [
+            -0.01038243997989904,
+            0.10518607140390045
+          ],
+          "statistic": 0.012114260509463931
+        },
+        {
+          "amplitude_rad": 0.06547964651296591,
+          "dataset_id": "10_mhz",
+          "detected": false,
+          "familywise_p": 0.9990234375,
+          "frequency_hz": 0.010000029621487978,
+          "phase_rad": -1.487828227340901,
+          "quadrature_rad": [
+            0.0054264910928050174,
+            -0.06525440446347415
+          ],
+          "statistic": 0.004666715712096336
+        },
+        {
+          "amplitude_rad": 0.5057510268327209,
+          "dataset_id": "30_mhz",
+          "detected": true,
+          "familywise_p": 0.000244140625,
+          "frequency_hz": 0.029999989417143824,
+          "phase_rad": 2.4169946656502197,
+          "quadrature_rad": [
+            -0.3786891480297983,
+            0.33522922054441645
+          ],
+          "statistic": 0.27623460220947005
+        },
+        {
+          "amplitude_rad": 0.09439953709193089,
+          "dataset_id": "100_mhz",
+          "detected": false,
+          "familywise_p": 0.95751953125,
+          "frequency_hz": 0.10000005848595471,
+          "phase_rad": 3.014968600200313,
+          "quadrature_rad": [
+            -0.09364376310874176,
+            0.011921335244203602
+          ],
+          "statistic": 0.009612395048331715
+        }
+      ]
+    }
+  ],
+  "generated_at_utc": "2026-08-25T12:19:14.406228Z",
+  "mapping_accessed": false,
+  "preregistration_commit": "dbd2da7",
+  "schema_version": "1.0",
+  "seed_commitment_sha256": "0a1ad503b576ba7ec553d43da1199d2f05c3eb4d8e577e36be8a38d457eb382d"
+}
