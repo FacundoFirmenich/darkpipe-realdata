@@ -17,7 +17,7 @@ See evidence/notebook_inventory.json for exact names, byte counts, hashes and cl
 
 Metadata for records 19194518, 18480821, 17875888, 17548048 and 20102651 was verified through Zenodo's official API. Only the three small packages were downloaded for bounded inspection; the 640 MB SFA archive and 23 MB KwanTube archive were not downloaded. This avoided unnecessary local-disk use.
 
-The inspected SFA and OpenADS packages are GPL-licensed. DarkPipe 0.3.0 is an original clean-room implementation; it does not copy GPL source. The scale-dependent-spacetime package was used only as contextual evidence.
+The inspected SFA and OpenADS packages are GPL-licensed. DarkPipe 0.3.0 is an original clean-room implementation and is released under GPL-3.0-or-later, the GNU General Public License version 3. This license choice does not imply that GPL code from adjacent packages was copied. The scale-dependent-spacetime package was used only as contextual evidence.
 
 ## Historical package boundary
 

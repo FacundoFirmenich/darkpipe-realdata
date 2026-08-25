@@ -1,0 +1,2 @@
+# Evidence receipts are byte-custody artifacts. Git must not normalize them.
+evidence/** -text

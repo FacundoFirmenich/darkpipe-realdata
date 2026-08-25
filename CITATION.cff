@@ -8,4 +8,4 @@ authors:
 version: 0.3.0
 date-released: 2026-08-25
 repository-code: "https://github.com/FacundoFirmenich/darkpipe-realdata"
-license: MIT
+license: GPL-3.0-or-later

@@ -8,7 +8,7 @@ version = "0.3.0"
 description = "Real-data-first environmental foreground diagnostics for projection-aware spectral studies"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "MIT"
+license = "GPL-3.0-or-later"
 authors = [{name = "Facundo Firmenich"}]
 dependencies = ["numpy>=2.0", "pandas>=2.2", "scipy>=1.13", "requests>=2.32", "matplotlib>=3.9"]
 keywords = ["geomagnetism", "solar-wind", "whittle-likelihood", "foregrounds", "open-data"]

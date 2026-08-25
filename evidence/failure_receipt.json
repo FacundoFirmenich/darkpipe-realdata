@@ -26,6 +26,11 @@
       "stage": "first INTERMAGNET HAPI probe",
       "exit_code": 1,
       "finding": "data response omitted parameters; parser incorrectly assumed inline metadata. Repaired by combining official /info and /data."
+    },
+    {
+      "stage": "initial GitHub Actions CI",
+      "exit_code": 1,
+      "finding": "Git text normalization changed evidence/report.md from local CRLF bytes to LF in the Linux checkout, invalidating the byte-count/hash receipt; analysis tests otherwise passed 4/5."
     }
   ],
   "repairs": [
@@ -38,6 +43,10 @@
       "stage": "INTERMAGNET HAPI probe",
       "exit_code": 0,
       "evidence": "evidence/hapi_intermagnet_probe_2026-08-25/data.json"
+    },
+    {
+      "stage": "cross-platform evidence byte custody",
+      "mechanism": "evidence/** -text in .gitattributes; exact evidence files re-indexed; CI rerun required"
     }
   ]
 }
