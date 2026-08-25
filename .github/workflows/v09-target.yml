@@ -25,14 +25,14 @@ jobs:
       - name: Require committed green calibration state
         run: >-
           test -f
-          evidence/gps_network_v09/calibration_state.npz
+          evidence/gps_network_v09/calibration_state.json
       - name: Open frozen target once
         id: target
         continue-on-error: true
         run: >-
           python run_darkpipe_gps_network_v09.py
           --stage target
-          --calibration-state evidence/gps_network_v09/calibration_state.npz
+          --calibration-state evidence/gps_network_v09/calibration_state.json
           --output "$RUNNER_TEMP/darkpipe-v09-target"
       - name: Upload compact target evidence
         if: always()
