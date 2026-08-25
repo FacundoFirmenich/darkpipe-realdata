@@ -39,3 +39,7 @@ Before any detection claim, DarkPipe still requires a preregistered sensor-level
 - USGS ComCat interface (supported adapter constant; not part of the default run): https://earthquake.usgs.gov/fdsnws/event/1/
 
 See docs/SCIENTIFIC_SCOPE.md, docs/SOURCE_ENDPOINTS.md, docs/ARCHAEOLOGY_AND_CUSTODY.md, SECURITY.md and the latest release receipt under evidence/.
+
+## License
+
+DarkPipe is released under GNU GPL version 3 or later (SPDX: GPL-3.0-or-later). See LICENSE.

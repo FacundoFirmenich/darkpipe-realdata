@@ -27,6 +27,7 @@ Verde:
 - fuentes NOAA RTSW, USGS y HAPI INTERMAGNET verificadas en vivo;
 - pipeline real-data-first, instalación, Colab, pruebas y custodia de hashes operativos;
 - repositorio escaneado: cero coincidencias de patrones de credenciales;
+- licencia vigente GNU GPL v3 o posterior (GPL-3.0-or-later), por decisión expresa del autor;
 - huella local del repositorio/evidencia de unos 4,46 MB y ZIP comprimido inferior a 1 MB.
 
 Rojo o pendiente:
