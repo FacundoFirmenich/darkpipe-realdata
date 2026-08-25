@@ -32,9 +32,21 @@ Build a real-data-first, projection-aware pipeline for environmental foregrounds
 5. Seven of seven 0.60-rad tangent injections identified as the sole detected target, each with global p = 1/4096.
 6. Terminal `PASS_BOUNDED` under the frozen rule; no promotion to a physical or continuous-search claim.
 
+## Established in 0.7
+
+1. A development-only 0.1–75 mHz scan over 5,578 Rayleigh-spaced frequencies.
+2. Eight development maxima frozen before chronological holdout access.
+3. Holdout FWER control from 4,095 condition-wise circular rotations.
+4. Terminal **NO_HOLDOUT_CANDIDATE**: zero of eight maxima confirmed.
+5. Smallest holdout familywise p = 0.405517578125 for c005 at 47.5447 mHz.
+6. Hartland and OMNI **NOT_APPLICABLE** because no survivor triggered HAPI.
+7. The 75–100 mHz band and independent-epoch replication remain
+   **NOT_ESTIMABLE**.
+8. The adverse result is preserved without retuning or holdout reuse.
+
 ## Not established
 
-- Dark plasma, ultralight-field, topological-defect or gravitational-wave detection.
+- The morphotopological plasma-hyperstate account, ultralight-field, topological-defect or gravitational-wave detection.
 - Independent repeated-instrument false-positive rate or continuous-band global significance.
 - Full raw-HDF5 marginal-likelihood reconstruction.
 - Transfer to AION-10, AION-km or another facility.
@@ -44,4 +56,7 @@ Build a real-data-first, projection-aware pipeline for environmental foregrounds
 
 ## Required next gate
 
-Advance from this single fixed-family tangent replay to independent raw-phase campaigns, a preregistered continuous frequency band, coverage/power curves over multiple amplitudes, nonstationarity stress tests and external replication.
+Run an independent epoch or instrument with preregistered power and coverage,
+nonstationarity stress tests and co-located controls when available. A separate
+physical boundary operator must connect any sensor or gravitational observable
+to the morphotopological conjecture before that conjecture becomes estimable.

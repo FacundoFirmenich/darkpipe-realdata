@@ -1,0 +1,155 @@
+{
+  "calibration": {
+    "alpha": 0.05,
+    "critical_max_statistic": 0.0764236427077492,
+    "method": "paired-arm condition-wise circular rotations of holdout residuals",
+    "seed": 2026082507,
+    "surrogates": 4095
+  },
+  "campaign_id": "DP-AION-CONTINUOUS-0.7-20260825",
+  "candidate_commit": "0fa86e0906e613207ba4e69120bcc5fea5bf7949",
+  "candidate_family_size": 8,
+  "claim_ceiling": "single-epoch split-sample sensor candidate with measured environmental classification",
+  "claim_ledger": [
+    {
+      "claim_id": "split_sample_continuous_search_executed",
+      "scope": "development scan and nonempty-family holdout confirmation on one AION epoch",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "holdout_candidate_in_frozen_family",
+      "scope": "0/8 candidates passed familywise alpha 0.05",
+      "status": "CONTRADICTED"
+    },
+    {
+      "claim_id": "local_geomagnetic_association",
+      "scope": "regional Hartland one-second block coherence; association is not causation",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "claim_id": "independent_epoch_replication",
+      "scope": "v0.7 reuses the single 2025-12-19/22 AION control epoch",
+      "status": "NOT_ESTIMABLE"
+    },
+    {
+      "claim_id": "morphosyntactic_plasma_dark_matter_hypothesis",
+      "scope": "no specific physical coupling model or independent replication",
+      "status": "NOT_ESTIMABLE"
+    },
+    {
+      "claim_id": "frequency_band_75_to_100_mhz",
+      "scope": "excluded above the lower development median-cadence nominal Nyquist",
+      "status": "NOT_ESTIMABLE"
+    }
+  ],
+  "decision": "NO_HOLDOUT_CANDIDATE",
+  "discovery_file_sha256": "055fb74db1aa0aca1f138095e465fde4e351fa2da5a631a12d65c0124d7fe1a6",
+  "environment": {
+    "associations": [],
+    "omni_context": [],
+    "reason": "no holdout candidate survived the frozen FWER gate",
+    "status": "NOT_APPLICABLE"
+  },
+  "environment_source_files": [],
+  "generated_at_utc": "2026-08-25T16:01:23.898624Z",
+  "holdout_confirmation": [
+    {
+      "amplitude_rad": 0.10984808538371285,
+      "candidate_id": "c001",
+      "detected": false,
+      "familywise_p": 0.984619140625,
+      "frequency_hz": 0.03809211753417201,
+      "quadrature_rad": [
+        -0.05606854519244393,
+        0.09446120951200203
+      ],
+      "statistic": 0.013000018799773451
+    },
+    {
+      "amplitude_rad": 0.09987058094517563,
+      "candidate_id": "c002",
+      "detected": false,
+      "familywise_p": 0.9951171875,
+      "frequency_hz": 0.015051555782801134,
+      "quadrature_rad": [
+        0.09981343165737669,
+        -0.003378135448005518
+      ],
+      "statistic": 0.010731056660068539
+    },
+    {
+      "amplitude_rad": 0.1335135870431465,
+      "candidate_id": "c003",
+      "detected": false,
+      "familywise_p": 0.92919921875,
+      "frequency_hz": 0.04181136905231287,
+      "quadrature_rad": [
+        -0.040417259097599426,
+        -0.1272490592977621
+      ],
+      "statistic": 0.019297686835811824
+    },
+    {
+      "amplitude_rad": 0.06583304600256039,
+      "candidate_id": "c004",
+      "detected": false,
+      "familywise_p": 0.999755859375,
+      "frequency_hz": 0.018905076308817124,
+      "quadrature_rad": [
+        0.02193782897106347,
+        -0.062070295681683374
+      ],
+      "statistic": 0.004692094312961468
+    },
+    {
+      "amplitude_rad": 0.19431719309827694,
+      "candidate_id": "c005",
+      "detected": false,
+      "familywise_p": 0.405517578125,
+      "frequency_hz": 0.047544655688580566,
+      "quadrature_rad": [
+        0.10099580059319,
+        -0.1660090955223046
+      ],
+      "statistic": 0.04085289213028255
+    },
+    {
+      "amplitude_rad": 0.12247595438023388,
+      "candidate_id": "c006",
+      "detected": false,
+      "familywise_p": 0.9658203125,
+      "frequency_hz": 0.04762521709330564,
+      "quadrature_rad": [
+        -0.11865612341708702,
+        0.03034936205224332
+      ],
+      "statistic": 0.016237418466194725
+    },
+    {
+      "amplitude_rad": 0.1551160736869318,
+      "candidate_id": "c007",
+      "detected": false,
+      "familywise_p": 0.782470703125,
+      "frequency_hz": 0.04207990706806312,
+      "quadrature_rad": [
+        0.11530449549367362,
+        0.10375870871883025
+      ],
+      "statistic": 0.025886921707908298
+    },
+    {
+      "amplitude_rad": 0.11596473454464713,
+      "candidate_id": "c008",
+      "detected": false,
+      "familywise_p": 0.97802734375,
+      "frequency_hz": 0.0634823869233575,
+      "quadrature_rad": [
+        0.1004581351039921,
+        -0.05793084454276968
+      ],
+      "statistic": 0.0144694082715547
+    }
+  ],
+  "preregistration_commit": "bd042781284b46490f1d27e356a0066a238f2190",
+  "schema_version": "1.0"
+}

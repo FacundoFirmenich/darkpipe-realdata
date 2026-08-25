@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T15:44:10.372317Z",
+  "generated_at_utc": "2026-08-25T16:27:11.727760Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 119,
-  "total_bytes": 28149322,
+  "file_count": 130,
+  "total_bytes": 28415051,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -22,13 +22,13 @@
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
-      "byte_count": 1517,
-      "sha256": "9c3b7231ad05ac8540aeaa8a8f54aaa5b7d28077dd7f9fbe95719d3314a49109"
+      "byte_count": 1533,
+      "sha256": "a72d0ae0389348ba7426d95a1411706de85245f6ec13e56e95c7b11ca3ce3568"
     },
     {
       "path": ".github/workflows/v07-discover.yml",
-      "byte_count": 816,
-      "sha256": "3e9aad2759e21733f9fa1cb6b0c7824d38ce498cd5d5212a62a2555348adc189"
+      "byte_count": 828,
+      "sha256": "2842935089379bf998a1d43ccc11834b6d691d4ade89dc4332d5ee466dfc2ca8"
     },
     {
       "path": ".gitignore",
@@ -37,13 +37,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 4622,
-      "sha256": "8f78fa7f0f671d049ef4211e44b3f051f8e8be034aead129da3b0e3d7e688ac7"
+      "byte_count": 4979,
+      "sha256": "534f9734d4a765f67ce1c200c9a169c29474a995faa9ef0dcf50243bf02bdfae"
     },
     {
       "path": "CITATION.cff",
       "byte_count": 440,
-      "sha256": "7282968cb5f48ed34da4e51e07699e466e77ab284a6bbea0db91e33c70cb6f64"
+      "sha256": "24f4e0212e90848cafc9cd8a33cbd46b2faa2c2e494aa1e922b24a97ad48120d"
     },
     {
       "path": "LICENSE",
@@ -57,8 +57,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 5136,
-      "sha256": "fc68239ac398864f285543e9dbefc7e42d8e53783b7fbce494f97b26e0bdc56f"
+      "byte_count": 4957,
+      "sha256": "0597ae6e63ceea5e39d464ddf77a8778111fa4265b266b2846a81c3001fc85eb"
     },
     {
       "path": "SECURITY.md",
@@ -91,6 +91,11 @@
       "sha256": "d1213a5fee387bde33c039842caa83507cde9ae5068223d35e5a589f0b729872"
     },
     {
+      "path": "docs/CIERRE_SUSTANTIVO_ES_AION_CONTINUOUS_0.7_2026-08-25.md",
+      "byte_count": 4805,
+      "sha256": "48e85044c040e6f72f22e183a7a5c3550e3c890cf854113a3d296f439c94c336"
+    },
+    {
       "path": "docs/OBSERVATIONAL_AUTHORITY_0.5.md",
       "byte_count": 3509,
       "sha256": "496416ba458be630252ce4c624b7cd8cb0163102cbf0a64365d0f98a45d4db05"
@@ -112,13 +117,18 @@
     },
     {
       "path": "docs/SCIENTIFIC_SCOPE.md",
-      "byte_count": 2634,
-      "sha256": "737a5734e5afbbfcca69d75921b7aab8955bd359e0dd7eb35352fae8ad3f22bd"
+      "byte_count": 3375,
+      "sha256": "1ef8f520a154861cb240b84bd304c6d6d68af4251772be3ea26c11599d350511"
     },
     {
       "path": "docs/SOURCE_ENDPOINTS.md",
       "byte_count": 1470,
       "sha256": "06073d9cc9bbf7a56c2c22fb79af069cb89e2e893522a01cc730f115e00a7d58"
+    },
+    {
+      "path": "docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md",
+      "byte_count": 9683,
+      "sha256": "c2c46b5215f78654f327c191cf60585599e2fad362390cbb8586304defcd2c08"
     },
     {
       "path": "evidence/adjacent_zenodo_manifest.json",
@@ -164,6 +174,46 @@
       "path": "evidence/aion_blind_holdout_2026-08-25/seed_reveal.json",
       "byte_count": 228,
       "sha256": "62a10a76e1cf8c88ac7275b32f629f8c174ec9b9c7fd3e131c958dbf1d0fbb67"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/confirmation_run_receipt.json",
+      "byte_count": 2368,
+      "sha256": "453ce2e0f3b7a368b6a78aaa5393b08096c8d17036836c4368a97f000af8e6b3"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/development_continuous_scan.png",
+      "byte_count": 166559,
+      "sha256": "427945a924ad8426ecfdf3a0f5cf194a3ae3352411850500f2fe07048d054e56"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/discovery_candidates.json",
+      "byte_count": 3209,
+      "sha256": "055fb74db1aa0aca1f138095e465fde4e351fa2da5a631a12d65c0124d7fe1a6"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/discovery_run_receipt.json",
+      "byte_count": 1027,
+      "sha256": "da051659526ba263e31cb7319232c776afbdd6472d092ae60a13c93187cb8c29"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/holdout_confirmation.png",
+      "byte_count": 63777,
+      "sha256": "b70d223572ff3e3c79b05b7835904ecfbf3eddd6ede7e4ac5a4a1b4d0770d854"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/manifest.json",
+      "byte_count": 1121,
+      "sha256": "21e7569bf27b39bf2e4fbe9c1d5269c6ff2f46f52f6c5cc0b13a24c2a2757fca"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/report.json",
+      "byte_count": 4716,
+      "sha256": "c4cade6df302546c2e8d86bc950d154b1737ac044a3bbaaf67642c1d2101336f"
+    },
+    {
+      "path": "evidence/aion_continuous_environment_2026-08-25/report.md",
+      "byte_count": 2577,
+      "sha256": "3e7b5e66880342aa8d32ebb7025e0f2adc4adadc3c592b5090ce5490c761fd68"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/CC-BY-4.0.txt",
@@ -456,6 +506,11 @@
       "sha256": "01f293881d3d3bd548c721fe443f80f4d6d481a7aee32e05b2e17b11d358ee48"
     },
     {
+      "path": "notebooks/DarkPipe_AION_Continuous_v07_Colab.ipynb",
+      "byte_count": 3758,
+      "sha256": "3046178fc0faab77733966ef20dbe4fe4aea9419b73804c89fd1b48cc3148e28"
+    },
+    {
       "path": "notebooks/DarkPipe_AION_v04_Colab.ipynb",
       "byte_count": 6949,
       "sha256": "083d2565e0e554e59579d9a6099f14d779c6c22c890a1d8d26c7f1b6decbf68e"
@@ -532,8 +587,8 @@
     },
     {
       "path": "src/darkpipe/aion_continuous.py",
-      "byte_count": 34067,
-      "sha256": "1a6eff74e1c87a8341bb85f9f2b75a50dc623692931e54bd6bd3c97f98c28c0d"
+      "byte_count": 34187,
+      "sha256": "b729c87417e4ff921ec91f0322aad5dde9410b78df7e778a394a8f517bc10eea"
     },
     {
       "path": "src/darkpipe/analysis.py",
@@ -592,8 +647,8 @@
     },
     {
       "path": "tests/test_aion_continuous.py",
-      "byte_count": 3962,
-      "sha256": "85c818128f297c15cc58bc382d370593b65b00a1a358ede9f4f33b9f6ffad007"
+      "byte_count": 5024,
+      "sha256": "82b5d005c7a0689f07e9a8b08e5452451a8c53c5ea40f482ab3acb0fd52f3a93"
     },
     {
       "path": "tests/test_authority.py",

@@ -1,8 +1,8 @@
 """Split-sample continuous AION search with measured environmental controls.
 
 The campaign searches authentic AION control observations. It does not encode a
-dark-plasma coupling model and cannot promote an unexplained sensor candidate to
-a physical detection.
+physical coupling model for the morphotopological plasma-hyperstate conjecture and
+cannot promote an unexplained sensor candidate to a physical detection.
 """
 from __future__ import annotations
 
@@ -670,7 +670,7 @@ obtenidos mediante rotaciones circulares del holdout sobre la familia congelada.
 |---|---:|---:|---:|---|
 {rows or '| - | - | - | - | no hubo máximos elegibles |'}
 
-Estado del contraste geomagnético local: **{report['environment']['status']}**.
+Estado del contraste geomagnético regional: **{report['environment']['status']}**.
 Hartland es un control ambiental medido; OMNI se conserva como contexto
 heliosférico y no actúa como veto causal.
 Hartland es un observatorio regional, no un magnetómetro co-localizado con AION;
@@ -688,8 +688,10 @@ este gate y no quedó asociada a Hartland; no identifica su naturaleza física.
 
 {claims}
 
-La campaña reutiliza una sola época AION y no contiene un modelo de acoplamiento
-específico para plasma oscuro. Por ello una detección física y una tasa de falsa
+La campaña reutiliza una sola época AION y no contiene un modelo físico que
+conecte el sistema morfotopológico de hiperestados plásmicos con observables de
+borde gravitatorios. Por ello
+una detección física y una tasa de falsa
 alarma entre campañas independientes permanecen NOT_ESTIMABLE.
 """
 
@@ -830,9 +832,9 @@ def confirm_continuous_candidates(
             "scope": "v0.7 reuses the single 2025-12-19/22 AION control epoch",
         },
         {
-            "claim_id": "dark_plasma_or_dark_matter_detection",
+            "claim_id": "morphotopological_plasma_hyperstate_hypothesis",
             "status": "NOT_ESTIMABLE",
-            "scope": "no specific dark-plasma coupling model or independent physical replication",
+            "scope": "no specific physical coupling model or independent replication",
         },
         {
             "claim_id": "frequency_band_75_to_100_mhz",

@@ -1,3 +1,4 @@
+import json
 import inspect
 from pathlib import Path
 
@@ -108,3 +109,28 @@ def test_v07_protocol_constants_and_hapi_bound_are_frozen():
     assert "development-only continuous" in prereg
     assert "dark-plasma, dark-matter" in prereg
     assert "OMNI never acts as a causal veto" in prereg
+    erratum = (
+        ROOT / "docs" / "TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md"
+    ).read_text(encoding="utf-8")
+    assert "El sistema no es un estado morfosintáctico" in erratum
+    assert "morfosintaxis dinámico~jerárquico~semántica" in erratum
+    assert "plasma morfo-sintáctico" not in erratum
+    assert "No analytical rule" in erratum
+
+
+def test_v07_checked_result_is_adverse_and_bounded():
+    report = json.loads(
+        (
+            ROOT
+            / "evidence"
+            / "aion_continuous_environment_2026-08-25"
+            / "report.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert report["decision"] == "NO_HOLDOUT_CANDIDATE"
+    assert len(report["holdout_confirmation"]) == 8
+    assert not any(item["detected"] for item in report["holdout_confirmation"])
+    best = min(report["holdout_confirmation"], key=lambda item: item["familywise_p"])
+    assert best["candidate_id"] == "c005"
+    assert best["familywise_p"] == 0.405517578125
+    assert report["environment"]["status"] == "NOT_APPLICABLE"

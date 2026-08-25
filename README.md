@@ -1,26 +1,40 @@
-# DarkPipe 0.7.0 candidate — continuous AION search with measured environmental controls
+# DarkPipe 0.7.0 — split-sample continuous AION search
 
 DarkPipe acquires bounded official observations, preserves byte-level provenance and runs reproducible environmental and atom-interferometer validation.
-Version 0.7 preregisters a development-only continuous scan of authentic AION LLN/HLN control noise,
-a frozen-family chronological holdout gate and measured local geomagnetic classification. The v0.7 campaign has not yet been adjudicated.
+Version 0.7 executes a prospectively frozen 0.1–75 mHz development scan and a
+chronological holdout gate on authentic AION LLN/HLN control noise.
 
-**Latest adjudicated result:** v0.6.0 `PASS_BOUNDED`. The unchanged null case produced no familywise detections, and all seven 0.60-rad injected cases were identified as the sole detected target at the frozen AION frequency family.
+**Terminal result:** `NO_HOLDOUT_CANDIDATE`. None of the eight development
+maxima survived holdout familywise correction.
 
-**v0.7 authority ceiling:** at most one single-epoch split-sample sensor candidate and its measured environmental classification. It cannot establish dark plasma, dark matter, gravitational waves, causation, an independent false-positive rate, a specific coupling or transfer to another instrument.
+**v0.7 authority ceiling:** at most one single-epoch split-sample sensor candidate
+and its measured environmental classification. It cannot establish the
+morphotopological plasma-hyperstate conjecture, causation or physical detection.
 
-## What 0.7 tests
+## v0.7 checked result
 
-- A 0.1–75 mHz development-only grid at one Rayleigh-cell spacing, with no development significance threshold.
-- At most eight separated local maxima, committed before any holdout frequency endpoint is computed.
-- Holdout familywise calibration from 4,095 condition-wise circular rotations.
-- INTERMAGNET/BGS Hartland one-second XYZF as a measured regional-field control for holdout survivors.
-- NASA CDAWeb OMNI one-minute variables as heliospheric context only, never as a causal veto.
-- Explicit exclusion of the four development frequencies exposed by pre-freeze engineering equivalence probes and their two-Rayleigh-cell neighborhoods.
-- Mandatory `NOT_ESTIMABLE` status for dark-plasma, dark-matter and gravitational-wave detection in this campaign.
+| Gate | Result |
+|---|---|
+| Development grid | 5,578 frequencies; 0.1–75 mHz |
+| Frozen family | 8 maxima; commit `0fa86e0` |
+| Holdout | 0/8 confirmed |
+| Best holdout candidate | c005 at 47.5447 mHz; p FWER = 0.405517578125 |
+| Regional environment | `NOT_APPLICABLE`; no survivor triggered HAPI acquisition |
+| Terminal decision | `NO_HOLDOUT_CANDIDATE` |
 
-- The unsearched 75–100 mHz interval remains `NOT_ESTIMABLE` because of the AION development cadence.
-Read the [v0.7 preregistration](docs/PREREGISTRATION_AION_CONTINUOUS_ENVIRONMENT_0.7.md). The executable rules and this documentation must be committed before the full continuous scan.
+Protocol facts:
 
+- Grid spacing was one development Rayleigh cell with no development threshold.
+- Holdout FWER used 4,095 frozen condition-wise circular rotations.
+- The four engineering-probe neighborhoods remained excluded.
+- The unsearched 75–100 mHz interval and the morphotopological plasma-hyperstate
+  conjecture remain `NOT_ESTIMABLE`.
+
+Read the [v0.7 preregistration](docs/PREREGISTRATION_AION_CONTINUOUS_ENVIRONMENT_0.7.md),
+[checked report](evidence/aion_continuous_environment_2026-08-25/report.md) and
+[Spanish substantive closure](docs/CIERRE_SUSTANTIVO_ES_AION_CONTINUOUS_0.7_2026-08-25.md).
+
+The post-discovery [terminology erratum](docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md) changes no analytical rule and preserves frozen historical wording as provenance.
 
 ## What 0.6 established
 
@@ -34,7 +48,7 @@ Read the [v0.7 preregistration](docs/PREREGISTRATION_AION_CONTINUOUS_ENVIRONMENT
 
 Read the [frozen preregistration](docs/PREREGISTRATION_AION_BLIND_HOLDOUT_0.6.md), [scientific scope](docs/SCIENTIFIC_SCOPE.md) and [Spanish substantive closure](docs/CIERRE_SUSTANTIVO_ES_AION_BLIND_0.6_2026-08-25.md).
 
-## Checked result
+## v0.6 checked result
 
 | Gate | Result |
 |---|---|
@@ -49,13 +63,15 @@ The synthetic component is only the explicitly declared first-order differential
 ## Reproduce
 
     python -m pip install -e .
-    python run_darkpipe_aion_blind_v06.py --mode reproduce --campaign darkpipe_aion_blind_reproduction
+    python run_darkpipe_aion_continuous_v07.py --mode confirm \
+      --campaign evidence/aion_continuous_environment_2026-08-25 \
+      --candidate-commit 0fa86e0906e613207ba4e69120bcc5fea5bf7949
 
-The staged CLI preserves the blind boundary for a new seed:
+Because no candidate survived, this reproduction performs no HAPI acquisition.
+The historical v0.6 injected-detector replay remains available:
 
-    darkpipe aion-blind-prepare --campaign campaign --seed-file private_seed.txt --preregistration-commit <freeze-commit>
-    darkpipe aion-blind-analyze --campaign campaign
-    darkpipe aion-blind-reveal --campaign campaign --seed-file private_seed.txt
+    python run_darkpipe_aion_blind_v06.py --mode reproduce \
+      --campaign darkpipe_aion_blind_reproduction
 
 The historical commands remain available:
 
@@ -64,7 +80,9 @@ The historical commands remain available:
 
 ## Colab
 
-Open `notebooks/DarkPipe_AION_Blind_v06_Colab.ipynb`. It installs the tagged release, runs the full suite, reconstructs the sealed challenge from the revealed seed, reproduces the blind predictions and terminal report, and exports a compact ZIP.
+Open `notebooks/DarkPipe_AION_Continuous_v07_Colab.ipynb`. It installs the
+tagged release, verifies the checked receipt, reproduces the holdout decision and
+exports a compact ZIP. The v0.6 notebook remains preserved.
 
 ## Preserved history and privacy
 
