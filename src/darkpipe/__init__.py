@@ -13,7 +13,7 @@ from .authority import (
 from .sources import fetch_hapi, fetch_noaa_solar_wind, fetch_usgs_geomag
 from .whittle import whittle_loglikelihood
 
-__version__ = "0.8.0"
+__version__ = "0.10.0"
 __all__ = [
     "fetch_noaa_solar_wind",
     "fetch_usgs_geomag",
