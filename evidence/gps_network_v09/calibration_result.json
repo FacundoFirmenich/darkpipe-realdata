@@ -1,0 +1,1884 @@
+{
+  "background_days": [
+    "2024-10-31",
+    "2024-11-01",
+    "2024-11-02",
+    "2024-11-03",
+    "2024-11-04",
+    "2024-11-05",
+    "2024-11-06",
+    "2024-11-07",
+    "2024-11-08",
+    "2024-11-09",
+    "2024-11-10",
+    "2024-11-11",
+    "2024-11-12",
+    "2024-11-13",
+    "2024-11-14",
+    "2024-11-15",
+    "2024-11-16",
+    "2024-11-17",
+    "2024-11-18",
+    "2024-11-19",
+    "2024-11-20",
+    "2024-11-21",
+    "2024-11-22",
+    "2024-11-23",
+    "2024-11-24",
+    "2024-11-25",
+    "2024-11-26",
+    "2024-11-27",
+    "2024-11-28",
+    "2024-11-29",
+    "2024-11-30",
+    "2024-12-01",
+    "2024-12-02",
+    "2024-12-03",
+    "2024-12-04",
+    "2024-12-05",
+    "2024-12-06",
+    "2024-12-07",
+    "2024-12-08",
+    "2024-12-09",
+    "2024-12-10",
+    "2024-12-11"
+  ],
+  "background_starts_utc": [
+    "00:15",
+    "08:00",
+    "15:45"
+  ],
+  "campaign_id": "DP-GPS-NETWORK-TRANSIENT-0.9-20260825",
+  "claim_ceiling": "Calibration certifies only sensitivity of the frozen GPS network operator to declared standardized impulses.",
+  "config": {
+    "alpha": 0.05,
+    "cadence_seconds": 30.0,
+    "campaign_id": "DP-GPS-NETWORK-TRANSIENT-0.9-20260825",
+    "coverage_min": 0.98,
+    "download_limit_bytes": 100000000,
+    "guard_seconds": 1200.0,
+    "injection_amplitudes": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "injection_trials": 128,
+    "localization_tolerance_seconds": 120.0,
+    "min_nodes": 20,
+    "seed": 2026082509,
+    "template_count": 256,
+    "velocity_max_km_s": 770.0,
+    "velocity_min_km_s": 53.7
+  },
+  "created_utc": "2026-08-25T21:44:29.691309Z",
+  "decision": "CALIBRATION_GREEN_TARGET_MAY_OPEN",
+  "gate_threshold": "largest-amplitude joint Wilson 95% lower bound >= 0.80",
+  "not_estimable": [
+    "dark matter",
+    "plasma hyperstates",
+    "gravity mechanism",
+    "physical coupling",
+    "clock-species-specific response"
+  ],
+  "null_family": "42 daily maxima with one non-overlapping block per day; each maximum spans both split parts, all centers, signs, and velocity templates",
+  "null_maxima": [
+    5.112364718789266,
+    6.606602616859424,
+    9.574081158258073,
+    5.7187214709365115,
+    6.90757893578618,
+    10.229588258423789,
+    8.957482072936171,
+    13.281563035193793,
+    3.5014554728307425,
+    5.090188820129752,
+    8.357925552667847,
+    4.838516082359513,
+    6.821487029878107,
+    5.1150259130442315,
+    7.284063587510011,
+    5.486656309673092,
+    4.79457290685975,
+    9.623724235133077,
+    5.599254614644683,
+    5.53233648642779,
+    8.739675221794942,
+    7.917661357882978,
+    8.417552290246748,
+    3.905501088971899,
+    3.9593039526474554,
+    6.7911914491104595,
+    4.698328431455417,
+    7.173030036323696,
+    6.173357867173341,
+    4.735544467322478,
+    8.317694775710976,
+    6.969401615668066,
+    3.9403549479577005,
+    5.383367740881143,
+    4.348214482563627,
+    5.746154305186359,
+    4.410564804416813,
+    6.756715094900392,
+    8.147242835578021,
+    4.2761275612134755,
+    4.94916053852076,
+    8.301340300301847
+  ],
+  "part_hits": [
+    {
+      "block_index": 0,
+      "center_second": 783607860.0,
+      "direction_xyz": [
+        -0.6686999381609448,
+        -0.07148168175708466,
+        -0.7400883473455905
+      ],
+      "label": "2024-10-31-b1-p1",
+      "part_index": 0,
+      "statistic": 5.112364718789266,
+      "template_index": 121,
+      "velocity_km_s": 94.66795379467538
+    },
+    {
+      "block_index": 0,
+      "center_second": 783626550.0,
+      "direction_xyz": [
+        0.11984175731002347,
+        -0.4201752543139678,
+        0.8994946964085102
+      ],
+      "label": "2024-10-31-b1-p2",
+      "part_index": 1,
+      "statistic": 3.660547667134368,
+      "template_index": 180,
+      "velocity_km_s": 278.1591377196117
+    },
+    {
+      "block_index": 1,
+      "center_second": 783721380.0,
+      "direction_xyz": [
+        0.6621338457292555,
+        0.38416741955204853,
+        0.6434237826615573
+      ],
+      "label": "2024-11-01-b1-p1",
+      "part_index": 0,
+      "statistic": 4.216412095817508,
+      "template_index": 106,
+      "velocity_km_s": 158.69429045404277
+    },
+    {
+      "block_index": 1,
+      "center_second": 783745470.0,
+      "direction_xyz": [
+        0.16004281335610113,
+        -0.8667485726057181,
+        -0.4723697807639837
+      ],
+      "label": "2024-11-01-b1-p2",
+      "part_index": 1,
+      "statistic": 6.606602616859424,
+      "template_index": 135,
+      "velocity_km_s": 438.98505766342726
+    },
+    {
+      "block_index": 2,
+      "center_second": 783835560.0,
+      "direction_xyz": [
+        -0.5643604571723556,
+        0.8237459306670463,
+        0.0542209930717945
+      ],
+      "label": "2024-11-02-b1-p1",
+      "part_index": 0,
+      "statistic": 3.6341230522916743,
+      "template_index": 234,
+      "velocity_km_s": 164.84347922398442
+    },
+    {
+      "block_index": 2,
+      "center_second": 783857850.0,
+      "direction_xyz": [
+        0.7401923224325223,
+        -0.6566199132164776,
+        -0.14479508064687252
+      ],
+      "label": "2024-11-02-b1-p2",
+      "part_index": 1,
+      "statistic": 9.574081158258073,
+      "template_index": 207,
+      "velocity_km_s": 695.5190847270364
+    },
+    {
+      "block_index": 3,
+      "center_second": 783871950.0,
+      "direction_xyz": [
+        -0.24753897476080527,
+        -0.9157465730438371,
+        -0.31643746607005596
+      ],
+      "label": "2024-11-03-b1-p1",
+      "part_index": 0,
+      "statistic": 4.01916604058683,
+      "template_index": 65,
+      "velocity_km_s": 66.49088341459654
+    },
+    {
+      "block_index": 3,
+      "center_second": 783880920.0,
+      "direction_xyz": [
+        -0.0823797202382135,
+        0.3115937902510862,
+        0.9466376770287752
+      ],
+      "label": "2024-11-03-b1-p2",
+      "part_index": 1,
+      "statistic": 5.7187214709365115,
+      "template_index": 102,
+      "velocity_km_s": 97.92702311223664
+    },
+    {
+      "block_index": 4,
+      "center_second": 783987000.0,
+      "direction_xyz": [
+        -0.255040438348797,
+        0.5504469883235494,
+        0.7949606832116842
+      ],
+      "label": "2024-11-04-b1-p1",
+      "part_index": 0,
+      "statistic": 5.520092811034278,
+      "template_index": 190,
+      "velocity_km_s": 66.91477650379534
+    },
+    {
+      "block_index": 4,
+      "center_second": 784003290.0,
+      "direction_xyz": [
+        -0.11783601984018381,
+        -0.9632335478933332,
+        -0.2414452414959669
+      ],
+      "label": "2024-11-04-b1-p2",
+      "part_index": 1,
+      "statistic": 6.90757893578618,
+      "template_index": 63,
+      "velocity_km_s": 600.1618961029701
+    },
+    {
+      "block_index": 5,
+      "center_second": 784103820.0,
+      "direction_xyz": [
+        -0.6686999381609448,
+        -0.07148168175708466,
+        -0.7400883473455905
+      ],
+      "label": "2024-11-05-b1-p1",
+      "part_index": 0,
+      "statistic": 3.3859893319250975,
+      "template_index": 121,
+      "velocity_km_s": 94.66795379467538
+    },
+    {
+      "block_index": 5,
+      "center_second": 784108590.0,
+      "direction_xyz": [
+        -0.1258260531132224,
+        0.8700009195466135,
+        0.4767244532704353
+      ],
+      "label": "2024-11-05-b1-p2",
+      "part_index": 1,
+      "statistic": 10.229588258423789,
+      "template_index": 206,
+      "velocity_km_s": 58.926580948539424
+    },
+    {
+      "block_index": 6,
+      "center_second": 784130490.0,
+      "direction_xyz": [
+        -0.4752048441834894,
+        0.43765895671143895,
+        0.7633053082972765
+      ],
+      "label": "2024-11-06-b1-p1",
+      "part_index": 0,
+      "statistic": 8.957482072936171,
+      "template_index": 80,
+      "velocity_km_s": 727.2361660957351
+    },
+    {
+      "block_index": 6,
+      "center_second": 784148760.0,
+      "direction_xyz": [
+        -0.7780281549307505,
+        0.2215293726997163,
+        0.5878749247640371
+      ],
+      "label": "2024-11-06-b1-p2",
+      "part_index": 1,
+      "statistic": 3.8759745066570765,
+      "template_index": 246,
+      "velocity_km_s": 83.89809752367546
+    },
+    {
+      "block_index": 7,
+      "center_second": 784247400.0,
+      "direction_xyz": [
+        -0.4532485003770401,
+        0.8622083956808363,
+        -0.22619124501943585
+      ],
+      "label": "2024-11-07-b1-p1",
+      "part_index": 0,
+      "statistic": 13.281563035193793,
+      "template_index": 243,
+      "velocity_km_s": 388.5598081184229
+    },
+    {
+      "block_index": 7,
+      "center_second": 784253910.0,
+      "direction_xyz": [
+        0.43905342393461944,
+        -0.6952616965840366,
+        0.5690722838044165
+      ],
+      "label": "2024-11-07-b1-p2",
+      "part_index": 1,
+      "statistic": 3.6464707047359433,
+      "template_index": 144,
+      "velocity_km_s": 747.370379326128
+    },
+    {
+      "block_index": 8,
+      "center_second": 784359390.0,
+      "direction_xyz": [
+        -0.6152339528301333,
+        0.3117149971267841,
+        -0.7241000924259424
+      ],
+      "label": "2024-11-08-b1-p1",
+      "part_index": 0,
+      "statistic": 3.47059718349941,
+      "template_index": 181,
+      "velocity_km_s": 146.98036641342796
+    },
+    {
+      "block_index": 8,
+      "center_second": 784371600.0,
+      "direction_xyz": [
+        0.5260762572045182,
+        0.7666795439357357,
+        -0.3680302277207374
+      ],
+      "label": "2024-11-08-b1-p2",
+      "part_index": 1,
+      "statistic": 3.5014554728307425,
+      "template_index": 201,
+      "velocity_km_s": 85.68513182368338
+    },
+    {
+      "block_index": 9,
+      "center_second": 784390890.0,
+      "direction_xyz": [
+        -0.3884645995876667,
+        -0.8254623503585068,
+        -0.4095206502825021
+      ],
+      "label": "2024-11-09-b1-p1",
+      "part_index": 0,
+      "statistic": 5.090188820129752,
+      "template_index": 153,
+      "velocity_km_s": 96.58521526557021
+    },
+    {
+      "block_index": 9,
+      "center_second": 784399800.0,
+      "direction_xyz": [
+        0.6502072732853628,
+        -0.6779358116012634,
+        0.34297745861113077
+      ],
+      "label": "2024-11-09-b1-p2",
+      "part_index": 1,
+      "statistic": 3.3481290534820394,
+      "template_index": 196,
+      "velocity_km_s": 211.6202680144357
+    },
+    {
+      "block_index": 10,
+      "center_second": 784499190.0,
+      "direction_xyz": [
+        -0.8366792612455998,
+        0.40704250130229236,
+        -0.3664481081068516
+      ],
+      "label": "2024-11-10-b1-p1",
+      "part_index": 0,
+      "statistic": 3.958613486304131,
+      "template_index": 99,
+      "velocity_km_s": 326.0707612970382
+    },
+    {
+      "block_index": 10,
+      "center_second": 784513500.0,
+      "direction_xyz": [
+        0.6502072732853628,
+        -0.6779358116012634,
+        0.34297745861113077
+      ],
+      "label": "2024-11-10-b1-p2",
+      "part_index": 1,
+      "statistic": 8.357925552667847,
+      "template_index": 196,
+      "velocity_km_s": 211.6202680144357
+    },
+    {
+      "block_index": 11,
+      "center_second": 784618230.0,
+      "direction_xyz": [
+        0.7876794346524545,
+        0.5905706102495193,
+        0.17546356469392776
+      ],
+      "label": "2024-11-11-b1-p1",
+      "part_index": 0,
+      "statistic": 3.4492803038740694,
+      "template_index": 194,
+      "velocity_km_s": 135.56896319394588
+    },
+    {
+      "block_index": 11,
+      "center_second": 784635690.0,
+      "direction_xyz": [
+        0.32973103425065664,
+        0.0037269917060888122,
+        0.9440675582736732
+      ],
+      "label": "2024-11-11-b1-p2",
+      "part_index": 1,
+      "statistic": 4.838516082359513,
+      "template_index": 204,
+      "velocity_km_s": 365.2805639247492
+    },
+    {
+      "block_index": 12,
+      "center_second": 784654980.0,
+      "direction_xyz": [
+        0.2923430628202234,
+        -0.9078819681212874,
+        0.30047606490552425
+      ],
+      "label": "2024-11-12-b1-p1",
+      "part_index": 0,
+      "statistic": 6.821487029878107,
+      "template_index": 158,
+      "velocity_km_s": 72.16366314053398
+    },
+    {
+      "block_index": 12,
+      "center_second": 784658070.0,
+      "direction_xyz": [
+        -0.031682387275598085,
+        0.578587202680157,
+        0.8150049541145563
+      ],
+      "label": "2024-11-12-b1-p2",
+      "part_index": 1,
+      "statistic": 5.673590212630518,
+      "template_index": 228,
+      "velocity_km_s": 227.06208240334286
+    },
+    {
+      "block_index": 13,
+      "center_second": 784766730.0,
+      "direction_xyz": [
+        0.6080147553447087,
+        0.7413052365901133,
+        0.28422632440924644
+      ],
+      "label": "2024-11-13-b1-p1",
+      "part_index": 0,
+      "statistic": 4.491017706836308,
+      "template_index": 82,
+      "velocity_km_s": 116.12043359488662
+    },
+    {
+      "block_index": 13,
+      "center_second": 784774020.0,
+      "direction_xyz": [
+        -0.8290715721905084,
+        -0.2854369934381807,
+        -0.48079730756580824
+      ],
+      "label": "2024-11-13-b1-p2",
+      "part_index": 1,
+      "statistic": 5.1150259130442315,
+      "template_index": 45,
+      "velocity_km_s": 114.10449575471962
+    },
+    {
+      "block_index": 14,
+      "center_second": 784875750.0,
+      "direction_xyz": [
+        0.2923430628202234,
+        -0.9078819681212874,
+        0.30047606490552425
+      ],
+      "label": "2024-11-14-b1-p1",
+      "part_index": 0,
+      "statistic": 2.967532809335045,
+      "template_index": 158,
+      "velocity_km_s": 72.16366314053398
+    },
+    {
+      "block_index": 14,
+      "center_second": 784888110.0,
+      "direction_xyz": [
+        -0.39985988047706944,
+        0.25225638472552075,
+        0.8811803404241799
+      ],
+      "label": "2024-11-14-b1-p2",
+      "part_index": 1,
+      "statistic": 7.284063587510011,
+      "template_index": 210,
+      "velocity_km_s": 115.77929546721671
+    },
+    {
+      "block_index": 15,
+      "center_second": 784905330.0,
+      "direction_xyz": [
+        -0.1091184555851042,
+        0.43640108228549473,
+        -0.8931109998375178
+      ],
+      "label": "2024-11-15-b1-p1",
+      "part_index": 0,
+      "statistic": 5.486656309673092,
+      "template_index": 253,
+      "velocity_km_s": 144.3150341648471
+    },
+    {
+      "block_index": 15,
+      "center_second": 784925040.0,
+      "direction_xyz": [
+        -0.09040155308908498,
+        0.779725568486521,
+        0.6195608098059894
+      ],
+      "label": "2024-11-15-b1-p2",
+      "part_index": 1,
+      "statistic": 5.258092643387584,
+      "template_index": 24,
+      "velocity_km_s": 417.964814040047
+    },
+    {
+      "block_index": 16,
+      "center_second": 785022150.0,
+      "direction_xyz": [
+        0.8793947571385314,
+        -0.18747796611003534,
+        -0.4376264084130526
+      ],
+      "label": "2024-11-16-b1-p1",
+      "part_index": 0,
+      "statistic": 4.79457290685975,
+      "template_index": 105,
+      "velocity_km_s": 80.03714802150532
+    },
+    {
+      "block_index": 16,
+      "center_second": 785038500.0,
+      "direction_xyz": [
+        -0.2759582938853159,
+        0.6925852023598064,
+        -0.6664628703147173
+      ],
+      "label": "2024-11-16-b1-p2",
+      "part_index": 1,
+      "statistic": 3.6016145581569177,
+      "template_index": 1,
+      "velocity_km_s": 63.96612147690036
+    },
+    {
+      "block_index": 17,
+      "center_second": 785140260.0,
+      "direction_xyz": [
+        0.11805368726631169,
+        -0.7825679243764533,
+        -0.6112698018550873
+      ],
+      "label": "2024-11-17-b1-p1",
+      "part_index": 0,
+      "statistic": 9.623724235133077,
+      "template_index": 81,
+      "velocity_km_s": 56.173669595298165
+    },
+    {
+      "block_index": 17,
+      "center_second": 785154450.0,
+      "direction_xyz": [
+        0.7429287072288353,
+        0.10096266551204361,
+        -0.6617125328630209
+      ],
+      "label": "2024-11-17-b1-p2",
+      "part_index": 1,
+      "statistic": 5.247672097836867,
+      "template_index": 171,
+      "velocity_km_s": 243.61855217128453
+    },
+    {
+      "block_index": 18,
+      "center_second": 785166000.0,
+      "direction_xyz": [
+        0.48319328068597506,
+        -0.525020078146174,
+        0.7006269842386246
+      ],
+      "label": "2024-11-18-b1-p1",
+      "part_index": 0,
+      "statistic": 5.599254614644683,
+      "template_index": 18,
+      "velocity_km_s": 121.48488906519293
+    },
+    {
+      "block_index": 18,
+      "center_second": 785185620.0,
+      "direction_xyz": [
+        -0.6346036884664666,
+        -0.418576548563834,
+        -0.6496705561876298
+      ],
+      "label": "2024-11-18-b1-p2",
+      "part_index": 1,
+      "statistic": 5.141660199218309,
+      "template_index": 35,
+      "velocity_km_s": 312.27922788001166
+    },
+    {
+      "block_index": 19,
+      "center_second": 785280360.0,
+      "direction_xyz": [
+        -0.24753897476080527,
+        -0.9157465730438371,
+        -0.31643746607005596
+      ],
+      "label": "2024-11-19-b1-p1",
+      "part_index": 0,
+      "statistic": 3.941222667557424,
+      "template_index": 65,
+      "velocity_km_s": 66.49088341459654
+    },
+    {
+      "block_index": 19,
+      "center_second": 785292000.0,
+      "direction_xyz": [
+        -0.19895822257163148,
+        -0.6762713750433683,
+        -0.7092761471867561
+      ],
+      "label": "2024-11-19-b1-p2",
+      "part_index": 1,
+      "statistic": 5.53233648642779,
+      "template_index": 151,
+      "velocity_km_s": 514.0398462572838
+    },
+    {
+      "block_index": 20,
+      "center_second": 785392350.0,
+      "direction_xyz": [
+        0.8191133681565776,
+        0.3195974028938022,
+        0.4763515405356884
+      ],
+      "label": "2024-11-20-b1-p1",
+      "part_index": 0,
+      "statistic": 8.739675221794942,
+      "template_index": 100,
+      "velocity_km_s": 224.20702089442102
+    },
+    {
+      "block_index": 20,
+      "center_second": 785411730.0,
+      "direction_xyz": [
+        0.43905342393461944,
+        -0.6952616965840366,
+        0.5690722838044165
+      ],
+      "label": "2024-11-20-b1-p2",
+      "part_index": 1,
+      "statistic": 4.560470587651993,
+      "template_index": 144,
+      "velocity_km_s": 747.370379326128
+    },
+    {
+      "block_index": 21,
+      "center_second": 785426370.0,
+      "direction_xyz": [
+        -0.6834000850860348,
+        0.47761646265172103,
+        0.5521293673664331
+      ],
+      "label": "2024-11-21-b1-p1",
+      "part_index": 0,
+      "statistic": 3.712533400132702,
+      "template_index": 172,
+      "velocity_km_s": 354.2007371260375
+    },
+    {
+      "block_index": 21,
+      "center_second": 785441940.0,
+      "direction_xyz": [
+        0.4520163605300307,
+        -0.8023199915292455,
+        -0.3898253981024027
+      ],
+      "label": "2024-11-21-b1-p2",
+      "part_index": 1,
+      "statistic": 7.917661357882978,
+      "template_index": 221,
+      "velocity_km_s": 131.75135365381306
+    },
+    {
+      "block_index": 22,
+      "center_second": 785536080.0,
+      "direction_xyz": [
+        -0.7056375563200604,
+        0.06842043380105249,
+        0.705261854454875
+      ],
+      "label": "2024-11-22-b1-p1",
+      "part_index": 0,
+      "statistic": 7.138061990005184,
+      "template_index": 116,
+      "velocity_km_s": 265.7849276756984
+    },
+    {
+      "block_index": 22,
+      "center_second": 785553750.0,
+      "direction_xyz": [
+        -0.060950623491094015,
+        -0.8041171219322688,
+        -0.591338038444519
+      ],
+      "label": "2024-11-22-b1-p2",
+      "part_index": 1,
+      "statistic": 8.417552290246748,
+      "template_index": 21,
+      "velocity_km_s": 162.57791452900432
+    },
+    {
+      "block_index": 23,
+      "center_second": 785658750.0,
+      "direction_xyz": [
+        -0.2088390266570996,
+        0.9779497083562899,
+        -0.000793013721704483
+      ],
+      "label": "2024-11-23-b1-p1",
+      "part_index": 0,
+      "statistic": 3.905501088971899,
+      "template_index": 43,
+      "velocity_km_s": 246.89191532523884
+    },
+    {
+      "block_index": 23,
+      "center_second": 785671890.0,
+      "direction_xyz": [
+        0.7429287072288353,
+        0.10096266551204361,
+        -0.6617125328630209
+      ],
+      "label": "2024-11-23-b1-p2",
+      "part_index": 1,
+      "statistic": 3.2872505444165228,
+      "template_index": 171,
+      "velocity_km_s": 243.61855217128453
+    },
+    {
+      "block_index": 24,
+      "center_second": 785685900.0,
+      "direction_xyz": [
+        0.047276527373520755,
+        -0.9756558084499365,
+        -0.21415105275809762
+      ],
+      "label": "2024-11-24-b1-p1",
+      "part_index": 0,
+      "statistic": 3.9593039526474554,
+      "template_index": 123,
+      "velocity_km_s": 216.7448656363142
+    },
+    {
+      "block_index": 24,
+      "center_second": 785699160.0,
+      "direction_xyz": [
+        0.061534453189907475,
+        -0.6369703439103824,
+        0.7684284560382366
+      ],
+      "label": "2024-11-24-b1-p2",
+      "part_index": 1,
+      "statistic": 3.835526304833423,
+      "template_index": 54,
+      "velocity_km_s": 85.99719519568089
+    },
+    {
+      "block_index": 25,
+      "center_second": 785798910.0,
+      "direction_xyz": [
+        -0.41582998952536054,
+        0.36201001074842537,
+        -0.8342866245657206
+      ],
+      "label": "2024-11-25-b1-p1",
+      "part_index": 0,
+      "statistic": 6.7911914491104595,
+      "template_index": 203,
+      "velocity_km_s": 272.90828060019203
+    },
+    {
+      "block_index": 25,
+      "center_second": 785816340.0,
+      "direction_xyz": [
+        0.6080147553447087,
+        0.7413052365901133,
+        0.28422632440924644
+      ],
+      "label": "2024-11-25-b1-p2",
+      "part_index": 1,
+      "statistic": 5.2413225986313705,
+      "template_index": 82,
+      "velocity_km_s": 116.12043359488662
+    },
+    {
+      "block_index": 26,
+      "center_second": 785912700.0,
+      "direction_xyz": [
+        -0.9598296902052568,
+        0.044727627174473907,
+        -0.27699531614780426
+      ],
+      "label": "2024-11-26-b1-p1",
+      "part_index": 0,
+      "statistic": 4.698328431455417,
+      "template_index": 57,
+      "velocity_km_s": 91.13249452065722
+    },
+    {
+      "block_index": 26,
+      "center_second": 785932470.0,
+      "direction_xyz": [
+        -0.6119284203127277,
+        -0.13929709793192854,
+        0.778549887239933
+      ],
+      "label": "2024-11-26-b1-p2",
+      "part_index": 1,
+      "statistic": 3.463631166175697,
+      "template_index": 156,
+      "velocity_km_s": 324.0306676681374
+    },
+    {
+      "block_index": 27,
+      "center_second": 785949210.0,
+      "direction_xyz": [
+        -0.31042475753447435,
+        -0.02193257946343933,
+        -0.9503449015319347
+      ],
+      "label": "2024-11-27-b1-p1",
+      "part_index": 0,
+      "statistic": 4.519396932528375,
+      "template_index": 133,
+      "velocity_km_s": 189.74572407834532
+    },
+    {
+      "block_index": 27,
+      "center_second": 785954250.0,
+      "direction_xyz": [
+        0.15100625564548953,
+        0.9572495634922535,
+        0.24671924114227298
+      ],
+      "label": "2024-11-27-b1-p2",
+      "part_index": 1,
+      "statistic": 7.173030036323696,
+      "template_index": 118,
+      "velocity_km_s": 82.35649956556391
+    },
+    {
+      "block_index": 28,
+      "center_second": 786063240.0,
+      "direction_xyz": [
+        -0.07981796890608571,
+        0.9757246599081952,
+        0.20393744111061096
+      ],
+      "label": "2024-11-28-b1-p1",
+      "part_index": 0,
+      "statistic": 4.202480429885901,
+      "template_index": 50,
+      "velocity_km_s": 112.63517313072535
+    },
+    {
+      "block_index": 28,
+      "center_second": 786078120.0,
+      "direction_xyz": [
+        0.867501369218974,
+        -0.4964791980935983,
+        -0.030818505212664608
+      ],
+      "label": "2024-11-28-b1-p2",
+      "part_index": 1,
+      "statistic": 6.173357867173341,
+      "template_index": 77,
+      "velocity_km_s": 110.51789530380518
+    },
+    {
+      "block_index": 29,
+      "center_second": 786173340.0,
+      "direction_xyz": [
+        0.9981897314319584,
+        0.05828900935595076,
+        -0.014820642769336699
+      ],
+      "label": "2024-11-29-b1-p1",
+      "part_index": 0,
+      "statistic": 3.7185982840306546,
+      "template_index": 129,
+      "velocity_km_s": 65.54621281619825
+    },
+    {
+      "block_index": 29,
+      "center_second": 786182910.0,
+      "direction_xyz": [
+        0.302013083173837,
+        0.45524888398994406,
+        -0.8375777881592512
+      ],
+      "label": "2024-11-29-b1-p2",
+      "part_index": 1,
+      "statistic": 4.735544467322478,
+      "template_index": 97,
+      "velocity_km_s": 73.19850920818187
+    },
+    {
+      "block_index": 30,
+      "center_second": 786202890.0,
+      "direction_xyz": [
+        0.06791129399356667,
+        -0.3337612546396943,
+        -0.940208211541176
+      ],
+      "label": "2024-11-30-b1-p1",
+      "part_index": 0,
+      "statistic": 8.317694775710976,
+      "template_index": 47,
+      "velocity_km_s": 714.7272467265936
+    },
+    {
+      "block_index": 30,
+      "center_second": 786220590.0,
+      "direction_xyz": [
+        -0.6123677841906013,
+        -0.5971410661393725,
+        -0.5181006118655205
+      ],
+      "label": "2024-11-30-b1-p2",
+      "part_index": 1,
+      "statistic": 3.9418271759109698,
+      "template_index": 161,
+      "velocity_km_s": 70.6737277277246
+    },
+    {
+      "block_index": 31,
+      "center_second": 786314760.0,
+      "direction_xyz": [
+        -0.7544722219163342,
+        0.6277886970056241,
+        -0.19144978001713753
+      ],
+      "label": "2024-12-01-b1-p1",
+      "part_index": 0,
+      "statistic": 3.8668156608454307,
+      "template_index": 29,
+      "velocity_km_s": 125.89025221005758
+    },
+    {
+      "block_index": 31,
+      "center_second": 786333030.0,
+      "direction_xyz": [
+        -0.6119284203127277,
+        -0.13929709793192854,
+        0.778549887239933
+      ],
+      "label": "2024-12-01-b1-p2",
+      "part_index": 1,
+      "statistic": 6.969401615668066,
+      "template_index": 156,
+      "velocity_km_s": 324.0306676681374
+    },
+    {
+      "block_index": 32,
+      "center_second": 786430260.0,
+      "direction_xyz": [
+        0.22480422408655643,
+        -0.9712270757200504,
+        -0.07861951552331448
+      ],
+      "label": "2024-12-02-b1-p1",
+      "part_index": 0,
+      "statistic": 3.9403549479577005,
+      "template_index": 249,
+      "velocity_km_s": 93.65558284112299
+    },
+    {
+      "block_index": 32,
+      "center_second": 786445830.0,
+      "direction_xyz": [
+        0.48672755126638784,
+        0.3870750470815814,
+        0.7831150609999895
+      ],
+      "label": "2024-12-02-b1-p2",
+      "part_index": 1,
+      "statistic": 3.6699275298381258,
+      "template_index": 20,
+      "velocity_km_s": 252.0892597354313
+    },
+    {
+      "block_index": 33,
+      "center_second": 786463770.0,
+      "direction_xyz": [
+        -0.44079933518977577,
+        -0.017756959867209515,
+        0.8974300175905228
+      ],
+      "label": "2024-12-03-b1-p1",
+      "part_index": 0,
+      "statistic": 5.383367740881143,
+      "template_index": 30,
+      "velocity_km_s": 74.57047599589433
+    },
+    {
+      "block_index": 33,
+      "center_second": 786476430.0,
+      "direction_xyz": [
+        -0.7309455459565877,
+        -0.12990436022268373,
+        0.669957809150219
+      ],
+      "label": "2024-12-03-b1-p2",
+      "part_index": 1,
+      "statistic": 3.950838662732814,
+      "template_index": 226,
+      "velocity_km_s": 123.78246014157676
+    },
+    {
+      "block_index": 34,
+      "center_second": 786580470.0,
+      "direction_xyz": [
+        -0.20057130324143715,
+        0.027109634033986096,
+        0.9793039467185737
+      ],
+      "label": "2024-12-04-b1-p1",
+      "part_index": 0,
+      "statistic": 3.3643354366985716,
+      "template_index": 136,
+      "velocity_km_s": 499.52395449326474
+    },
+    {
+      "block_index": 34,
+      "center_second": 786590760.0,
+      "direction_xyz": [
+        -0.36432868833551857,
+        -0.9304852892010897,
+        0.03823262266814709
+      ],
+      "label": "2024-12-04-b1-p2",
+      "part_index": 1,
+      "statistic": 4.348214482563627,
+      "template_index": 38,
+      "velocity_km_s": 101.91899631558456
+    },
+    {
+      "block_index": 35,
+      "center_second": 786696930.0,
+      "direction_xyz": [
+        0.619888520613901,
+        -0.7421753101200821,
+        -0.25478232093155384
+      ],
+      "label": "2024-12-05-b1-p1",
+      "part_index": 0,
+      "statistic": 3.895685649465359,
+      "template_index": 95,
+      "velocity_km_s": 582.1482963176484
+    },
+    {
+      "block_index": 35,
+      "center_second": 786705270.0,
+      "direction_xyz": [
+        -0.7309455459565877,
+        -0.12990436022268373,
+        0.669957809150219
+      ],
+      "label": "2024-12-05-b1-p2",
+      "part_index": 1,
+      "statistic": 5.746154305186359,
+      "template_index": 226,
+      "velocity_km_s": 123.78246014157676
+    },
+    {
+      "block_index": 36,
+      "center_second": 786725820.0,
+      "direction_xyz": [
+        -0.43062767104590277,
+        -0.5445361464687298,
+        0.7197500914335251
+      ],
+      "label": "2024-12-06-b1-p1",
+      "part_index": 0,
+      "statistic": 4.410564804416813,
+      "template_index": 86,
+      "velocity_km_s": 75.16252563193554
+    },
+    {
+      "block_index": 36,
+      "center_second": 786733830.0,
+      "direction_xyz": [
+        0.7775858329753972,
+        -0.04105064276705604,
+        0.6274353489279748
+      ],
+      "label": "2024-12-06-b1-p2",
+      "part_index": 1,
+      "statistic": 3.4577576203610025,
+      "template_index": 166,
+      "velocity_km_s": 102.7531182167302
+    },
+    {
+      "block_index": 37,
+      "center_second": 786836370.0,
+      "direction_xyz": [
+        -0.3806843371386979,
+        0.05665666036010434,
+        -0.9229677449911833
+      ],
+      "label": "2024-12-07-b1-p1",
+      "part_index": 0,
+      "statistic": 6.756715094900392,
+      "template_index": 19,
+      "velocity_km_s": 337.41143556010314
+    },
+    {
+      "block_index": 37,
+      "center_second": 786848100.0,
+      "direction_xyz": [
+        -0.060950623491094015,
+        -0.8041171219322688,
+        -0.591338038444519
+      ],
+      "label": "2024-12-07-b1-p2",
+      "part_index": 1,
+      "statistic": 4.09285528076034,
+      "template_index": 21,
+      "velocity_km_s": 162.57791452900432
+    },
+    {
+      "block_index": 38,
+      "center_second": 786950040.0,
+      "direction_xyz": [
+        -0.1091184555851042,
+        0.43640108228549473,
+        -0.8931109998375178
+      ],
+      "label": "2024-12-08-b1-p1",
+      "part_index": 0,
+      "statistic": 3.8832348185733827,
+      "template_index": 253,
+      "velocity_km_s": 144.3150341648471
+    },
+    {
+      "block_index": 38,
+      "center_second": 786970260.0,
+      "direction_xyz": [
+        0.081370391775726,
+        -0.11689019432214759,
+        0.9898058101534843
+      ],
+      "label": "2024-12-08-b1-p2",
+      "part_index": 1,
+      "statistic": 8.147242835578021,
+      "template_index": 238,
+      "velocity_km_s": 54.62315902122064
+    },
+    {
+      "block_index": 39,
+      "center_second": 786982500.0,
+      "direction_xyz": [
+        0.6331001837290534,
+        0.5692841534019676,
+        0.524499485269189
+      ],
+      "label": "2024-12-09-b1-p1",
+      "part_index": 0,
+      "statistic": 4.2761275612134755,
+      "template_index": 232,
+      "velocity_km_s": 526.4054668704488
+    },
+    {
+      "block_index": 39,
+      "center_second": 786996900.0,
+      "direction_xyz": [
+        0.39588891412973826,
+        -0.8889070214604455,
+        0.23046968318521974
+      ],
+      "label": "2024-12-09-b1-p2",
+      "part_index": 1,
+      "statistic": 3.7403174665813537,
+      "template_index": 186,
+      "velocity_km_s": 201.9540380951512
+    },
+    {
+      "block_index": 40,
+      "center_second": 787097430.0,
+      "direction_xyz": [
+        0.7429287072288353,
+        0.10096266551204361,
+        -0.6617125328630209
+      ],
+      "label": "2024-12-10-b1-p1",
+      "part_index": 0,
+      "statistic": 4.94916053852076,
+      "template_index": 171,
+      "velocity_km_s": 243.61855217128453
+    },
+    {
+      "block_index": 40,
+      "center_second": 787106490.0,
+      "direction_xyz": [
+        -0.5049071998581778,
+        0.1774000818520238,
+        0.8447472583502531
+      ],
+      "label": "2024-12-10-b1-p2",
+      "part_index": 1,
+      "statistic": 4.34936042358154,
+      "template_index": 10,
+      "velocity_km_s": 153.9312163765843
+    },
+    {
+      "block_index": 41,
+      "center_second": 787205310.0,
+      "direction_xyz": [
+        0.9961797364020175,
+        0.027146321917269536,
+        0.0830000601708889
+      ],
+      "label": "2024-12-11-b1-p1",
+      "part_index": 0,
+      "statistic": 8.301340300301847,
+      "template_index": 26,
+      "velocity_km_s": 183.02452104960685
+    },
+    {
+      "block_index": 41,
+      "center_second": 787228830.0,
+      "direction_xyz": [
+        -0.060950623491094015,
+        -0.8041171219322688,
+        -0.591338038444519
+      ],
+      "label": "2024-12-11-b1-p2",
+      "part_index": 1,
+      "statistic": 8.227856873801166,
+      "template_index": 21,
+      "velocity_km_s": 162.57791452900432
+    }
+  ],
+  "power": [
+    {
+      "amplitude_robust_sigma": 1.0,
+      "detected": 2,
+      "joint_rate": 0.0,
+      "joint_successes": 0,
+      "joint_wilson_95_lower": 0.0,
+      "temporally_localized": 7,
+      "trials": 128
+    },
+    {
+      "amplitude_robust_sigma": 2.0,
+      "detected": 1,
+      "joint_rate": 0.0,
+      "joint_successes": 0,
+      "joint_wilson_95_lower": 0.0,
+      "temporally_localized": 50,
+      "trials": 128
+    },
+    {
+      "amplitude_robust_sigma": 4.0,
+      "detected": 41,
+      "joint_rate": 0.296875,
+      "joint_successes": 38,
+      "joint_wilson_95_lower": 0.2245816608356667,
+      "temporally_localized": 109,
+      "trials": 128
+    },
+    {
+      "amplitude_robust_sigma": 8.0,
+      "detected": 128,
+      "joint_rate": 0.9375,
+      "joint_successes": 120,
+      "joint_wilson_95_lower": 0.8815120889557413,
+      "temporally_localized": 120,
+      "trials": 128
+    }
+  ],
+  "power_gate": true,
+  "receipts": [
+    {
+      "compressed_bytes": 5000346,
+      "media": "application/gzip",
+      "sha256": "e9439c89667c168cdd71fcb19ead819c6ddd015fdb2a2d1dc7be1434ef58d8a2",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-10-31_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 845384,
+      "media": "application/gzip",
+      "sha256": "28e014e40860135385e1d8519d63df12844464b06f8d986248d6edbe018c6051",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-10-31.pos.gz"
+    },
+    {
+      "compressed_bytes": 4900812,
+      "media": "application/gzip",
+      "sha256": "f3c21a5001991a4f2a837714fbc92b6fea5dc20bd6f3f78204bf0dba41e47f81",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-01_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 830457,
+      "media": "application/gzip",
+      "sha256": "2506d6041570811aad729a03a37c5cb1fb3838863cb582629f418d813f5bcadd",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-01.pos.gz"
+    },
+    {
+      "compressed_bytes": 4999946,
+      "media": "application/gzip",
+      "sha256": "222e97b9383db6e3a546b6bd0ac5b99aca16229887836550fff9f2c66f174eb6",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-02_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 845062,
+      "media": "application/gzip",
+      "sha256": "9f1dad991e26ed09a7b684c4b7c590bd99fc92cf2c09b6cc5e25c3df0fb88d14",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-02.pos.gz"
+    },
+    {
+      "compressed_bytes": 4996581,
+      "media": "application/gzip",
+      "sha256": "e264a6969c8b33e9e6624f3eda0212a7aba33647a2e818cc870efe7c184e17f0",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-03_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 844630,
+      "media": "application/gzip",
+      "sha256": "2a959f60e84f02124944973ca02cb2b9f15d0aeb6af9e30f129bd772c197ac88",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-03.pos.gz"
+    },
+    {
+      "compressed_bytes": 4896444,
+      "media": "application/gzip",
+      "sha256": "69f788e2431515e13fb8fd8619f9b11b5a1a4d672de0d99999cf2d385da00eca",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-04_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 829561,
+      "media": "application/gzip",
+      "sha256": "5d4d8e6b6c3770d58cda8fbfb4004377639a7a5d62f3caeb009d5e1463f7a1b0",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-04.pos.gz"
+    },
+    {
+      "compressed_bytes": 4897184,
+      "media": "application/gzip",
+      "sha256": "6be3ddfd98941de2dfcd867c425389ec9e1ef7b4a0530826335630dd0752063c",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-05_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 829470,
+      "media": "application/gzip",
+      "sha256": "b30c90a53357f54455dd823e161105309d58fcb1de15d62d149cec3d6ebf4b07",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-05.pos.gz"
+    },
+    {
+      "compressed_bytes": 4898747,
+      "media": "application/gzip",
+      "sha256": "2f5a53e579cfeb72dc0b57e7e1c92413c06d83212f0ac909fb167f1f62b0ce41",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-06_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 830210,
+      "media": "application/gzip",
+      "sha256": "1232fb590b8d1d865fd0999a45a959824e85fa3f586850ae205a43066a622138",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-06.pos.gz"
+    },
+    {
+      "compressed_bytes": 5010226,
+      "media": "application/gzip",
+      "sha256": "c2c8e106ca23dc3c4bd0618e3fc5350d019eef456d85fe447b94ae7342a993a8",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-07_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 844270,
+      "media": "application/gzip",
+      "sha256": "5eefe14ca341e6054f831f6971d9bc444bfa944def9f3437a7ce02e87ba6e90e",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-07.pos.gz"
+    },
+    {
+      "compressed_bytes": 5025031,
+      "media": "application/gzip",
+      "sha256": "e6d4cc6a6352ef059f35ade45816e40aab9cf42b48a1be365eee0bfd4cd91804",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-08_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 844809,
+      "media": "application/gzip",
+      "sha256": "b0811fe73ae06e5023623d44c25a2b5a21dbf0b86e6bb432883c05a27414bc46",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-08.pos.gz"
+    },
+    {
+      "compressed_bytes": 5041564,
+      "media": "application/gzip",
+      "sha256": "84a61c5faea35b864015d4111054116baaddc79bfd01011746e70ad738d82a17",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-09_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 846026,
+      "media": "application/gzip",
+      "sha256": "8ad8da370ed7be4ea1273c51aa25c5e9fd69fba77f1afcca2a3324360e822991",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-09.pos.gz"
+    },
+    {
+      "compressed_bytes": 5025783,
+      "media": "application/gzip",
+      "sha256": "b7f250417a1636484e339d7fcf712a8abc95f9a876efc92f4de88ed3c077c556",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-10_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 844866,
+      "media": "application/gzip",
+      "sha256": "f2f4df16d939552d2ef673f66e834cea6ae586d9bf03b124c0003c398848872a",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-10.pos.gz"
+    },
+    {
+      "compressed_bytes": 5007305,
+      "media": "application/gzip",
+      "sha256": "21f4d496be0ebe60ff5726fa18f1f6970772bbaa1cda66948a86372720779a51",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-11_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 844369,
+      "media": "application/gzip",
+      "sha256": "d23826bf1a120589d46a066da8c3bc2ec124fc0f0dd1bca8f1e359e8655c5f34",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-11.pos.gz"
+    },
+    {
+      "compressed_bytes": 4990431,
+      "media": "application/gzip",
+      "sha256": "465e648c9f2ead32b756235209d604ebc18269fa62b95d1143063543bfcba75c",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-12_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843800,
+      "media": "application/gzip",
+      "sha256": "79bdc908c8e768e0b0df777511387ba000ed3d506291174259faefc2a073e766",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-12.pos.gz"
+    },
+    {
+      "compressed_bytes": 4981864,
+      "media": "application/gzip",
+      "sha256": "7c2365f76131b8cf4023274dc3057de444f012a766526e19e4b4cca701a85808",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-13_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843878,
+      "media": "application/gzip",
+      "sha256": "cb912103bfdc8bcef92836eba37dcc4e7ad893d0c92b1c7cb7b1ec7f2d0b90b1",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-13.pos.gz"
+    },
+    {
+      "compressed_bytes": 4984523,
+      "media": "application/gzip",
+      "sha256": "b8536497f51c30e2374b360a3238bfe6cef6825d21ce827fca5c524ecb6e792c",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-14_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843278,
+      "media": "application/gzip",
+      "sha256": "c24237f96b8408e1c77df580d9b6f5b8a6e9834e7fd9cae4733a39ae5e50ba85",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-14.pos.gz"
+    },
+    {
+      "compressed_bytes": 4888647,
+      "media": "application/gzip",
+      "sha256": "6875a4099c96240ff7bc4e7741b22dc6ac48b4d947668e0acbe30e591779800b",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-15_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828864,
+      "media": "application/gzip",
+      "sha256": "ae87f1b9dee39baba71ad18620fbb503569d425a3237e01703b34309d1c2c108",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-15.pos.gz"
+    },
+    {
+      "compressed_bytes": 4979714,
+      "media": "application/gzip",
+      "sha256": "dac415cde30635135a6453b94b2a24dc5e5c48ce8853cf7ee4a4bfd7948bdad8",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-16_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843249,
+      "media": "application/gzip",
+      "sha256": "abd584ff38200c3d2fce58c4ce78ecdc0eb5cb29557d626dfd6a8b4b8213eb31",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-16.pos.gz"
+    },
+    {
+      "compressed_bytes": 4984556,
+      "media": "application/gzip",
+      "sha256": "38758ac1c00e36f30e3735e486740896c2d193a05932f521f15e7f02cb87d786",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-17_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843348,
+      "media": "application/gzip",
+      "sha256": "54a3788db55cd5ea8878f26c943ca7ab3be7cbea72573543e612aa46b2c6f617",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-17.pos.gz"
+    },
+    {
+      "compressed_bytes": 4986543,
+      "media": "application/gzip",
+      "sha256": "80290dd835c57f12bd14cd459745855e721d13ca5247840fbac2bf17018a7f22",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-18_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843245,
+      "media": "application/gzip",
+      "sha256": "7688dc0918c5057c375c08a351d12fdf3b874c7b6e76807711fbf20bba1d93f8",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-18.pos.gz"
+    },
+    {
+      "compressed_bytes": 4905418,
+      "media": "application/gzip",
+      "sha256": "65ab4882e50aa8effcd1a2a42944dd72e705367e4f36f6cbf016a0e5cf9c77d5",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-19_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828705,
+      "media": "application/gzip",
+      "sha256": "c5519955c36a8a44643375c522539bcc731d55fc54d07cf8963f80ca15dba006",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-19.pos.gz"
+    },
+    {
+      "compressed_bytes": 4816422,
+      "media": "application/gzip",
+      "sha256": "58ad29d307aadae6f64281f7249e1fc7a3a1b8f9f7b0b0ea2a2d552d96f9efb1",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-20_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 814241,
+      "media": "application/gzip",
+      "sha256": "00258d938cdd9eba3b7b4c38748e195b0b83065ef34f55db7a501b4704702dab",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-20.pos.gz"
+    },
+    {
+      "compressed_bytes": 4899436,
+      "media": "application/gzip",
+      "sha256": "b0fc330e0d34119f4808e2863243d3a3b22c35e4d4f3d2407608c0d62535e681",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-21_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828876,
+      "media": "application/gzip",
+      "sha256": "962a8e97d9f8f58651147d2c64bbf7386a8bff2fc4ee99b72f49090d3be7b0fc",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-21.pos.gz"
+    },
+    {
+      "compressed_bytes": 4989586,
+      "media": "application/gzip",
+      "sha256": "811412660107d1204194c391b6722cf18633942c1ae2d4f5dbee6448638e730f",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-22_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843206,
+      "media": "application/gzip",
+      "sha256": "33a6793852b6b59bd5fcb94f8080092a0f9f7d4002af096c621adfae7c6b1b2a",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-22.pos.gz"
+    },
+    {
+      "compressed_bytes": 4989756,
+      "media": "application/gzip",
+      "sha256": "b8484fad167995c83b5b74d8158f4b275e4136779ebeedcc95e1cdde59da45e4",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-23_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843326,
+      "media": "application/gzip",
+      "sha256": "042314f201c831971ef6c3efc6b9a6a5b13972a4e4749b0ac69af65433a7d156",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-23.pos.gz"
+    },
+    {
+      "compressed_bytes": 4988613,
+      "media": "application/gzip",
+      "sha256": "f7232169e2ef505bdd81407a7e8fe8ddd65835059bd005ba6aa6a8b724fa33f7",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-24_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843191,
+      "media": "application/gzip",
+      "sha256": "44d1550b360e53370340aed169561d54f57ff868c507eac143ef71792572da1d",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-24.pos.gz"
+    },
+    {
+      "compressed_bytes": 4993824,
+      "media": "application/gzip",
+      "sha256": "100882357a94e65f04425dca66e712d5c1ff663d42fae26a9a39287553094064",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-25_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843610,
+      "media": "application/gzip",
+      "sha256": "03d33d9a297b5486fedd1982b24568aa48b54acccc28a89bd1c50a9434009532",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-25.pos.gz"
+    },
+    {
+      "compressed_bytes": 4908484,
+      "media": "application/gzip",
+      "sha256": "67d996338d96a62e071b5c73da934050f19ff6b9c72db8288d9ac2e4c5f0dc67",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-26_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 829060,
+      "media": "application/gzip",
+      "sha256": "7dd98d7cd8977e0aca7b9735f0f796fa399751f73cf88a5c73a4cc8a9113385f",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-26.pos.gz"
+    },
+    {
+      "compressed_bytes": 4907139,
+      "media": "application/gzip",
+      "sha256": "b83fde0766139e107125d82ecb58aab070cc706b5fcc554568c201c188886277",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-27_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828982,
+      "media": "application/gzip",
+      "sha256": "0b71719cb91e94d2468368c768e163967d9ad84863a8eec872e4d1012f140500",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-27.pos.gz"
+    },
+    {
+      "compressed_bytes": 5007191,
+      "media": "application/gzip",
+      "sha256": "47e6371dbb444fdfaaba887a16a6c951718a8476c58f5f92c9487d69bc627177",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-28_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 842981,
+      "media": "application/gzip",
+      "sha256": "3e7cab6ff1f723fda5d500b66bcd4866c8424878954daf369240085a8012160c",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-28.pos.gz"
+    },
+    {
+      "compressed_bytes": 5007354,
+      "media": "application/gzip",
+      "sha256": "3eec3187ade301938ecd61cc311f08f1794349b0701ac9c6dc7ef1b6134063f3",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-29_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843116,
+      "media": "application/gzip",
+      "sha256": "e9c12c9b7acf67ad8a3346c77527b47c6b697238b46d7bb79ccdcac2d388f4b9",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-29.pos.gz"
+    },
+    {
+      "compressed_bytes": 4902640,
+      "media": "application/gzip",
+      "sha256": "9c1c6e721df9b64f28063f0b8714528323a1dbac6cf60edf50ec5d637288c751",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-30_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828981,
+      "media": "application/gzip",
+      "sha256": "87966a9a91bbd5896a700c22b2675054d8913825aa8918b2058fa92f573bd4ac",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-11-30.pos.gz"
+    },
+    {
+      "compressed_bytes": 4795978,
+      "media": "application/gzip",
+      "sha256": "5aae5b18193bb96551ed18cb9b3e36dfe1b67d2635a19dd6f426feb649099598",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-01_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 813770,
+      "media": "application/gzip",
+      "sha256": "10617fafbcade0ca3b50b0e2cbc8b55feee6646f973b5f68bc27634c6ad9ce1e",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-01.pos.gz"
+    },
+    {
+      "compressed_bytes": 4792398,
+      "media": "application/gzip",
+      "sha256": "c48277e5e126356fd2fcc580a19067c0472624227e3cf31dabcbe5722d167612",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-02_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 814183,
+      "media": "application/gzip",
+      "sha256": "df9e2abcda57c9b6eea51c2fe1eba82ac02eff33b0f2ac8924cf6e04f8936aba",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-02.pos.gz"
+    },
+    {
+      "compressed_bytes": 4913572,
+      "media": "application/gzip",
+      "sha256": "b28ba2a6e4280c8d08fdaec6241c23b564e56496234530e0df97215f705af7e9",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-03_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828936,
+      "media": "application/gzip",
+      "sha256": "b03a195edf097af6c2fee764108656a1c0c0cd49e161715360388c6f27f1e7b5",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-03.pos.gz"
+    },
+    {
+      "compressed_bytes": 4916465,
+      "media": "application/gzip",
+      "sha256": "7d52700d3858cf6b3fb22180fb9a87619c26152f1c5d38ec8cb14e5e6c5515fc",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-04_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 828935,
+      "media": "application/gzip",
+      "sha256": "200a277df25fa594d06ceb08c24f0e641482a7be567cd00933fd34d0ed075b6f",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-04.pos.gz"
+    },
+    {
+      "compressed_bytes": 5000376,
+      "media": "application/gzip",
+      "sha256": "45eb802197dbadd18814e2cdacc8719fcdbc69cb9dcb219bcf2e1ccf80d86c96",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-05_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 844023,
+      "media": "application/gzip",
+      "sha256": "ebfeb6eb597436af934d350ecc140e0e78c7fe2218d6c789d10c49e9001bbcb2",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-05.pos.gz"
+    },
+    {
+      "compressed_bytes": 4903157,
+      "media": "application/gzip",
+      "sha256": "064f50d624a82588dd49bfe92e17019eb7e8bc17aa7e3896b64593168408b62e",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-06_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 829175,
+      "media": "application/gzip",
+      "sha256": "246952293e31bbf73b62eba8660f82f6b11feff6951c9cd0b2f0d7c6325b5252",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-06.pos.gz"
+    },
+    {
+      "compressed_bytes": 4988252,
+      "media": "application/gzip",
+      "sha256": "a40309a4f6b9a07ed01be07f4ebe86b80e8f270e4f05e16ecde644364b5a89ee",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-07_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 843753,
+      "media": "application/gzip",
+      "sha256": "19f06cf7a41c665ca02045f284fb112eace9fd755c0a8b09460eb1c7caea5c88",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-07.pos.gz"
+    },
+    {
+      "compressed_bytes": 5150252,
+      "media": "application/gzip",
+      "sha256": "fcda19bd0573b36c5993915030ef3c4f6817c5269602dedb626ff20351a081b1",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-08_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 872762,
+      "media": "application/gzip",
+      "sha256": "505142efb5fa8579f9c350d36f8bd91078af589a6af8a246b2f1b527577d365b",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-08.pos.gz"
+    },
+    {
+      "compressed_bytes": 5146739,
+      "media": "application/gzip",
+      "sha256": "afde0a57575145ea41201f6da68bcbf85f5d97c1b541d6f219a0e9b527b50afd",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-09_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 872804,
+      "media": "application/gzip",
+      "sha256": "a810a5821b72653ef56e0d3bac5f0cdf4efc59f5f1003ea373fdd94601fb4df1",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-09.pos.gz"
+    },
+    {
+      "compressed_bytes": 5140930,
+      "media": "application/gzip",
+      "sha256": "a1f4f888a6596d27cf3b002d7afd6df177af7a1058dc752910396e57adab62a1",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-10_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 872596,
+      "media": "application/gzip",
+      "sha256": "7fdba01f5d927cbed19c73d5bb78db7986008889102e2b04c36b6ba4f2d232ee",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-10.pos.gz"
+    },
+    {
+      "compressed_bytes": 5051357,
+      "media": "application/gzip",
+      "sha256": "eeac1584bf8679b60868a58552cb05c0432e3f1a6c7ad6f47735bb04d6143776",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-11_hr.tdp.gz"
+    },
+    {
+      "compressed_bytes": 858316,
+      "media": "application/gzip",
+      "sha256": "729fdf89eef79f33fd5b2fbe12dfc2b2180d7e40837b2e02f5ce9a454c19dcc0",
+      "url": "https://sideshow.jpl.nasa.gov/pub/JPL_GNSS_Products/Final/2024/2024-12-11.pos.gz"
+    }
+  ],
+  "schema": "darkpipe.gps_network.calibration.v1",
+  "selected_node_count": 22,
+  "selected_nodes": [
+    "GPS43",
+    "GPS44",
+    "GPS50",
+    "GPS51",
+    "GPS52",
+    "GPS53",
+    "GPS55",
+    "GPS56",
+    "GPS57",
+    "GPS61",
+    "GPS64",
+    "GPS65",
+    "GPS66",
+    "GPS68",
+    "GPS70",
+    "GPS72",
+    "GPS74",
+    "GPS75",
+    "GPS76",
+    "GPS77",
+    "GPS78",
+    "GPS79"
+  ],
+  "stage": "CALIBRATION_BACKGROUND_ONLY",
+  "target_opened": false,
+  "target_part_durations_seconds": [
+    13754.863403,
+    13036.434186
+  ]
+}

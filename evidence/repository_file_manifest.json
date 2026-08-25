@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T21:37:00.296089Z",
+  "generated_at_utc": "2026-08-25T21:49:40.191018Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 162,
-  "total_bytes": 28844558,
+  "file_count": 165,
+  "total_bytes": 28920489,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -52,8 +52,8 @@
     },
     {
       "path": ".github/workflows/v09-target.yml",
-      "byte_count": 1676,
-      "sha256": "81d63aa4cafc1527c9914b4ec1288ea025be53cc9a9edc06c809e21b11cb1b17"
+      "byte_count": 1678,
+      "sha256": "81b50011242733cc3b2f57ad0ad8ccd01364aca3fa3e17cac218b1766b2594e7"
     },
     {
       "path": ".gitignore",
@@ -94,6 +94,11 @@
       "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
       "byte_count": 2364,
       "sha256": "99b495407bae52e8685fb5058d01d35fd80c332b1a70820de45373a5f78fccb3"
+    },
+    {
+      "path": "docs/CALIBRATION_CLOSURE_GPS_NETWORK_V09_2026-08-25.md",
+      "byte_count": 733,
+      "sha256": "fd98e8a3ed3deae1688d2635379161ae6d0e669c1a0e5ded4d14dd9cbd651303"
     },
     {
       "path": "docs/CIERRE_INTERMEDIO_ES_AION_INDEPENDENT_DISCOVERY_0.8_2026-08-25.md",
@@ -511,6 +516,16 @@
       "sha256": "514fbd2ccc0d02f7f4e588991d256043fc1b7235016eaaa5a928469ae7e96380"
     },
     {
+      "path": "evidence/gps_network_v09/calibration_result.json",
+      "byte_count": 56930,
+      "sha256": "13584efc7534be8f8d1ef7cff73b2847ad3e9ef4a39cf45344013127e1c520af"
+    },
+    {
+      "path": "evidence/gps_network_v09/calibration_state.json",
+      "byte_count": 17039,
+      "sha256": "150c17f77156b705470ff20c5c5a1d22d828b5d55188afc2f03030a4faa9db94"
+    },
+    {
       "path": "evidence/hapi_intermagnet_probe_2026-08-25/data.csv",
       "byte_count": 3764,
       "sha256": "463387a7b240489af3673d2a70a82457bba2ef572349700b56978e828fde7cf5"
@@ -682,8 +697,8 @@
     },
     {
       "path": "run_darkpipe_gps_network_v09.py",
-      "byte_count": 16089,
-      "sha256": "7994233a39104bbaaf5c9f7cec86d36ec2ebd9758cfcd806cb6d3ad2297ca47c"
+      "byte_count": 17316,
+      "sha256": "843550bd0c4ce25ee8730c7c38b1569ddb250bfb91abb7a6278266b9aa31e545"
     },
     {
       "path": "run_darkpipe_realdata_v03.py",

@@ -274,6 +274,18 @@ def calibrate(output: Path, config: SearchConfig) -> int:
         ],
     }
     write_json(output / "calibration_result.json", result)
+    state_payload = {
+        "schema": "darkpipe.gps_network.calibration_state.v1",
+        "campaign_id": config.campaign_id,
+        "config": config.to_dict(),
+        "power_gate": power_gate,
+        "nodes": nodes,
+        "location": location.tolist(),
+        "scale": scale.tolist(),
+        "covariance": covariance.tolist(),
+        "null_maxima": list(null_maxima),
+    }
+    write_json(output / "calibration_state.json", state_payload)
     np.savez_compressed(
         output / "calibration_state.npz",
         nodes=np.asarray(nodes),
@@ -307,19 +319,34 @@ declarado sobre fondo GPS autentico.
 
 
 def load_state(path: Path, config: SearchConfig):
-    with np.load(path, allow_pickle=False) as state:
-        stored = json.loads(str(state["config_json"]))
-        if stored != config.to_dict():
-            raise ValueError("calibration config differs from frozen target config")
-        if not bool(state["power_gate"]):
-            raise ValueError("power gate is not green; target must remain closed")
-        return (
-            [str(value) for value in state["nodes"].tolist()],
-            state["location"].copy(),
-            state["scale"].copy(),
-            state["covariance"].copy(),
-            state["null_maxima"].copy(),
-        )
+    state = json.loads(path.read_text(encoding="utf-8"))
+    if state.get("schema") != "darkpipe.gps_network.calibration_state.v1":
+        raise ValueError("unsupported calibration-state schema")
+    if state.get("campaign_id") != config.campaign_id:
+        raise ValueError("calibration campaign differs from frozen target campaign")
+    if state.get("config") != config.to_dict():
+        raise ValueError("calibration config differs from frozen target config")
+    if not bool(state.get("power_gate")):
+        raise ValueError("power gate is not green; target must remain closed")
+    nodes = [str(value) for value in state["nodes"]]
+    location = np.asarray(state["location"], dtype=float)
+    scale = np.asarray(state["scale"], dtype=float)
+    covariance = np.asarray(state["covariance"], dtype=float)
+    null_maxima = np.asarray(state["null_maxima"], dtype=float)
+    count = len(nodes)
+    if (
+        location.shape != (count,)
+        or scale.shape != (count,)
+        or covariance.shape != (count, count)
+        or null_maxima.shape != (42,)
+    ):
+        raise ValueError("calibration-state array shape mismatch")
+    if not all(
+        np.isfinite(value).all()
+        for value in (location, scale, covariance, null_maxima)
+    ):
+        raise ValueError("non-finite calibration-state value")
+    return nodes, location, scale, covariance, null_maxima
 
 
 def target(output: Path, config: SearchConfig, state_path: Path) -> int:
