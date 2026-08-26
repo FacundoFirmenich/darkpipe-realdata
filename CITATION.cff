@@ -1,11 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it using this metadata. Cite the upstream AION dataset separately when using the bundled evidence."
-title: "DarkPipe: authority-typed real-data validation"
+message: "If you use this software, please cite it using this metadata and cite each upstream dataset, including SPARC, under its own jurisdiction."
+title: "DarkPipe: observable shadows and conditional inobservables from real data"
 type: software
 authors:
   - family-names: Firmenich
     given-names: Facundo
-version: 0.8.0
-date-released: 2026-08-25
+version: 0.10.0
+date-released: 2026-08-26
 repository-code: "https://github.com/FacundoFirmenich/darkpipe-realdata"
 license: GPL-3.0-or-later

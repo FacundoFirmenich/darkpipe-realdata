@@ -1,0 +1,34 @@
+{
+  "schema": "darkpipe.v010.github_run_receipt.v1",
+  "campaign_id": "DP-OBS-SHADOW-INOBS-0.10-20260826",
+  "official_run_count_observed": 1,
+  "workflow_run": {
+    "id": 32975513896,
+    "url": "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/32975513896",
+    "event": "workflow_dispatch",
+    "head_sha": "4819501a0b10709f6128cbd992ad2e9fac830359",
+    "created_at": "2026-08-26T13:39:37Z",
+    "updated_at": "2026-08-26T13:41:44Z",
+    "status": "completed",
+    "conclusion": "success",
+    "job_id": 98199164020
+  },
+  "artifact": {
+    "id": 9609353702,
+    "name": "darkpipe-v010-shadow-inobservable",
+    "size_in_bytes": 743707,
+    "digest": "sha256:8e31b5dacd12342255e47a5a2c62e4c6eeabeb0292d60cf59276df888f92083f",
+    "expires_at": "2026-11-24T13:39:38Z"
+  },
+  "checked_file_sha256": {
+    "derived_inobservable_profiles.csv": "aee55c110eb5dbe593a37e173633383c77f46251527678fc188d8ff4ce6e0977",
+    "inobservable_summary.json": "cc5871df311a03baefec370da354bbc04b6042c2a8dae7d1431748e576378333",
+    "manifest.json": "798672ea50f76cfa9ae54a48ec4726154a1320ff1e50f875b4e9ff0bae6b2062",
+    "observable_shadow_inobservable.png": "48c7b6bf271fdd8a06c9c960d260ccd4ab4f123730b6b30e3ba75c405931d8d8",
+    "SUBSTANTIVE_CLOSURE_ES.md": "5354f591861973ae20d874cb3c8e7c7c6254960bc6167e8853c4aa8222577a34"
+  },
+  "raw_source_retained": false,
+  "warnings": [
+    "GitHub forced Node.js 24 for actions declaring Node.js 20; all steps and the job still concluded success."
+  ]
+}

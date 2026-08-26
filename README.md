@@ -1,4 +1,51 @@
-# DarkPipe 0.9.0 - independent GPS clock-network transient search
+# DarkPipe 0.10.0 — observable shadows and conditional inobservables
+
+DarkPipe now implements the governing chain `real observables -> signed shadow
+-> conditional derived inobservables`. Version 0.10 uses SPARC rotation curves
+and separate gas, disk and bulge mass-model projections. The design was
+preregistered and merged before the only official inferential run.
+
+**Terminal result:** `DERIVED_CONDITIONAL_INOBSERVABLE_PROFILES_AVAILABLE`.
+The checked result contains 2,700 radial profiles across 149 galaxies: 1,917
+positive at 95%, 775 sign-ambiguous and 8 negative at 95%.
+
+**v0.10 authority ceiling:** signed spherical-equivalent effective acceleration
+and enclosed-mass discrepancy profiles, conditional on circular Newtonian
+mapping and the declared nuisance model. This is not a particle detection,
+three-dimensional density, MOND/Lambda-CDM adjudication, gravity mechanism or
+validation of the morphotopological plasma-hyperstate conjecture.
+
+## v0.10 checked result
+
+| Gate | Result |
+|---|---|
+| Source | SPARC; 175 galaxies; CC-BY-4.0 |
+| Frozen selection | 149 galaxies; 2,700 of 3,391 radii |
+| Positive signed profile at 95% | 1,917 radii |
+| Sign ambiguous at 95% | 775 radii |
+| Negative signed profile at 95% | 8 radii in 4 galaxies |
+| Galaxies with at least one positive radius | 145 of 149 |
+| Outermost selected radius | 144 positive; 5 ambiguous; 0 negative |
+| Terminal decision | `DERIVED_CONDITIONAL_INOBSERVABLE_PROFILES_AVAILABLE` |
+
+The pointwise states are not independent because radii share galaxy-level
+distance, inclination and mass-to-light draws. Adverse and ambiguous profiles
+are retained. Raw SPARC tables were hash-verified in ephemeral storage and
+removed; only compact derived evidence is redistributed.
+
+Read the [preregistration](docs/PREREGISTRATION_OBSERVABLE_SHADOW_INOBSERVABLE_0.10.md),
+[deep-research selection](docs/DEEP_RESEARCH_V010_SHADOW_INOBSERVABLE_SELECTION_2026-08-26.md),
+[checked summary](evidence/v010_shadow_inobservable/inobservable_summary.json),
+[derived profiles](evidence/v010_shadow_inobservable/derived_inobservable_profiles.csv)
+and [substantive Spanish adjudication](docs/V010_SUBSTANTIVE_ADJUDICATION_ES_2026-08-26.md).
+
+The official run was executed once from merged commit
+`4819501a0b10709f6128cbd992ad2e9fac830359` as GitHub Actions run
+`32975513896`; do not relabel reproductions as the historical run.
+
+## What 0.9 established
+
+### DarkPipe 0.9.0 — independent GPS clock-network transient search
 
 DarkPipe acquires bounded official observations, preserves provenance and runs
 reproducible environmental, atom-interferometer and clock-network validation.
