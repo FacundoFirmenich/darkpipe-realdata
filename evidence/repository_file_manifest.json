@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T22:15:36.386063Z",
+  "generated_at_utc": "2026-08-25T22:55:40.353033Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 169,
-  "total_bytes": 28937869,
+  "file_count": 176,
+  "total_bytes": 28971786,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -19,6 +19,11 @@
       "path": ".github/workflows/ci.yml",
       "byte_count": 340,
       "sha256": "752e4695a2237b53f223a0f36163fc5a20524bfa487649d47614f8f9d27246a3"
+    },
+    {
+      "path": ".github/workflows/v010-derive.yml",
+      "byte_count": 918,
+      "sha256": "3f4c1ab4ca39330ce4b1772514df5ae5288b8de8c78bc787f7a0d0787a578f28"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -136,9 +141,19 @@
       "sha256": "99ac072c19923a119329c18c221c798dea7941696dc5365bda48a1ffbac5b361"
     },
     {
+      "path": "docs/DEEP_RESEARCH_V010_SHADOW_INOBSERVABLE_SELECTION_2026-08-26.md",
+      "byte_count": 2189,
+      "sha256": "ae971cb33de5c7f78772bcb0a2f3cbed9947a9414203b8f9d7c5ab4da04d0afa"
+    },
+    {
       "path": "docs/DEEP_RESEARCH_V09_INDEPENDENT_SENSOR_SELECTION_2026-08-25.md",
       "byte_count": 4553,
       "sha256": "a4f5277d0cb3f44286ae69671f70b8f78a5e95005984b058dd16e75272dbf8bd"
+    },
+    {
+      "path": "docs/ERRATUM_V09_CENTRAL_MISSION_GATE_ES_2026-08-26.md",
+      "byte_count": 1120,
+      "sha256": "3b0161af943de47f2e1af2b223a62db7a3484885a6bdc4bb09eec6e4b2d66c3d"
     },
     {
       "path": "docs/OBSERVATIONAL_AUTHORITY_0.5.md",
@@ -169,6 +184,11 @@
       "path": "docs/PREREGISTRATION_GPS_NETWORK_TRANSIENT_0.9.md",
       "byte_count": 5253,
       "sha256": "04dd0a1623c54a2d151f15bbb21ea4e5920e98e352e0991cb8b460441d57f10c"
+    },
+    {
+      "path": "docs/PREREGISTRATION_OBSERVABLE_SHADOW_INOBSERVABLE_0.10.md",
+      "byte_count": 3134,
+      "sha256": "2483432ba1698f4c3b07cf5f62782610a50b695ce193ef706d5d7357ba31074c"
     },
     {
       "path": "docs/SCIENTIFIC_SCOPE.md",
@@ -672,8 +692,8 @@
     },
     {
       "path": "pyproject.toml",
-      "byte_count": 1018,
-      "sha256": "d61da3f34d473eed8b4d6276a1808cc44180c68efa74c3d1a52e9d8c304b4e83"
+      "byte_count": 1019,
+      "sha256": "63273357069d06e7d45bcdb775b64bcbd585206ab626c5a3f26a283f67b3cc1c"
     },
     {
       "path": "requirements.txt",
@@ -721,6 +741,11 @@
       "sha256": "843550bd0c4ce25ee8730c7c38b1569ddb250bfb91abb7a6278266b9aa31e545"
     },
     {
+      "path": "run_darkpipe_inobservable_v010.py",
+      "byte_count": 5350,
+      "sha256": "59e5b2acf778c8fa62bc698b71bd4a255b93500511f348b998c94d8deabbd9c0"
+    },
+    {
       "path": "run_darkpipe_realdata_v03.py",
       "byte_count": 176,
       "sha256": "93da3b6f0a5304a0e654f8ed733ca8d433e8961d28ce5602785f8966bd8dbf59"
@@ -732,8 +757,8 @@
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 1499,
-      "sha256": "86a6b032a2dbbff71d081d47ea25e6e474669a5330d4422d3ae22832ad89dc7b"
+      "byte_count": 1500,
+      "sha256": "20f4744c2244aa3897afb0fc0d98fed36503298d47728cf1892a97aa83ac6d77"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -789,6 +814,11 @@
       "path": "src/darkpipe/http.py",
       "byte_count": 2061,
       "sha256": "eeb1cf5f69f8d67f75054f6b2129b4671c3b219d4f0ebfe9dfd5a1c2e4463aff"
+    },
+    {
+      "path": "src/darkpipe/inobservable.py",
+      "byte_count": 18525,
+      "sha256": "d75e0d398ad105136b1ab81c5053ce96bda3aa00e8f7939aace1feb982a9250b"
     },
     {
       "path": "src/darkpipe/pipeline.py",
@@ -854,6 +884,11 @@
       "path": "tests/test_gps_network.py",
       "byte_count": 4563,
       "sha256": "1d9781300da7d6328a6f93c3f5a243b916c0518af6fe228f7f263f44ef161c97"
+    },
+    {
+      "path": "tests/test_inobservable.py",
+      "byte_count": 2679,
+      "sha256": "f525646b4b11a4cf38a75affe672576594b3fe723f3c0a75ae6f7af57a5ec791"
     }
   ]
 }

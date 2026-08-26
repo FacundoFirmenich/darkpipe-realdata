@@ -1,0 +1,33 @@
+name: v0.10 derive observable-shadow inobservables
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  derive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - name: Derive conditional inobservables once from frozen sources
+        run: |
+          python run_darkpipe_inobservable_v010.py \
+            --output darkpipe_v010_result \
+            --scratch "$RUNNER_TEMP/darkpipe-v010" \
+            --draws 4096 \
+            --seed 20260826010
+          test ! -e "$RUNNER_TEMP/darkpipe-v010"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darkpipe-v010-shadow-inobservable
+          path: darkpipe_v010_result/
+          if-no-files-found: error
+          retention-days: 90
