@@ -1,0 +1,10 @@
+claim_id,claim,source_url,support_type,limitation
+C01,Mistele 2024 publishes a 15-bin weak-lensing RAR table with statistical and deprojection-systematic uncertainties,https://arxiv.org/abs/2310.15248,direct_primary,No full joint covariance including baryonic systematics is published in Table 1
+C02,The Mistele 2024 final publisher version is CC BY 4.0,https://commons.case.edu/facultyworks/800/,direct_primary_repository,Attribution remains required for the curated transcription
+C03,Mistele 2024 uses an exact spherical deprojection from ESD to radial acceleration,https://arxiv.org/abs/2310.15248,direct_primary,Spherical symmetry and large-radius extrapolation remain assumptions
+C04,The low-acceleration tail below about 1e-14 m s-2 has material systematic sensitivity,https://arxiv.org/abs/2310.15248,direct_primary,The threshold is a source-informed jurisdiction and not a universal physical boundary
+C05,Brouwer 2021 constructed a full analytic ESD covariance and published result-profile tables,https://arxiv.org/abs/2106.11677,direct_primary,Its main RAR conversion used an SIS approximation
+C06,The CLASH Zenodo deposit contains 20 non-parametric profiles and correlation matrices in 182.4 kB,https://zenodo.org/records/15476959,direct_primary_repository,It is a cluster-scale rather than galaxy-scale jurisdiction
+C07,The CLASH deposit provides total baryonic mass estimates rather than a radial baryonic profile in each public cluster CSV,https://zenodo.org/records/15476959,direct_file_schema,Additional X-ray gas modeling is needed for a radial discrepancy
+C08,CLASH baryonic conclusions depend strongly on gas-profile extrapolation beyond reliable X-ray radii,https://arxiv.org/abs/2506.13716,direct_primary,The uncertainty must be retained rather than filled by assumption
+C09,DarkPipe v0.11 can compare population-level lensing and SPARC shadows descriptively but cannot form an object-level fusion,LOCAL_METHOD_DECISION,methodological_inference,Different objects and absent cross-source covariance prohibit replication language
