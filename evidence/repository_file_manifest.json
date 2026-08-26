@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-25T22:55:40.353033Z",
+  "generated_at_utc": "2026-08-26T13:52:08.519524Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 176,
-  "total_bytes": 28971786,
+  "file_count": 184,
+  "total_bytes": 30506527,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -67,13 +67,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 8462,
-      "sha256": "875fddc48d4155b38285651631cd16e9bda1d621bee4c3ed3e2f2204c4217d8a"
+      "byte_count": 9891,
+      "sha256": "0de775fe32e6c21235a695bc43ee01252d6e1a9cac90af63856714c9c3c4f0d5"
     },
     {
       "path": "CITATION.cff",
-      "byte_count": 440,
-      "sha256": "3a9a0a519768c5745a39b5c6132372f5d8c0b523ce7bcad34dbd60d84be37af8"
+      "byte_count": 469,
+      "sha256": "7940aee5da7c2a918b9fb0ff37ac0c3da9a240f00335d5a0f0a5d2fc7b7eb46e"
     },
     {
       "path": "LICENSE",
@@ -87,8 +87,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 9385,
-      "sha256": "44cae4efdf964d7e45d2b31ef306f12a684b8c83ca71543ada2df67081c9f59f"
+      "byte_count": 11800,
+      "sha256": "32ce732e3d320cd2e744626b20a99da800fbe2a12bfd709f91fd2ef47f1d5dbb"
     },
     {
       "path": "SECURITY.md",
@@ -214,6 +214,11 @@
       "path": "docs/TERMINOLOGY_ERRATUM_MORPHOSYNTACTIC_PLASMA_0.7.md",
       "byte_count": 9683,
       "sha256": "c2c46b5215f78654f327c191cf60585599e2fad362390cbb8586304defcd2c08"
+    },
+    {
+      "path": "docs/V010_SUBSTANTIVE_ADJUDICATION_ES_2026-08-26.md",
+      "byte_count": 5975,
+      "sha256": "d6e3218fe204135758b784539fe44cf21e965f634cefb8025fa00a27f2603a99"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -656,6 +661,36 @@
       "sha256": "99b3e1bd3f41cd51680c075b017525df55fa7cea200dad9545ff265c2161a30b"
     },
     {
+      "path": "evidence/v010_shadow_inobservable/SUBSTANTIVE_CLOSURE_ES.md",
+      "byte_count": 831,
+      "sha256": "5354f591861973ae20d874cb3c8e7c7c6254960bc6167e8853c4aa8222577a34"
+    },
+    {
+      "path": "evidence/v010_shadow_inobservable/derived_inobservable_profiles.csv",
+      "byte_count": 1175632,
+      "sha256": "aee55c110eb5dbe593a37e173633383c77f46251527678fc188d8ff4ce6e0977"
+    },
+    {
+      "path": "evidence/v010_shadow_inobservable/inobservable_summary.json",
+      "byte_count": 3095,
+      "sha256": "cc5871df311a03baefec370da354bbc04b6042c2a8dae7d1431748e576378333"
+    },
+    {
+      "path": "evidence/v010_shadow_inobservable/manifest.json",
+      "byte_count": 249,
+      "sha256": "798672ea50f76cfa9ae54a48ec4726154a1320ff1e50f875b4e9ff0bae6b2062"
+    },
+    {
+      "path": "evidence/v010_shadow_inobservable/observable_shadow_inobservable.png",
+      "byte_count": 337770,
+      "sha256": "48c7b6bf271fdd8a06c9c960d260ccd4ab4f123730b6b30e3ba75c405931d8d8"
+    },
+    {
+      "path": "evidence/v010_shadow_inobservable/run_receipt.json",
+      "byte_count": 1501,
+      "sha256": "f4bc6d4b4feb110daf8061c42d12380a36671a12a0809d7c2b442117b82b9950"
+    },
+    {
       "path": "notebooks/DarkPipe_AION_Blind_v06_Colab.ipynb",
       "byte_count": 3893,
       "sha256": "01f293881d3d3bd548c721fe443f80f4d6d481a7aee32e05b2e17b11d358ee48"
@@ -684,6 +719,11 @@
       "path": "notebooks/DarkPipe_GPS_Network_v09_Colab.ipynb",
       "byte_count": 4687,
       "sha256": "a8bc11e3ccca5aecc3fd24c8d795c0afda051fcbf31918c474a0e9880febf9e3"
+    },
+    {
+      "path": "notebooks/DarkPipe_Observable_Shadow_Inobservable_v010_Colab.ipynb",
+      "byte_count": 5815,
+      "sha256": "c7f0a4f80fadda648d48619e52495d48fb64eb98ac0f4a3905117447ed104612"
     },
     {
       "path": "notebooks/DarkPipe_RealData_v03_Colab.ipynb",

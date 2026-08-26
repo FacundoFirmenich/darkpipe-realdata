@@ -1,4 +1,16 @@
 # Changelog
+## 0.10.0 - 2026-08-26
+
+- Corrected the governing mission to `observables -> shadows -> derived inobservables`; v0.9 remains a valid but peripheral detector-level null.
+- Selected the SPARC rotation-curve and baryonic mass-model tables as the first real, compact and auditable shadow family.
+- Preregistered source hashes, cuts, nuisance priors, 4,096 draws, seed `20260826010`, signed adverse preservation and a non-ontologizing authority ceiling in commit `5372d5f` before inference.
+- Executed the official campaign exactly once from merged commit `4819501a0b10709f6128cbd992ad2e9fac830359` in GitHub Actions run `32975513896`; no relaunch or retuning occurred.
+- Derived 2,700 finite, unique radial inobservable profiles across 149 galaxies from 3,391 source radii.
+- Recorded 1,917 positive, 775 sign-ambiguous and 8 negative profiles at 95%; preserved all adverse and ambiguous cases.
+- Found at least one positive supported radius in 145/149 galaxies and positive support at the outermost selected radius in 144/149, with the remaining 5 ambiguous.
+- Kept particle identity, 3D density, MOND/Lambda-CDM adjudication, gravity mechanism, plasma-hyperstate ontology and full factometric/topological channels as `NOT_ESTIMABLE`.
+- Retained only compact derived evidence; verified and deleted raw CC-BY-4.0 SPARC tables from ephemeral storage.
+- Preserved GNU GPL version 3 or later (`GPL-3.0-or-later`), never `GPL-3.0-only`.
 ## 0.9.0 - 2026-08-26
 
 - Selected native JPL Final high-rate GPS clock and orbit products through a primary-source deep-research comparison with combined IGS clocks, GNOME magnetometers and contextual geomagnetic/solar-wind networks.

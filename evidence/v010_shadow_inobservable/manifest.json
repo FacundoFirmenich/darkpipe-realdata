@@ -1,0 +1,10 @@
+{
+  "files": [
+    "SUBSTANTIVE_CLOSURE_ES.md",
+    "derived_inobservable_profiles.csv",
+    "inobservable_summary.json",
+    "observable_shadow_inobservable.png"
+  ],
+  "raw_source_retained": false,
+  "schema": "darkpipe.v010.output_manifest.v1"
+}

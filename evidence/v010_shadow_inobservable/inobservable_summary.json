@@ -1,0 +1,84 @@
+{
+  "authority": "DERIVED_EFFECTIVE_INOBSERVABLE_CONDITIONAL_NOT_ONTOLOGIZED",
+  "campaign_id": "DP-OBS-SHADOW-INOBS-0.10-20260826",
+  "created_utc": "2026-08-26T13:41:35.325913Z",
+  "decision": "DERIVED_CONDITIONAL_INOBSERVABLE_PROFILES_AVAILABLE",
+  "derived_inobservable": "signed spherical-equivalent effective acceleration and enclosed-mass discrepancy profiles conditional on Newtonian centripetal mapping and declared nuisance priors",
+  "not_estimable": [
+    "dark-matter particle identity or density profile",
+    "MOND or Lambda-CDM adjudication",
+    "plasma-hyperstate ontology",
+    "gravity mechanism",
+    "non-spherical three-dimensional mass distribution",
+    "full factometric transformation cost with all systematics",
+    "phase, multifractal, topological and genealogical shadow channels"
+  ],
+  "nuisance_model": {
+    "bulge_mass_to_light": 0.7,
+    "disk_mass_to_light": 0.5,
+    "draws": 4096,
+    "inclination_min_deg": 30.0,
+    "mass_to_light_sigma_dex": 0.11,
+    "maximum_fractional_velocity_error": 0.1,
+    "quality_max": 2,
+    "seed": 20260826010
+  },
+  "observable_face": [
+    "rotation radius",
+    "observed circular velocity",
+    "gas velocity contribution",
+    "disk velocity contribution",
+    "bulge velocity contribution"
+  ],
+  "schema": "darkpipe.observable_shadow_inobservable.v1",
+  "selection": {
+    "galaxies": 149,
+    "inclination_min_deg": 30.0,
+    "maximum_fractional_velocity_error": 0.1,
+    "points": 2700,
+    "points_before_selection": 3391,
+    "quality_max": 2
+  },
+  "shadow_face": [
+    "signed squared-velocity discrepancy",
+    "posterior sign support",
+    "sign evidence cost in bits",
+    "fixed-nuisance velocity transformation cost to baryonic closure"
+  ],
+  "source_receipts": {
+    "files": [
+      {
+        "byte_count": 28259,
+        "license": "cc-by-4.0",
+        "md5": "6181df386bfc05868a3700c196e800da",
+        "name": "SPARC_Lelli2016c.mrt",
+        "retrieved_at_utc": "2026-08-26T13:40:44.947399Z",
+        "sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+        "url": "https://zenodo.org/api/records/16284118/files/SPARC_Lelli2016c.mrt/content"
+      },
+      {
+        "byte_count": 269518,
+        "license": "cc-by-4.0",
+        "md5": "fe6188538c3f5504f70f486ff6b4d29c",
+        "name": "MassModels_Lelli2016c.mrt",
+        "retrieved_at_utc": "2026-08-26T13:41:32.910433Z",
+        "sha256": "9108994b12cc401b94a1768beca61c53ec354779385c9c9cc571049f3043244c",
+        "url": "https://zenodo.org/api/records/16284118/files/MassModels_Lelli2016c.mrt/content"
+      }
+    ],
+    "record": {
+      "byte_count": 4866,
+      "doi": "10.5281/zenodo.16284118",
+      "license": "cc-by-4.0",
+      "record_id": 16284118,
+      "sha256": "102e6bc1c77a528f82fb66bfce892000ba6e6bb15f4146c5ecceff7f5b51fa16",
+      "url": "https://zenodo.org/api/records/16284118"
+    },
+    "schema": "darkpipe.sparc.source_receipts.v1"
+  },
+  "status_counts": {
+    "NEGATIVE_SIGNED_PROFILE_SUPPORTED_95": 8,
+    "POSITIVE_SIGNED_PROFILE_SUPPORTED_95": 1917,
+    "SIGN_AMBIGUOUS_95": 775
+  }
+}
