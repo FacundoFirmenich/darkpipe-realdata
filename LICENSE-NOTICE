@@ -6,3 +6,8 @@ DarkPipe is free software: you may redistribute it and/or modify it under the te
 SPDX-License-Identifier: GPL-3.0-or-later
 
 The complete GNU GPL version 3 terms are in LICENSE.
+
+Selected KiDS-1000 Brouwer et al. (2021) scientific data under
+data/third_party/kids_brouwer2021 retain their upstream CC BY 4.0 license and
+attribution requirements. They are not relicensed under GPL. See
+data/third_party/kids_brouwer2021/ATTRIBUTION.md.

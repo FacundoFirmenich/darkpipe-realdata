@@ -1,0 +1,10 @@
+claim_id,claim,source_url,source_kind,support,authority_limit
+V012-C01,"The KiDS release provides Brouwer 2021 ESD profiles and covariance data","https://kids.strw.leidenuniv.nl/sciencedata.php",primary_data_portal,SUPPORTED,"High-level published products, not raw per-lens measurements"
+V012-C02,"KiDS high-level scientific data products are CC BY 4.0 with attribution","https://kids.strw.leidenuniv.nl/acknowledgements.php",primary_policy,SUPPORTED,"Upstream data license only; DarkPipe code remains GPL-3.0-or-later"
+V012-C03,"Brouwer 2021 uses g_obs = 4G DeltaSigma under SIS","https://arxiv.org/abs/2106.11677",primary_paper,SUPPORTED,"Approximate deprojection operator"
+V012-C04,"The Brouwer covariance includes correlations from shared sources across bins","https://arxiv.org/abs/2106.11677",primary_paper,SUPPORTED,"Published ESD covariance; not baryonic or cross-component covariance"
+V012-C05,"Exact spherical deprojection is an integral over DeltaSigma(R/sin theta)","https://arxiv.org/abs/2310.15248",primary_paper,SUPPORTED,"Requires spherical symmetry and asymptotic falloff"
+V012-C06,"Deproject-after-stack is not generally exact when normalized weights vary with radius","https://arxiv.org/abs/2310.15248",primary_paper,SUPPORTED,"Mistele reports the two methods close for its KiDS application"
+V012-C07,"Radial operator results can be transferred exactly to the g_bar-stacked RAR",,derived_boundary,CONTRADICTED,"Different stacking coordinate and no object-level weights"
+V012-C08,"The public cross ESD supports a global covariance-aware null p-value",,derived_boundary,NOT_ESTIMABLE,"No cross-component covariance published in the selected release"
+V012-C09,"The selected experiment adjudicates Lambda-CDM, MOND, or a plasma-hyperstate ontology",,derived_boundary,CONTRADICTED,"Operator sensitivity only; no ontological authority"

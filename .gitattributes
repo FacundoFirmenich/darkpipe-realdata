@@ -1,3 +1,4 @@
 # Evidence receipts are byte-custody artifacts. Git must not normalize them.
 evidence/** -text
+data/third_party/kids_brouwer2021/*.txt -text -diff
 data/mistele2024_weak_lensing_rar_table1.csv text eol=lf
