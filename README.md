@@ -1,27 +1,48 @@
-# DarkPipe 0.11.0 — multi-channel observable shadows
+# DarkPipe 0.12.0 — covariance-aware deprojection operator shadow
 
-DarkPipe v0.11 adds a second real observational channel to the governing chain
-observables -> shadows -> conditional derived inobservables. It uses the
-published Mistele et al. 2024 KiDS weak-lensing RAR: 15 population-level bins
-with statistical and deprojection systematics, under CC BY 4.0.
+DarkPipe v0.12 adds the full published 60×60 covariance of four KiDS-1000
+radial Excess Surface Density (ESD) profiles and tests an upstream uncertainty
+that v0.11 could only carry as a published systematic: the conversion from ESD
+to radial acceleration. It compares the Brouwer et al. (2021) SIS operator with
+a discretized stack-first application of the exact spherical deprojection
+integral derived by Mistele et al. (2024), while preserving all cross-radius and
+cross-mass-bin covariance cells.
 
-The frozen operator derives a signed effective acceleration discrepancy and
-eta = log10(g_obs/g_bar), then compares only the overlapping acceleration
-jurisdiction with the checked v0.10 SPARC surface. SPARC is reduced to one
-median per galaxy per window, so densely sampled rotation curves do not gain
-automatic extra weight.
+The central operator uses linear interpolation and an SIS outer tail. Zero and
+flat tails and quadratic interpolation define explicit sensitivity surfaces.
+The paired difference covariance is propagated as
+`K² (A-I) C (A-I)ᵀ`; no diagonal-only substitute is used. The public cross ESD
+component is retained as a descriptive null, but no global p-value is invented
+because this release does not publish its covariance.
 
-The crucial ceiling is structural: KiDS contains a stacked population, not the
-same individual SPARC galaxies, and its published Table 1 does not include the
-full joint covariance of baryonic systematics. Therefore v0.11 permits a
-population-level second shadow and a descriptive cross-shadow atlas, but no
-object-level fusion, joint likelihood or claim of independent confirmation.
-The four bins below 10^-14 m/s^2 are retained as a systematics-dominant tail.
+The authority ceiling is structural: these four profiles are already stacked
+at fixed physical radius, whereas the v0.11 RAR is stacked at fixed baryonic
+acceleration. Version 0.12 therefore produces a radial operator-sensitivity
+atlas and **abstains from transferring it to the RAR** without object-level
+profiles or sufficient lens weights. It does not adjudicate Lambda-CDM, MOND,
+gravity mechanisms or a plasma-hyperstate ontology.
 
-The checked v0.11 result has not yet been produced. Read the
-[preregistration](docs/PREREGISTRATION_MULTISHADOW_0.11.md), the
-[deep-research selection](docs/DEEP_RESEARCH_V011_MULTISHADOW_SELECTION_2026-08-26.md)
-and the [source attribution](data/MISTELE2024_DATA_NOTICE.md).
+Read the [v0.12 preregistration](docs/PREREGISTRATION_COVARIANCE_OPERATOR_SHADOW_0.12.md),
+[deep-research decision](research/v012/report-source.md),
+[claim/source ledger](research/v012/claim_source_ledger.csv), and
+[CC BY 4.0 attribution boundary](data/third_party/kids_brouwer2021/ATTRIBUTION.md).
+
+## What 0.11 established
+
+The official v0.11 run derived a second population-level weak-lensing shadow:
+all 15 conditional bins had a positive signed acceleration-discrepancy
+envelope, with 11 in the declared primary range and four retained as
+low-acceleration tail-systematics-dominant. Only three bins had enough SPARC
+overlap for a descriptive cross-jurisdiction comparison; 12 remained
+`NOT_ESTIMABLE`. The median absolute descriptive eta difference across those
+three bins was 0.025272 dex. This is not an object-level replication or joint
+likelihood.
+
+The official workflow ran once from merged commit
+`9e9660d0672480316ba76cc1bb5b60fdec6d9893` as GitHub Actions run
+`33252510610`. Read the [v0.11 preregistration](docs/PREREGISTRATION_MULTISHADOW_0.11.md),
+[deep-research selection](docs/DEEP_RESEARCH_V011_MULTISHADOW_SELECTION_2026-08-26.md),
+and [source attribution](data/MISTELE2024_DATA_NOTICE.md).
 
 ## What 0.10 established
 DarkPipe now implements the governing chain `real observables -> signed shadow

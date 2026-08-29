@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-29T12:14:20.875846Z",
+  "generated_at_utc": "2026-08-29T13:49:26.474907Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 196,
-  "total_bytes": 30564309,
+  "file_count": 211,
+  "total_bytes": 31261731,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -29,6 +29,11 @@
       "path": ".github/workflows/v011-multishadow.yml",
       "byte_count": 757,
       "sha256": "228a14f5a5d9b6442e924b4d7f867cf91e344d89cbac0650ec466b0661a79d44"
+    },
+    {
+      "path": ".github/workflows/v012-covariance-operator.yml",
+      "byte_count": 912,
+      "sha256": "8311c2b6022a5f20df56b220dba410ab8ab530bb69e4cec1f1f76868220f885b"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -87,13 +92,13 @@
     },
     {
       "path": "LICENSE-NOTICE",
-      "byte_count": 379,
-      "sha256": "dcaced1588976a67ae9dda89586d1589c1bb84b967213b76c300dd07fa84b136"
+      "byte_count": 637,
+      "sha256": "dd019cdb9bd7499af03887e8c686004e11ba0c08eb2ae75f4eba05f654e6a3c9"
     },
     {
       "path": "README.md",
-      "byte_count": 13170,
-      "sha256": "f935523d9c6ad6c862983865049fc4856f419ed2ba0587c8f6796c2492debc68"
+      "byte_count": 14395,
+      "sha256": "8071719407f20b7637a16873d5373dde733b9613ac2bfe28e8b8ad4a3c7cd207"
     },
     {
       "path": "SECURITY.md",
@@ -109,6 +114,41 @@
       "path": "data/mistele2024_weak_lensing_rar_table1.csv",
       "byte_count": 455,
       "sha256": "624c19f5f0edd2fca78bc94d108863a5f4b8f516ff15fe0ca65d7854b6ea55d0"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/ATTRIBUTION.md",
+      "byte_count": 1467,
+      "sha256": "63bf12b516ae8f8211a726c08f5828289585a61b65345b39495fe6abffbec195"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/Fig-3_Lensing-rotation-curves_Massbin-1.txt",
+      "byte_count": 1760,
+      "sha256": "cd8171d248a5c660701c2fcfb5f39eea01ae57b5b9ec2bae233e5aef77e7d78e"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/Fig-3_Lensing-rotation-curves_Massbin-2.txt",
+      "byte_count": 1762,
+      "sha256": "279d82e4faee34041221b617f0ce9cfc97966c431616c94608b0983e60421ae7"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/Fig-3_Lensing-rotation-curves_Massbin-3.txt",
+      "byte_count": 1760,
+      "sha256": "88eca49e85504c1eb6ce11e09edcdda37c0903dd678f2207ed4bca4fa31f7a22"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/Fig-3_Lensing-rotation-curves_Massbin-4.txt",
+      "byte_count": 1765,
+      "sha256": "05853565ae193347adff22f8aec58c50f80b2e22866fb9c532137c6f198a79e1"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/Fig-3_Lensing-rotation-curves_Massbins_covmatrix.txt",
+      "byte_count": 631774,
+      "sha256": "e2568b34578a4752c4cdc25c23cd38c896ac1c5e0477cce3fe8d7b32e4954445"
+    },
+    {
+      "path": "data/third_party/kids_brouwer2021/README.txt",
+      "byte_count": 5389,
+      "sha256": "20cdc22438039b7869e4cfb32082278d12bd11b35aa362599473b162e18d750e"
     },
     {
       "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
@@ -199,6 +239,11 @@
       "path": "docs/PREREGISTRATION_AION_SENSOR_VALIDATION_0.4.md",
       "byte_count": 6407,
       "sha256": "792ebb6501968b695cc699154cbfabbfbe269b9cdaea7980b9aa1ad1cfdb56c4"
+    },
+    {
+      "path": "docs/PREREGISTRATION_COVARIANCE_OPERATOR_SHADOW_0.12.md",
+      "byte_count": 4907,
+      "sha256": "88b30d412571cf35b21f4355fa35e0b6b5d40b427c9e9dd396c5f3a6f251736a"
     },
     {
       "path": "docs/PREREGISTRATION_GPS_NETWORK_TRANSIENT_0.9.md",
@@ -746,6 +791,11 @@
       "sha256": "3f125dcb1a64b3656606aa7e8fdbbe485792d375744b58e9232f71f31edea81d"
     },
     {
+      "path": "notebooks/DarkPipe_Covariance_Operator_v012_Colab.ipynb",
+      "byte_count": 3878,
+      "sha256": "e27c5d8e87dc7e680b2ce63f45d71c97a26e5a5c1f87d280954b835bbbd9719a"
+    },
+    {
       "path": "notebooks/DarkPipe_GPS_Network_v09_Colab.ipynb",
       "byte_count": 4687,
       "sha256": "a8bc11e3ccca5aecc3fd24c8d795c0afda051fcbf31918c474a0e9880febf9e3"
@@ -768,7 +818,7 @@
     {
       "path": "pyproject.toml",
       "byte_count": 1028,
-      "sha256": "199e58b68a62e6adcdc4f08969821c89f1ea62cbca076e9ce8e544b3848b7ec4"
+      "sha256": "335cf6f73960b0d94211459e24c844879d18b67dee57da1e9e3d1e7fa11c5119"
     },
     {
       "path": "requirements.txt",
@@ -784,6 +834,16 @@
       "path": "research/v011/report-source.md",
       "byte_count": 6972,
       "sha256": "5ed76bdfe03dfe7b7ce1907497872fcdbcb63954e5cb3a67318c9ab32a9f119a"
+    },
+    {
+      "path": "research/v012/claim_source_ledger.csv",
+      "byte_count": 1849,
+      "sha256": "fec3d0e4c7dc777dc6fe81e7477ae2aa3fb3bbab5474790dc2630784b805e978"
+    },
+    {
+      "path": "research/v012/report-source.md",
+      "byte_count": 3802,
+      "sha256": "888519499fd7b697a0a5925d316b93704edf196ef9289b132f9050361c396999"
     },
     {
       "path": "research/v09/report-source.md",
@@ -821,6 +881,11 @@
       "sha256": "b4cf275cf75ed04d6d98cf49fe7e432c028430619430fb778466485bed1fffc8"
     },
     {
+      "path": "run_darkpipe_covariance_operator_v012.py",
+      "byte_count": 7473,
+      "sha256": "6e0e316b3b181ec41c8293f118d808a554d51f35d6bdb2b8914034e5012627ac"
+    },
+    {
       "path": "run_darkpipe_gps_network_v09.py",
       "byte_count": 17316,
       "sha256": "843550bd0c4ce25ee8730c7c38b1569ddb250bfb91abb7a6278266b9aa31e545"
@@ -847,8 +912,8 @@
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 1815,
-      "sha256": "d0282b9a37e8583cb8fe4ca16221f33fea426665e69e08bee2cb0dc03974a4a3"
+      "byte_count": 3170,
+      "sha256": "e7aa7567b4949977a19ae4802550d4ac9335fe9a021e67052f44150116c25cff"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -894,6 +959,11 @@
       "path": "src/darkpipe/cli.py",
       "byte_count": 6293,
       "sha256": "4cc620d3b7ee855b70bc569b18ebbb6af50a942c78b41b841b5b388579319f70"
+    },
+    {
+      "path": "src/darkpipe/covariance_operator_shadow.py",
+      "byte_count": 21372,
+      "sha256": "58c96ea9a43fdf3dea4c584eca6a814f43cca9271bbf59e9474c5505dc914aee"
     },
     {
       "path": "src/darkpipe/gps_network.py",
@@ -969,6 +1039,11 @@
       "path": "tests/test_authority.py",
       "byte_count": 6676,
       "sha256": "7a726d8934be0f73562af687bee0100be47e594ccd92f7cfd3feb8f72f4c8d06"
+    },
+    {
+      "path": "tests/test_covariance_operator_shadow.py",
+      "byte_count": 4714,
+      "sha256": "a5553554828d4ab1606de9e3bd21720a316fa3a7dc3e6c0ce3fa3bfebe71c555"
     },
     {
       "path": "tests/test_evidence.py",
