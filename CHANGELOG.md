@@ -1,4 +1,14 @@
 # Changelog
+## 0.11.0 - unreleased
+
+- Selected the Mistele et al. 2024 KiDS weak-lensing RAR as a genuinely distinct galaxy-scale observational channel through a primary-source deep-research comparison.
+- Added a CC BY 4.0 attributed machine-readable transcription of the 15 published Table 1 bins; no raw KiDS survey data are redistributed.
+- Frozen a signed population-level acceleration discrepancy and logarithmic excess operator with explicit statistical, deprojection and stellar-mass sensitivity terms.
+- Typed the four bins below log10(g_bar) = -14 as LOW_ACCELERATION_TAIL_SYSTEMATICS_DOMINANT rather than suppressing them.
+- Added a galaxy-equal-weight descriptive overlap atlas against the immutable v0.10 SPARC surface.
+- Prohibited object-level fusion, joint likelihood, independent-confirmation language, model adjudication and ontological promotion.
+- Deferred the compact CLASH cluster profiles because their public files do not supply the radial baryonic profile required for a non-fabricated radial residual.
+- Preserved GNU GPL version 3 or later (GPL-3.0-or-later), never GPL-3.0-only.
 ## 0.10.0 - 2026-08-26
 
 - Corrected the governing mission to `observables -> shadows -> derived inobservables`; v0.9 remains a valid but peripheral detector-level null.

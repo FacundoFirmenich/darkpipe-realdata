@@ -1,5 +1,29 @@
-# DarkPipe 0.10.0 — observable shadows and conditional inobservables
+# DarkPipe 0.11.0 — multi-channel observable shadows
 
+DarkPipe v0.11 adds a second real observational channel to the governing chain
+observables -> shadows -> conditional derived inobservables. It uses the
+published Mistele et al. 2024 KiDS weak-lensing RAR: 15 population-level bins
+with statistical and deprojection systematics, under CC BY 4.0.
+
+The frozen operator derives a signed effective acceleration discrepancy and
+eta = log10(g_obs/g_bar), then compares only the overlapping acceleration
+jurisdiction with the checked v0.10 SPARC surface. SPARC is reduced to one
+median per galaxy per window, so densely sampled rotation curves do not gain
+automatic extra weight.
+
+The crucial ceiling is structural: KiDS contains a stacked population, not the
+same individual SPARC galaxies, and its published Table 1 does not include the
+full joint covariance of baryonic systematics. Therefore v0.11 permits a
+population-level second shadow and a descriptive cross-shadow atlas, but no
+object-level fusion, joint likelihood or claim of independent confirmation.
+The four bins below 10^-14 m/s^2 are retained as a systematics-dominant tail.
+
+The checked v0.11 result has not yet been produced. Read the
+[preregistration](docs/PREREGISTRATION_MULTISHADOW_0.11.md), the
+[deep-research selection](docs/DEEP_RESEARCH_V011_MULTISHADOW_SELECTION_2026-08-26.md)
+and the [source attribution](data/MISTELE2024_DATA_NOTICE.md).
+
+## What 0.10 established
 DarkPipe now implements the governing chain `real observables -> signed shadow
 -> conditional derived inobservables`. Version 0.10 uses SPARC rotation curves
 and separate gas, disk and bulge mass-model projections. The design was

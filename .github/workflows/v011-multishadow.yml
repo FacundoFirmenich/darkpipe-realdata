@@ -1,0 +1,28 @@
+name: v0.11 derive population-level lensing multi-shadow
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  derive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install .
+      - name: Verify frozen inputs and derive v0.11 compact evidence
+        run: |
+          python run_darkpipe_multishadow_v011.py             --output darkpipe_v011_result
+      - uses: actions/upload-artifact@v6.0.0
+        with:
+          name: darkpipe-v011-multishadow
+          path: darkpipe_v011_result/
+          if-no-files-found: error
+          retention-days: 90

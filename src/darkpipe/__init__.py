@@ -6,6 +6,11 @@ from .aion_independent import run_inventory
 from .aion_independent_search import confirm as confirm_independent_epoch
 from .aion_independent_search import discover as discover_independent_epoch
 from .analysis import projection_aware_diagnostics
+from .multishadow import (
+    MultiShadowConfig, build_cross_shadow_atlas,
+    derive_lensing_inobservables, load_lensing_rar_table,
+    summarize_multishadow,
+)
 from .authority import (
     AuthorityError, ClaimKind, ClaimLedger, ClaimRecord, ClaimStatus,
     ConducenceVector, ObservationEnvelope, ObservedDecoupling,
@@ -13,7 +18,7 @@ from .authority import (
 from .sources import fetch_hapi, fetch_noaa_solar_wind, fetch_usgs_geomag
 from .whittle import whittle_loglikelihood
 
-__version__ = "0.10.0"
+__version__ = "0.11.0"
 __all__ = [
     "fetch_noaa_solar_wind",
     "fetch_usgs_geomag",
@@ -38,4 +43,9 @@ __all__ = [
     "run_inventory",
     "discover_independent_epoch",
     "confirm_independent_epoch",
+    "MultiShadowConfig",
+    "load_lensing_rar_table",
+    "derive_lensing_inobservables",
+    "build_cross_shadow_atlas",
+    "summarize_multishadow",
 ]
