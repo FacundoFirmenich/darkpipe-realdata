@@ -233,6 +233,8 @@ def acquire_dataset(
                     if attempt < max_attempts:
                         time.sleep(min(2 ** (attempt - 1), 8))
             if last_error is not None:
+                if isinstance(last_error, AcquisitionError):
+                    raise last_error
                 raise AcquisitionError(
                     f"range acquisition failed at offset {offset}"
                 ) from last_error
