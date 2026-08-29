@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-29T18:50:55.494Z",
+  "generated_at_utc": "2026-08-29T19:37:52.962Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 220,
-  "total_bytes": 31304059,
+  "file_count": 227,
+  "total_bytes": 31344809,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -39,6 +39,11 @@
       "path": ".github/workflows/v013-object-recoverability.yml",
       "byte_count": 1045,
       "sha256": "b5e88f451390dbb517ca14ac6dd8a00a8aabdeb3f3e4b474072205355df118f7"
+    },
+    {
+      "path": ".github/workflows/v014-remote-object-pipeline.yml",
+      "byte_count": 1126,
+      "sha256": "532dfd14330124c80bfb55aecbb0b3b40b1354e35d923578d79b71d7d29633a1"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -102,8 +107,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 16420,
-      "sha256": "733aa67caa1b01a23496b85e2d187a900b15efcd13b0827ae431fc821213bdac"
+      "byte_count": 18002,
+      "sha256": "df36ffe9380b2e6ebb3fbf0d0e5d5015844302c924a177fbfb4233b5e5c4d32a"
     },
     {
       "path": "SECURITY.md",
@@ -269,6 +274,11 @@
       "path": "docs/PREREGISTRATION_OBSERVABLE_SHADOW_INOBSERVABLE_0.10.md",
       "byte_count": 3134,
       "sha256": "2483432ba1698f4c3b07cf5f62782610a50b695ce193ef706d5d7357ba31074c"
+    },
+    {
+      "path": "docs/PREREGISTRATION_REMOTE_OBJECT_PIPELINE_0.14.md",
+      "byte_count": 4510,
+      "sha256": "62506115a0b1d42420d8b852c6ad444982ae4c0ed6833a1fc2c143909e00a303"
     },
     {
       "path": "docs/SCIENTIFIC_SCOPE.md",
@@ -828,7 +838,7 @@
     {
       "path": "pyproject.toml",
       "byte_count": 1028,
-      "sha256": "99b9b2382b306b003863398fd67062b4c8d3a0bd07bed2228eb6fd7d6eec817c"
+      "sha256": "b17962a3b1c30796d5d6f85b6986384087971f0e9131cd66d468677b9be5b69b"
     },
     {
       "path": "requirements.txt",
@@ -941,14 +951,19 @@
       "sha256": "93da3b6f0a5304a0e654f8ed733ca8d433e8961d28ce5602785f8966bd8dbf59"
     },
     {
+      "path": "run_darkpipe_remote_acquisition_v014.py",
+      "byte_count": 2319,
+      "sha256": "cf21f8744f343646ac26e3e84e4e7282e3d75fb2886a6ddccc3608dee77f31f2"
+    },
+    {
       "path": "scripts/build_repository_manifest.py",
       "byte_count": 1969,
       "sha256": "b5931141d3a610c346cfd794f871c718d86ba6ce61947c4770eab257e7d10886"
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 3598,
-      "sha256": "31669685e57a9f81a9179f7ae8f7646d5d2d215947a63744eb54c2ac5f4d81f3"
+      "byte_count": 4532,
+      "sha256": "b9f4b8269efbc5fcdc5a1bda3ba293dd9abbae236c9d0bdae1ea7930e8e357e8"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -1021,6 +1036,11 @@
       "sha256": "ec5ffcffbd7ad1ee6cd27a80a539c065018f795b4fb6099fb27c33f1dd8a3ef0"
     },
     {
+      "path": "src/darkpipe/object_lensing.py",
+      "byte_count": 12862,
+      "sha256": "8b4182e57928b819a5b4298b9e88b15e40f219fef8e67ce3118eb8b23bf00b0d"
+    },
+    {
       "path": "src/darkpipe/object_recoverability.py",
       "byte_count": 10386,
       "sha256": "c57f7a1a4982645e5034477d67ea239a096c51fcab102f75325f435f33bd70d1"
@@ -1034,6 +1054,11 @@
       "path": "src/darkpipe/provenance.py",
       "byte_count": 1011,
       "sha256": "377d2745afa73c74749555827823e8bdfc97310ce0539febdeb7ab8f3f2c9687"
+    },
+    {
+      "path": "src/darkpipe/remote_acquisition.py",
+      "byte_count": 10819,
+      "sha256": "43a63a65b912e95fac56b2f3d53796cf85eddc5c8f53d4edcac136f19203c35e"
     },
     {
       "path": "src/darkpipe/report.py",
@@ -1106,9 +1131,19 @@
       "sha256": "98ee026b8b16327f9a413283008ad328f22999b690662bde4df6ab42ea8a485a"
     },
     {
+      "path": "tests/test_object_lensing.py",
+      "byte_count": 3045,
+      "sha256": "0a146bcfc152840bb03c0448488f7a7cb9d7b42ccd96f71847f0ec700377ad69"
+    },
+    {
       "path": "tests/test_object_recoverability.py",
       "byte_count": 3345,
       "sha256": "554d8669af1cecc3a878e21d550ae3ca0ca8e633fae36cbb1666e5c0384b5af8"
+    },
+    {
+      "path": "tests/test_remote_acquisition.py",
+      "byte_count": 3553,
+      "sha256": "1d5c2c51fabf44dc3b9e8b825676223343c0f83dce66f911e0631cc3f526faba"
     }
   ]
 }

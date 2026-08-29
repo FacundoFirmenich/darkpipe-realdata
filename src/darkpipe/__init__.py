@@ -11,7 +11,7 @@ from importlib import import_module
 from typing import Any
 
 
-__version__ = "0.13.0"
+__version__ = "0.14.0"
 
 _EXPORTS: dict[str, tuple[str, str]] = {
     "fetch_noaa_solar_wind": (".sources", "fetch_noaa_solar_wind"),
@@ -74,6 +74,24 @@ _EXPORTS: dict[str, tuple[str, str]] = {
         ".object_recoverability",
         "evaluate_recoverability",
     ),
+    "AcquisitionError": (".remote_acquisition", "AcquisitionError"),
+    "AcquisitionReceipt": (".remote_acquisition", "AcquisitionReceipt"),
+    "acquire_dataset": (".remote_acquisition", "acquire_dataset"),
+    "acquire_default_inputs": (".remote_acquisition", "acquire_default_inputs"),
+    "assert_remote_capacity": (".remote_acquisition", "assert_remote_capacity"),
+    "FlatLambdaCDM": (".object_lensing", "FlatLambdaCDM"),
+    "sigma_critical_msun_mpc2": (".object_lensing", "sigma_critical_msun_mpc2"),
+    "tangential_and_cross_ellipticity": (
+        ".object_lensing",
+        "tangential_and_cross_ellipticity",
+    ),
+    "accumulate_esd": (".object_lensing", "accumulate_esd"),
+    "deproject_spherical_esd": (
+        ".object_lensing",
+        "deproject_spherical_esd",
+    ),
+    "fixed_gbar_radius_kpc": (".object_lensing", "fixed_gbar_radius_kpc"),
+    "object_level_rar": (".object_lensing", "object_level_rar"),
 }
 
 __all__ = list(_EXPORTS)
