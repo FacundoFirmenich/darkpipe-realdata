@@ -1,0 +1,17 @@
+claim_id,claim,source_url,source_kind,support,authority_limit
+V013-C01,"KiDS publishes a 21,262,011-row SOM-gold source catalogue with positions, Z_B, e1, e2 and lensfit weight","https://kids.strw.leidenuniv.nl/DR4/KiDS-1000_shearcatalogue.php",primary_data_portal,SUPPORTED,"16 GB catalogue; download and computation not executed locally"
+V013-C02,"KiDS publishes bright-lens redshifts/masks and LePhare stellar-mass properties","https://kids.strw.leidenuniv.nl/DR4/brightsample.php",primary_data_portal,SUPPORTED,"Public source surface; analysis-specific cuts still must be reconstructed"
+V013-C03,"The four KiDS inputs answered bounded HTTP range probes with expected live sizes and schemas on 2026-08-29",,live_endpoint_probe,SUPPORTED,"Availability at probe time; no full-byte hashes"
+V013-C04,"Brouwer computes individual-lens g_bar bins from lens baryonic mass","https://arxiv.org/html/2106.11677v1",primary_paper,SUPPORTED,"Published method, not an object-level released result"
+V013-C05,"Brouwer uses W_ls = w_s Sigma_crit^-2 to stack lens-source pairs","https://arxiv.org/html/2106.11677v1",primary_paper,SUPPORTED,"Requires redshift-distribution and cosmology choices"
+V013-C06,"Mistele uses public KiDS SOM-gold sources and KiDS-bright lenses","https://arxiv.org/html/2310.15248",primary_paper,SUPPORTED,"Independent implementation still required"
+V013-C07,"Mistele gives object-level ESD, weight and deproject-before-stack equations","https://arxiv.org/html/2310.15248",primary_paper,SUPPORTED,"Spherical symmetry and published systematics remain"
+V013-C08,"The public inputs suffice in principle for a remote object-level reconstruction",,derived_method_boundary,SUPPORTED_CONDITIONAL,"Does not imply exact historical reproduction or a successful future run"
+V013-C09,"The exact historical random catalogue and operational GGL code are in the public result bundle","https://kids.strw.leidenuniv.nl/sciencedata.php",primary_data_portal,CONTRADICTED,"Release lists stacked products; linked GGL repository returned 404 at inspection"
+V013-C10,"A new independent random catalogue can support a scientific reproduction",,derived_method_boundary,SUPPORTED_CONDITIONAL,"Must be frozen before signal inspection; not byte-identical reproduction"
+V013-C11,"Planck publishes full-mission Compton-y maps, masks and noise products","https://irsa.ipac.caltech.edu/data/Planck/release_3/all-sky-maps/ysz_index.html",primary_data_portal,SUPPORTED,"Integrated electron pressure; coarse angular resolution"
+V013-C12,"eROSITA-DE DR1 provides public X-ray catalogues/products for its hemisphere","https://erosita.mpe.mpg.de/dr1/",primary_data_portal,SUPPORTED,"Half-sky jurisdiction; X-ray emission is not a unique plasma-ontology marker"
+V013-C13,"LoTSS DR2 RM grid provides 2,461 RMs over 5,720 square degrees","https://arxiv.org/abs/2301.07697",primary_paper,SUPPORTED,"Sparse environmental proxy, not dense KiDS-lens coverage"
+V013-C14,"A correlation between acceleration residual and a plasma proxy uniquely identifies the morphotopological plasma conjecture",,derived_boundary,CONTRADICTED,"Gas physics, feedback, environment, selection and MG effects are competing explanations"
+V013-C15,"The current conjecture supplies a frozen signed and scaled differential prediction",,model_contract,NOT_ESTIMABLE,"Sign, amplitude/order, scale and decisive adverse result are not yet fixed"
+
