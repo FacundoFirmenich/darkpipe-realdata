@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-29T13:49:26.474907Z",
+  "generated_at_utc": "2026-08-29T14:50:10.806797Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
   "file_count": 211,
-  "total_bytes": 31261731,
+  "total_bytes": 31261858,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -12,8 +12,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "byte_count": 152,
-      "sha256": "d2176b02a355e4bf59a88cc9ea0a0f7ce8100e1ac78a2ea966fff94f91eacd1c"
+      "byte_count": 204,
+      "sha256": "d476e50bba2577c7d87db9abdbd26e01a462b5d5a566c0575490ecedc32151d6"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -147,8 +147,8 @@
     },
     {
       "path": "data/third_party/kids_brouwer2021/README.txt",
-      "byte_count": 5389,
-      "sha256": "20cdc22438039b7869e4cfb32082278d12bd11b35aa362599473b162e18d750e"
+      "byte_count": 5464,
+      "sha256": "b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645"
     },
     {
       "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
