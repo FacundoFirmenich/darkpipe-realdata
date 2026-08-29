@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-29T19:31:00.056Z",
+  "generated_at_utc": "2026-08-29T19:37:52.962Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
   "file_count": 227,
-  "total_bytes": 31344711,
+  "total_bytes": 31344809,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -1057,8 +1057,8 @@
     },
     {
       "path": "src/darkpipe/remote_acquisition.py",
-      "byte_count": 10721,
-      "sha256": "39c4a6c8b10d4ddbd468176fc469a1c980a9ce111e1c109e6dcb7448d47c45a4"
+      "byte_count": 10819,
+      "sha256": "43a63a65b912e95fac56b2f3d53796cf85eddc5c8f53d4edcac136f19203c35e"
     },
     {
       "path": "src/darkpipe/report.py",
