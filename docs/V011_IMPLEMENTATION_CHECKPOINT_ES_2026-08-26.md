@@ -13,9 +13,11 @@ observables -> shadows -> inobservables derivados a una medición físicamente
 distinta y a aceleraciones más bajas.
 
 No se ha fusionado el PR 18 ni se ha aceptado todavía un resultado oficial
-v0.11. GitHub Actions sufre una caída mayor confirmada por GitHub Status, de
-modo que los eventos push y pull_request fueron recibidos pero no generaron
-runs. Ese estado es CI_NOT_TRIGGERED, no PASS.
+v0.11. GitHub Actions sufrió una caída mayor confirmada por GitHub Status. Al
+restablecerse el servicio, los eventos pendientes sí generaron runs y revelaron
+un fallo real de integración: el manifiesto general del repositorio aún
+describía el árbol anterior a v0.11. El operador científico y sus cuatro tests
+pasaron; el balance global fue 59/60 por esa invariante de custodia.
 
 ## Qué quedó construido y congelado
 
@@ -98,16 +100,24 @@ no la identidad de aquello que lo produce.
 - CLASH permanece diferido: ofrece perfiles y correlaciones excelentes, pero
   no el perfil bariónico radial público necesario para restar sin inventar.
 
-## Bloqueo y siguiente acción crítica
+## Actualización de integración del 2026-08-29
 
-Bloqueo real: caída mayor de GitHub Actions iniciada el 2026-08-26 a las
-15:11 UTC. Estado oficial:
-https://www.githubstatus.com/api/v2/incidents/unresolved.json
+GitHub Actions volvió a estar operativo y el PR 18 recibió sus checks. El
+fallo fue localizado en
+`test_repository_manifest_hashes_every_published_file`: `.gitattributes`
+contenía 152 bytes en el blob publicado y el manifiesto v0.10 todavía
+declaraba 94. El mismo desfase afectaba al resto de archivos nuevos o
+modificados por v0.11.
 
-Cuando Actions vuelva:
+Se regeneró `repository_file_manifest.json` mediante el constructor existente,
+leyendo los blobs exactos del índice Git. La corrección no modifica datos,
+operadores, resultados candidatos ni jurisdicciones; repara la correspondencia
+entre el árbol publicado y su inventario verificable.
 
-1. reemitir el evento CI si GitHub no recupera los pushes pendientes;
-2. exigir PASS terminal del PR 18;
+Siguiente gate:
+
+1. publicar la corrección en la rama del PR 18;
+2. exigir PASS terminal del nuevo CI;
 3. obtener autorización explícita para fusionar PR 18 en main;
 4. ejecutar una sola vez el workflow manual v0.11 desde el commit fusionado;
 5. custodiar el artefacto compacto, añadir el cierre oficial y sólo entonces

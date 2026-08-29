@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-26T13:52:08.519524Z",
+  "generated_at_utc": "2026-08-29T12:14:20.875846Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 184,
-  "total_bytes": 30506527,
+  "file_count": 196,
+  "total_bytes": 30564309,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -12,8 +12,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "byte_count": 94,
-      "sha256": "c421530685ca4b5cd698913b3201e7dc9f615d72fb617369b91bea4c1c984695"
+      "byte_count": 152,
+      "sha256": "d2176b02a355e4bf59a88cc9ea0a0f7ce8100e1ac78a2ea966fff94f91eacd1c"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -24,6 +24,11 @@
       "path": ".github/workflows/v010-derive.yml",
       "byte_count": 918,
       "sha256": "3f4c1ab4ca39330ce4b1772514df5ae5288b8de8c78bc787f7a0d0787a578f28"
+    },
+    {
+      "path": ".github/workflows/v011-multishadow.yml",
+      "byte_count": 757,
+      "sha256": "228a14f5a5d9b6442e924b4d7f867cf91e344d89cbac0650ec466b0661a79d44"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -67,13 +72,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 9891,
-      "sha256": "0de775fe32e6c21235a695bc43ee01252d6e1a9cac90af63856714c9c3c4f0d5"
+      "byte_count": 10985,
+      "sha256": "7f861588f46f7ee8a13c1aede997da59defb5754deeb3620c28f38d35b46bb17"
     },
     {
       "path": "CITATION.cff",
-      "byte_count": 469,
-      "sha256": "7940aee5da7c2a918b9fb0ff37ac0c3da9a240f00335d5a0f0a5d2fc7b7eb46e"
+      "byte_count": 483,
+      "sha256": "ebf0513c4026f792b2848c27fec2e60ade085a95d2406eac09ad654422cd111a"
     },
     {
       "path": "LICENSE",
@@ -87,13 +92,23 @@
     },
     {
       "path": "README.md",
-      "byte_count": 11800,
-      "sha256": "32ce732e3d320cd2e744626b20a99da800fbe2a12bfd709f91fd2ef47f1d5dbb"
+      "byte_count": 13170,
+      "sha256": "f935523d9c6ad6c862983865049fc4856f419ed2ba0587c8f6796c2492debc68"
     },
     {
       "path": "SECURITY.md",
       "byte_count": 940,
       "sha256": "70f3802ba6ca6aa9ad2d6167996fa56d823ac6170a281c842b39a72e1ec017f3"
+    },
+    {
+      "path": "data/MISTELE2024_DATA_NOTICE.md",
+      "byte_count": 1445,
+      "sha256": "aeeb817ada1654aa6e4f745632bf87b7fff90708e461c5243a85825bb06d1fc5"
+    },
+    {
+      "path": "data/mistele2024_weak_lensing_rar_table1.csv",
+      "byte_count": 455,
+      "sha256": "624c19f5f0edd2fca78bc94d108863a5f4b8f516ff15fe0ca65d7854b6ea55d0"
     },
     {
       "path": "docs/ARCHAEOLOGY_AND_CUSTODY.md",
@@ -146,6 +161,11 @@
       "sha256": "ae971cb33de5c7f78772bcb0a2f3cbed9947a9414203b8f9d7c5ab4da04d0afa"
     },
     {
+      "path": "docs/DEEP_RESEARCH_V011_MULTISHADOW_SELECTION_2026-08-26.md",
+      "byte_count": 6972,
+      "sha256": "5ed76bdfe03dfe7b7ce1907497872fcdbcb63954e5cb3a67318c9ab32a9f119a"
+    },
+    {
       "path": "docs/DEEP_RESEARCH_V09_INDEPENDENT_SENSOR_SELECTION_2026-08-25.md",
       "byte_count": 4553,
       "sha256": "a4f5277d0cb3f44286ae69671f70b8f78a5e95005984b058dd16e75272dbf8bd"
@@ -186,6 +206,11 @@
       "sha256": "04dd0a1623c54a2d151f15bbb21ea4e5920e98e352e0991cb8b460441d57f10c"
     },
     {
+      "path": "docs/PREREGISTRATION_MULTISHADOW_0.11.md",
+      "byte_count": 4627,
+      "sha256": "90e842000661714916f926ab74249c8aaac70b70224c85db9c5102c6419130de"
+    },
+    {
       "path": "docs/PREREGISTRATION_OBSERVABLE_SHADOW_INOBSERVABLE_0.10.md",
       "byte_count": 3134,
       "sha256": "2483432ba1698f4c3b07cf5f62782610a50b695ce193ef706d5d7357ba31074c"
@@ -219,6 +244,11 @@
       "path": "docs/V010_SUBSTANTIVE_ADJUDICATION_ES_2026-08-26.md",
       "byte_count": 5975,
       "sha256": "d6e3218fe204135758b784539fe44cf21e965f634cefb8025fa00a27f2603a99"
+    },
+    {
+      "path": "docs/V011_IMPLEMENTATION_CHECKPOINT_ES_2026-08-26.md",
+      "byte_count": 6101,
+      "sha256": "3c128330288fe177d6a9fb9b875921369cb779918503fd2a9d543121e1bc6498"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -721,6 +751,11 @@
       "sha256": "a8bc11e3ccca5aecc3fd24c8d795c0afda051fcbf31918c474a0e9880febf9e3"
     },
     {
+      "path": "notebooks/DarkPipe_MultiShadow_v011_Colab.ipynb",
+      "byte_count": 3694,
+      "sha256": "d8da2c8b94afa2f1c0037adfe37d84da3f8f8965862b52d178232dbda0c46bc9"
+    },
+    {
       "path": "notebooks/DarkPipe_Observable_Shadow_Inobservable_v010_Colab.ipynb",
       "byte_count": 5815,
       "sha256": "c7f0a4f80fadda648d48619e52495d48fb64eb98ac0f4a3905117447ed104612"
@@ -732,13 +767,23 @@
     },
     {
       "path": "pyproject.toml",
-      "byte_count": 1019,
-      "sha256": "63273357069d06e7d45bcdb775b64bcbd585206ab626c5a3f26a283f67b3cc1c"
+      "byte_count": 1028,
+      "sha256": "199e58b68a62e6adcdc4f08969821c89f1ea62cbca076e9ce8e544b3848b7ec4"
     },
     {
       "path": "requirements.txt",
       "byte_count": 108,
       "sha256": "aeb3ce776e9f75c3a0e5bd1a509f1bf31078c2056be1ca194c4101db8fd0a0f5"
+    },
+    {
+      "path": "research/v011/claim_source_ledger.csv",
+      "byte_count": 2048,
+      "sha256": "a71b22c5f7b1c1ff7dbfea3cb58ed1f21207d476272acd9dbe82f49c08c79e3b"
+    },
+    {
+      "path": "research/v011/report-source.md",
+      "byte_count": 6972,
+      "sha256": "5ed76bdfe03dfe7b7ce1907497872fcdbcb63954e5cb3a67318c9ab32a9f119a"
     },
     {
       "path": "research/v09/report-source.md",
@@ -786,6 +831,11 @@
       "sha256": "59e5b2acf778c8fa62bc698b71bd4a255b93500511f348b998c94d8deabbd9c0"
     },
     {
+      "path": "run_darkpipe_multishadow_v011.py",
+      "byte_count": 7970,
+      "sha256": "0df94bcd1cad4e38d77fddd268b41617f7601daa903751a86e16c3c01dcd6a9c"
+    },
+    {
       "path": "run_darkpipe_realdata_v03.py",
       "byte_count": 176,
       "sha256": "93da3b6f0a5304a0e654f8ed733ca8d433e8961d28ce5602785f8966bd8dbf59"
@@ -797,8 +847,8 @@
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 1500,
-      "sha256": "20f4744c2244aa3897afb0fc0d98fed36503298d47728cf1892a97aa83ac6d77"
+      "byte_count": 1815,
+      "sha256": "d0282b9a37e8583cb8fe4ca16221f33fea426665e69e08bee2cb0dc03974a4a3"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -859,6 +909,11 @@
       "path": "src/darkpipe/inobservable.py",
       "byte_count": 18525,
       "sha256": "d75e0d398ad105136b1ab81c5053ce96bda3aa00e8f7939aace1feb982a9250b"
+    },
+    {
+      "path": "src/darkpipe/multishadow.py",
+      "byte_count": 10919,
+      "sha256": "ec5ffcffbd7ad1ee6cd27a80a539c065018f795b4fb6099fb27c33f1dd8a3ef0"
     },
     {
       "path": "src/darkpipe/pipeline.py",
@@ -929,6 +984,11 @@
       "path": "tests/test_inobservable.py",
       "byte_count": 2679,
       "sha256": "f525646b4b11a4cf38a75affe672576594b3fe723f3c0a75ae6f7af57a5ec791"
+    },
+    {
+      "path": "tests/test_multishadow.py",
+      "byte_count": 2962,
+      "sha256": "98ee026b8b16327f9a413283008ad328f22999b690662bde4df6ab42ea8a485a"
     }
   ]
 }
