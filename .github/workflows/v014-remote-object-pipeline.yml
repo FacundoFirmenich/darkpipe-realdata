@@ -1,0 +1,35 @@
+name: v0.14 remote object pipeline
+
+on:
+  pull_request:
+    paths:
+      - "src/darkpipe/remote_acquisition.py"
+      - "src/darkpipe/object_lensing.py"
+      - "run_darkpipe_remote_acquisition_v014.py"
+      - "tests/test_remote_acquisition.py"
+      - "tests/test_object_lensing.py"
+      - "docs/PREREGISTRATION_REMOTE_OBJECT_PIPELINE_0.14.md"
+      - ".github/workflows/v014-remote-object-pipeline.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-kernels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - name: Acquisition custody tests
+        run: pytest -q tests/test_remote_acquisition.py
+      - name: Object-level lensing kernel tests
+        run: pytest -q tests/test_object_lensing.py
+
+  prohibit-heavy-github-acquisition:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "GitHub-hosted runners are validation-only."
+          echo "Full KiDS acquisition requires an identified remote filesystem with >=40 GiB."
