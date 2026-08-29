@@ -1,4 +1,40 @@
-# DarkPipe 0.13.0 — object-level recoverability and differential-signature gate
+# DarkPipe 0.14.0 — remote acquisition and object-level compute gate
+
+DarkPipe v0.14 converts the v0.13 recoverability result into executable remote
+infrastructure. It adds restartable, range-based acquisition with exact byte
+custody and the numerical kernels required to calculate individual-lens ESD,
+cross-null profiles and deproject-before-stack RAR coordinates.
+
+## What 0.14 changes
+
+- Full KiDS inputs are admitted only on a declared remote filesystem with at
+  least 40 GiB free. Local heavy acquisition is rejected in code.
+- Transfers resume from exact partial byte counts, reject upstream size drift,
+  flush each completed range, and create full-file SHA-256 receipts before an
+  atomic final rename.
+- The weak-lensing kernel implements critical surface density, spin-2
+  tangential/cross rotation, pair weighting, multiplicative response,
+  individual-lens radial profiles and the spherical deprojection operator.
+- Inner and outer extrapolation slopes are mandatory inputs: no hidden
+  scientific defaults are supplied.
+- Tests use controlled fixtures solely for software and analytic validation;
+  they are not observational results.
+
+## Current scientific authority
+
+The branch implements G1 byte custody and the reusable numerical part of G2.
+It has **not** downloaded the 16.82 GiB surface, run the survey selection,
+generated random coordinates or reproduced the published RAR. The current state
+is `OBJECT_LEVEL_SCIENTIFIC_RECONSTRUCTION_NOT_YET_EXECUTED`.
+
+See
+[`docs/PREREGISTRATION_REMOTE_OBJECT_PIPELINE_0.14.md`](docs/PREREGISTRATION_REMOTE_OBJECT_PIPELINE_0.14.md).
+
+Licensed under **GPL-3.0-or-later**.
+
+---
+
+## What 0.13 established
 
 DarkPipe v0.13 moves the lensing programme from a covariance-aware published stack
 toward a preregistered, object-level reconstruction. It verifies the public remote
