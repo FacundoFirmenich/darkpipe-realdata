@@ -1,0 +1,77 @@
+{
+  "contract_id": "DP-DIFFSIG-0.13-20260829",
+  "status": "FROZEN_GATE_MODEL_PAYLOAD_INCOMPLETE",
+  "governing_inobservable": {
+    "name": "eta",
+    "definition": "log10(g_obs / g_bar)",
+    "authority": "derived from weak-lensing and baryonic observable shadows; not an ontology"
+  },
+  "conditioning_variables": [
+    "g_bar",
+    "stellar_mass",
+    "redshift",
+    "galaxy_type",
+    "isolation_environment",
+    "survey_mask_and_depth"
+  ],
+  "candidate_plasma_shadows": [
+    {
+      "id": "planck_compton_y",
+      "physical_sensitivity": "line-of-sight integrated thermal-electron pressure",
+      "jurisdiction": "full sky, coarse angular resolution",
+      "status": "PUBLIC_CANDIDATE_NOT_YET_MATCHED"
+    },
+    {
+      "id": "erosita_xray",
+      "physical_sensitivity": "X-ray-emitting hot plasma",
+      "jurisdiction": "public eROSITA-DE hemisphere only",
+      "status": "PUBLIC_CANDIDATE_PARTIAL_SKY_NOT_YET_MATCHED"
+    },
+    {
+      "id": "lotss_dr2_rm",
+      "physical_sensitivity": "Faraday rotation, proportional to a line-of-sight electron-density and magnetic-field integral",
+      "jurisdiction": "2461 sources over 5720 square degrees; sparse",
+      "status": "PUBLIC_CANDIDATE_ENVIRONMENTAL_ONLY_NOT_YET_MATCHED"
+    }
+  ],
+  "model_rows": [
+    {
+      "model_family": "Lambda-CDM plus baryonic galaxy formation",
+      "literature_status": "multiple simulation realizations need not give the same RAR",
+      "required_payload": ["forward prediction for eta and each plasma shadow", "feedback and halo nuisance prior"],
+      "adjudication": "NOT_RUN"
+    },
+    {
+      "model_family": "MOND or relativistic modified-gravity realization",
+      "literature_status": "RAR and isolation/environment behavior depend on the concrete realization and external-field treatment",
+      "required_payload": ["lensing law", "external-field prediction", "baryonic mass model"],
+      "adjudication": "NOT_RUN"
+    },
+    {
+      "model_family": "morphotopological plasma conjecture",
+      "literature_status": "architectural conjecture supplied by the project; no frozen quantitative forward model",
+      "required_payload": [
+        "signed or ordered eta-plasma relation",
+        "scale dependence or transition location",
+        "amplitude or admissible bound",
+        "invariance or interaction pattern after conventional conditioning",
+        "decisive adverse outcome"
+      ],
+      "adjudication": "NOT_ESTIMABLE_MODEL_NOT_YET_DIFFERENTIALLY_PREDICTIVE"
+    }
+  ],
+  "promotion_rule": "No model comparison may run until every compared row has a frozen forward-prediction payload and the object-level RAR reproduction gate passes.",
+  "non_decisive_outcomes": [
+    "a lensing-only acceleration excess",
+    "an unconditioned correlation with gas, X-ray, SZ, radio or rotation measure",
+    "a fit advantage obtained after inspecting the held-out joint data"
+  ],
+  "mandatory_controls": [
+    "survey-footprint matched random coordinates frozen before signal inspection",
+    "sky-region holdout",
+    "cross-shear null",
+    "plasma-map noise split or null map",
+    "conditioning on baryonic mass, redshift, morphology and isolation",
+    "multiple-comparison control fixed before unblinding"
+  ]
+}

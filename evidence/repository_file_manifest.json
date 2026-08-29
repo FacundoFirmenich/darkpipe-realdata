@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-29T14:50:10.806797Z",
+  "generated_at_utc": "2026-08-29T18:50:55.494Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 211,
-  "total_bytes": 31261858,
+  "file_count": 220,
+  "total_bytes": 31304059,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -34,6 +34,11 @@
       "path": ".github/workflows/v012-covariance-operator.yml",
       "byte_count": 912,
       "sha256": "8311c2b6022a5f20df56b220dba410ab8ab530bb69e4cec1f1f76868220f885b"
+    },
+    {
+      "path": ".github/workflows/v013-object-recoverability.yml",
+      "byte_count": 1045,
+      "sha256": "b5e88f451390dbb517ca14ac6dd8a00a8aabdeb3f3e4b474072205355df118f7"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -97,8 +102,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 14395,
-      "sha256": "8071719407f20b7637a16873d5373dde733b9613ac2bfe28e8b8ad4a3c7cd207"
+      "byte_count": 16420,
+      "sha256": "733aa67caa1b01a23496b85e2d187a900b15efcd13b0827ae431fc821213bdac"
     },
     {
       "path": "SECURITY.md",
@@ -254,6 +259,11 @@
       "path": "docs/PREREGISTRATION_MULTISHADOW_0.11.md",
       "byte_count": 4627,
       "sha256": "90e842000661714916f926ab74249c8aaac70b70224c85db9c5102c6419130de"
+    },
+    {
+      "path": "docs/PREREGISTRATION_OBJECT_LEVEL_RECOVERABILITY_0.13.md",
+      "byte_count": 6779,
+      "sha256": "7d36035654921b7b103fe1beb8a601b260cf3c711065bfdabd170aa9202614d6"
     },
     {
       "path": "docs/PREREGISTRATION_OBSERVABLE_SHADOW_INOBSERVABLE_0.10.md",
@@ -818,7 +828,7 @@
     {
       "path": "pyproject.toml",
       "byte_count": 1028,
-      "sha256": "335cf6f73960b0d94211459e24c844879d18b67dee57da1e9e3d1e7fa11c5119"
+      "sha256": "99b9b2382b306b003863398fd67062b4c8d3a0bd07bed2228eb6fd7d6eec817c"
     },
     {
       "path": "requirements.txt",
@@ -844,6 +854,26 @@
       "path": "research/v012/report-source.md",
       "byte_count": 3802,
       "sha256": "888519499fd7b697a0a5925d316b93704edf196ef9289b132f9050361c396999"
+    },
+    {
+      "path": "research/v013/claim_source_ledger.csv",
+      "byte_count": 3382,
+      "sha256": "dc9e13ee421482322b0005e4ab8bb88634fb3b412d27021b16b00da90d0708f8"
+    },
+    {
+      "path": "research/v013/data_sufficiency_ledger.csv",
+      "byte_count": 1808,
+      "sha256": "d31878252c89ccc605593e4a73ad47fc03ef889f1c8be8ad65a147fc88930e1f"
+    },
+    {
+      "path": "research/v013/differential_signature_contract.json",
+      "byte_count": 3242,
+      "sha256": "cb4406d2061b8d11772228e5da17f19e4a8332ff72019876563b8ba2a5c0e459"
+    },
+    {
+      "path": "research/v013/report-source.md",
+      "byte_count": 5527,
+      "sha256": "2eff18cf6e83b1ccd6d01f63179b17efb7f728a03621c5fe2820f8043d3bbfcd"
     },
     {
       "path": "research/v09/report-source.md",
@@ -901,6 +931,11 @@
       "sha256": "0df94bcd1cad4e38d77fddd268b41617f7601daa903751a86e16c3c01dcd6a9c"
     },
     {
+      "path": "run_darkpipe_object_recoverability_v013.py",
+      "byte_count": 4234,
+      "sha256": "68116c01b1f193ca8f2de49d26a857a41e63fedf4aef277daaab843433269ae6"
+    },
+    {
       "path": "run_darkpipe_realdata_v03.py",
       "byte_count": 176,
       "sha256": "93da3b6f0a5304a0e654f8ed733ca8d433e8961d28ce5602785f8966bd8dbf59"
@@ -912,8 +947,8 @@
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 3170,
-      "sha256": "e7aa7567b4949977a19ae4802550d4ac9335fe9a021e67052f44150116c25cff"
+      "byte_count": 3598,
+      "sha256": "31669685e57a9f81a9179f7ae8f7646d5d2d215947a63744eb54c2ac5f4d81f3"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -984,6 +1019,11 @@
       "path": "src/darkpipe/multishadow.py",
       "byte_count": 10919,
       "sha256": "ec5ffcffbd7ad1ee6cd27a80a539c065018f795b4fb6099fb27c33f1dd8a3ef0"
+    },
+    {
+      "path": "src/darkpipe/object_recoverability.py",
+      "byte_count": 10386,
+      "sha256": "c57f7a1a4982645e5034477d67ea239a096c51fcab102f75325f435f33bd70d1"
     },
     {
       "path": "src/darkpipe/pipeline.py",
@@ -1064,6 +1104,11 @@
       "path": "tests/test_multishadow.py",
       "byte_count": 2962,
       "sha256": "98ee026b8b16327f9a413283008ad328f22999b690662bde4df6ab42ea8a485a"
+    },
+    {
+      "path": "tests/test_object_recoverability.py",
+      "byte_count": 3345,
+      "sha256": "554d8669af1cecc3a878e21d550ae3ca0ca8e633fae36cbb1666e5c0384b5af8"
     }
   ]
 }

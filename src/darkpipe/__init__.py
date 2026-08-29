@@ -11,7 +11,7 @@ from importlib import import_module
 from typing import Any
 
 
-__version__ = "0.12.0"
+__version__ = "0.13.0"
 
 _EXPORTS: dict[str, tuple[str, str]] = {
     "fetch_noaa_solar_wind": (".sources", "fetch_noaa_solar_wind"),
@@ -62,6 +62,17 @@ _EXPORTS: dict[str, tuple[str, str]] = {
     "derive_operator_shadow": (
         ".covariance_operator_shadow",
         "derive_operator_shadow",
+    ),
+    "DatasetSpec": (".object_recoverability", "DatasetSpec"),
+    "RecoverabilityProbeError": (
+        ".object_recoverability",
+        "RecoverabilityProbeError",
+    ),
+    "probe_dataset": (".object_recoverability", "probe_dataset"),
+    "probe_default_inputs": (".object_recoverability", "probe_default_inputs"),
+    "evaluate_recoverability": (
+        ".object_recoverability",
+        "evaluate_recoverability",
     ),
 }
 

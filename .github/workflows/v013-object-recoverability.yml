@@ -1,0 +1,32 @@
+name: v0.13 object recoverability gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "src/darkpipe/object_recoverability.py"
+      - "run_darkpipe_object_recoverability_v013.py"
+      - "tests/test_object_recoverability.py"
+      - "research/v013/**"
+      - "docs/PREREGISTRATION_OBJECT_LEVEL_RECOVERABILITY_0.13.md"
+      - ".github/workflows/v013-object-recoverability.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - run: pytest -q tests/test_object_recoverability.py
+      - name: Bounded live input probe
+        run: python run_darkpipe_object_recoverability_v013.py --output-dir evidence/object_recoverability_v013
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darkpipe-v013-object-recoverability
+          path: evidence/object_recoverability_v013
+          if-no-files-found: error
+
