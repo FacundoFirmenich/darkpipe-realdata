@@ -1,4 +1,46 @@
-# DarkPipe 0.12.0 — covariance-aware deprojection operator shadow
+# DarkPipe 0.13.0 — object-level recoverability and differential-signature gate
+
+DarkPipe v0.13 moves the lensing programme from a covariance-aware published stack
+toward a preregistered, object-level reconstruction. It verifies the public remote
+input surface with bounded HTTP range requests; it does **not** download the
+approximately 16.82 GiB source surface to the local workstation and it does **not**
+claim a new scientific result.
+
+## What 0.13 establishes
+
+- The public KiDS-1000 SOM-gold source catalogue, KiDS-bright lens catalogue,
+  LePhare properties and tomographic redshift distributions are sufficient in
+  principle for a remote object-level reconstruction.
+- The exact historical analysis is not yet reproducible from the public result
+  bundle because the original random catalogue and an operational copy of the
+  linked galaxy-galaxy-lensing code were not recovered.
+- Independent reconstruction remains feasible with newly generated,
+  preregistered randoms, explicit null controls and provenance-preserving remote
+  storage.
+- Plasma/morphotopological interpretation remains
+  `NOT_ESTIMABLE_MODEL_NOT_YET_DIFFERENTIALLY_PREDICTIVE` until sign, scale,
+  ordering, amplitude bounds, conditional invariances and adverse outcomes are
+  fixed before inspection of auxiliary plasma tracers.
+
+## Authority boundary
+
+The v0.13 workflow is a **precompute gate**. Its unit tests are software evidence,
+and its bounded live probe is source-availability evidence. Neither is evidence
+for dark matter detection, a plasma ontology, modified gravity, or superiority
+over ΛCDM/MOND. The next scientific authority gate is remote object-level
+reconstruction with random/null controls; only after that may preregistered
+differential signatures be tested against public Compton-y, X-ray or Faraday
+rotation observables.
+
+See
+[`docs/PREREGISTRATION_OBJECT_LEVEL_RECOVERABILITY_0.13.md`](docs/PREREGISTRATION_OBJECT_LEVEL_RECOVERABILITY_0.13.md)
+and [`research/v013/report-source.md`](research/v013/report-source.md).
+
+Licensed under **GPL-3.0-or-later**.
+
+---
+
+## What 0.12 established
 
 DarkPipe v0.12 adds the full published 60×60 covariance of four KiDS-1000
 radial Excess Surface Density (ESD) profiles and tests an upstream uncertainty
