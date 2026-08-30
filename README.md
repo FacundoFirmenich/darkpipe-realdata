@@ -1,3 +1,38 @@
+# DarkPipe 0.15.0 — Google Drive sharded custody
+
+DarkPipe v0.15 removes the unnecessary 40 GiB remote-filesystem prerequisite
+from byte custody. The 16.819 GiB KiDS input surface can be acquired directly
+into the user's private Google Drive as independently hashed 256 MiB shards,
+resumed after interruption, and verified as one logical byte stream without
+reassembly on the workstation.
+
+## What 0.15 changes
+
+- Fresh custody requires approximately 17.819 GiB of observed free Drive quota:
+  the exact 18,059,551,240 input bytes plus a 1 GiB safety margin.
+- Each admitted shard has frozen byte geometry and SHA-256; completion also
+  records the logical full-file SHA-256 and a canonical manifest-root digest.
+- Existing shards are re-hashed before reuse. Missing, tampered, orphaned or
+  source-drifted bytes remain explicit failures.
+- The supplied Colab notebook queries Drive quota, mounts the user's Drive and
+  runs the resumable transfer. No GitHub workflow receives Drive credentials or
+  downloads KiDS catalogues.
+- Drive is custody, not a high-performance scientific filesystem. Object-level
+  reconstruction remains a separate streaming/partitioning gate.
+
+No full acquisition or scientific reconstruction has yet run. The status stays
+OBJECT_LEVEL_SCIENTIFIC_RECONSTRUCTION_NOT_YET_EXECUTED and the plasma-model
+claim stays NOT_ESTIMABLE_MODEL_NOT_YET_DIFFERENTIALLY_PREDICTIVE.
+
+See
+[docs/PREREGISTRATION_DRIVE_SHARDED_ACQUISITION_0.15.md](docs/PREREGISTRATION_DRIVE_SHARDED_ACQUISITION_0.15.md)
+and
+[notebooks/DarkPipe_Drive_Shards_v015_Colab.ipynb](notebooks/DarkPipe_Drive_Shards_v015_Colab.ipynb).
+
+Licensed under **GPL-3.0-or-later**, explicitly not GPL-3.0-only.
+
+---
+
 # DarkPipe 0.14.0 — remote acquisition and object-level compute gate
 
 DarkPipe v0.14 converts the v0.13 recoverability result into executable remote

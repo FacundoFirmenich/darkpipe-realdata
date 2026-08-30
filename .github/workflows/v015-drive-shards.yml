@@ -1,0 +1,43 @@
+name: v0.15 Drive-sharded custody
+
+on:
+  pull_request:
+    paths:
+      - "src/darkpipe/drive_sharded_acquisition.py"
+      - "run_darkpipe_drive_sharded_v015.py"
+      - "tests/test_drive_sharded_acquisition.py"
+      - "notebooks/DarkPipe_Drive_Shards_v015_Colab.ipynb"
+      - "docs/PREREGISTRATION_DRIVE_SHARDED_ACQUISITION_0.15.md"
+      - ".github/workflows/v015-drive-shards.yml"
+      - ".github/workflows/v014-remote-object-pipeline.yml"
+      - "pyproject.toml"
+      - "src/darkpipe/__init__.py"
+      - "README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-drive-shards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - name: Drive-sharded custody tests
+        run: pytest -q tests/test_drive_sharded_acquisition.py
+      - name: Regression acquisition and lensing kernels
+        run: pytest -q tests/test_remote_acquisition.py tests/test_object_lensing.py
+      - name: Validate Colab notebook JSON
+        run: python -m json.tool notebooks/DarkPipe_Drive_Shards_v015_Colab.ipynb > /dev/null
+
+  prohibit-live-data-transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "CI validates controlled byte fixtures only."
+          echo "No KiDS catalogue is downloaded and no Google Drive credential is present."

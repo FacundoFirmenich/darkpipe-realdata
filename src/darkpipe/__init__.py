@@ -11,7 +11,7 @@ from importlib import import_module
 from typing import Any
 
 
-__version__ = "0.14.0"
+__version__ = "0.15.0"
 
 _EXPORTS: dict[str, tuple[str, str]] = {
     "fetch_noaa_solar_wind": (".sources", "fetch_noaa_solar_wind"),
@@ -79,6 +79,13 @@ _EXPORTS: dict[str, tuple[str, str]] = {
     "acquire_dataset": (".remote_acquisition", "acquire_dataset"),
     "acquire_default_inputs": (".remote_acquisition", "acquire_default_inputs"),
     "assert_remote_capacity": (".remote_acquisition", "assert_remote_capacity"),
+    "DriveDatasetReceipt": (".drive_sharded_acquisition", "DriveDatasetReceipt"),
+    "acquire_dataset_sharded": (".drive_sharded_acquisition", "acquire_dataset_sharded"),
+    "acquire_default_inputs_to_drive": (
+        ".drive_sharded_acquisition",
+        "acquire_default_inputs_to_drive",
+    ),
+    "assert_drive_quota": (".drive_sharded_acquisition", "assert_drive_quota"),
     "FlatLambdaCDM": (".object_lensing", "FlatLambdaCDM"),
     "sigma_critical_msun_mpc2": (".object_lensing", "sigma_critical_msun_mpc2"),
     "tangential_and_cross_ellipticity": (
