@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-29T19:37:52.962Z",
+  "generated_at_utc": "2026-08-30T13:55:45.724Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 227,
-  "total_bytes": 31344809,
+  "file_count": 233,
+  "total_bytes": 31379933,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -43,7 +43,12 @@
     {
       "path": ".github/workflows/v014-remote-object-pipeline.yml",
       "byte_count": 1126,
-      "sha256": "532dfd14330124c80bfb55aecbb0b3b40b1354e35d923578d79b71d7d29633a1"
+      "sha256": "6c1a845748c45bc52750c93018a046f6a157b8b9a34ecbf26344c0bcc9a5aed1"
+    },
+    {
+      "path": ".github/workflows/v015-drive-shards.yml",
+      "byte_count": 1462,
+      "sha256": "c9a077cb2bbb39e930d4b7a05df409b2acbe19923bbc50686c1cf1c4b342e249"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -94,26 +99,6 @@
       "path": "CITATION.cff",
       "byte_count": 483,
       "sha256": "ebf0513c4026f792b2848c27fec2e60ade085a95d2406eac09ad654422cd111a"
-    },
-    {
-      "path": "LICENSE",
-      "byte_count": 35149,
-      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
-    },
-    {
-      "path": "LICENSE-NOTICE",
-      "byte_count": 637,
-      "sha256": "dd019cdb9bd7499af03887e8c686004e11ba0c08eb2ae75f4eba05f654e6a3c9"
-    },
-    {
-      "path": "README.md",
-      "byte_count": 18002,
-      "sha256": "df36ffe9380b2e6ebb3fbf0d0e5d5015844302c924a177fbfb4233b5e5c4d32a"
-    },
-    {
-      "path": "SECURITY.md",
-      "byte_count": 940,
-      "sha256": "70f3802ba6ca6aa9ad2d6167996fa56d823ac6170a281c842b39a72e1ec017f3"
     },
     {
       "path": "data/MISTELE2024_DATA_NOTICE.md",
@@ -254,6 +239,11 @@
       "path": "docs/PREREGISTRATION_COVARIANCE_OPERATOR_SHADOW_0.12.md",
       "byte_count": 4907,
       "sha256": "88b30d412571cf35b21f4355fa35e0b6b5d40b427c9e9dd396c5f3a6f251736a"
+    },
+    {
+      "path": "docs/PREREGISTRATION_DRIVE_SHARDED_ACQUISITION_0.15.md",
+      "byte_count": 3409,
+      "sha256": "9ca67cd9ac296c825177cd63fd8f9899420b863a9a5f6f19a570b731f90e57f7"
     },
     {
       "path": "docs/PREREGISTRATION_GPS_NETWORK_TRANSIENT_0.9.md",
@@ -456,11 +446,6 @@
       "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
     },
     {
-      "path": "evidence/aion_sensor_validation_2026-08-25/UPSTREAM_NOTICE.md",
-      "byte_count": 1366,
-      "sha256": "b158519695c4d3cfbae3b28dbbde571ec437ee25cb55c2b5a53656ac6aa871b7"
-    },
-    {
       "path": "evidence/aion_sensor_validation_2026-08-25/frozen_selected_inventory.json",
       "byte_count": 59008,
       "sha256": "d2382637d12b99252a3ede1c6109791d98277c04d0757c32e2b593c0847234bd"
@@ -496,14 +481,9 @@
       "sha256": "eaa3b07339a70992ae5aefd3fe6aa8ef2b2197b839d8fac9a298a178d14bde71"
     },
     {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_LICENSE.txt",
-      "byte_count": 1072,
-      "sha256": "74e79dd3f9c99aa78416bd3e6e09f60baf58dacff36e794db81dcd0bb81729be"
-    },
-    {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_README.md",
-      "byte_count": 4747,
-      "sha256": "7c2c7e0f1ceb35eed574673991a9f70290df818fc716894717c87224bcded961"
+      "path": "evidence/aion_sensor_validation_2026-08-25/UPSTREAM_NOTICE.md",
+      "byte_count": 1366,
+      "sha256": "b158519695c4d3cfbae3b28dbbde571ec437ee25cb55c2b5a53656ac6aa871b7"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_adevtools.py",
@@ -511,9 +491,19 @@
       "sha256": "fb5fa88633fdb98da10594d5183f00dd15efe3c583e224e2f2a5c8196fd46c01"
     },
     {
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_LICENSE.txt",
+      "byte_count": 1072,
+      "sha256": "74e79dd3f9c99aa78416bd3e6e09f60baf58dacff36e794db81dcd0bb81729be"
+    },
+    {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_pyproject.toml",
       "byte_count": 937,
       "sha256": "0208b0abfaa48f2cb816a6b7a5247b5598bd7da0e5341af62ef8173d43f4405b"
+    },
+    {
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_README.md",
+      "byte_count": 4747,
+      "sha256": "7c2c7e0f1ceb35eed574673991a9f70290df818fc716894717c87224bcded961"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/bundle_signal_extraction.py",
@@ -551,9 +541,9 @@
       "sha256": "ccc17ef2a47f923c2869ce476b98cc76a2767e41d824a60bdd0517e944382fef"
     },
     {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_100_mhz.csv",
-      "byte_count": 1474406,
-      "sha256": "9148847dff7ccd0adabf6071e3c270afd1c8bdfbf4294d567ed5327af8cc332f"
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_1_mhz.csv",
+      "byte_count": 571156,
+      "sha256": "41e4f32886c7ba4c98eed14ea20d7a516235b3c52e77d870fa2640273db96849"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_10_mhz.csv",
@@ -561,19 +551,19 @@
       "sha256": "9c1035d0225e0d06f48a76d0a233c484f13ee2709151799e0a643f288ea55c41"
     },
     {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_1_mhz.csv",
-      "byte_count": 571156,
-      "sha256": "41e4f32886c7ba4c98eed14ea20d7a516235b3c52e77d870fa2640273db96849"
-    },
-    {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_30_mhz.csv",
-      "byte_count": 634969,
-      "sha256": "508f43c5b8b850acf523ec9b773152c69fa3b23e0d6b6236dcadad7194d51a0e"
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_100_mhz.csv",
+      "byte_count": 1474406,
+      "sha256": "9148847dff7ccd0adabf6071e3c270afd1c8bdfbf4294d567ed5327af8cc332f"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_3_mhz.csv",
       "byte_count": 675282,
       "sha256": "ab1ee425f2fbbb1d099877743052dd22252165526a56a0c579832c6a9b700065"
+    },
+    {
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/injection_30_mhz.csv",
+      "byte_count": 634969,
+      "sha256": "508f43c5b8b850acf523ec9b773152c69fa3b23e0d6b6236dcadad7194d51a0e"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/mle_scan.csv",
@@ -606,9 +596,9 @@
       "sha256": "a6ca6af08b1d9ccb3032002bc045c56ca4324af4b66f233e5002b32aea8daf9b"
     },
     {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_100_mhz.npz",
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_1_mhz.npz",
       "byte_count": 66926,
-      "sha256": "855fe4eccc3e0775335a71ef8dae8675dd52d4afd0bb2e3673ca5e816cfec91d"
+      "sha256": "93088da2b116ab85df4941ab9361729c921fe94d293060805c45d4279f578fdc"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_10_mhz.npz",
@@ -616,19 +606,19 @@
       "sha256": "478946ff3f18ac228cf5e3bf54fb93854dc8c359a541a6161d6e244d4137551c"
     },
     {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_1_mhz.npz",
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_100_mhz.npz",
       "byte_count": 66926,
-      "sha256": "93088da2b116ab85df4941ab9361729c921fe94d293060805c45d4279f578fdc"
-    },
-    {
-      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_30_mhz.npz",
-      "byte_count": 66926,
-      "sha256": "60d135afc4041b8e07b67bfdfb28e69e4c8e7c598a38a023e7e2b63c945559e6"
+      "sha256": "855fe4eccc3e0775335a71ef8dae8675dd52d4afd0bb2e3673ca5e816cfec91d"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_3_mhz.npz",
       "byte_count": 66926,
       "sha256": "7645168302d60cac956831e3d4ac8b22644616b7158648af379c2e2fe01cf5e9"
+    },
+    {
+      "path": "evidence/aion_sensor_validation_2026-08-25/upstream/truth_30_mhz.npz",
+      "byte_count": 66926,
+      "sha256": "60d135afc4041b8e07b67bfdfb28e69e4c8e7c598a38a023e7e2b63c945559e6"
     },
     {
       "path": "evidence/aion_sensor_validation_2026-08-25/zenodo_record_19592552.json",
@@ -756,11 +746,6 @@
       "sha256": "99b3e1bd3f41cd51680c075b017525df55fa7cea200dad9545ff265c2161a30b"
     },
     {
-      "path": "evidence/v010_shadow_inobservable/SUBSTANTIVE_CLOSURE_ES.md",
-      "byte_count": 831,
-      "sha256": "5354f591861973ae20d874cb3c8e7c7c6254960bc6167e8853c4aa8222577a34"
-    },
-    {
       "path": "evidence/v010_shadow_inobservable/derived_inobservable_profiles.csv",
       "byte_count": 1175632,
       "sha256": "aee55c110eb5dbe593a37e173633383c77f46251527678fc188d8ff4ce6e0977"
@@ -784,6 +769,21 @@
       "path": "evidence/v010_shadow_inobservable/run_receipt.json",
       "byte_count": 1501,
       "sha256": "f4bc6d4b4feb110daf8061c42d12380a36671a12a0809d7c2b442117b82b9950"
+    },
+    {
+      "path": "evidence/v010_shadow_inobservable/SUBSTANTIVE_CLOSURE_ES.md",
+      "byte_count": 831,
+      "sha256": "5354f591861973ae20d874cb3c8e7c7c6254960bc6167e8853c4aa8222577a34"
+    },
+    {
+      "path": "LICENSE",
+      "byte_count": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "LICENSE-NOTICE",
+      "byte_count": 637,
+      "sha256": "dd019cdb9bd7499af03887e8c686004e11ba0c08eb2ae75f4eba05f654e6a3c9"
     },
     {
       "path": "notebooks/DarkPipe_AION_Blind_v06_Colab.ipynb",
@@ -816,6 +816,11 @@
       "sha256": "e27c5d8e87dc7e680b2ce63f45d71c97a26e5a5c1f87d280954b835bbbd9719a"
     },
     {
+      "path": "notebooks/DarkPipe_Drive_Shards_v015_Colab.ipynb",
+      "byte_count": 3473,
+      "sha256": "7f94a45c9fc434c5429893d0d617653e5d154f9be68079f833a799008ec757ac"
+    },
+    {
       "path": "notebooks/DarkPipe_GPS_Network_v09_Colab.ipynb",
       "byte_count": 4687,
       "sha256": "a8bc11e3ccca5aecc3fd24c8d795c0afda051fcbf31918c474a0e9880febf9e3"
@@ -838,7 +843,12 @@
     {
       "path": "pyproject.toml",
       "byte_count": 1028,
-      "sha256": "b17962a3b1c30796d5d6f85b6986384087971f0e9131cd66d468677b9be5b69b"
+      "sha256": "002c78984067be4b149fa22e3eff91d6ca1b73a2c25af82d69dafd433d58972f"
+    },
+    {
+      "path": "README.md",
+      "byte_count": 19696,
+      "sha256": "7f5f2aabcc2a592c0a990ca1448251b8ffb5e882613d1d2713669cd186296710"
     },
     {
       "path": "requirements.txt",
@@ -926,6 +936,11 @@
       "sha256": "6e0e316b3b181ec41c8293f118d808a554d51f35d6bdb2b8914034e5012627ac"
     },
     {
+      "path": "run_darkpipe_drive_sharded_v015.py",
+      "byte_count": 3250,
+      "sha256": "df273169421bb857328cf00cf46d8fcef7883f07fd498669aefdd3c366988f1a"
+    },
+    {
       "path": "run_darkpipe_gps_network_v09.py",
       "byte_count": 17316,
       "sha256": "843550bd0c4ce25ee8730c7c38b1569ddb250bfb91abb7a6278266b9aa31e545"
@@ -961,19 +976,19 @@
       "sha256": "b5931141d3a610c346cfd794f871c718d86ba6ce61947c4770eab257e7d10886"
     },
     {
+      "path": "SECURITY.md",
+      "byte_count": 940,
+      "sha256": "70f3802ba6ca6aa9ad2d6167996fa56d823ac6170a281c842b39a72e1ec017f3"
+    },
+    {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 4532,
-      "sha256": "b9f4b8269efbc5fcdc5a1bda3ba293dd9abbae236c9d0bdae1ea7930e8e357e8"
+      "byte_count": 4913,
+      "sha256": "b30bc8c040de097bebcabded7ccdc648d7ad20aee364dc3de9c8a4be1db40615"
     },
     {
       "path": "src/darkpipe/__main__.py",
       "byte_count": 29,
       "sha256": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3"
-    },
-    {
-      "path": "src/darkpipe/aion.py",
-      "byte_count": 20200,
-      "sha256": "7846108a1bae640f3c47ea5316d46de78e6420978558116940e3a6e116db8f9f"
     },
     {
       "path": "src/darkpipe/aion_blind.py",
@@ -986,14 +1001,19 @@
       "sha256": "b729c87417e4ff921ec91f0322aad5dde9410b78df7e778a394a8f517bc10eea"
     },
     {
+      "path": "src/darkpipe/aion_independent_search.py",
+      "byte_count": 25770,
+      "sha256": "ef88bbd1f65c17c36f1b7ff55dc33e36cf511e03781e5d89ebddc558d041b454"
+    },
+    {
       "path": "src/darkpipe/aion_independent.py",
       "byte_count": 6433,
       "sha256": "c108f454104712cbd55aff61dcd897d23d4d6e7706da0f5995c60eccc0f3c1cc"
     },
     {
-      "path": "src/darkpipe/aion_independent_search.py",
-      "byte_count": 25770,
-      "sha256": "ef88bbd1f65c17c36f1b7ff55dc33e36cf511e03781e5d89ebddc558d041b454"
+      "path": "src/darkpipe/aion.py",
+      "byte_count": 20200,
+      "sha256": "7846108a1bae640f3c47ea5316d46de78e6420978558116940e3a6e116db8f9f"
     },
     {
       "path": "src/darkpipe/analysis.py",
@@ -1014,6 +1034,11 @@
       "path": "src/darkpipe/covariance_operator_shadow.py",
       "byte_count": 21372,
       "sha256": "58c96ea9a43fdf3dea4c584eca6a814f43cca9271bbf59e9474c5505dc914aee"
+    },
+    {
+      "path": "src/darkpipe/drive_sharded_acquisition.py",
+      "byte_count": 15727,
+      "sha256": "0065a525fa573f1af3f77be92d34f491b388aaeb398be29a290cfb13aec94f11"
     },
     {
       "path": "src/darkpipe/gps_network.py",
@@ -1076,11 +1101,6 @@
       "sha256": "8ab45107bbef9ad0b2cc05f36b071226409b0f6133ab747e816a5b3618dae28f"
     },
     {
-      "path": "tests/test_aion.py",
-      "byte_count": 2926,
-      "sha256": "7d744af1793912976e9ead6b68174c733aecbd00de83fc4ac17b3da83c9caed2"
-    },
-    {
       "path": "tests/test_aion_blind.py",
       "byte_count": 5120,
       "sha256": "81d959a8ccb4746bd4b1107fa9e77bfa56c04c1a451fab048db1c1aa61e383fb"
@@ -1091,14 +1111,19 @@
       "sha256": "82b5d005c7a0689f07e9a8b08e5452451a8c53c5ea40f482ab3acb0fd52f3a93"
     },
     {
+      "path": "tests/test_aion_independent_search.py",
+      "byte_count": 6728,
+      "sha256": "cbb0768d8447e72e97f6908ba0fa52d3be21f8fafcdb93e8aa9df7b9cfe08d48"
+    },
+    {
       "path": "tests/test_aion_independent.py",
       "byte_count": 1617,
       "sha256": "391326b92785a43c376c7055d32c6b82997666e7cbe95c842a22ef7e92a04af8"
     },
     {
-      "path": "tests/test_aion_independent_search.py",
-      "byte_count": 6728,
-      "sha256": "cbb0768d8447e72e97f6908ba0fa52d3be21f8fafcdb93e8aa9df7b9cfe08d48"
+      "path": "tests/test_aion.py",
+      "byte_count": 2926,
+      "sha256": "7d744af1793912976e9ead6b68174c733aecbd00de83fc4ac17b3da83c9caed2"
     },
     {
       "path": "tests/test_authority.py",
@@ -1109,6 +1134,11 @@
       "path": "tests/test_covariance_operator_shadow.py",
       "byte_count": 4714,
       "sha256": "a5553554828d4ab1606de9e3bd21720a316fa3a7dc3e6c0ce3fa3bfebe71c555"
+    },
+    {
+      "path": "tests/test_drive_sharded_acquisition.py",
+      "byte_count": 5728,
+      "sha256": "9028de36046f5b938e9a3448b6e3dc1b6ea479460d6566ae158bf3c155005485"
     },
     {
       "path": "tests/test_evidence.py",
