@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T20:14:45.673995Z",
+  "generated_at_utc": "2026-08-31T20:20:53.898049Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
   "file_count": 345,
-  "total_bytes": 38209764,
+  "total_bytes": 38209762,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -372,8 +372,8 @@
     },
     {
       "path": "docs/V017_EXTERNAL_RAR_ORIENTATION_AND_PARTITION_CHECKPOINT_2026-08-31.md",
-      "byte_count": 5032,
-      "sha256": "602ae52018566cc8bab0303558f30d757d1b13f694584078f9288d2966b9bfdf"
+      "byte_count": 5030,
+      "sha256": "e00decfc0e88ed5db25cbb2c7b113a00a2eda3c22d52a40af7b2fabc67a8242f"
     },
     {
       "path": "docs/V017_FULL_SCAN_TRANSPORT_INCIDENT_2026-08-31.md",
