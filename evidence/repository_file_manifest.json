@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T15:17:41.653513Z",
+  "generated_at_utc": "2026-08-31T15:26:34.542811Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 311,
-  "total_bytes": 37000951,
+  "file_count": 315,
+  "total_bytes": 37258278,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -17,8 +17,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "byte_count": 4909,
-      "sha256": "5bb2020e48d85bcb8dfc268e79251e13c4c9a1107057afdc5fc64099c8f2acc6"
+      "byte_count": 6823,
+      "sha256": "0eb658a1bc14d2fc6b3bba77c7be79a86dac314b9aa39f8f049fa6b0abdcbe6b"
     },
     {
       "path": ".github/workflows/v010-derive.yml",
@@ -377,8 +377,8 @@
     },
     {
       "path": "docs/V017_SIGNAL_GEOMETRY_AND_RANDOM_GATE_2026-08-31.md",
-      "byte_count": 5581,
-      "sha256": "2eb9b3d6347d7857525857757f0701496ce47b5be75dc3ada31f0f1c7f111356"
+      "byte_count": 6557,
+      "sha256": "d9360fa933a17159003f08623aeb32df0ce6dd1b576b2669cd49a3a45a7be7ef"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -821,6 +821,16 @@
       "sha256": "8c52e3229ce30645075630788a85e3f57e902c9fac142743761413ac9b34f4ac"
     },
     {
+      "path": "evidence/kids_random_pilot_v017/build_receipt.json",
+      "byte_count": 810,
+      "sha256": "4270e71be694c59e3b000c881fffd5a06b14803551dc22167a9febe7f080fb91"
+    },
+    {
+      "path": "evidence/kids_random_pilot_v017/random_pair_payload.npz",
+      "byte_count": 242418,
+      "sha256": "36ce448f8a216d4c48c11229b7ce70e8731ea78a99448889f1fa5346922438e7"
+    },
+    {
       "path": "evidence/kids_randoms_v017/KiDS_DR4_observations_table.csv",
       "byte_count": 280325,
       "sha256": "599744e536093fee3bf7da70fc34f2c09712ca0123e4f1c06cbb269e529f4035"
@@ -1106,6 +1116,11 @@
       "sha256": "4f78d139802278ad85fbefd6163bde5518962b7e1c3cbb0b78d614b2f3df44b6"
     },
     {
+      "path": "run_build_kids_random_pilot_v017.py",
+      "byte_count": 4003,
+      "sha256": "73b0ad43def337bd576df1aae36259fed52fcdabbe7f88e91bb115dad96cd2db"
+    },
+    {
       "path": "run_darkpipe_aion_blind_v06.py",
       "byte_count": 1917,
       "sha256": "f0c8f1d707ea0f7644cb9a06216d000713e26bb5adb595050acc9128c0961441"
@@ -1184,6 +1199,11 @@
       "path": "run_darkpipe_kids_pairs_v017.py",
       "byte_count": 8965,
       "sha256": "a4d3cf3f8ac9dd17b269f94b4d32c3697516d76587105028edc7cf26fa4bca7f"
+    },
+    {
+      "path": "run_darkpipe_kids_random_pilot_pairs_v017.py",
+      "byte_count": 5925,
+      "sha256": "e6f348f9b4548aeab5ab2dedfc3500d92ef958a9a659ed5483325741d98a2461"
     },
     {
       "path": "run_darkpipe_kids_rar_shadow_v016.py",
@@ -1357,8 +1377,8 @@
     },
     {
       "path": "src/darkpipe/kids_random_catalogue.py",
-      "byte_count": 4318,
-      "sha256": "bf54c020e1f4ec28f8518ab372243b09a5c65163e997590fc1323f622e445dec"
+      "byte_count": 5283,
+      "sha256": "f5e8a86e1feb49602331a381d552da192efb6ee59db92b7150ca0c424022dcd3"
     },
     {
       "path": "src/darkpipe/kids_random_control.py",
@@ -1512,8 +1532,8 @@
     },
     {
       "path": "tests/test_kids_random_catalogue.py",
-      "byte_count": 1909,
-      "sha256": "c375ee43360e27d287341a9159a2ce7e0e791b7e04f7815734e5d257d6f0f04d"
+      "byte_count": 2225,
+      "sha256": "d3abebd6dbd0e6bb6d5ef40374b0c3fb96ec3ab5428e9730edcb2839efc162b2"
     },
     {
       "path": "tests/test_kids_random_control.py",

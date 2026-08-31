@@ -14,6 +14,7 @@ REDSHIFT_EDGES = np.linspace(0.1, 0.5, 81)
 EXPECTED_SOURCE_TILE_COUNT = 1006
 EXPECTED_SOURCE_THELI_TILE_COUNT = 988
 RANDOM_AUTHORITY = "MISTELE2024_RANDOM_CONSTRUCTION_INDEPENDENT_REPRODUCTION"
+RANDOM_PILOT_AUTHORITY = "STRATIFIED_SUBSET_OF_FROZEN_RANDOM_CATALOGUE_ENGINEERING_PILOT"
 _SOURCE_TILE = re.compile(r"^KIDS_(\d+)p(\d+)_([mp]?)(\d+)p(\d+)$")
 _RELEASE_CATALOGUE = re.compile(
     r"KiDS_DR4\.[01]_([0-9.]+_-?[0-9.]+)_ugriZYJHKs_cat\.fits"
@@ -101,15 +102,37 @@ def generate_tile_randoms(
     }
 
 
+def select_frozen_tile_subset(
+    tile_randoms: dict[str, np.ndarray],
+    *,
+    tile_index: int,
+    count: int,
+    seed: int = RANDOM_SEED,
+) -> dict[str, np.ndarray]:
+    """Select a deterministic uniform subset of an already frozen tile batch."""
+
+    lengths = {len(np.asarray(values)) for values in tile_randoms.values()}
+    if len(lengths) != 1:
+        raise ValueError("tile random columns have unequal lengths")
+    total = lengths.pop()
+    if tile_index < 0 or count <= 0 or count > total:
+        raise ValueError("invalid tile subset request")
+    selector = np.random.default_rng(np.random.SeedSequence([seed, tile_index, 0xD017]))
+    indices = np.sort(selector.choice(total, size=count, replace=False))
+    return {key: np.asarray(values)[indices] for key, values in tile_randoms.items()}
+
+
 __all__ = [
     "EXPECTED_SOURCE_TILE_COUNT",
     "EXPECTED_SOURCE_THELI_TILE_COUNT",
     "RANDOM_AUTHORITY",
     "RANDOM_MULTIPLIER",
+    "RANDOM_PILOT_AUTHORITY",
     "RANDOM_SEED",
     "REDSHIFT_EDGES",
     "allocate_redshift_counts",
     "generate_tile_randoms",
     "official_release_tiles",
+    "select_frozen_tile_subset",
     "source_tile_to_observation_name",
 ]

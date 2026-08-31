@@ -1,0 +1,17 @@
+{
+  "authority": "STRATIFIED_SUBSET_OF_FROZEN_RANDOM_CATALOGUE_ENGINEERING_PILOT",
+  "built_at": "2026-08-31T15:24:04.834040+00:00",
+  "frozen_seed": 20260831017,
+  "full_random_count": 45038900,
+  "next_gate": "EIGHT_PART_AUTHENTIC_SOURCE_PAIR_SCAN_AND_RANDOM_NULL_REDUCTION",
+  "official_tile_count": 1006,
+  "payload_bytes": 242418,
+  "payload_path": "evidence/kids_random_pilot_v017/random_pair_payload.npz",
+  "payload_sha256": "36ce448f8a216d4c48c11229b7ce70e8731ea78a99448889f1fa5346922438e7",
+  "per_tile": 10,
+  "pilot_random_count": 10060,
+  "random_config_sha256": "b8dbd23db187a8daf289f81624e068d630d007b67c03dce585956965ed6e199f",
+  "schema": "darkpipe.kids-random-pilot-payload.v1",
+  "scientific_result": false,
+  "selection_rule": "10_UNIFORM_WITHOUT_REPLACEMENT_FROM_EACH_FROZEN_TILE_BATCH"
+}

@@ -103,3 +103,19 @@ La llave VPS existente no autoriza esta campaña: su recibo limita la
 jurisdicción a Jarvis y ese carril está pausado. GitHub Actions sigue siendo la
 vía remota autorizada; un VPS sería solo un acelerador futuro tras ampliar
 expresamente su jurisdicción a DarkPipe.
+
+## Piloto aleatorio estratificado de extremo a extremo
+
+Para medir el nulo y el coste real antes de comprometer el control 50x, se
+construyó un subconjunto auténtico de 10.060 coordenadas: diez selecciones
+uniformes sin reemplazo de cada uno de los 1006 lotes deterministas del catálogo
+aleatorio congelado. No son coordenadas inventadas al margen del método; son un
+subconjunto reproducible del universo exacto de 45.038.900 coordenadas definido
+por la semilla `20260831017`. El payload ocupa 242.418 bytes y tiene SHA-256
+`36ce448f8a216d4c48c11229b7ce70e8731ea78a99448889f1fa5346922438e7`.
+
+El piloto prueba integración, signo, geometría, canales tangencial/cruzado,
+deproyección antes de apilar y reducción compacta sobre todo el footprint. No
+estima todavía con precisión el sesgo aditivo 50x ni puede autorizar una RAR:
+su jurisdicción es `ENGINEERING_PILOT`, y el resultado completo debe conservar
+esa etiqueta incluso si el nulo observado parece favorable.

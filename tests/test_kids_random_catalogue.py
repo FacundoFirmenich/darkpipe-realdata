@@ -6,6 +6,7 @@ from darkpipe.kids_random_catalogue import (
     allocate_redshift_counts,
     generate_tile_randoms,
     official_release_tiles,
+    select_frozen_tile_subset,
     source_tile_to_observation_name,
 )
 
@@ -49,3 +50,8 @@ def test_random_allocation_is_exact_and_tile_batches_are_reproducible() -> None:
     assert np.all((first["ra_deg"] >= 9.5) & (first["ra_deg"] <= 10.5))
     assert np.all((first["dec_deg"] >= -2.5) & (first["dec_deg"] <= -1.5))
     assert np.all((first["redshift"] >= 0.1) & (first["redshift"] <= 0.5))
+    subset = select_frozen_tile_subset(first, tile_index=3, count=5)
+    repeated = select_frozen_tile_subset(first, tile_index=3, count=5)
+    for key in subset:
+        np.testing.assert_array_equal(subset[key], repeated[key])
+        assert np.all(np.isin(subset[key], first[key]))
