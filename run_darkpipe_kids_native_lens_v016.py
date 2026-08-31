@@ -22,6 +22,29 @@ from darkpipe.kids_lens_sample import (
 )
 
 
+PUBLISHED_TARGET_COUNT = 106_843
+
+
+def require_authoritative_native_selection(
+    *, valid_native_rows: int, bright_rows: int, selected_rows: int
+) -> None:
+    """Refuse to emit a pair payload from incomplete or divergent lens inputs."""
+    problems = []
+    if valid_native_rows != bright_rows:
+        problems.append(
+            f"native GAAP coverage is incomplete ({valid_native_rows}/{bright_rows})"
+        )
+    if selected_rows != PUBLISHED_TARGET_COUNT:
+        problems.append(
+            f"native angular selection diverges ({selected_rows}/{PUBLISHED_TARGET_COUNT})"
+        )
+    if problems:
+        raise RuntimeError(
+            "PAIR_PAYLOAD_BLOCKED_INCOMPLETE_OR_DIVERGENT_NATIVE_SELECTION: "
+            + "; ".join(problems)
+        )
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as stream:
@@ -177,7 +200,15 @@ def main() -> int:
     )
     hybrid_selected_angular = hybrid_candidates & hybrid_isolated_angular
 
+    selected_rows = np.flatnonzero(selected_angular).astype(np.int32)
+    require_authoritative_native_selection(
+        valid_native_rows=int(np.count_nonzero(valid_native)),
+        bright_rows=int(len(matched)),
+        selected_rows=int(len(selected_rows)),
+    )
+
     selected_path = args.output_dir / "selected_angular_native_rows.npy"
+    pair_payload_path = args.output_dir / "selected_lens_pair_payload.npz"
     hybrid_selected_path = args.output_dir / "selected_angular_hybrid_rows.npy"
     unmatched_hybrid_selected_path = args.output_dir / "unmatched_hybrid_selected_rows.npy"
     unmatched_path = args.output_dir / "unmatched_rows.npy"
@@ -188,6 +219,20 @@ def main() -> int:
         np.flatnonzero(hybrid_selected_angular & ~valid_native).astype(np.int32),
     )
     np.save(unmatched_path, np.flatnonzero(~valid_native).astype(np.int32))
+    m_star = np.power(10.0, log_m_star)
+    hot_ratio = np.power(10.0, -5.414) * np.power(m_star, 0.47)
+    hydrogen_fraction = 0.75 - 38.2 * np.power(m_star / 1.5e24, 0.22)
+    cold_ratio = (11550.0 * np.power(m_star, -0.46) + 0.07) / hydrogen_fraction
+    gas_ratio = np.where(is_etg, hot_ratio, cold_ratio)
+    baryonic_mass = m_star * (1.0 + gas_ratio)
+    np.savez_compressed(
+        pair_payload_path,
+        ra_deg=np.asarray(catalogue["RAJ2000"], dtype=float)[selected_rows],
+        dec_deg=np.asarray(catalogue["DECJ2000"], dtype=float)[selected_rows],
+        redshift=z[selected_rows],
+        baryonic_mass_msun=baryonic_mass[selected_rows],
+        source_row=selected_rows,
+    )
     max_sep = float(
         np.rad2deg(2.0 * np.arcsin(np.minimum(1.0, distances[matched, 0] / 2.0))).max()
         * 3600.0
@@ -214,11 +259,11 @@ def main() -> int:
         "candidate_rows_before_isolation": int(np.count_nonzero(candidates)),
         "concurrent_comoving_geometry_count": int(np.count_nonzero(selected_concurrent)),
         "angular_diameter_cartesian_geometry_count": int(np.count_nonzero(selected_angular)),
-        "published_target_count": 106843,
-        "angular_geometry_delta": int(np.count_nonzero(selected_angular) - 106843),
+        "published_target_count": PUBLISHED_TARGET_COUNT,
+        "angular_geometry_delta": int(np.count_nonzero(selected_angular) - PUBLISHED_TARGET_COUNT),
         "hybrid_reconstructed_fallback_rows": int(np.count_nonzero(~valid_native)),
         "hybrid_angular_diameter_cartesian_geometry_count": int(np.count_nonzero(hybrid_selected_angular)),
-        "hybrid_angular_geometry_delta": int(np.count_nonzero(hybrid_selected_angular) - 106843),
+        "hybrid_angular_geometry_delta": int(np.count_nonzero(hybrid_selected_angular) - PUBLISHED_TARGET_COUNT),
         "hybrid_authority": "SENSITIVITY_ONLY_NATIVE_GAAP_WITH_LEPHARE_RECONSTRUCTION_FOR_UNMATCHED_ROWS",
         "hybrid_selected_rows": {"path": hybrid_selected_path.as_posix(), "sha256": sha256(hybrid_selected_path), "count": int(np.count_nonzero(hybrid_selected_angular))},
         "unmatched_hybrid_selected_rows": {"path": unmatched_hybrid_selected_path.as_posix(), "sha256": sha256(unmatched_hybrid_selected_path), "count": int(np.count_nonzero(hybrid_selected_angular & ~valid_native))},
@@ -227,7 +272,16 @@ def main() -> int:
             str(q): float(np.nanquantile(mag_auto_tap - np.asarray(catalogue["MAG_AUTO_CALIB"], dtype=float), q)) for q in (0.01, 0.5, 0.99)
         },
         "selected_rows": {"path": selected_path.as_posix(), "sha256": sha256(selected_path), "count": int(np.count_nonzero(selected_angular))},
+        "selected_lens_pair_payload": {
+            "path": pair_payload_path.as_posix(),
+            "bytes": pair_payload_path.stat().st_size,
+            "sha256": sha256(pair_payload_path),
+            "columns": ["ra_deg", "dec_deg", "redshift", "baryonic_mass_msun", "source_row"],
+            "count": int(len(selected_rows)),
+            "authority": "COMPACT_SELECTED_LENS_INPUT_FOR_PAIR_ACCUMULATION_NO_LENSING_RESULT",
+        },
         "authority": "NATIVE_GAAP_RECOVERY_AND_LENS_SELECTION_RECONSTRUCTION_NO_LENSING_RESULT",
+        "pair_payload_gate": "PASS_COMPLETE_NATIVE_GAAP_AND_EXACT_PUBLISHED_SELECTION",
         "scientific_result": False,
         "next_gate": "FULL_PAIR_ACCUMULATION_WITH_RANDOMS_AND_COVARIANCE",
     }

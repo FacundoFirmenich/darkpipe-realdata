@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T07:07:13.840301Z",
+  "generated_at_utc": "2026-08-31T12:40:53.349490Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 275,
-  "total_bytes": 31674747,
+  "file_count": 292,
+  "total_bytes": 35739466,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -17,8 +17,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "byte_count": 340,
-      "sha256": "752e4695a2237b53f223a0f36163fc5a20524bfa487649d47614f8f9d27246a3"
+      "byte_count": 2167,
+      "sha256": "fff51b460fe5311931ebc4367b1b79be58cac3b991f767c3e737ce5e60288c36"
     },
     {
       "path": ".github/workflows/v010-derive.yml",
@@ -92,8 +92,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 12254,
-      "sha256": "fe077821ad189d9d2aa8dab570f99b208123a625669af526249fd3f6a2b4968e"
+      "byte_count": 13412,
+      "sha256": "8021d6c53c1f4a1de96237bb1e5534c5be0e6b03ac3e2b724a173407899ca97d"
     },
     {
       "path": "CITATION.cff",
@@ -112,8 +112,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 21479,
-      "sha256": "7746ed435bd186c501f28bd31d4ca010d88bb7ee0eeff516c4e0a648570d6fa6"
+      "byte_count": 22683,
+      "sha256": "2793aec2a82a88b883da17cc550c90087961ba4981371b6b9b74861e7f4c07ce"
     },
     {
       "path": "SECURITY.md",
@@ -321,6 +321,11 @@
       "sha256": "62506115a0b1d42420d8b852c6ad444982ae4c0ed6833a1fc2c143909e00a303"
     },
     {
+      "path": "docs/PREREGISTRATION_STREAMING_OBJECT_RAR_0.17.md",
+      "byte_count": 4662,
+      "sha256": "1504be5a249d034db30398f92028c794b572c1df32a9e8c65783f46bf0137f79"
+    },
+    {
       "path": "docs/SCIENTIFIC_SCOPE.md",
       "byte_count": 3375,
       "sha256": "1ef8f520a154861cb240b84bd304c6d6d68af4251772be3ea26c11599d350511"
@@ -359,6 +364,11 @@
       "path": "docs/V016_KIDS_CRITICAL_CHECKPOINT_ES_2026-08-31.md",
       "byte_count": 5920,
       "sha256": "0c1a1990cf86b1d68dc82aaaf339f696d726258c634ed9c4407413170d019b96"
+    },
+    {
+      "path": "docs/V017_ADVERSE_PROVENANCE_LEDGER_2026-08-31.md",
+      "byte_count": 1371,
+      "sha256": "e849221e27851a6e4282a5ef738ca6858205c6414cab4770aa291e12a1438bb6"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -737,8 +747,13 @@
     },
     {
       "path": "evidence/kids_native_lens_v016_complete/run_receipt.json",
-      "byte_count": 20854,
-      "sha256": "10a3d596ddfb882069b3a24c3fbe40be8b6e22f42e2140b0fd22f47a3e79050a"
+      "byte_count": 20839,
+      "sha256": "2a319d43ccd7b199764da22e4821a43d5b89264bae5aac8ef493d2ca9561a2d2"
+    },
+    {
+      "path": "evidence/kids_native_lens_v016_complete/selected_lens_pair_payload.npz",
+      "byte_count": 3234546,
+      "sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a"
     },
     {
       "path": "evidence/kids_native_lens_v016_final/missing_all_native_gaap_tap.receipt.json",
@@ -764,6 +779,36 @@
       "path": "evidence/kids_native_lens_v016_lt21/run_receipt.json",
       "byte_count": 2321,
       "sha256": "68e15d2059a947da8183d15d991480c94e2202885831c7ba6e87a45243639a27"
+    },
+    {
+      "path": "evidence/kids_native_lens_v017_adverse_lt21_partial_272_missing/run_receipt.json",
+      "byte_count": 6916,
+      "sha256": "1761b0d2ef422bb44c86ac3a2c9914696739a4134e810b1f42bf294e14e614eb"
+    },
+    {
+      "path": "evidence/kids_native_lens_v017_adverse_lt21_wrong_supplement/run_receipt.json",
+      "byte_count": 16827,
+      "sha256": "5acb53d57bb7308d03225bf5aadcf1f42ca21e2f356fc9d8194c39c61c45b14d"
+    },
+    {
+      "path": "evidence/kids_native_lens_v017_adverse_wrong_lt20_supplement/run_receipt.json",
+      "byte_count": 16839,
+      "sha256": "69155948e7b4999161376d55956e2ca53a8b6f42a1e2ed162e3a86daa4ad5aab"
+    },
+    {
+      "path": "evidence/kids_pairs_v017_real_pilot/part_000000000_000002000_tiles.npz",
+      "byte_count": 452503,
+      "sha256": "8c52e3229ce30645075630788a85e3f57e902c9fac142743761413ac9b34f4ac"
+    },
+    {
+      "path": "evidence/kids_randoms_v017/KiDS_DR4_observations_table.csv",
+      "byte_count": 280325,
+      "sha256": "599744e536093fee3bf7da70fc34f2c09712ca0123e4f1c06cbb269e529f4035"
+    },
+    {
+      "path": "evidence/kids_randoms_v017/frozen_random_configuration.json",
+      "byte_count": 4182,
+      "sha256": "1963acba9d2f62c68932f0b1feb66ef145deb64594cee79d87c96475b7024ddd"
     },
     {
       "path": "evidence/kids_rar_shadow_v016/derived_rar_shadows.csv",
@@ -963,7 +1008,7 @@
     {
       "path": "pyproject.toml",
       "byte_count": 1049,
-      "sha256": "80f62951912ff79ca0f0722daf013ddebe57664d1705a7d44483383626544aff"
+      "sha256": "7e4d7cc09d7d28299d2f2984172bfaef283885c87242e7389d1aeba2e8ba342e"
     },
     {
       "path": "requirements.txt",
@@ -1097,8 +1142,13 @@
     },
     {
       "path": "run_darkpipe_kids_native_lens_v016.py",
-      "byte_count": 11849,
-      "sha256": "e07e92a8805bc7491b12479bd18767f8bd2cbb77bcb7e6d8449a0d158b453e8b"
+      "byte_count": 14232,
+      "sha256": "73a5643afb6cc2d702109b747bf11109c9883080d7abf3a2aabb3d5331fa3c2e"
+    },
+    {
+      "path": "run_darkpipe_kids_pairs_v017.py",
+      "byte_count": 8884,
+      "sha256": "645fc963058c1c06602b17024acea1f242777bab38dd652364a0f83fb65cd993"
     },
     {
       "path": "run_darkpipe_kids_rar_shadow_v016.py",
@@ -1141,6 +1191,11 @@
       "sha256": "cf21f8744f343646ac26e3e84e4e7282e3d75fb2886a6ddccc3608dee77f31f2"
     },
     {
+      "path": "run_freeze_kids_randoms_v017.py",
+      "byte_count": 3803,
+      "sha256": "5632f4e2d75370829c9860f830ae09bd9d83be497671dd1e4d09511b09b9d32c"
+    },
+    {
       "path": "scripts/build_repository_manifest.py",
       "byte_count": 1969,
       "sha256": "b5931141d3a610c346cfd794f871c718d86ba6ce61947c4770eab257e7d10886"
@@ -1148,7 +1203,7 @@
     {
       "path": "src/darkpipe/__init__.py",
       "byte_count": 4913,
-      "sha256": "b30bc8c040de097bebcabded7ccdc648d7ad20aee364dc3de9c8a4be1db40615"
+      "sha256": "95ee15408579315225ec2fb71773263babdc5f17610e1702bfe9f4fd97764717"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -1207,8 +1262,8 @@
     },
     {
       "path": "src/darkpipe/fits_range_table.py",
-      "byte_count": 10711,
-      "sha256": "239b762ccf717117901fd0a8ff32d0e156ecf52b339a8b479e8a572530350259"
+      "byte_count": 10961,
+      "sha256": "ae475c3551ecf3d81f2c6e228d3c289c6b916eb629c7e127eca621370ab409e5"
     },
     {
       "path": "src/darkpipe/gps_network.py",
@@ -1236,9 +1291,19 @@
       "sha256": "b0d2ff0c9f970455e4ef8c5de192f1d1cceb4c7c847f1d93c35587a3ee42a992"
     },
     {
+      "path": "src/darkpipe/kids_random_catalogue.py",
+      "byte_count": 3627,
+      "sha256": "7fb251b5bd5eb6a4ea4492e8c179e9ad9df879eb5d82c223caee4175a88056fe"
+    },
+    {
       "path": "src/darkpipe/kids_rar_shadow.py",
       "byte_count": 3908,
       "sha256": "467fffecb171cabe4230f41a6d42ed9316f5bb1988edb449e439634393d1f998"
+    },
+    {
+      "path": "src/darkpipe/kids_streaming_pairs.py",
+      "byte_count": 14539,
+      "sha256": "960f5615e94a177d6ae541bf00cc3a3f705a93b573876543f0c091460023ade3"
     },
     {
       "path": "src/darkpipe/multishadow.py",
@@ -1361,14 +1426,34 @@
       "sha256": "5bbc9a5adbb1a96899c3c191e40fab9f10d30b6474a6e1013fb4a2890b3bba2f"
     },
     {
+      "path": "tests/test_kids_pairs_runner.py",
+      "byte_count": 2522,
+      "sha256": "208f46389788c628df9d94ff271e7d8bfbadfc83e0e32e85952fdd4950c8f97d"
+    },
+    {
+      "path": "tests/test_kids_random_catalogue.py",
+      "byte_count": 1318,
+      "sha256": "bd51eef30e1ac8bdfa9b2afb8279993f04bdae931625630e33d7446e836833b9"
+    },
+    {
       "path": "tests/test_kids_rar_shadow.py",
       "byte_count": 972,
       "sha256": "18a7729edd8d80a1a0c391841521f70d71e37a34db0c27b2ea9f137958f33086"
     },
     {
+      "path": "tests/test_kids_streaming_pairs.py",
+      "byte_count": 4028,
+      "sha256": "36efa100c171050a3e8810f4a30181637d6ebe7d9f929c8a1a5857ed666e0479"
+    },
+    {
       "path": "tests/test_multishadow.py",
       "byte_count": 2962,
       "sha256": "98ee026b8b16327f9a413283008ad328f22999b690662bde4df6ab42ea8a485a"
+    },
+    {
+      "path": "tests/test_native_lens_payload_gate.py",
+      "byte_count": 1020,
+      "sha256": "cfde5086eaa493575467477144c511c5f9729c5b6cdd5e7a8c64af1b24925311"
     },
     {
       "path": "tests/test_object_lensing.py",

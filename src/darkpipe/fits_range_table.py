@@ -297,6 +297,7 @@ def iter_remote_numeric_columns(
     names: Sequence[str],
     target_chunk_bytes: int = 64 * 1024 * 1024,
     start_row: int = 0,
+    stop_row: int | None = None,
     session: requests.Session | None = None,
 ) -> Iterator[tuple[int, dict[str, np.ndarray]]]:
     """Yield ``(first_row, columns)`` chunks without a persistent local cache."""
@@ -311,8 +312,11 @@ def iter_remote_numeric_columns(
         rows_per_chunk = max(1, target_chunk_bytes // layout.row_bytes)
         if start_row < 0 or start_row > layout.rows:
             raise FitsRangeError(f"start_row outside table: {start_row}")
-        for first_row in range(start_row, layout.rows, rows_per_chunk):
-            row_count = min(rows_per_chunk, layout.rows - first_row)
+        final_row = layout.rows if stop_row is None else int(stop_row)
+        if final_row < start_row or final_row > layout.rows:
+            raise FitsRangeError(f"stop_row outside table or before start: {final_row}")
+        for first_row in range(start_row, final_row, rows_per_chunk):
+            row_count = min(rows_per_chunk, final_row - first_row)
             start = layout.data_start + first_row * layout.row_bytes
             stop = start + row_count * layout.row_bytes - 1
             payload = _get_exact_range(

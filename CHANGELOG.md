@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.17.0 - streaming KiDS object-pair reconstruction
+
+- hardened the native-GAAP lens gate so incomplete coverage or a count other
+  than 106,843 cannot emit an authoritative pair payload;
+- preserved three incomplete reruns as adverse provenance and recovered the
+  exact selection using the complementary 272-row and 80-row supplement sets;
+- added a spherical, bounded-memory source-pair accumulator for tangential,
+  cross, statistical-variance and pair-weight sufficient statistics;
+- validated the complete remote path on 2,000 authentic source rows, obtaining
+  1,861 selected sources and 267,557 accepted pairs without local source bytes;
+- partitioned the 21,262,011-row full signal scan into eight exact GitHub
+  Actions jobs and retained only compact restartable outputs;
+- froze seed `20260831017`, the 900,778-row parent redshift distribution and
+  the exact 45,038,900 random-coordinate request before signal inspection;
+- retained random subtraction, covariance, cross-null, deproject-first RAR and
+  published-15-bin equivalence as open scientific gates;
+- preserved GNU GPL version 3 or later (`GPL-3.0-or-later`), never
+  `GPL-3.0-only`.
+
 ## 0.16.0 - KiDS object-level reconstruction and RAR shadow
 
 - added a bounded-memory HTTP-range FITS binary-table reader;

@@ -1,3 +1,27 @@
+# DarkPipe 0.17.0 — streaming KiDS object-pair reconstruction
+
+DarkPipe v0.17 advances from lens-side reconstruction to an authenticated,
+bounded-memory lens/source pair scan.  The public 17.7 GB KiDS source FITS is
+read by exact HTTP ranges and reduced to additive per-lens/per-radius
+sufficient statistics; neither the catalogue nor a pair table is written to
+the workstation.  The input gate accepts only the complete 1,239,422-row
+native-GAAP reconstruction and the exact 106,843-lens selection.
+
+An authentic 2,000-row pilot produced 267,557 accepted pairs from 1,861 valid
+sources.  This validates the streaming chain but is not a lensing measurement.
+The complete signal scan is partitioned into eight remote jobs.  The seed,
+45,038,900-coordinate count and 80-bin redshift construction for the additive
+random control are frozen before opening the signal.  A new object-level RAR
+remains unestablished until all signal partitions, the exact 1,006-tile random
+control, covariance, cross-null and deproject-first equivalence gates close.
+
+See
+[the v0.17 preregistration](docs/PREREGISTRATION_STREAMING_OBJECT_RAR_0.17.md).
+
+Licensed under **GPL-3.0-or-later**, explicitly not GPL-3.0-only.
+
+---
+
 # DarkPipe 0.16.0 — KiDS object reconstruction and RAR shadow
 
 DarkPipe v0.16 turns the remote KiDS surface into an executed, bounded-memory

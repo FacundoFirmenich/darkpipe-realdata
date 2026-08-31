@@ -11,7 +11,7 @@ from importlib import import_module
 from typing import Any
 
 
-__version__ = "0.15.0"
+__version__ = "0.17.0"
 
 _EXPORTS: dict[str, tuple[str, str]] = {
     "fetch_noaa_solar_wind": (".sources", "fetch_noaa_solar_wind"),
