@@ -1,0 +1,31 @@
+{
+  "completed_at": "2026-08-30T23:34:37.347631+00:00",
+  "diagnostics": {
+    "authority": "OBJECT_LEVEL_LENS_SAMPLE_RECONSTRUCTION_ONLY_NO_LENSING_RESULT",
+    "base_before_isolation": 767334,
+    "count_delta": 47036,
+    "etg_fraction_base": 0.3136482939632546,
+    "gaap_minus_auto_r_quantiles": {
+      "0.01": 0.02443047416725392,
+      "0.5": 0.45547171776293993,
+      "0.99": 1.9935771435299818
+    },
+    "isolated_final": 153879,
+    "masked_zero": 1000208,
+    "published_target_count": 106843,
+    "reconstructed_colour_quantiles": {
+      "0.01": 0.9390005186572671,
+      "0.5": 2.1480002999305725,
+      "0.99": 4.282000257968902
+    },
+    "redshift_0p1_0p5": 1104685,
+    "rows": 1239422
+  },
+  "next_gate": "SOURCE_PAIR_ESTIMATOR_AND_RANDOM_SUBTRACTION",
+  "schema": "darkpipe.kids-lens-sample.v1",
+  "scientific_result": false,
+  "selected_rows_dtype": "int32",
+  "selected_rows_file": "selected_lens_row_indices.npy",
+  "selected_rows_sha256": "260cf845c19d628eb15aa7bdaf7d8e8808b8d6ce0d90faf8e8089fa54c9b37d7",
+  "started_at": "2026-08-30T23:30:55.211675+00:00"
+}

@@ -1,3 +1,36 @@
+# DarkPipe 0.16.0 — KiDS object reconstruction and RAR shadow
+
+DarkPipe v0.16 turns the remote KiDS surface into an executed, bounded-memory
+scientific pipeline.  It closes partition-level custody for the 17.7 GB
+SOM-gold catalogue, decodes the real FITS tables by exact HTTP ranges,
+reconstructs the KiDS-bright lens-side sample, and derives the effective
+inobservable `eta = log10(g_obs/g_bar)` from the published 15-bin weak-lensing
+RAR.
+
+The first concurrent-distance reconstruction failed, with 153,879 lenses rather
+than 106,843; that adverse receipt remains immutable.  The completed successor
+recovery uses the native KiDS DR4 `MAG_GAAP_u/r` values from the official ESO
+TAP catalogue and the legacy angular-diameter Cartesian isolation geometry.  It
+matches all 1,239,422 KiDS-bright rows and reproduces the published selection
+exactly: **106,843 lenses, delta 0, with no reconstructed-photometry fallback**.
+This closes the lens-selection gate without tuning the radius or mass threshold.
+The published-bin `eta` result is real; a new object-level RAR, global model
+p-value, and any plasma ontology remain unestablished pending the pair, random,
+cross-shear and covariance stages.
+
+The public payload contains code, compact numerical receipts and attributed
+`n(z)` tables.  Raw TAP FITS fragments and NumPy row vectors remain outside Git;
+their queries, counts and SHA-256 receipts are retained, so they can be
+reconstructed without redistributing opaque binary survey payloads.
+
+See [the substantive Spanish checkpoint](docs/V016_KIDS_CRITICAL_CHECKPOINT_ES_2026-08-31.md),
+[the source report](research/v016/report-source.md), and
+[the claim/source ledger](research/v016/claim_source_ledger.csv).
+
+Licensed under **GPL-3.0-or-later**, explicitly not GPL-3.0-only.
+
+---
+
 # DarkPipe 0.15.0 — Google Drive sharded custody
 
 DarkPipe v0.15 removes the unnecessary 40 GiB remote-filesystem prerequisite

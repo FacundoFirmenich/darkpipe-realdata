@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Firmenich
     given-names: Facundo
-version: 0.11.0
-date-released: 2026-08-26
+version: 0.16.0
+date-released: 2026-08-31
 repository-code: "https://github.com/FacundoFirmenich/darkpipe-realdata"
 license: GPL-3.0-or-later

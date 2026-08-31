@@ -1,0 +1,59 @@
+{
+  "authority": "MISTELE2024_EQ10_SOM_NZ_NUMERICAL_LOOKUP",
+  "completed_at": "2026-08-31T01:42:20.858728+00:00",
+  "cosmology": {
+    "H0_km_s_Mpc": 73.0,
+    "Omega_m": 0.2793,
+    "flat": true
+  },
+  "finite": true,
+  "lens_grid": {
+    "count": 81,
+    "maximum": 0.5,
+    "minimum": 0.1
+  },
+  "lens_photoz_sigma": "0.02*(1+z_ANN)",
+  "lookup_csv": {
+    "bytes": 16687,
+    "path": "evidence/kids_sigma_critical_v016/effective_sigma_critical_lookup.csv",
+    "sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1"
+  },
+  "method": "MISTELE2024_EQ10_LENS_GAUSSIAN_AND_RENORMALIZED_SOM_NZ",
+  "next_gate": "OBJECT_LEVEL_PAIR_ACCUMULATION_RANDOM_SUBTRACTION_CROSS_NULL_COVARIANCE",
+  "pair_cut_for_use": "Z_B_source > z_ANN_lens + 0.2",
+  "positive": true,
+  "schema": "darkpipe.kids-effective-sigma-critical.v1",
+  "scientific_result": false,
+  "sigma_critical_range_msun_mpc2": {
+    "maximum": 9009688044528532.0,
+    "minimum": 3047276358259781.0
+  },
+  "source_files": [
+    {
+      "bytes": 6022,
+      "name": "K1000_NS_V1.0.0A_ugriZYJHKs_photoz_SG_mask_LF_svn_309c_2Dbins_v2_SOMcols_Fid_blindC_TOMO1_Nz.asc",
+      "sha256": "2a6df5daac35f1cc78e658f76563392a37f8cf870c017ee9413ea42db0e6c7dd"
+    },
+    {
+      "bytes": 6022,
+      "name": "K1000_NS_V1.0.0A_ugriZYJHKs_photoz_SG_mask_LF_svn_309c_2Dbins_v2_SOMcols_Fid_blindC_TOMO2_Nz.asc",
+      "sha256": "00db976261a76f0c414973f3e979715e7207d2779ebe709adacb61daa97e47c8"
+    },
+    {
+      "bytes": 6022,
+      "name": "K1000_NS_V1.0.0A_ugriZYJHKs_photoz_SG_mask_LF_svn_309c_2Dbins_v2_SOMcols_Fid_blindC_TOMO3_Nz.asc",
+      "sha256": "a8f9122a94d88c026dae55dc97645a8c76aea123fcd151d95b72f6329ae2f1ab"
+    },
+    {
+      "bytes": 6022,
+      "name": "K1000_NS_V1.0.0A_ugriZYJHKs_photoz_SG_mask_LF_svn_309c_2Dbins_v2_SOMcols_Fid_blindC_TOMO4_Nz.asc",
+      "sha256": "5533796481ab679b352561625284d87e22916db119efb9db2e2f2459caba2fce"
+    },
+    {
+      "bytes": 6022,
+      "name": "K1000_NS_V1.0.0A_ugriZYJHKs_photoz_SG_mask_LF_svn_309c_2Dbins_v2_SOMcols_Fid_blindC_TOMO5_Nz.asc",
+      "sha256": "e3b1e77a8189342d87228192de8734de3c8a6f9287619502e50463c7dde76b9e"
+    }
+  ],
+  "source_tarball_url": "https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS1000_SOM_N_of_Z.tar.gz"
+}

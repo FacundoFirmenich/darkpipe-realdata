@@ -1,0 +1,52 @@
+{
+  "ambiguous_two_matches_within_tolerance": 64,
+  "angular_diameter_cartesian_geometry_count": 106798,
+  "angular_geometry_delta": -45,
+  "authority": "NATIVE_GAAP_RECOVERY_AND_LENS_SELECTION_RECONSTRUCTION_NO_LENSING_RESULT",
+  "bright_rows": 1239422,
+  "candidate_rows_before_isolation": 754431,
+  "completed_at": "2026-08-31T03:26:19.067976+00:00",
+  "concurrent_comoving_geometry_count": 148471,
+  "coordinate_tolerance_arcsec": 0.5,
+  "hybrid_angular_diameter_cartesian_geometry_count": 106845,
+  "hybrid_angular_geometry_delta": 2,
+  "hybrid_authority": "SENSITIVITY_ONLY_NATIVE_GAAP_WITH_LEPHARE_RECONSTRUCTION_FOR_UNMATCHED_ROWS",
+  "hybrid_reconstructed_fallback_rows": 352,
+  "hybrid_selected_rows": {
+    "count": 106845,
+    "path": "evidence/kids_native_lens_v016_lt21/selected_angular_hybrid_rows.npy",
+    "sha256": "85e176dcd25e2b4b1c49c9f93a1c555cbc5c7eb69164ba7c05033823dbe52414"
+  },
+  "matched_fraction": 0.9997159966500514,
+  "matched_rows": 1239070,
+  "maximum_selected_match_separation_arcsec": 3.383081725165677e-10,
+  "next_gate": "FULL_PAIR_ACCUMULATION_WITH_RANDOMS_AND_COVARIANCE",
+  "published_target_count": 106843,
+  "schema": "darkpipe.kids-native-lens-reconstruction.v1",
+  "scientific_result": false,
+  "selected_rows": {
+    "count": 106798,
+    "path": "evidence/kids_native_lens_v016_lt21/selected_angular_native_rows.npy",
+    "sha256": "a76ff556c4033c33f9d6adee72a2b06d02a084579e800104bb3ab8f7aac8f633"
+  },
+  "started_at": "2026-08-31T03:16:27.823394+00:00",
+  "tap_fits": {
+    "bytes": 197769600,
+    "row_bytes": 28,
+    "rows": 7062837,
+    "sha256": "9aa5e96b739bd36a4088b242f5a0ce57b8028a436ebe2d0bdb898b42d2184dbe"
+  },
+  "tap_query": "SELECT RAJ2000,DECJ2000,MAG_GAAP_u,MAG_GAAP_r,MAG_AUTO FROM KiDS_DR4_0_ugriZYJHKs_cat_fits_V3 WHERE MAG_AUTO < 21",
+  "tap_source": "https://archive.eso.org/tap_cat/sync",
+  "tap_vs_bright_mag_auto_delta_quantiles": {
+    "0.01": -0.06724147401696985,
+    "0.5": 0.04259204047829179,
+    "0.99": 0.302659415907926
+  },
+  "unmatched_hybrid_selected_rows": {
+    "count": 80,
+    "path": "evidence/kids_native_lens_v016_lt21/unmatched_hybrid_selected_rows.npy",
+    "sha256": "b86df45abd9a237a8edee6dd89682741e9cd4a2f7e03447f0b33ec50f13d74dc"
+  },
+  "valid_native_gaap_rows": 1239070
+}

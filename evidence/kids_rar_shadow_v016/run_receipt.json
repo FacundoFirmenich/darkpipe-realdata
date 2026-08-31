@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-08-31T00:23:56.413568+00:00",
+  "derived_table_sha256": "d21b8b740cd5fe5a373015dc11e81f3f232ad23245aba64e381893c43448601f",
+  "figure_sha256": "5d4566e3e87713455cbfe5b9e3ea5466efc0f990a9734ba567c9bbf4489a983d",
+  "model_identity": "NOT_ESTIMABLE",
+  "plasma_hyperstate_claim": "NOT_TESTED",
+  "schema": "darkpipe.kids-rar-shadow.v1",
+  "scientific_result": "REAL_PUBLISHED_BIN_LEVEL_DERIVED_INOBSERVABLE",
+  "source_file": "data\\mistele2024_weak_lensing_rar_table1.csv",
+  "source_sha256": "624c19f5f0edd2fca78bc94d108863a5f4b8f516ff15fe0ca65d7854b6ea55d0",
+  "summary": {
+    "all_effective_excess_accelerations_positive": true,
+    "authority": "PUBLISHED_BIN_LEVEL_DERIVED_INOBSERVABLE_NO_ONTOLOGY",
+    "bins": 15,
+    "cross_bin_covariance_available": false,
+    "diagonal_weighted_line_intercept": -4.777157777414686,
+    "diagonal_weighted_line_slope": 0.5112112427443137,
+    "enhancement_max": 147.91083881682073,
+    "enhancement_min": 5.754399373371567,
+    "eta_max_dex": 2.17,
+    "eta_min_dex": 0.7599999999999998,
+    "global_model_p_value": "NOT_ESTIMABLE_WITHOUT_COVARIANCE",
+    "mond_residual_max_abs_dex": 0.4603268995046026,
+    "mond_residual_median_dex": 0.008357721672963336,
+    "ontology": "NOT_IDENTIFIED"
+  }
+}
