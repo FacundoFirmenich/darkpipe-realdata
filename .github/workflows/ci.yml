@@ -8,6 +8,10 @@ on:
         description: "Exact guard for the v0.17 full public KiDS pair scan"
         required: false
         default: "NO"
+      partition_filter:
+        description: "ALL or comma-separated exact labels, e.g. 04,07"
+        required: false
+        default: "ALL"
 permissions:
   contents: read
 jobs:
@@ -41,12 +45,16 @@ jobs:
     timeout-minutes: 330
     steps:
       - uses: actions/checkout@v7.0.1
+        if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
       - uses: actions/setup-python@v7.0.0
+        if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
         with:
           python-version: "3.12"
           cache: pip
-      - run: python -m pip install .[test]
+      - if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
+        run: python -m pip install .[test]
       - name: Stream one authentic KiDS source-row partition
+        if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
         run: |
           mkdir -p outputs
           python run_darkpipe_kids_pairs_v017.py \
@@ -55,10 +63,11 @@ jobs:
             --chunk-mib 32 \
             --output outputs/kids_pairs_v017_${{ matrix.partition.label }}.npz
       - name: Upload additive pair statistics only
+        if: always() && (inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label)))
         uses: actions/upload-artifact@v7.0.0
         with:
           name: kids-pairs-v017-${{ matrix.partition.label }}
           path: outputs/kids_pairs_v017_${{ matrix.partition.label }}.npz
           compression-level: 0
           retention-days: 1
-          if-no-files-found: error
+          if-no-files-found: warn

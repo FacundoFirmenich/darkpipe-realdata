@@ -1,0 +1,37 @@
+# KiDS v0.17 full-scan transport incident — 2026-08-31
+
+## Observed result
+
+The first exact eight-partition GitHub Actions scan, run `33393229975`, did not
+complete. Partitions `04` and `07` terminated after the public KiDS server
+closed an HTTP range connection without a response. The traceback in both jobs
+ended in `requests.exceptions.ConnectionError` with `RemoteDisconnected`.
+
+This is an operational transport failure. It is not evidence of a FITS layout
+change, a source-selection discrepancy, a lens-selection discrepancy, a
+pair-geometry defect, or a scientific result. Successful partitions remain
+independent additive sufficient statistics and are not invalidated by these two
+failures.
+
+## Repair and preserved boundary
+
+The bounded FITS range reader now retries only request exceptions and HTTP
+`429`, `500`, `502`, `503`, and `504`, for at most six attempts with exponential
+backoff. Every successful response must still be an exact HTTP `206`, must carry
+the expected `Content-Range`, and must contain the exact requested byte count.
+Any structural mismatch aborts immediately and is never converted into a
+transport retry.
+
+The workflow can now select exact partition labels for repair runs and uploads
+the latest checkpoint even when a computation step fails. This allows failed
+work to be inspected or resumed without re-running valid partitions and without
+persisting the 17.7 GB public source catalogue on local disk.
+
+## Authority boundary
+
+The repair authorizes a targeted re-execution of failed transport partitions.
+It does not authorize merging to `main`, publishing a release, inspecting
+blinded signal arrays prematurely, or making a RAR, dark-matter, plasma, or
+cosmological claim. Scientific authority remains closed until all eight exact
+partitions, the frozen 1006-tile random catalogue, random subtraction,
+covariance, deprojection, and equivalence gates are complete.

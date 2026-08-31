@@ -10,6 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import math
 import re
+import time
 from typing import Iterator, Mapping, Sequence
 
 import numpy as np
@@ -19,6 +20,7 @@ import requests
 FITS_BLOCK = 2880
 CARD_BYTES = 80
 RANGE_READER_AUTHORITY = "BYTE_STREAM_DECODER_ONLY_NO_SCIENTIFIC_RESULT"
+TRANSIENT_HTTP_STATUS = frozenset({429, 500, 502, 503, 504})
 
 
 class FitsRangeError(RuntimeError):
@@ -245,24 +247,48 @@ def _get_exact_range(
     *,
     total_bytes: int,
     timeout: tuple[float, float],
+    max_attempts: int = 6,
+    retry_backoff_seconds: float = 1.0,
 ) -> bytes:
-    with session.get(
-        url,
-        headers={"Range": f"bytes={start}-{stop}", "Accept-Encoding": "identity"},
-        stream=True,
-        timeout=timeout,
-    ) as response:
-        if response.status_code != 206:
-            raise FitsRangeError(f"HTTP {response.status_code}; exact 206 range required")
-        expected_range = f"bytes {start}-{stop}/{total_bytes}"
-        if response.headers.get("Content-Range") != expected_range:
-            raise FitsRangeError(
-                f"Content-Range {response.headers.get('Content-Range')!r} != {expected_range!r}"
-            )
-        payload = response.content
-    if len(payload) != stop - start + 1:
-        raise FitsRangeError("short HTTP range")
-    return payload
+    if max_attempts < 1:
+        raise ValueError("max_attempts must be at least one")
+    expected_range = f"bytes {start}-{stop}/{total_bytes}"
+    last_transport_error: requests.RequestException | None = None
+    for attempt in range(1, max_attempts + 1):
+        try:
+            with session.get(
+                url,
+                headers={"Range": f"bytes={start}-{stop}", "Accept-Encoding": "identity"},
+                stream=True,
+                timeout=timeout,
+            ) as response:
+                if response.status_code in TRANSIENT_HTTP_STATUS:
+                    if attempt == max_attempts:
+                        raise FitsRangeError(
+                            f"HTTP {response.status_code} persisted for {max_attempts} attempts"
+                        )
+                elif response.status_code != 206:
+                    raise FitsRangeError(
+                        f"HTTP {response.status_code}; exact 206 range required"
+                    )
+                else:
+                    actual_range = response.headers.get("Content-Range")
+                    if actual_range != expected_range:
+                        raise FitsRangeError(
+                            f"Content-Range {actual_range!r} != {expected_range!r}"
+                        )
+                    payload = response.content
+                    if len(payload) != stop - start + 1:
+                        raise FitsRangeError("short HTTP range")
+                    return payload
+        except requests.RequestException as exc:
+            last_transport_error = exc
+            if attempt == max_attempts:
+                raise FitsRangeError(
+                    f"HTTP range transport failed after {max_attempts} attempts"
+                ) from exc
+        time.sleep(retry_backoff_seconds * 2 ** (attempt - 1))
+    raise FitsRangeError("unreachable HTTP range retry state") from last_transport_error
 
 
 def read_remote_layout(
