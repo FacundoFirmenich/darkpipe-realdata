@@ -1,0 +1,180 @@
+{
+  "authority": "PARTITION_AND_MERGE_AUDIT_NO_SCIENTIFIC_OR_MODEL_ADJUDICATION",
+  "complete": true,
+  "completed_at": "2026-08-31T19:37:16.193444+00:00",
+  "exact_merge": true,
+  "exact_merge_by_key": {
+    "pair_count": true,
+    "sum_cross": true,
+    "sum_pair_weight": true,
+    "sum_shape_variance": true,
+    "sum_tangential": true
+  },
+  "github_actions_run_id": 33398418711,
+  "merged_cross_max_abs_diagonal_z": 2.2615037164688774,
+  "merged_metadata_complete": true,
+  "merged_mistele2024_reproduction_diagnostic": {
+    "all_15_inside_published_total_1sigma": false,
+    "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+    "central_points_inside_published_total_1sigma": 1,
+    "median_absolute_difference_le_0p05_dex": false,
+    "median_absolute_log10_difference_dex": 1.005659285763068,
+    "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+    "positive_estimable_bins": 13,
+    "published_bins": 15,
+    "reproduction_gate": false
+  },
+  "model_or_ontology_adjudication": false,
+  "next_gate": "ADJUDICATE_PARTITION_HETEROGENEITY_AND_SIGMA_CRITICAL",
+  "partition_count": 8,
+  "partition_results": [
+    {
+      "accepted_pairs": 384216077,
+      "cross_max_abs_diagonal_z": 2.583109757310971,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.8207983523450713,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 4,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-00",
+      "start_row": 0,
+      "stop_row": 2657751
+    },
+    {
+      "accepted_pairs": 376235220,
+      "cross_max_abs_diagonal_z": 0.9402266191094117,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.5502738578547328,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 8,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-01",
+      "start_row": 2657751,
+      "stop_row": 5315502
+    },
+    {
+      "accepted_pairs": 349211765,
+      "cross_max_abs_diagonal_z": 1.4285747494173695,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.49594481427469983,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 10,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-02",
+      "start_row": 5315502,
+      "stop_row": 7973254
+    },
+    {
+      "accepted_pairs": 352428316,
+      "cross_max_abs_diagonal_z": 1.3851712627047275,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.6715901458011277,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 6,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-03",
+      "start_row": 7973254,
+      "stop_row": 10631005
+    },
+    {
+      "accepted_pairs": 405130524,
+      "cross_max_abs_diagonal_z": 1.6761125678921358,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 4,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.41453245815746165,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 12,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-04",
+      "start_row": 10631005,
+      "stop_row": 13288756
+    },
+    {
+      "accepted_pairs": 397327556,
+      "cross_max_abs_diagonal_z": 1.2095339207695515,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.40704930972029274,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 8,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-05",
+      "start_row": 13288756,
+      "stop_row": 15946508
+    },
+    {
+      "accepted_pairs": 382109167,
+      "cross_max_abs_diagonal_z": 1.3890987077753785,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.7833845412863027,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 11,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-06",
+      "start_row": 15946508,
+      "stop_row": 18604259
+    },
+    {
+      "accepted_pairs": 371200274,
+      "cross_max_abs_diagonal_z": 2.161689777476955,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 3,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.41574424543007105,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 10,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "partition": "kids-pairs-v017-07",
+      "start_row": 18604259,
+      "stop_row": 21262011
+    }
+  ],
+  "recomputed_merged_content_sha256": "59e39fccb35df42524a10f0766480ec746ad13f49e53a35764c0e5d7edd1e2d9",
+  "schema": "darkpipe.kids-pair-partition-audit.v1",
+  "scientific_result": false,
+  "stored_merged_content_sha256": "59e39fccb35df42524a10f0766480ec746ad13f49e53a35764c0e5d7edd1e2d9"
+}

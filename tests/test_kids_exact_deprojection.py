@@ -120,6 +120,43 @@ def test_grouped_operator_matches_per_lens_fallback() -> None:
         )
 
 
+def test_grouped_varying_targets_match_scalar_integrals() -> None:
+    centers = np.asarray([0.8, 1.4, 2.2, 4.1])
+    edges = np.asarray([0.5, 1.1, 1.8, 3.0, 5.0])
+    profiles = np.asarray(
+        [[2.0, -1.0, 0.5, 0.2], [1.0, np.nan, -0.2, 0.1], [-1.0, 0.4, 0.3, 0.2]]
+    )
+    variances = np.where(np.isfinite(profiles), 0.25, np.nan)
+    targets = np.asarray(
+        [[0.8, 1.3, 3.2], [0.9, 2.1, 4.8], [1.0, 1.9, 5.2]]
+    )
+    grouped = deproject_individual_profiles(
+        centers, edges, profiles, variances, targets, outer_tail="sis"
+    )
+    factor = 4.0 * G_MPC_KM2_S2_MSUN * (1e6 / MPC_M)
+    for lens in range(len(profiles)):
+        valid = np.isfinite(profiles[lens]) & np.isfinite(variances[lens])
+        valid_indices = np.flatnonzero(valid)
+        expected_signal = factor * integrate_piecewise_linear_profile(
+            centers[valid], profiles[lens, valid], targets[lens], outer_tail="sis"
+        )
+        last_edge = edges[valid_indices[-1] + 1]
+        variance_radius = np.append(centers[valid], last_edge)
+        variance_profile = np.append(variances[lens, valid], 0.0)
+        expected_variance = factor**2 * integrate_piecewise_linear_profile(
+            variance_radius, variance_profile, targets[lens], outer_tail="zero"
+        )
+        np.testing.assert_allclose(
+            grouped["gobs_m_s2"][lens], expected_signal, equal_nan=True, rtol=2e-14
+        )
+        np.testing.assert_allclose(
+            grouped["variance_gobs"][lens],
+            expected_variance,
+            equal_nan=True,
+            rtol=2e-14,
+        )
+
+
 def test_inverse_variance_stack_matches_closed_form() -> None:
     result = stack_inverse_variance(
         np.asarray([[1.0, 3.0], [3.0, 7.0]]),

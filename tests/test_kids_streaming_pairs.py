@@ -9,6 +9,7 @@ from darkpipe.kids_streaming_pairs import (
     StreamingPairConfig,
     accumulate_source_chunk,
     finalize_individual_esd,
+    finalize_orientation_conventions,
     merge_pair_sums,
     pair_sums_sha256,
 )
@@ -120,3 +121,39 @@ def test_mask_rejection_and_empty_chunk_preserve_shape() -> None:
     assert diagnostics["selected_source_rows"] == 0
     assert sums["pair_count"].shape == (2, 1)
     assert int(np.sum(sums["pair_count"])) == 0
+
+
+def test_kids_e2_sign_transform_recovers_known_tangential_pattern() -> None:
+    lenses = LensPayload(
+        ra_deg=np.asarray((0.0,)),
+        dec_deg=np.asarray((0.0,)),
+        redshift=np.asarray((0.2,)),
+        baryonic_mass_msun=np.asarray((1e10,)),
+        source_row=np.asarray((0,), dtype=np.int32),
+    )
+    # At 45 degrees from east, a positive tangential pattern has mathematical
+    # e2=-gamma.  The KiDS RA/Dec catalog convention under test stores the
+    # opposite e2 sign.  This is a geometry unit test, not scientific data.
+    sources = _sources(np.asarray((0.01,)), np.asarray((0.01,)))
+    sources["e1"][:] = 0.0
+    sources["e2"][:] = 0.2
+    sigma = np.full((1, 5), 2.0e15)
+    sums, diagnostics = accumulate_source_chunk(
+        lenses,
+        sources,
+        sigma,
+        config=StreamingPairConfig(
+            radial_edges_mpc_h70=(0.001, 1.0, 20.0),
+            lens_redshift_groups=1,
+        ),
+        include_orientation_basis=True,
+    )
+    result = finalize_orientation_conventions(sums)
+    assert diagnostics["accepted_pairs"] == 1
+    current = np.asarray(result["east_ccw_catalog_e2_as_math"]["esd_msun_mpc2"])
+    flipped = np.asarray(
+        result["east_ccw_catalog_e2_sign_flipped"]["esd_msun_mpc2"]
+    )
+    finite = np.isfinite(current)
+    np.testing.assert_allclose(current[finite], -4.0e14 / 0.98531, rtol=1e-6)
+    np.testing.assert_allclose(flipped[finite], 4.0e14 / 0.98531, rtol=1e-6)

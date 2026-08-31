@@ -1,0 +1,62 @@
+{
+  "brouwer_to_mistele_gbar_max_fractional_grid_difference": 0.008721659232160605,
+  "complete": true,
+  "completed_at": "2026-08-31T20:05:11.474203+00:00",
+  "corrected_cross_max_abs_diagonal_z": 1.466029074313701,
+  "effective_lenses_max": 106843,
+  "effective_lenses_min": 37917,
+  "full_random_target": 45038900,
+  "gbar_bins": 15,
+  "jurisdiction": "EXPLORATORY_OBJECT_RAR_WITH_10060_RANDOM_PILOT_AND_EXTERNAL_PUBLISHED_REFERENCE",
+  "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+  "mistele2024_reproduction_diagnostic": {
+    "all_15_inside_published_total_1sigma": false,
+    "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+    "central_points_inside_published_total_1sigma": 0,
+    "median_absolute_difference_le_0p05_dex": false,
+    "median_absolute_log10_difference_dex": 0.7157904423149724,
+    "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+    "positive_estimable_bins": 11,
+    "published_bins": 15,
+    "reproduction_gate": false
+  },
+  "model_or_ontology_adjudication": false,
+  "next_gate": "LOCALIZE_AND_REPAIR_PAIR_ESD_ORIENTATION_BEFORE_50X_RANDOM_CONTROL",
+  "not_estimated": [
+    "frozen_50x_random_control",
+    "random_radial_covariance",
+    "field_to_field_covariance",
+    "independent_replication"
+  ],
+  "pilot_correction_max_abs_diagonal_z": 1.3092334379123232,
+  "pilot_random_count": 10060,
+  "random_control_content_sha256": "b82694c563d00ae0f9e384d12286a7aa4eacbcdd5cef75abb9da453539162e14",
+  "raw_sis_stack_first_reproduction_diagnostic": {
+    "all_15_inside_published_total_1sigma": false,
+    "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+    "central_points_inside_published_total_1sigma": 1,
+    "median_absolute_difference_le_0p05_dex": false,
+    "median_absolute_log10_difference_dex": 1.005659285763068,
+    "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+    "positive_estimable_bins": 13,
+    "published_bins": 15,
+    "reproduction_gate": false
+  },
+  "reference_diagnostic": {
+    "authority": "DESCRIPTIVE_NOT_A_HYPOTHESIS_TEST_SHARED_DATA_DIFFERENT_SELECTIONS",
+    "darkpipe_positive_bins": 11,
+    "max_abs_combined_diagonal_residual_z": 4.994174412364642,
+    "median_log10_darkpipe_over_reference": -0.8539104617748634,
+    "reference_covariance_chi2_diagnostic": 1477.7725497122049,
+    "reference_covariance_dof_label_only": 15,
+    "reference_positive_bins": 15,
+    "valid_bins": 15
+  },
+  "schema": "darkpipe.kids-exploratory-object-rar.v1",
+  "scientific_result": false,
+  "signal_accepted_pairs": 3017858899,
+  "signal_lens_count": 106843,
+  "signal_pair_content_sha256": "59e39fccb35df42524a10f0766480ec746ad13f49e53a35764c0e5d7edd1e2d9",
+  "signal_source_rows": 21262011,
+  "upstream_localization": "PAIR_ESD_OR_PRE_DEPROJECTION_SURFACE_REMAINS_SUSPECT"
+}

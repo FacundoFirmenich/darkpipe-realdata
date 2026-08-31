@@ -14,6 +14,7 @@ import numpy as np
 from darkpipe.fits_range_table import iter_remote_numeric_columns
 from darkpipe.kids_streaming_pairs import (
     LensPayload,
+    ORIENTATION_BASIS_KEYS,
     RADIAL_EDGES_MPC_H70,
     RADIAL_EDGES_SHA256,
     STREAMING_PAIR_AUTHORITY,
@@ -103,19 +104,20 @@ def load_sigma_grid(path: Path, lens_redshift: np.ndarray) -> np.ndarray:
     return result
 
 
-def load_checkpoint(path: Path, expected_start: int) -> tuple[dict[str, np.ndarray], dict[str, object]]:
+def load_checkpoint(
+    path: Path,
+    expected_start: int,
+    keys: tuple[str, ...] = (
+        "sum_pair_weight",
+        "sum_tangential",
+        "sum_cross",
+        "sum_shape_variance",
+        "pair_count",
+    ),
+) -> tuple[dict[str, np.ndarray], dict[str, object]]:
     with np.load(path, allow_pickle=False) as values:
         metadata = json.loads(str(values["metadata_json"]))
-        sums = {
-            key: np.asarray(values[key]).copy()
-            for key in (
-                "sum_pair_weight",
-                "sum_tangential",
-                "sum_cross",
-                "sum_shape_variance",
-                "pair_count",
-            )
-        }
+        sums = {key: np.asarray(values[key]).copy() for key in keys}
         stored_hash = str(values["content_sha256"])
     if metadata.get("start_row") != expected_start:
         raise RuntimeError("checkpoint start row does not match requested partition")
@@ -131,6 +133,11 @@ def main() -> int:
     parser.add_argument("--start-row", type=int, default=0)
     parser.add_argument("--stop-row", type=int, default=SOURCE_TOTAL_ROWS)
     parser.add_argument("--chunk-mib", type=int, default=32)
+    parser.add_argument(
+        "--include-orientation-basis",
+        action="store_true",
+        help="retain the four exact e1/e2 x cos/sin(2phi) basis sums",
+    )
     parser.add_argument(
         "--lens-payload",
         type=Path,
@@ -157,6 +164,14 @@ def main() -> int:
     sigma_grid = load_sigma_grid(args.sigma_lookup, lenses.redshift)
     started = datetime.now(timezone.utc).isoformat()
     pair_sums = empty_pair_sums(lenses.count, len(RADIAL_EDGES_MPC_H70) - 1)
+    if args.include_orientation_basis:
+        pair_sums.update(
+            {
+                key: np.zeros_like(pair_sums["sum_pair_weight"])
+                for key in ORIENTATION_BASIS_KEYS
+            }
+        )
+    pair_keys = tuple(pair_sums)
     next_row = args.start_row
     chunks = 0
     diagnostics = {
@@ -167,7 +182,7 @@ def main() -> int:
     }
     seen_tiles: set[str] = set()
     if args.output.exists():
-        pair_sums, previous = load_checkpoint(args.output, args.start_row)
+        pair_sums, previous = load_checkpoint(args.output, args.start_row, pair_keys)
         next_row = int(previous["next_row"])
         chunks = int(previous["chunks"])
         started = str(previous["started_at"])
@@ -189,7 +204,10 @@ def main() -> int:
             for raw in np.asarray(source_chunk["THELI_NAME"])
         )
         chunk_sums, chunk_diagnostics = accumulate_source_chunk(
-            lenses, source_chunk, sigma_grid
+            lenses,
+            source_chunk,
+            sigma_grid,
+            include_orientation_basis=args.include_orientation_basis,
         )
         for key in pair_sums:
             pair_sums[key] += chunk_sums[key]
@@ -217,6 +235,7 @@ def main() -> int:
             "radial_edges_sha256": RADIAL_EDGES_SHA256,
             "lens_payload_sha256": sha256(args.lens_payload),
             "sigma_lookup_sha256": sha256(args.sigma_lookup),
+            "orientation_basis_included": args.include_orientation_basis,
             "authority": STREAMING_PAIR_AUTHORITY,
             "scientific_result": False,
             "next_gate": "RANDOM_SUBTRACTION_COVARIANCE_AND_DEPROJECT_FIRST_RAR",

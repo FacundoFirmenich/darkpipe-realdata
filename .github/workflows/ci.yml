@@ -20,6 +20,10 @@ on:
         description: "Exact guard for the 10060-point stratified random pilot"
         required: false
         default: "NO"
+      confirm_orientation_basis:
+        description: "Exact guard for the full four-term KiDS orientation-basis scan"
+        required: false
+        default: "NO"
 permissions:
   contents: read
 jobs:
@@ -119,6 +123,49 @@ jobs:
           name: kids-source-tile-index-v017-${{ matrix.partition.label }}
           path: outputs/kids_source_tile_index_v017_${{ matrix.partition.label }}.json
           compression-level: 9
+          retention-days: 1
+          if-no-files-found: warn
+
+  kids-v017-orientation-basis-full-scan:
+    if: github.event_name == 'workflow_dispatch' && inputs.confirm_orientation_basis == 'RUN_V017_ORIENTATION_BASIS'
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        partition:
+          - {label: "00", start: 0, stop: 2657751}
+          - {label: "01", start: 2657751, stop: 5315502}
+          - {label: "02", start: 5315502, stop: 7973254}
+          - {label: "03", start: 7973254, stop: 10631005}
+          - {label: "04", start: 10631005, stop: 13288756}
+          - {label: "05", start: 13288756, stop: 15946508}
+          - {label: "06", start: 15946508, stop: 18604259}
+          - {label: "07", start: 18604259, stop: 21262011}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install .[test]
+      - name: Stream one authentic KiDS partition with exact orientation basis
+        run: |
+          mkdir -p outputs
+          python run_darkpipe_kids_pairs_v017.py \
+            --start-row ${{ matrix.partition.start }} \
+            --stop-row ${{ matrix.partition.stop }} \
+            --chunk-mib 32 \
+            --include-orientation-basis \
+            --output outputs/kids_orientation_basis_v017_${{ matrix.partition.label }}.npz
+      - name: Upload exact orientation sufficient statistics only
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: kids-orientation-basis-v017-${{ matrix.partition.label }}
+          path: outputs/kids_orientation_basis_v017_${{ matrix.partition.label }}.npz
+          compression-level: 0
           retention-days: 1
           if-no-files-found: warn
 

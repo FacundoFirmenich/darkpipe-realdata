@@ -12,6 +12,7 @@ import numpy as np
 
 from darkpipe.kids_random_catalogue import EXPECTED_SOURCE_THELI_TILE_COUNT
 from darkpipe.kids_streaming_pairs import (
+    ORIENTATION_BASIS_KEYS,
     STREAMING_PAIR_AUTHORITY,
     merge_pair_sums,
     pair_sums_sha256,
@@ -41,7 +42,11 @@ def load_partition_metadata(path: Path) -> dict[str, object]:
 
 def load_partition_sums(path: Path) -> dict[str, np.ndarray]:
     with np.load(path, allow_pickle=False) as values:
-        sums = {key: np.asarray(values[key]).copy() for key in PAIR_KEYS}
+        basis_present = tuple(key in values.files for key in ORIENTATION_BASIS_KEYS)
+        if any(basis_present) and not all(basis_present):
+            raise RuntimeError(f"partial orientation basis: {path}")
+        keys = PAIR_KEYS + (ORIENTATION_BASIS_KEYS if all(basis_present) else ())
+        sums = {key: np.asarray(values[key]).copy() for key in keys}
         stored_hash = str(values["content_sha256"])
     if pair_sums_sha256(sums) != stored_hash:
         raise RuntimeError(f"pair-sum hash mismatch: {path}")
@@ -89,6 +94,7 @@ def merge_partitions(
         "sigma_lookup_sha256",
         "radial_edges_mpc_h70",
         "radial_edges_sha256",
+        "orientation_basis_included",
     )
     for _, metadata in metadata_only[1:]:
         for key in invariant_keys:
@@ -126,9 +132,14 @@ def merge_partitions(
         "sigma_lookup_sha256": reference["sigma_lookup_sha256"],
         "radial_edges_mpc_h70": reference["radial_edges_mpc_h70"],
         "radial_edges_sha256": reference["radial_edges_sha256"],
+        "orientation_basis_included": bool(reference.get("orientation_basis_included", False)),
         "authority": STREAMING_PAIR_AUTHORITY,
         "scientific_result": False,
-        "next_gate": "SEAL_1006_TILE_RANDOMS_THEN_RANDOM_COVARIANCE_DEPROJECT_FIRST_RAR",
+        "next_gate": (
+            "ADJUDICATE_FULL_ORIENTATION_CONVENTIONS"
+            if reference.get("orientation_basis_included", False)
+            else "SEAL_1006_TILE_RANDOMS_THEN_RANDOM_COVARIANCE_DEPROJECT_FIRST_RAR"
+        ),
     }
     return merged, metadata
 
