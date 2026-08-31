@@ -13,7 +13,7 @@ RANDOM_MULTIPLIER = 50
 REDSHIFT_EDGES = np.linspace(0.1, 0.5, 81)
 EXPECTED_SOURCE_TILE_COUNT = 1006
 RANDOM_AUTHORITY = "MISTELE2024_RANDOM_CONSTRUCTION_INDEPENDENT_REPRODUCTION"
-_SOURCE_TILE = re.compile(r"^KIDS_(\d+)p(\d+)_([mp])(\d+)p(\d+)$")
+_SOURCE_TILE = re.compile(r"^KIDS_(\d+)p(\d+)_([mp]?)(\d+)p(\d+)$")
 
 
 def source_tile_to_observation_name(name: str) -> str:

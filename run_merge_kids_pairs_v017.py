@@ -28,18 +28,30 @@ PAIR_KEYS = (
 )
 
 
-def load_partition(path: Path) -> tuple[dict[str, np.ndarray], dict[str, object]]:
+def load_partition_metadata(path: Path) -> dict[str, object]:
     with np.load(path, allow_pickle=False) as values:
-        sums = {key: np.asarray(values[key]).copy() for key in PAIR_KEYS}
         metadata = json.loads(str(values["metadata_json"]))
-        stored_hash = str(values["content_sha256"])
-    if pair_sums_sha256(sums) != stored_hash:
-        raise RuntimeError(f"pair-sum hash mismatch: {path}")
     if not metadata.get("complete"):
         raise RuntimeError(f"incomplete partition: {path}")
     if metadata.get("authority") != STREAMING_PAIR_AUTHORITY:
         raise RuntimeError(f"unexpected partition authority: {path}")
-    return sums, metadata
+    return metadata
+
+
+def load_partition_sums(path: Path) -> dict[str, np.ndarray]:
+    with np.load(path, allow_pickle=False) as values:
+        sums = {key: np.asarray(values[key]).copy() for key in PAIR_KEYS}
+        stored_hash = str(values["content_sha256"])
+    if pair_sums_sha256(sums) != stored_hash:
+        raise RuntimeError(f"pair-sum hash mismatch: {path}")
+    return sums
+
+
+def load_partition(path: Path) -> tuple[dict[str, np.ndarray], dict[str, object]]:
+    """Compatibility entry point; metadata authority is checked before arrays."""
+
+    metadata = load_partition_metadata(path)
+    return load_partition_sums(path), metadata
 
 
 def merge_partitions(
@@ -47,11 +59,11 @@ def merge_partitions(
 ) -> tuple[dict[str, np.ndarray], dict[str, object]]:
     if not paths:
         raise ValueError("at least one partition is required")
-    loaded = [load_partition(path) for path in paths]
-    loaded.sort(key=lambda item: int(item[1]["start_row"]))
+    metadata_only = [(path, load_partition_metadata(path)) for path in paths]
+    metadata_only.sort(key=lambda item: int(item[1]["start_row"]))
     intervals = [
         (int(metadata["start_row"]), int(metadata["stop_row"]))
-        for _, metadata in loaded
+        for _, metadata in metadata_only
     ]
     for previous, current in zip(intervals, intervals[1:], strict=False):
         if previous[1] != current[0]:
@@ -67,7 +79,7 @@ def merge_partitions(
         (18_604_259, SOURCE_TOTAL_ROWS),
     ]:
         raise RuntimeError("partition set is not the frozen eight-part full surface")
-    reference = loaded[0][1]
+    reference = metadata_only[0][1]
     invariant_keys = (
         "source_url",
         "source_total_bytes",
@@ -75,21 +87,24 @@ def merge_partitions(
         "lens_payload_sha256",
         "sigma_lookup_sha256",
         "radial_edges_mpc_h70",
+        "radial_edges_sha256",
     )
-    for _, metadata in loaded[1:]:
+    for _, metadata in metadata_only[1:]:
         for key in invariant_keys:
             if metadata.get(key) != reference.get(key):
                 raise RuntimeError(f"partition invariant differs: {key}")
     tiles = sorted(
-        {tile for _, metadata in loaded for tile in metadata.get("source_tiles", [])}
+        {tile for _, metadata in metadata_only for tile in metadata.get("source_tiles", [])}
     )
     if require_complete_surface and len(tiles) != 1006:
         raise RuntimeError(f"full source tile union is {len(tiles)}, expected 1006")
     diagnostics = {
-        key: sum(int(metadata["diagnostics"][key]) for _, metadata in loaded)
+        key: sum(int(metadata["diagnostics"][key]) for _, metadata in metadata_only)
         for key in reference["diagnostics"]
     }
-    merged = merge_pair_sums([sums for sums, _ in loaded])
+    # Signal arrays are opened only after the complete blind metadata surface
+    # and every cross-partition invariant have passed.
+    merged = merge_pair_sums([load_partition_sums(path) for path, _ in metadata_only])
     metadata = {
         "schema": "darkpipe.kids-pair-merged.v1",
         "completed_at": datetime.now(timezone.utc).isoformat(),
@@ -106,6 +121,7 @@ def merge_partitions(
         "lens_payload_sha256": reference["lens_payload_sha256"],
         "sigma_lookup_sha256": reference["sigma_lookup_sha256"],
         "radial_edges_mpc_h70": reference["radial_edges_mpc_h70"],
+        "radial_edges_sha256": reference["radial_edges_sha256"],
         "authority": STREAMING_PAIR_AUTHORITY,
         "scientific_result": False,
         "next_gate": "SEAL_1006_TILE_RANDOMS_THEN_RANDOM_COVARIANCE_DEPROJECT_FIRST_RAR",

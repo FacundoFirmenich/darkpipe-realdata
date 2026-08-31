@@ -11,6 +11,7 @@ from darkpipe.kids_random_catalogue import (
 def test_source_tile_name_maps_to_official_observations_name() -> None:
     assert source_tile_to_observation_name("KIDS_129p0_m1p5") == "KIDS_129.0_-1.5"
     assert source_tile_to_observation_name("KIDS_32p5_p12p0") == "KIDS_32.5_12.0"
+    assert source_tile_to_observation_name("KIDS_129p4_2p5") == "KIDS_129.4_2.5"
 
 
 def test_random_allocation_is_exact_and_tile_batches_are_reproducible() -> None:

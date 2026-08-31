@@ -4,12 +4,23 @@ import numpy as np
 
 from darkpipe.kids_streaming_pairs import (
     LensPayload,
+    RADIAL_EDGES_MPC_H70,
+    RADIAL_EDGES_SHA256,
     StreamingPairConfig,
     accumulate_source_chunk,
     finalize_individual_esd,
     merge_pair_sums,
     pair_sums_sha256,
 )
+
+
+def test_radial_edges_have_a_frozen_binary_contract() -> None:
+    import hashlib
+
+    assert len(RADIAL_EDGES_MPC_H70) == 28
+    assert hashlib.sha256(
+        np.asarray(RADIAL_EDGES_MPC_H70, dtype="<f8").tobytes()
+    ).hexdigest() == RADIAL_EDGES_SHA256
 
 
 def _sources(ra: np.ndarray, dec: np.ndarray) -> dict[str, np.ndarray]:

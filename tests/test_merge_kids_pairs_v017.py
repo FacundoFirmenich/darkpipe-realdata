@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 
 from darkpipe.kids_streaming_pairs import empty_pair_sums, save_pair_partition
+import run_merge_kids_pairs_v017 as merger
 from run_merge_kids_pairs_v017 import merge_partitions
 
 
@@ -24,6 +25,7 @@ def _partition(path: Path, start: int, stop: int, value: float, tiles: list[str]
             "lens_payload_sha256": "l",
             "sigma_lookup_sha256": "s",
             "radial_edges_mpc_h70": [1, 2, 3, 4],
+            "radial_edges_sha256": "r",
             "source_tiles": tiles,
             "diagnostics": {"source_rows": stop - start, "selected_source_rows": 1, "candidate_pairs": 2, "accepted_pairs": 1},
             "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
@@ -49,3 +51,17 @@ def test_gap_is_rejected(tmp_path: Path) -> None:
     _partition(second, 5, 10, 2.0, ["B"])
     with pytest.raises(RuntimeError, match="gap or overlap"):
         merge_partitions([first, second], require_complete_surface=False)
+
+
+def test_complete_surface_gate_precedes_signal_array_loading(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    partition = tmp_path / "incomplete-surface.npz"
+    _partition(partition, 0, 2_657_751, 1.0, ["one-tile"])
+
+    def forbidden(_path: Path) -> dict[str, np.ndarray]:
+        raise AssertionError("signal arrays were opened before the 1006-tile gate")
+
+    monkeypatch.setattr(merger, "load_partition_sums", forbidden)
+    with pytest.raises(RuntimeError, match="frozen eight-part full surface"):
+        merger.merge_partitions([partition], require_complete_surface=True)

@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T13:11:01.810622Z",
+  "generated_at_utc": "2026-08-31T13:40:08.376267Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
   "file_count": 295,
-  "total_bytes": 35752434,
+  "total_bytes": 35759422,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -372,8 +372,8 @@
     },
     {
       "path": "docs/V017_FULL_SCAN_TRANSPORT_INCIDENT_2026-08-31.md",
-      "byte_count": 1905,
-      "sha256": "8c15221ff17a3c990ff48b2fa8129cd0214392b4b2fd5af8baa10f2665ea2f9f"
+      "byte_count": 3012,
+      "sha256": "92dcacb8428177821f5163f55672e34b2e2a38a9d1371e102a70cba94b5c2e75"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -1152,8 +1152,8 @@
     },
     {
       "path": "run_darkpipe_kids_pairs_v017.py",
-      "byte_count": 8884,
-      "sha256": "645fc963058c1c06602b17024acea1f242777bab38dd652364a0f83fb65cd993"
+      "byte_count": 8965,
+      "sha256": "a4d3cf3f8ac9dd17b269f94b4d32c3697516d76587105028edc7cf26fa4bca7f"
     },
     {
       "path": "run_darkpipe_kids_rar_shadow_v016.py",
@@ -1197,13 +1197,13 @@
     },
     {
       "path": "run_freeze_kids_randoms_v017.py",
-      "byte_count": 3803,
-      "sha256": "5632f4e2d75370829c9860f830ae09bd9d83be497671dd1e4d09511b09b9d32c"
+      "byte_count": 6910,
+      "sha256": "66cbc15c1bb375963e47776d147a27e13943e4e6f3892168b4bc82cc60a55ac4"
     },
     {
       "path": "run_merge_kids_pairs_v017.py",
-      "byte_count": 4682,
-      "sha256": "3a2d77f50885e235f4ac01c8e4f447dea15a24465f4e21a79ee402c06d204679"
+      "byte_count": 5372,
+      "sha256": "c1784752ec2f5c17f85ba347e6e1456805ff8cc6f446ce42bf9296503bd18b1e"
     },
     {
       "path": "scripts/build_repository_manifest.py",
@@ -1302,8 +1302,8 @@
     },
     {
       "path": "src/darkpipe/kids_random_catalogue.py",
-      "byte_count": 3627,
-      "sha256": "7fb251b5bd5eb6a4ea4492e8c179e9ad9df879eb5d82c223caee4175a88056fe"
+      "byte_count": 3628,
+      "sha256": "92f0ba8a81904c90a82790f336473e8c02c9b0d24b553ee2fb71399fd5de9813"
     },
     {
       "path": "src/darkpipe/kids_rar_shadow.py",
@@ -1312,8 +1312,8 @@
     },
     {
       "path": "src/darkpipe/kids_streaming_pairs.py",
-      "byte_count": 14539,
-      "sha256": "960f5615e94a177d6ae541bf00cc3a3f705a93b573876543f0c091460023ade3"
+      "byte_count": 15465,
+      "sha256": "29155618cdf83ad556f609359a9924a5cea2c11f0bfc688c73ecd6086e8c5a04"
     },
     {
       "path": "src/darkpipe/multishadow.py",
@@ -1442,8 +1442,8 @@
     },
     {
       "path": "tests/test_kids_random_catalogue.py",
-      "byte_count": 1318,
-      "sha256": "bd51eef30e1ac8bdfa9b2afb8279993f04bdae931625630e33d7446e836833b9"
+      "byte_count": 1399,
+      "sha256": "9611051beb37b7e02ab281f3ceaf29b8dd19ded1fc8f0009ba62e0f51224a0c7"
     },
     {
       "path": "tests/test_kids_rar_shadow.py",
@@ -1452,13 +1452,13 @@
     },
     {
       "path": "tests/test_kids_streaming_pairs.py",
-      "byte_count": 4028,
-      "sha256": "36efa100c171050a3e8810f4a30181637d6ebe7d9f929c8a1a5857ed666e0479"
+      "byte_count": 4339,
+      "sha256": "80ffdd4cdd7cb5c6e56b09a5ceeb2e653b43f86fb053dc49541bf5644082255e"
     },
     {
       "path": "tests/test_merge_kids_pairs_v017.py",
-      "byte_count": 1881,
-      "sha256": "e924b43e73092f3d218c4c4d3e67824d287ad61902dad4279352f7da961c7a31"
+      "byte_count": 2565,
+      "sha256": "6dbb711e27a327b32ead85c1de80203d4a5c356f18e80d3456e05343bb0004bb"
     },
     {
       "path": "tests/test_multishadow.py",

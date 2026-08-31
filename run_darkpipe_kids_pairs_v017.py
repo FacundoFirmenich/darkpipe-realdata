@@ -15,6 +15,7 @@ from darkpipe.fits_range_table import iter_remote_numeric_columns
 from darkpipe.kids_streaming_pairs import (
     LensPayload,
     RADIAL_EDGES_MPC_H70,
+    RADIAL_EDGES_SHA256,
     STREAMING_PAIR_AUTHORITY,
     accumulate_source_chunk,
     empty_pair_sums,
@@ -213,6 +214,7 @@ def main() -> int:
             "source_tiles": sorted(seen_tiles),
             "lens_count": lenses.count,
             "radial_edges_mpc_h70": RADIAL_EDGES_MPC_H70.tolist(),
+            "radial_edges_sha256": RADIAL_EDGES_SHA256,
             "lens_payload_sha256": sha256(args.lens_payload),
             "sigma_lookup_sha256": sha256(args.sigma_lookup),
             "authority": STREAMING_PAIR_AUTHORITY,

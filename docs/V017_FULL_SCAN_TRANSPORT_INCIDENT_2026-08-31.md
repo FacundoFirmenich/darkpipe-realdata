@@ -27,6 +27,26 @@ the latest checkpoint even when a computation step fails. This allows failed
 work to be inspected or resumed without re-running valid partitions and without
 persisting the 17.7 GB public source catalogue on local disk.
 
+The merger also enforces the blind ordering explicitly: it reads and validates
+only partition metadata first, requires the frozen eight contiguous intervals,
+cross-partition invariants, and the exact 1006-tile union, and only then opens
+the tangential/cross sufficient-statistic arrays. An incomplete surface cannot
+reach the numerical merge layer.
+
+## Cross-run radial-edge divergence
+
+After transport repair, all eight row partitions completed. The metadata-first
+merge then found that `numpy.geomspace(0.003, 11.94, 28)` had produced one-ULP
+differences in two radial edges across otherwise equivalent GitHub runners.
+No signal array was opened by the merger. The difference is numerically tiny,
+but the available sufficient statistics cannot prove that no pair lay in the
+one-ULP interval, so the eight-part surface is preserved as adverse and is not
+promoted.
+
+The 28 edges are now frozen as explicit float64 literals and their little-endian
+binary SHA-256 is part of every partition and merge invariant. A complete new
+eight-part scan is required; tolerance-based retrospective merging is forbidden.
+
 ## Authority boundary
 
 The repair authorizes a targeted re-execution of failed transport partitions.

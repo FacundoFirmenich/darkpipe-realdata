@@ -22,7 +22,42 @@ from .kids_pair_estimator import source_tomographic_bin
 from .object_lensing import FlatLambdaCDM
 
 
-RADIAL_EDGES_MPC_H70 = np.geomspace(0.003, 11.94, 28)
+RADIAL_EDGES_MPC_H70 = np.asarray(
+    (
+        0.003,
+        0.004078028507465327,
+        0.005543438835899953,
+        0.007535433867396794,
+        0.010243238042454604,
+        0.013924072248627723,
+        0.018927587856636882,
+        0.02572908095230656,
+        0.0349746418647964,
+        0.04754252885434329,
+        0.06462659599500155,
+        0.08784970026935354,
+        0.11941786069023594,
+        0.1623298133984349,
+        0.220661868883448,
+        0.2999551306057588,
+        0.40774185785692285,
+        0.5542609733424687,
+        0.7534306832886879,
+        1.0241706016167818,
+        1.3921989699670496,
+        1.8924756958631634,
+        2.572523279138417,
+        3.4969410894815445,
+        4.75354181727753,
+        6.461693014095433,
+        8.78365610599023,
+        11.94,
+    ),
+    dtype=np.float64,
+)
+RADIAL_EDGES_SHA256 = hashlib.sha256(
+    np.asarray(RADIAL_EDGES_MPC_H70, dtype="<f8").tobytes()
+).hexdigest()
 KIDS_BLIND_C_SIGMA_E = np.asarray((0.270, 0.258, 0.273, 0.254, 0.270))
 MISTELE_MULTIPLICATIVE_RESPONSE = 0.98531
 STREAMING_PAIR_AUTHORITY = (
@@ -368,6 +403,7 @@ __all__ = [
     "LensPayload",
     "MISTELE_MULTIPLICATIVE_RESPONSE",
     "RADIAL_EDGES_MPC_H70",
+    "RADIAL_EDGES_SHA256",
     "STREAMING_PAIR_AUTHORITY",
     "StreamingPairConfig",
     "accumulate_source_chunk",
