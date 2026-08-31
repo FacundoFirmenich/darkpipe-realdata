@@ -149,6 +149,7 @@ def test_kids_e2_sign_transform_recovers_known_tangential_pattern() -> None:
         include_orientation_basis=True,
     )
     result = finalize_orientation_conventions(sums)
+    finalized_default = finalize_individual_esd(sums)
     assert diagnostics["accepted_pairs"] == 1
     current = np.asarray(result["east_ccw_catalog_e2_as_math"]["esd_msun_mpc2"])
     flipped = np.asarray(
@@ -157,3 +158,8 @@ def test_kids_e2_sign_transform_recovers_known_tangential_pattern() -> None:
     finite = np.isfinite(current)
     np.testing.assert_allclose(current[finite], -4.0e14 / 0.98531, rtol=1e-6)
     np.testing.assert_allclose(flipped[finite], 4.0e14 / 0.98531, rtol=1e-6)
+    np.testing.assert_allclose(
+        np.asarray(finalized_default["esd_msun_mpc2"])[finite],
+        flipped[finite],
+        rtol=1e-12,
+    )

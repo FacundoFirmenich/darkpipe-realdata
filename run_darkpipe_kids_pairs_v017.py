@@ -13,6 +13,7 @@ import numpy as np
 
 from darkpipe.fits_range_table import iter_remote_numeric_columns
 from darkpipe.kids_streaming_pairs import (
+    DEFAULT_ORIENTATION_CONVENTION,
     LensPayload,
     ORIENTATION_BASIS_KEYS,
     RADIAL_EDGES_MPC_H70,
@@ -236,6 +237,7 @@ def main() -> int:
             "lens_payload_sha256": sha256(args.lens_payload),
             "sigma_lookup_sha256": sha256(args.sigma_lookup),
             "orientation_basis_included": args.include_orientation_basis,
+            "orientation_convention": DEFAULT_ORIENTATION_CONVENTION,
             "authority": STREAMING_PAIR_AUTHORITY,
             "scientific_result": False,
             "next_gate": "RANDOM_SUBTRACTION_COVARIANCE_AND_DEPROJECT_FIRST_RAR",

@@ -72,6 +72,15 @@ def load_basis_surface(path: Path) -> tuple[dict[str, np.ndarray], dict[str, obj
     return sums, metadata, content_hash
 
 
+def effective_lens_range(exact_stack: dict[str, np.ndarray]) -> tuple[int, int]:
+    """Summarize the public ``stack_inverse_variance`` result contract."""
+
+    effective = np.asarray(exact_stack["effective_lenses"], dtype=np.int64)
+    if effective.ndim != 1 or effective.size == 0:
+        raise ValueError("effective_lenses must be a non-empty one-dimensional array")
+    return int(np.min(effective)), int(np.max(effective))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--basis-pairs", type=Path, required=True)
@@ -162,13 +171,14 @@ def main() -> int:
         )
         exact_diagnostic = mistele_reproduction_diagnostic(exact_gobs, reference)
         sis_diagnostic = mistele_reproduction_diagnostic(sis_gobs, reference)
+        effective_min, effective_max = effective_lens_range(exact_stack)
         results[name] = {
             "definition": ORIENTATION_CONVENTIONS[name],
             "exact_reproduction_diagnostic": exact_diagnostic,
             "raw_sis_reproduction_diagnostic": sis_diagnostic,
             "exact_cross_max_abs_diagonal_z": float(np.nanmax(np.abs(cross_z))),
-            "exact_effective_lenses_min": int(np.min(exact_stack["effective_count"])),
-            "exact_effective_lenses_max": int(np.max(exact_stack["effective_count"])),
+            "exact_effective_lenses_min": effective_min,
+            "exact_effective_lenses_max": effective_max,
         }
         exact_curves[name] = exact_gobs
         for index, acceleration in enumerate(gbar):

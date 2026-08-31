@@ -69,9 +69,10 @@ ORIENTATION_BASIS_KEYS = (
     "sum_e2_cos2phi",
     "sum_e2_sin2phi",
 )
+DEFAULT_ORIENTATION_CONVENTION = "east_ccw_catalog_e2_sign_flipped"
 ORIENTATION_CONVENTIONS = {
-    "east_ccw_catalog_e2_as_math": "CURRENT_IMPLEMENTATION",
-    "east_ccw_catalog_e2_sign_flipped": "KIDS_RA_DEC_SIGN_WARNING_TRANSFORM",
+    "east_ccw_catalog_e2_as_math": "LEGACY_PRE_V017_REPAIR",
+    "east_ccw_catalog_e2_sign_flipped": "V017_KIDS_RA_DEC_SIGN_REPAIR_DEFAULT",
     "north_ccw_catalog_e2_as_math": "NORTH_REFERENCED_ANGLE",
     "north_ccw_catalog_e2_sign_flipped": "NORTH_REFERENCED_AND_E2_FLIPPED",
 }
@@ -325,8 +326,13 @@ def accumulate_source_chunk(
         )
         e1 = arrays["e1"][source_index].astype(float)
         e2 = arrays["e2"][source_index].astype(float)
-        tangential = -(e1 * cos2 + e2 * sin2)
-        cross = e1 * sin2 - e2 * cos2
+        # KiDS ellipticities are tabulated in the RA/Dec image convention.
+        # Relative to the east-referenced mathematical bearing used here, e2
+        # must change sign (KiDS weak-lensing catalogue documentation).  This
+        # convention was selected by the preregistered full-catalogue v0.17
+        # localization; the four raw basis terms remain optionally retainable.
+        tangential = -(e1 * cos2 - e2 * sin2)
+        cross = e1 * sin2 + e2 * cos2
         source_weight = arrays["weight"][source_index].astype(float)
         pair_weight = source_weight / sigma**2
         cell = lens_index * (len(edges) - 1) + radial_bin
@@ -500,6 +506,7 @@ __all__ = [
     "MISTELE_MULTIPLICATIVE_RESPONSE",
     "ORIENTATION_BASIS_KEYS",
     "ORIENTATION_CONVENTIONS",
+    "DEFAULT_ORIENTATION_CONVENTION",
     "RADIAL_EDGES_MPC_H70",
     "RADIAL_EDGES_SHA256",
     "STREAMING_PAIR_AUTHORITY",
