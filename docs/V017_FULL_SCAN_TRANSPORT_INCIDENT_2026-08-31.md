@@ -29,7 +29,7 @@ persisting the 17.7 GB public source catalogue on local disk.
 
 The merger also enforces the blind ordering explicitly: it reads and validates
 only partition metadata first, requires the frozen eight contiguous intervals,
-cross-partition invariants, and the exact 1006-tile union, and only then opens
+cross-partition invariants, and the exact 988-`THELI_NAME` union, and only then opens
 the tangential/cross sufficient-statistic arrays. An incomplete surface cannot
 reach the numerical merge layer.
 
@@ -46,6 +46,21 @@ promoted.
 The 28 edges are now frozen as explicit float64 literals and their little-endian
 binary SHA-256 is part of every partition and merge invariant. A complete new
 eight-part scan is required; tolerance-based retrospective merging is forbidden.
+
+## Survey-footprint versus THELI-pointing distinction
+
+The clean rerun then exposed a second adverse metadata result: its complete
+SOM-gold `THELI_NAME` union contains 988 reduction pointings, not 1006 survey
+tiles. The numerical arrays were again not opened. The official DR4 multi-band
+catalogue download manifest contains exactly 1006 entries; every one of the 988
+THELI names maps inside that set, while 18 official survey tiles do not occur as
+distinct THELI identifiers. The current observations table additionally lists
+nine fields outside the frozen 1006-entry release manifest.
+
+The two geometries are therefore no longer conflated. A complete signal scan
+must prove the 988-THELI surface. Random coordinates use the independent exact
+1006-tile official survey footprint required by the published method. Neither
+count is relaxed or retrospectively fitted to the signal.
 
 ## Authority boundary
 

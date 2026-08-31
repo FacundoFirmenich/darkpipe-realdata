@@ -60,7 +60,7 @@ def test_complete_surface_gate_precedes_signal_array_loading(
     _partition(partition, 0, 2_657_751, 1.0, ["one-tile"])
 
     def forbidden(_path: Path) -> dict[str, np.ndarray]:
-        raise AssertionError("signal arrays were opened before the 1006-tile gate")
+        raise AssertionError("signal arrays were opened before the 988-THELI gate")
 
     monkeypatch.setattr(merger, "load_partition_sums", forbidden)
     with pytest.raises(RuntimeError, match="frozen eight-part full surface"):

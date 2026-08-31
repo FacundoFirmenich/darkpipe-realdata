@@ -1,0 +1,164 @@
+{
+  "artifact_count": 8,
+  "artifacts": [
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 13833532,
+      "complete": true,
+      "content_sha256": "8963f5691d798792e1f055015513a3a2c493ab973c8350dcb62cfd4a8f396598",
+      "diagnostics": {
+        "accepted_pairs": 384216077,
+        "candidate_pairs": 568580103,
+        "selected_source_rows": 2480675,
+        "source_rows": 2657751
+      },
+      "file_sha256": "6a3ce677d453218d5d647e2b9819f2281d21fc14f40e7d9a0d5d962992fb8734",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-00/kids_pairs_v017_00.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 0,
+      "stop_row": 2657751
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 16693692,
+      "complete": true,
+      "content_sha256": "052ef89b47e8f85a4453b12e5a7d7d63fc654e2ec19c395475f5771f73676874",
+      "diagnostics": {
+        "accepted_pairs": 376235220,
+        "candidate_pairs": 564914846,
+        "selected_source_rows": 2444265,
+        "source_rows": 2657751
+      },
+      "file_sha256": "cf05998deb83967c4b74aa02f910d767bb9b3f5ba475dd902fb89104000d0ce8",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-01/kids_pairs_v017_01.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 2657751,
+      "stop_row": 5315502
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 17487803,
+      "complete": true,
+      "content_sha256": "9d79575e23ed26249f4b7f5fc1eddea3ef4b458a3eabe7331ce223ca1d7c85b1",
+      "diagnostics": {
+        "accepted_pairs": 349211765,
+        "candidate_pairs": 537406063,
+        "selected_source_rows": 2408789,
+        "source_rows": 2657752
+      },
+      "file_sha256": "663c95fda5cbc5878d98b602385ff026351f22ed97aa1d63b36e0011c40222ba",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-02/kids_pairs_v017_02.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 5315502,
+      "stop_row": 7973254
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 21414378,
+      "complete": true,
+      "content_sha256": "34b28662357d41dcbba0b98e7f6bc72f30cf19bec0cfcb9e1e09f093ddb5a45e",
+      "diagnostics": {
+        "accepted_pairs": 352428316,
+        "candidate_pairs": 543099466,
+        "selected_source_rows": 2358199,
+        "source_rows": 2657751
+      },
+      "file_sha256": "b7ca02dfc830858687be47f4ec52810206803159b73d0884cf4771d23f51d493",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-03/kids_pairs_v017_03.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 7973254,
+      "stop_row": 10631005
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 15337750,
+      "complete": true,
+      "content_sha256": "38c79886e0e4c26c379217d9b1d8dc584cd860f1b4a8da365f9e88dc8b23b3fb",
+      "diagnostics": {
+        "accepted_pairs": 405130524,
+        "candidate_pairs": 594226022,
+        "selected_source_rows": 2355995,
+        "source_rows": 2657751
+      },
+      "file_sha256": "1bee8640e28fe0cd5a8dfc4ea833a0218f79ff8df32804dbdce12666f49afa51",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-04/kids_pairs_v017_04.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 10631005,
+      "stop_row": 13288756
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 18034665,
+      "complete": true,
+      "content_sha256": "1835ef4b9509c1ba300ed2302a28df416eb4e18b33715d92ae961872abeac4ce",
+      "diagnostics": {
+        "accepted_pairs": 397327556,
+        "candidate_pairs": 589489201,
+        "selected_source_rows": 2362187,
+        "source_rows": 2657752
+      },
+      "file_sha256": "4ee36f19c94ca929bfb3cf837a7da8163a13e0dde26cd3ec38c66bd87dbb0703",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-05/kids_pairs_v017_05.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 13288756,
+      "stop_row": 15946508
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 18813526,
+      "complete": true,
+      "content_sha256": "34c55ccebf48bc2e1c1fc3a729cd08f3da4809fb311a52d32bb6d2e5e83b9777",
+      "diagnostics": {
+        "accepted_pairs": 382109167,
+        "candidate_pairs": 578101790,
+        "selected_source_rows": 2357173,
+        "source_rows": 2657751
+      },
+      "file_sha256": "eb5bf59f26e65d3abac7023bd9eb5a45adf3fd5a8747d54b7343493812d4eb6a",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-06/kids_pairs_v017_06.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 15946508,
+      "stop_row": 18604259
+    },
+    {
+      "authority": "KIDS_OBJECT_PAIR_SUFFICIENT_STATISTICS_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+      "bytes": 16988847,
+      "complete": true,
+      "content_sha256": "845a5a9434fc150b807615d2c253945e608af60bc2e9481e4f598739d6a45402",
+      "diagnostics": {
+        "accepted_pairs": 371200274,
+        "candidate_pairs": 575097631,
+        "selected_source_rows": 2342642,
+        "source_rows": 2657752
+      },
+      "file_sha256": "52a1cb2092a711293fb5ee42a82541319c61b39230e739588bd3484d69fed702",
+      "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+      "path": "kids-pairs-v017-07/kids_pairs_v017_07.npz",
+      "radial_edges_sha256": null,
+      "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+      "start_row": 18604259,
+      "stop_row": 21262011
+    }
+  ],
+  "artifacts_sha256": "fc8dc15518cb20948010716f16251c87515ed99a5f820f07b8a815697341524c",
+  "authority": "BYTE_AND_METADATA_CUSTODY_NO_SCIENTIFIC_RESULT",
+  "classification": "ADVERSE_CROSS_RUNNER_RADIAL_EDGE_DIVERGENCE_NOT_PROMOTED",
+  "github_actions_run_id": "MULTIPLE_REPAIR_RUNS_RECONSTRUCTED_FROM_LOCAL_DOWNLOAD_DIR",
+  "schema": "darkpipe.kids-pair-artifact-custody.v1",
+  "sealed_at": "2026-08-31T14:40:09.063731+00:00",
+  "total_bytes": 138604193
+}

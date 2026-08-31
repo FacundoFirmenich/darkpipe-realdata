@@ -10,6 +10,7 @@ from pathlib import Path
 
 import numpy as np
 
+from darkpipe.kids_random_catalogue import EXPECTED_SOURCE_THELI_TILE_COUNT
 from darkpipe.kids_streaming_pairs import (
     STREAMING_PAIR_AUTHORITY,
     merge_pair_sums,
@@ -96,8 +97,11 @@ def merge_partitions(
     tiles = sorted(
         {tile for _, metadata in metadata_only for tile in metadata.get("source_tiles", [])}
     )
-    if require_complete_surface and len(tiles) != 1006:
-        raise RuntimeError(f"full source tile union is {len(tiles)}, expected 1006")
+    if require_complete_surface and len(tiles) != EXPECTED_SOURCE_THELI_TILE_COUNT:
+        raise RuntimeError(
+            f"full THELI source-tile union is {len(tiles)}, "
+            f"expected {EXPECTED_SOURCE_THELI_TILE_COUNT}"
+        )
     diagnostics = {
         key: sum(int(metadata["diagnostics"][key]) for _, metadata in metadata_only)
         for key in reference["diagnostics"]

@@ -12,8 +12,12 @@ RANDOM_SEED = 20_260_831_017
 RANDOM_MULTIPLIER = 50
 REDSHIFT_EDGES = np.linspace(0.1, 0.5, 81)
 EXPECTED_SOURCE_TILE_COUNT = 1006
+EXPECTED_SOURCE_THELI_TILE_COUNT = 988
 RANDOM_AUTHORITY = "MISTELE2024_RANDOM_CONSTRUCTION_INDEPENDENT_REPRODUCTION"
 _SOURCE_TILE = re.compile(r"^KIDS_(\d+)p(\d+)_([mp]?)(\d+)p(\d+)$")
+_RELEASE_CATALOGUE = re.compile(
+    r"KiDS_DR4\.[01]_([0-9.]+_-?[0-9.]+)_ugriZYJHKs_cat\.fits"
+)
 
 
 def source_tile_to_observation_name(name: str) -> str:
@@ -23,6 +27,18 @@ def source_tile_to_observation_name(name: str) -> str:
     ra_integer, ra_fraction, sign, dec_integer, dec_fraction = match.groups()
     dec_sign = "-" if sign == "m" else ""
     return f"KIDS_{int(ra_integer)}.{ra_fraction}_{dec_sign}{int(dec_integer)}.{dec_fraction}"
+
+
+def official_release_tiles(manifest_text: str) -> list[str]:
+    """Extract the exact 1006 DR4 survey tiles from the official download manifest."""
+
+    tiles = sorted({f"KIDS_{match}" for match in _RELEASE_CATALOGUE.findall(manifest_text)})
+    if len(tiles) != EXPECTED_SOURCE_TILE_COUNT:
+        raise ValueError(
+            f"official DR4 catalogue manifest contains {len(tiles)} unique tiles, "
+            f"expected {EXPECTED_SOURCE_TILE_COUNT}"
+        )
+    return tiles
 
 
 def allocate_redshift_counts(
@@ -87,11 +103,13 @@ def generate_tile_randoms(
 
 __all__ = [
     "EXPECTED_SOURCE_TILE_COUNT",
+    "EXPECTED_SOURCE_THELI_TILE_COUNT",
     "RANDOM_AUTHORITY",
     "RANDOM_MULTIPLIER",
     "RANDOM_SEED",
     "REDSHIFT_EDGES",
     "allocate_redshift_counts",
     "generate_tile_randoms",
+    "official_release_tiles",
     "source_tile_to_observation_name",
 ]

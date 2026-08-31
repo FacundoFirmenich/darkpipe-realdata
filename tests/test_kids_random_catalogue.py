@@ -1,11 +1,25 @@
 import numpy as np
+import pytest
 
 from darkpipe.kids_random_catalogue import (
     RANDOM_MULTIPLIER,
     allocate_redshift_counts,
     generate_tile_randoms,
+    official_release_tiles,
     source_tile_to_observation_name,
 )
+
+
+def test_official_release_manifest_requires_exact_1006_unique_tiles() -> None:
+    manifest = "\n".join(
+        f"wget https://example/KiDS_DR4.0_{index}.0_-1.5_ugriZYJHKs_cat.fits"
+        for index in range(1006)
+    )
+    tiles = official_release_tiles(manifest)
+    assert len(tiles) == 1006
+    assert "KIDS_0.0_-1.5" in tiles
+    with pytest.raises(ValueError, match="1005 unique tiles"):
+        official_release_tiles("\n".join(manifest.splitlines()[:-1]))
 
 
 def test_source_tile_name_maps_to_official_observations_name() -> None:

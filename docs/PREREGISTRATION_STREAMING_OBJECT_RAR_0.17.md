@@ -51,15 +51,19 @@ The parent KiDS-bright population is `masked=0` and `0.1<z_ANN<0.5`, before
 mass and isolation cuts.  It contains 900,778 objects, hence the requested
 random count is exactly 45,038,900.  Its redshift histogram uses 80 linear bins
 on `[0.1,0.5]`; every bin count is multiplied by 50 and redshifts are uniform
-inside that bin.  Coordinates are uniform in solid angle inside the exact set
-of source-catalogue `THELI_NAME` tiles intersected with the official DR4
-observations table.  The expected tile count is 1006.
+inside that bin. Coordinates are uniform in solid angle inside the exact
+1006-tile KiDS DR4 survey footprint from the official multi-band catalogue
+download manifest, joined to the official DR4 observations table. The complete
+SOM-gold signal catalogue contains 988 distinct `THELI_NAME` reduction
+pointings; this is a separate signal-completeness contract and is not the
+1006-tile random footprint.
 
-The exact tile-name list will be sealed from metadata emitted by the blind full
-source scan before any tangential or cross result array is opened.  This is a
-declared timing deviation from the ideal v0.13 order because an earlier source
-selection scan had already occurred; no lensing value had been inspected when
-the seed, population, histogram, count and selection rule were frozen.
+The exact 1006-tile list is sealed from the official download manifest only
+after metadata from the blind full source scan proves the complete 988-THELI
+signal surface, and before any tangential or cross result array is opened. This
+is a declared timing deviation from the ideal v0.13 order because an earlier
+source-selection scan had already occurred; no lensing value had been inspected
+when the seed, population, histogram, count and selection rule were frozen.
 
 Random-coordinate subtraction follows Eqs. 62–63 of Mistele et al.: the
 stacked random ESD is subtracted from every lens ESD for ESD stacking, while
