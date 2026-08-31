@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T12:40:53.349490Z",
+  "generated_at_utc": "2026-08-31T12:49:46.402279Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 292,
-  "total_bytes": 35739466,
+  "file_count": 294,
+  "total_bytes": 35746029,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -1196,6 +1196,11 @@
       "sha256": "5632f4e2d75370829c9860f830ae09bd9d83be497671dd1e4d09511b09b9d32c"
     },
     {
+      "path": "run_merge_kids_pairs_v017.py",
+      "byte_count": 4682,
+      "sha256": "3a2d77f50885e235f4ac01c8e4f447dea15a24465f4e21a79ee402c06d204679"
+    },
+    {
       "path": "scripts/build_repository_manifest.py",
       "byte_count": 1969,
       "sha256": "b5931141d3a610c346cfd794f871c718d86ba6ce61947c4770eab257e7d10886"
@@ -1444,6 +1449,11 @@
       "path": "tests/test_kids_streaming_pairs.py",
       "byte_count": 4028,
       "sha256": "36efa100c171050a3e8810f4a30181637d6ebe7d9f929c8a1a5857ed666e0479"
+    },
+    {
+      "path": "tests/test_merge_kids_pairs_v017.py",
+      "byte_count": 1881,
+      "sha256": "e924b43e73092f3d218c4c4d3e67824d287ad61902dad4279352f7da961c7a31"
     },
     {
       "path": "tests/test_multishadow.py",
