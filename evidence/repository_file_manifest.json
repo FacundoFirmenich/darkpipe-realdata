@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T12:49:46.402279Z",
+  "generated_at_utc": "2026-08-31T13:11:01.810622Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 294,
-  "total_bytes": 35746029,
+  "file_count": 295,
+  "total_bytes": 35752434,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -17,8 +17,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "byte_count": 2167,
-      "sha256": "fff51b460fe5311931ebc4367b1b79be58cac3b991f767c3e737ce5e60288c36"
+      "byte_count": 3022,
+      "sha256": "fecc1db7449eb9def7f9bce8984225f6d07ebfe0fcb766b148f37dca2c94b260"
     },
     {
       "path": ".github/workflows/v010-derive.yml",
@@ -369,6 +369,11 @@
       "path": "docs/V017_ADVERSE_PROVENANCE_LEDGER_2026-08-31.md",
       "byte_count": 1371,
       "sha256": "e849221e27851a6e4282a5ef738ca6858205c6414cab4770aa291e12a1438bb6"
+    },
+    {
+      "path": "docs/V017_FULL_SCAN_TRANSPORT_INCIDENT_2026-08-31.md",
+      "byte_count": 1905,
+      "sha256": "8c15221ff17a3c990ff48b2fa8129cd0214392b4b2fd5af8baa10f2665ea2f9f"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -1267,8 +1272,8 @@
     },
     {
       "path": "src/darkpipe/fits_range_table.py",
-      "byte_count": 10961,
-      "sha256": "ae475c3551ecf3d81f2c6e228d3c289c6b916eb629c7e127eca621370ab409e5"
+      "byte_count": 12284,
+      "sha256": "e28094a3db366ef3b6d8986efa1e4f6325bdbf545d582150da4c7a710c9c535e"
     },
     {
       "path": "src/darkpipe/gps_network.py",
@@ -1402,8 +1407,8 @@
     },
     {
       "path": "tests/test_fits_range_table.py",
-      "byte_count": 3150,
-      "sha256": "c0dff68fb60fd673102f3ec761c246f4908d6b26822a4d4d1420d46ca68723f7"
+      "byte_count": 5472,
+      "sha256": "a67ed05a91a2d0ffdb048438b8f795ac9c22275bce5b3e814922538068fc1690"
     },
     {
       "path": "tests/test_gps_network.py",
