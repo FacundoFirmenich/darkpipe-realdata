@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,8 +13,10 @@ from darkpipe.kids_random_catalogue import EXPECTED_SOURCE_THELI_TILE_COUNT
 from darkpipe.kids_source_tile_index import (
     SOURCE_TILE_INDEX_AUTHORITY,
     merge_partition_runs,
+    read_json_document,
     tile_run_counts,
     tile_runs_sha256,
+    write_json_document,
 )
 from run_darkpipe_kids_pairs_v017 import SOURCE_TOTAL_BYTES, SOURCE_TOTAL_ROWS, SOURCE_URL
 
@@ -28,6 +31,14 @@ FROZEN_INTERVALS = [
     (15_946_508, 18_604_259),
     (18_604_259, SOURCE_TOTAL_ROWS),
 ]
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def merge_index_payloads(payloads: list[dict[str, object]]) -> dict[str, object]:
@@ -73,17 +84,25 @@ def main() -> int:
     parser.add_argument("partitions", nargs="+", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    payload = merge_index_payloads(
-        [json.loads(path.read_text(encoding="utf-8")) for path in args.partitions]
+    partition_payloads = [
+        read_json_document(path) for path in args.partitions
+    ]
+    payload = merge_index_payloads(partition_payloads)
+    payload["partition_artifacts"] = sorted(
+        (
+            {
+                "name": path.name,
+                "bytes": path.stat().st_size,
+                "file_sha256": file_sha256(path),
+                "runs_sha256": partition["runs_sha256"],
+                "start_row": int(partition["start_row"]),
+                "stop_row": int(partition["stop_row"]),
+            }
+            for path, partition in zip(args.partitions, partition_payloads, strict=True)
+        ),
+        key=lambda item: int(item["start_row"]),
     )
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    temporary = args.output.with_suffix(args.output.suffix + ".tmp")
-    temporary.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
-    temporary.replace(args.output)
+    write_json_document(args.output, payload)
     print(json.dumps({key: payload[key] for key in payload if key not in {"runs", "tile_row_counts"}}, indent=2, sort_keys=True))
     return 0
 

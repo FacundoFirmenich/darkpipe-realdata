@@ -63,3 +63,43 @@ al equipo local únicamente artefactos compactos.
 La deproyección implementada es exacta únicamente respecto de la integral del
 interpolante lineal firmado elegido. No convierte las hipótesis físicas, las
 colas exteriores ni el modelo cosmológico en verdades observacionales.
+
+## Resultado del índice y decisión de transporte
+
+El run de GitHub Actions `33404790882` terminó con los ocho trabajos y la suite
+completa en verde. El índice fusionado cubre las 21.262.011 filas, contiene los
+988 nombres esperados y conserva el hash de sus 96.741 tramos contiguos:
+`e76d1a0204bafdb0d08d647df9dbde50dd24f8b26b08f228ce7b593b6f496a8c`.
+Cada uno de los ocho artefactos efímeros queda sellado por bytes, hash de
+archivo, hash de tramos e intervalo de filas dentro del índice fusionado.
+
+El resultado adverso útil es que todos los nombres `THELI_NAME` reaparecen en
+múltiples tramos: la mediana es 99 tramos por nombre y el total es 96.741. Por
+ello, consultar por tesela directamente no ahorra transporte suficiente. La
+frontera medida sobre las 1006 teselas y el radio angular conservador da:
+
+| Hueco coalescido máximo | Peticiones | Bytes remotos | Sobrecarga |
+|---:|---:|---:|---:|
+| 0 filas | 982.156 | 453,9 GB | 0,0 % |
+| 128 filas | 700.634 | 462,7 GB | 1,9 % |
+| 512 filas | 486.213 | 514,3 GB | 11,8 % |
+| 2.048 filas | 328.619 | 637,9 GB | 28,8 % |
+
+Una de las 1006 teselas oficiales, `KIDS_150.1_2.2`, no tiene ningún pointing
+THELI a menos del radio central conservador de 3,21 grados; sus coordenadas
+aleatorias no producirían pares en la superficie fuente observada y deben
+quedar como contribuciones no estimables, no rellenarse ni eliminarse en
+silencio.
+
+Esta medición cambia la próxima acción: el control completo no debe ejecutarse
+como mil consultas dispersas. La solución científicamente fiel es materializar
+una sola copia temporal del FITS de 17,7 GB en almacenamiento remoto y leerla
+localmente desde el nodo de cómputo, persistiendo solo reducciones aditivas. La
+extrapolación del ritmo de pares observado en la señal sitúa el control 50x en
+aproximadamente 1,92 billones de pares candidatos; es una proyección de carga,
+no un conteo observado ni un resultado científico.
+
+La llave VPS existente no autoriza esta campaña: su recibo limita la
+jurisdicción a Jarvis y ese carril está pausado. GitHub Actions sigue siendo la
+vía remota autorizada; un VPS sería solo un acelerador futuro tras ampliar
+expresamente su jurisdicción a DarkPipe.

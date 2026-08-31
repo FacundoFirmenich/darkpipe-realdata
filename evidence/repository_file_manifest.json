@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T14:46:25.048338Z",
+  "generated_at_utc": "2026-08-31T15:17:41.653513Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 306,
-  "total_bytes": 36007193,
+  "file_count": 311,
+  "total_bytes": 37000951,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -12,8 +12,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "byte_count": 446,
-      "sha256": "d497c8456ae8e20152f56cfa61cdb893bcde4fa0b2e057ba91e04f4433ca0490"
+      "byte_count": 582,
+      "sha256": "61ffe8192e257ba34efb232193d24b40c9c35f19419655ca4381bdc2039b9c88"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -377,8 +377,8 @@
     },
     {
       "path": "docs/V017_SIGNAL_GEOMETRY_AND_RANDOM_GATE_2026-08-31.md",
-      "byte_count": 3374,
-      "sha256": "13c321fe3037d95d5944c066dd94cd2063a8c2b733c1488aa4424e2a6eadcb74"
+      "byte_count": 5581,
+      "sha256": "2eb9b3d6347d7857525857757f0701496ce47b5be75dc3ada31f0f1c7f111356"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -836,6 +836,11 @@
       "sha256": "108c587c5e435c19fa2f7abe4e442ee83ea41b84ade1857af31317fd17b8f4ac"
     },
     {
+      "path": "evidence/kids_randoms_v017/random_transport_frontier.json.gz",
+      "byte_count": 171901,
+      "sha256": "b8bbfe58f27755de27092f94716299c182f16010d8f2de94dc7ca78372a476dd"
+    },
+    {
       "path": "evidence/kids_rar_shadow_v016/derived_rar_shadows.csv",
       "byte_count": 3342,
       "sha256": "d21b8b740cd5fe5a373015dc11e81f3f232ad23245aba64e381893c43448601f"
@@ -864,6 +869,11 @@
       "path": "evidence/kids_source_selection_v016/run_receipt.json",
       "byte_count": 1195,
       "sha256": "7fdef76576d57543630e3f96f18727d570b60cc06f8bed28172efc5fffecf695"
+    },
+    {
+      "path": "evidence/kids_source_tile_index_v017/source_tile_index.json.gz",
+      "byte_count": 799081,
+      "sha256": "9caea1a33b9d3816e69163b0343ab562398ec969a948ad44b8c6cad50938c700"
     },
     {
       "path": "evidence/live_run_2026-08-25/data/noaa_solar_wind.csv",
@@ -1232,8 +1242,13 @@
     },
     {
       "path": "run_merge_kids_source_tile_index_v017.py",
-      "byte_count": 3492,
-      "sha256": "4ce3b1cfe7f03834b8964baefdcc64eb87e774c4daf790c83e8e08f0a957f38d"
+      "byte_count": 4095,
+      "sha256": "99f81320d5c7072725d00420c4a871e99d0832208d8b696fa6d85224e703f862"
+    },
+    {
+      "path": "run_plan_kids_random_transport_v017.py",
+      "byte_count": 6187,
+      "sha256": "ba84224780a6a6f818e321558d5eada6a4a9a0adda8f01c6fdff1cf7a79ccaaa"
     },
     {
       "path": "scripts/build_repository_manifest.py",
@@ -1346,14 +1361,19 @@
       "sha256": "bf54c020e1f4ec28f8518ab372243b09a5c65163e997590fc1323f622e445dec"
     },
     {
+      "path": "src/darkpipe/kids_random_control.py",
+      "byte_count": 8036,
+      "sha256": "dc5b5e747fe46a702824bc277ecac4688d3d741c0d664842fc0c5872d97ca3df"
+    },
+    {
       "path": "src/darkpipe/kids_rar_shadow.py",
       "byte_count": 3908,
       "sha256": "467fffecb171cabe4230f41a6d42ed9316f5bb1988edb449e439634393d1f998"
     },
     {
       "path": "src/darkpipe/kids_source_tile_index.py",
-      "byte_count": 4257,
-      "sha256": "67d091766fdf1a3696b608258f9c689b0e4d726ef488ed91e2ed5b4b7ad8a593"
+      "byte_count": 7238,
+      "sha256": "bc1d28f1054bafe56dda0603f41b1248bd0c5df1074186b289212d02f9106a9a"
     },
     {
       "path": "src/darkpipe/kids_streaming_pairs.py",
@@ -1496,14 +1516,19 @@
       "sha256": "c375ee43360e27d287341a9159a2ce7e0e791b7e04f7815734e5d257d6f0f04d"
     },
     {
+      "path": "tests/test_kids_random_control.py",
+      "byte_count": 1567,
+      "sha256": "d9de03816e244dc80e8eb3869f20278af9cfb988ccae9ed3b7de8bfece408fdf"
+    },
+    {
       "path": "tests/test_kids_rar_shadow.py",
       "byte_count": 972,
       "sha256": "18a7729edd8d80a1a0c391841521f70d71e37a34db0c27b2ea9f137958f33086"
     },
     {
       "path": "tests/test_kids_source_tile_index.py",
-      "byte_count": 2056,
-      "sha256": "e48bd6ce16212b5d7d04f51621bdd9b6014a98490a5538da6a5f2dbad3e04aca"
+      "byte_count": 3115,
+      "sha256": "7c3762a085f2aa885085650312d161b398c1b3f34c817e2b529af5d7f564ff41"
     },
     {
       "path": "tests/test_kids_streaming_pairs.py",

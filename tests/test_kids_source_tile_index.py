@@ -1,13 +1,17 @@
 import copy
+from pathlib import Path
 
 import numpy as np
 import pytest
 
 from darkpipe.kids_source_tile_index import (
+    coalesce_selected_tile_runs,
     extend_tile_runs,
     merge_partition_runs,
+    read_json_document,
     tile_run_counts,
     tile_runs_sha256,
+    write_json_document,
 )
 
 
@@ -64,3 +68,27 @@ def test_hash_and_gap_validation_are_sensitive() -> None:
                 },
             ]
         )
+
+
+def test_selected_runs_expose_request_byte_tradeoff_without_losing_rows() -> None:
+    runs = [
+        {"tile": "A", "start_row": 0, "stop_row": 2},
+        {"tile": "B", "start_row": 2, "stop_row": 5},
+        {"tile": "A", "start_row": 5, "stop_row": 7},
+    ]
+    exact = coalesce_selected_tile_runs(runs, {"A"}, max_gap_rows=0)
+    merged = coalesce_selected_tile_runs(runs, {"A"}, max_gap_rows=3)
+    assert len(exact) == 2
+    assert merged == [
+        {"start_row": 0, "stop_row": 7, "selected_rows": 4, "fetched_rows": 7}
+    ]
+
+
+def test_gzip_json_is_deterministic_and_round_trips(tmp_path: Path) -> None:
+    first = tmp_path / "first.json.gz"
+    second = tmp_path / "second.json.gz"
+    payload = {"runs": [{"tile": "A", "start_row": 0, "stop_row": 2}]}
+    write_json_document(first, payload)
+    write_json_document(second, payload)
+    assert first.read_bytes() == second.read_bytes()
+    assert read_json_document(first) == payload

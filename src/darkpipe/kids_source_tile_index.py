@@ -8,7 +8,9 @@ lensing signal and has no scientific adjudication authority.
 from __future__ import annotations
 
 import hashlib
+import gzip
 import json
+from pathlib import Path
 from typing import Iterable, Mapping
 
 import numpy as np
@@ -99,10 +101,91 @@ def tile_runs_sha256(runs: Iterable[Mapping[str, object]]) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def read_json_document(path: Path) -> dict[str, object]:
+    source = Path(path)
+    payload = source.read_bytes()
+    if source.suffix == ".gz":
+        payload = gzip.decompress(payload)
+    return json.loads(payload.decode("utf-8"))
+
+
+def write_json_document(path: Path, payload: Mapping[str, object]) -> None:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    encoded = (json.dumps(dict(payload), indent=2, sort_keys=True) + "\n").encode("utf-8")
+    if target.suffix == ".gz":
+        encoded = gzip.compress(encoded, compresslevel=9, mtime=0)
+    temporary = target.with_suffix(target.suffix + ".tmp")
+    temporary.write_bytes(encoded)
+    temporary.replace(target)
+
+
+def spherical_separation_deg(
+    ra_deg: float, dec_deg: float, other_ra_deg: np.ndarray, other_dec_deg: np.ndarray
+) -> np.ndarray:
+    ra1 = np.deg2rad(float(ra_deg))
+    dec1 = np.deg2rad(float(dec_deg))
+    ra2 = np.deg2rad(np.asarray(other_ra_deg, dtype=np.float64))
+    dec2 = np.deg2rad(np.asarray(other_dec_deg, dtype=np.float64))
+    cosine = np.sin(dec1) * np.sin(dec2) + np.cos(dec1) * np.cos(dec2) * np.cos(ra2 - ra1)
+    return np.rad2deg(np.arccos(np.clip(cosine, -1.0, 1.0)))
+
+
+def coalesce_selected_tile_runs(
+    runs: Iterable[Mapping[str, object]],
+    selected_tiles: set[str],
+    *,
+    max_gap_rows: int,
+) -> list[dict[str, int]]:
+    """Return read intervals with explicit selected/fetched row accounting.
+
+    Gaps may contain other tiles.  Fetching them is scientifically harmless
+    because the pair-radius gate rejects distant coordinates; the additional
+    bytes are nevertheless recorded as transport overhead.
+    """
+
+    if max_gap_rows < 0:
+        raise ValueError("max_gap_rows must be non-negative")
+    chosen = sorted(
+        (
+            {
+                "start_row": int(run["start_row"]),
+                "stop_row": int(run["stop_row"]),
+            }
+            for run in runs
+            if str(run["tile"]) in selected_tiles
+        ),
+        key=lambda item: item["start_row"],
+    )
+    output: list[dict[str, int]] = []
+    for run in chosen:
+        length = run["stop_row"] - run["start_row"]
+        if length <= 0:
+            raise ValueError("selected run is empty or reversed")
+        if output and run["start_row"] - output[-1]["stop_row"] <= max_gap_rows:
+            output[-1]["stop_row"] = run["stop_row"]
+            output[-1]["selected_rows"] += length
+            output[-1]["fetched_rows"] = output[-1]["stop_row"] - output[-1]["start_row"]
+        else:
+            output.append(
+                {
+                    "start_row": run["start_row"],
+                    "stop_row": run["stop_row"],
+                    "selected_rows": length,
+                    "fetched_rows": length,
+                }
+            )
+    return output
+
+
 __all__ = [
     "SOURCE_TILE_INDEX_AUTHORITY",
     "extend_tile_runs",
+    "coalesce_selected_tile_runs",
     "merge_partition_runs",
+    "read_json_document",
+    "spherical_separation_deg",
     "tile_run_counts",
     "tile_runs_sha256",
+    "write_json_document",
 ]
