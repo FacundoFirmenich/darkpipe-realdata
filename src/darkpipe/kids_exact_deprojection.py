@@ -95,6 +95,38 @@ def integrate_piecewise_linear_profile(
     return output
 
 
+def _integration_operator(
+    radius_mpc: np.ndarray,
+    evaluation_radius_mpc: np.ndarray,
+    *,
+    outer_tail: TailRule,
+    append_zero_radius_mpc: float | None = None,
+) -> np.ndarray:
+    """Return the exact linear map from profile knots to integrated targets."""
+
+    radius = np.asarray(radius_mpc, dtype=np.float64)
+    evaluation = np.asarray(evaluation_radius_mpc, dtype=np.float64)
+    basis_count = len(radius)
+    operator_radius = radius
+    if append_zero_radius_mpc is not None:
+        if append_zero_radius_mpc <= radius[-1]:
+            raise ValueError("the appended zero radius must exceed the last profile knot")
+        operator_radius = np.append(radius, append_zero_radius_mpc)
+    columns = []
+    for index in range(basis_count):
+        basis = np.zeros(len(operator_radius), dtype=np.float64)
+        basis[index] = 1.0
+        columns.append(
+            integrate_piecewise_linear_profile(
+                operator_radius,
+                basis,
+                evaluation,
+                outer_tail=outer_tail,
+            )
+        )
+    return np.column_stack(columns)
+
+
 def deproject_individual_profiles(
     radial_centers_mpc: np.ndarray,
     radial_edges_mpc: np.ndarray,
@@ -123,6 +155,59 @@ def deproject_individual_profiles(
     acceleration = np.full(evaluation.shape, np.nan, dtype=np.float64)
     acceleration_variance = np.full(evaluation.shape, np.nan, dtype=np.float64)
     esd_to_acceleration = 4.0 * G_MPC_KM2_S2_MSUN * (1e6 / MPC_M)
+
+    # All production KiDS lenses use the same target radii.  Because the
+    # piecewise-linear integral is a linear map, lenses sharing a validity
+    # mask can be evaluated exactly with one analytic operator and a matrix
+    # product.  This removes repeated scalar geometry without changing the
+    # interpolation, tail rule, sign, or Eq. 60 variance construction.
+    shared_evaluation = bool(
+        evaluation.shape[0] > 0
+        and np.array_equal(evaluation, np.broadcast_to(evaluation[0], evaluation.shape))
+    )
+    if shared_evaluation:
+        valid_surface = np.isfinite(profiles) & np.isfinite(variances) & (variances >= 0)
+        unique_masks, inverse = np.unique(valid_surface, axis=0, return_inverse=True)
+        for mask_index, valid in enumerate(unique_masks):
+            if np.count_nonzero(valid) < 2:
+                continue
+            lenses = np.flatnonzero(inverse == mask_index)
+            valid_indices = np.flatnonzero(valid)
+            profile_radius = centers[valid]
+            profile_operator = _integration_operator(
+                profile_radius,
+                evaluation[0],
+                outer_tail=outer_tail,
+            )
+            acceleration[lenses] = esd_to_acceleration * (
+                profiles[np.ix_(lenses, valid_indices)] @ profile_operator.T
+            )
+
+            last_edge = float(edges[valid_indices[-1] + 1])
+            if last_edge > profile_radius[-1]:
+                variance_operator = _integration_operator(
+                    profile_radius,
+                    evaluation[0],
+                    outer_tail="zero",
+                    append_zero_radius_mpc=last_edge,
+                )
+            else:
+                variance_operator = _integration_operator(
+                    profile_radius,
+                    evaluation[0],
+                    outer_tail="zero",
+                )
+            acceleration_variance[lenses] = esd_to_acceleration**2 * (
+                variances[np.ix_(lenses, valid_indices)] @ variance_operator.T
+            )
+        return {
+            "gobs_m_s2": acceleration,
+            "variance_gobs": acceleration_variance,
+            "authority": EXACT_DEPROJECTION_AUTHORITY,
+            "interpolation": "LINEAR_IN_PHYSICAL_RADIUS_SIGNED",
+            "outer_tail": outer_tail,
+        }
+
     for lens in range(profiles.shape[0]):
         valid = (
             np.isfinite(profiles[lens])

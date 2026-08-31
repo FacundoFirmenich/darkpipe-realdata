@@ -28,6 +28,8 @@ def test_random_batch_reduces_to_compact_additive_surface() -> None:
     final = finalize_random_control(reduced)
     assert np.all(np.isfinite(final["random_esd_msun_mpc2"]))
     assert np.all(np.isfinite(final["random_gobs_m_s2"]))
+    assert np.all(np.isfinite(final["random_cross_gobs_variance"]))
+    assert final["random_cross_gobs_variance"].shape == (3,)
 
 
 def test_random_reduction_merge_is_exact_and_hash_sensitive() -> None:

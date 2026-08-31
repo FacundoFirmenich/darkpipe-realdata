@@ -165,6 +165,12 @@ def finalize_random_control(
             out=np.full_like(tangential_weight, np.nan),
             where=tangential_weight > 0,
         ),
+        "random_cross_gobs_variance": np.divide(
+            1.0,
+            cross_weight,
+            out=np.full_like(cross_weight, np.nan),
+            where=cross_weight > 0,
+        ),
         "authority": RANDOM_CONTROL_AUTHORITY,
     }
 
