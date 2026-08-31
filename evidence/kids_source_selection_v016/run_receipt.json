@@ -1,0 +1,35 @@
+{
+  "attrition": {
+    "class_star": 19110986,
+    "finite_positive_shape_weight": 19109925,
+    "imaflags_iso": 19109925,
+    "recommended_mask": 19109925,
+    "rows": 21262011,
+    "sg2dphot": 21173894,
+    "sg_flag": 21257501
+  },
+  "authority": "FULL_PUBLIC_SOURCE_TABLE_SELECTION_AUDIT_NO_LENSING_RESULT",
+  "chunks": 132,
+  "completed_at": "2026-08-31T01:19:15.456050+00:00",
+  "next_gate": "LENS_SOURCE_PAIR_ESTIMATOR_RANDOM_SUBTRACTION_AND_COVARIANCE",
+  "next_row": 21262011,
+  "schema": "darkpipe.kids-source-selection.v1",
+  "scientific_result": false,
+  "source_url": "https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS_DR4.1_ugriZYJHKs_SOM_gold_WL_cat.fits",
+  "started_at": "2026-08-31T00:32:07.645605+00:00",
+  "tomographic_best_fit_counts": {
+    "0.1_0.3": 1727608,
+    "0.3_0.5": 3442980,
+    "0.5_0.7": 5624220,
+    "0.7_0.9": 4006695,
+    "0.9_1.2": 4308422
+  },
+  "updated_at": "2026-08-31T01:19:15.341263+00:00",
+  "weighted_mean_e1": 6.848058031608293e-05,
+  "weighted_mean_e2": 0.0005402571610082237,
+  "weighted_sums": {
+    "e1_weight": 14684.916529416067,
+    "e2_weight": 115852.27924772445,
+    "weight": 214439136.78353068
+  }
+}

@@ -1,4 +1,24 @@
 # Changelog
+
+## 0.16.0 - KiDS object-level reconstruction and RAR shadow
+
+- added a bounded-memory HTTP-range FITS binary-table reader;
+- bound the 17.7 GB KiDS SOM-gold catalogue to 185 contiguous Drive range
+  receipts without materializing the complete file locally;
+- reconstructed and audited the public KiDS-bright/LePhare lens-side tables;
+- preserved the adverse first lens-count mismatch and then closed its successor
+  gate from native KiDS DR4 GAAP photometry obtained through the official ESO
+  TAP service: all 1,239,422 bright rows matched and the legacy
+  angular-diameter Cartesian isolation implementation reproduced exactly
+  106,843 lenses, with zero fallback and no threshold tuning;
+- derived the bin-level effective inobservable `eta=log10(g_obs/g_bar)` from
+  the published Mistele et al. RAR, while withholding ontology and global model
+  significance in the absence of the cross-bin covariance;
+- completed a restartable full-source selection audit over all 21,262,011 rows,
+  retaining 19,109,925 after the published quality and finite-weight gates;
+- ingested the five official SOM `n(z)` tables and implemented the Mistele et
+  al. Eq. 10 effective critical-density integration, with explicit lens photo-z
+  uncertainty and source-tail renormalization.
 ## 0.11.0 - unreleased
 
 - Selected the Mistele et al. 2024 KiDS weak-lensing RAR as a genuinely distinct galaxy-scale observational channel through a primary-source deep-research comparison.

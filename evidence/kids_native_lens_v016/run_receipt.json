@@ -1,0 +1,38 @@
+{
+  "ambiguous_two_matches_within_tolerance": 55,
+  "angular_diameter_cartesian_geometry_count": 103572,
+  "angular_geometry_delta": -3271,
+  "authority": "NATIVE_GAAP_RECOVERY_AND_LENS_SELECTION_RECONSTRUCTION_NO_LENSING_RESULT",
+  "bright_rows": 1239422,
+  "candidate_rows_before_isolation": 706600,
+  "completed_at": "2026-08-31T02:36:44.845351+00:00",
+  "concurrent_comoving_geometry_count": 142293,
+  "coordinate_tolerance_arcsec": 0.5,
+  "matched_fraction": 0.9444805723958426,
+  "matched_rows": 1170610,
+  "maximum_selected_match_separation_arcsec": 0.06150755114457642,
+  "next_gate": "FULL_PAIR_ACCUMULATION_WITH_RANDOMS_AND_COVARIANCE",
+  "published_target_count": 106843,
+  "schema": "darkpipe.kids-native-lens-reconstruction.v1",
+  "scientific_result": false,
+  "selected_rows": {
+    "count": 103572,
+    "path": "evidence/kids_native_lens_v016/selected_angular_native_rows.npy",
+    "sha256": "17a68a7146e96fd3409ca95f52fdca3997d315563fadb65efd480c75a993c50a"
+  },
+  "started_at": "2026-08-31T02:29:54.847899+00:00",
+  "tap_fits": {
+    "bytes": 104276160,
+    "row_bytes": 28,
+    "rows": 3723774,
+    "sha256": "90917ce35f80a5a96d65a472c4402a743eeea7cf2870e7a2f71b4c5d66b47c9b"
+  },
+  "tap_query": "SELECT RAJ2000,DECJ2000,MAG_GAAP_u,MAG_GAAP_r,MAG_AUTO FROM KiDS_DR4_0_ugriZYJHKs_cat_fits_V3 WHERE MAG_AUTO < 20",
+  "tap_source": "https://archive.eso.org/tap_cat/sync",
+  "tap_vs_bright_mag_auto_delta_quantiles": {
+    "0.01": -0.06929760109959676,
+    "0.5": 0.039793304550535424,
+    "0.99": 0.2795291886613566
+  },
+  "valid_native_gaap_rows": 1170610
+}
