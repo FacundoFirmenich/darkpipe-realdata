@@ -1,0 +1,34 @@
+{
+  "authority": "EXTERNAL_PUBLISHED_RANDOM_SUBTRACTED_REFERENCE_NO_SUBSTITUTE_FOR_DARKPIPE_50X_CONTROL",
+  "files": {
+    "covariance": {
+      "bytes": 40023,
+      "path": "Fig-4-5-C1_RAR-KiDS-isolated_covmatrix.txt",
+      "sha256": "c5fa734affa2e56228f9e78848419a38405775a0cf4c42471ae1c37cdea575ae"
+    },
+    "mistele_table1_transcription": {
+      "bytes": 690,
+      "doi": "https://doi.org/10.1088/1475-7516/2024/04/020",
+      "path": "mistele2024_table1_rar.csv",
+      "primary_source": "https://arxiv.org/html/2310.15248",
+      "sha256": "62624e2fe3d0579905cab78cdee8f468b46675d4b10be8ae235ad2c50501179e"
+    },
+    "profile": {
+      "bytes": 1767,
+      "path": "Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt",
+      "sha256": "5343d81c06643e2cc5126490d9f03918ac2708b0cdc4586b1534157c225578a9"
+    },
+    "readme": {
+      "bytes": 5464,
+      "path": "README.txt",
+      "sha256": "b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645"
+    }
+  },
+  "limitation": "FINAL_RANDOM_SUBTRACTED_RAR_NO_RAW_RANDOM_PROFILE_OVERLAPPING_KIDS_DATA",
+  "official_data_page": "https://kids.strw.leidenuniv.nl/sciencedata.php",
+  "official_tar_bytes": 2430464,
+  "official_tar_sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
+  "official_tar_url": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+  "retrieved_at_utc": "2026-08-31",
+  "schema": "darkpipe.kids-brouwer2021-external-reference.v1"
+}

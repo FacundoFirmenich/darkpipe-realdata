@@ -1,3 +1,38 @@
+# DarkPipe 0.17.0 — streaming KiDS object-pair reconstruction
+
+DarkPipe v0.17 advances from lens-side reconstruction to an authenticated,
+bounded-memory lens/source pair scan.  The public 17.7 GB KiDS source FITS is
+read by exact HTTP ranges and reduced to additive per-lens/per-radius
+sufficient statistics; neither the catalogue nor a pair table is written to
+the workstation.  The input gate accepts only the complete 1,239,422-row
+native-GAAP reconstruction and the exact 106,843-lens selection.
+
+The complete eight-part signal scan now contains 3,017,858,899 accepted pairs
+for 106,843 lenses.  A subsequent authentic random-coordinate pilot sampled ten
+frozen points in every one of the 1,006 official KiDS tiles, yielding 10,060
+random positions and 433,841,322 accepted pairs against the full 21,262,011-row
+source surface.  Its cross channels remain consistent with zero at less than
+1.87 diagonal standard deviations, while the largest-radius tangential null is
+not zero: 3.05 standard deviations in ESD and 5.00 after deprojection.  The
+pilot therefore detects a large-scale additive surface that materially changes
+the signal, but is not the preregistered 50x bias estimate and has no full
+radial covariance.  A new object-level RAR remains unestablished until the
+exact 45,038,900-coordinate control, covariance and null gates close.
+The v0.17 deprojection path is signed and linear in physical radius, as in the
+published method; it analytically integrates each linear segment and therefore
+does not inherit runner-dependent numerical quadrature.  The older log-profile
+helper remains available only as a historical/general kernel and is not the
+v0.17 scientific path.
+
+See
+[the v0.17 preregistration](docs/PREREGISTRATION_STREAMING_OBJECT_RAR_0.17.md)
+and
+[the real random-null checkpoint](docs/V017_RANDOM_NULL_AND_SIGNAL_COMPARISON_2026-08-31.md).
+
+Licensed under **GPL-3.0-or-later**, explicitly not GPL-3.0-only.
+
+---
+
 # DarkPipe 0.16.0 — KiDS object reconstruction and RAR shadow
 
 DarkPipe v0.16 turns the remote KiDS surface into an executed, bounded-memory

@@ -2,6 +2,28 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      confirm_full_scan:
+        description: "Exact guard for the v0.17 full public KiDS pair scan"
+        required: false
+        default: "NO"
+      partition_filter:
+        description: "ALL or comma-separated exact labels, e.g. 04,07"
+        required: false
+        default: "ALL"
+      confirm_source_tile_index:
+        description: "Exact guard for the v0.17 remote THELI row-run index"
+        required: false
+        default: "NO"
+      confirm_random_pilot:
+        description: "Exact guard for the 10060-point stratified random pilot"
+        required: false
+        default: "NO"
+      confirm_orientation_basis:
+        description: "Exact guard for the full four-term KiDS orientation-basis scan"
+        required: false
+        default: "NO"
 permissions:
   contents: read
 jobs:
@@ -15,3 +37,176 @@ jobs:
           cache: pip
       - run: python -m pip install .[test]
       - run: python -m pytest
+
+  kids-v017-full-pair-scan:
+    if: github.event_name == 'workflow_dispatch' && inputs.confirm_full_scan == 'RUN_V017_FULL_SCAN'
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        partition:
+          - {label: "00", start: 0, stop: 2657751}
+          - {label: "01", start: 2657751, stop: 5315502}
+          - {label: "02", start: 5315502, stop: 7973254}
+          - {label: "03", start: 7973254, stop: 10631005}
+          - {label: "04", start: 10631005, stop: 13288756}
+          - {label: "05", start: 13288756, stop: 15946508}
+          - {label: "06", start: 15946508, stop: 18604259}
+          - {label: "07", start: 18604259, stop: 21262011}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v7.0.1
+        if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
+      - uses: actions/setup-python@v7.0.0
+        if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
+        with:
+          python-version: "3.12"
+          cache: pip
+      - if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
+        run: python -m pip install .[test]
+      - name: Stream one authentic KiDS source-row partition
+        if: inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label))
+        run: |
+          mkdir -p outputs
+          python run_darkpipe_kids_pairs_v017.py \
+            --start-row ${{ matrix.partition.start }} \
+            --stop-row ${{ matrix.partition.stop }} \
+            --chunk-mib 32 \
+            --output outputs/kids_pairs_v017_${{ matrix.partition.label }}.npz
+      - name: Upload additive pair statistics only
+        if: always() && (inputs.partition_filter == 'ALL' || contains(format(',{0},', inputs.partition_filter), format(',{0},', matrix.partition.label)))
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: kids-pairs-v017-${{ matrix.partition.label }}
+          path: outputs/kids_pairs_v017_${{ matrix.partition.label }}.npz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: warn
+
+  kids-v017-source-tile-index:
+    if: github.event_name == 'workflow_dispatch' && inputs.confirm_source_tile_index == 'RUN_V017_SOURCE_TILE_INDEX'
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        partition:
+          - {label: "00", start: 0, stop: 2657751}
+          - {label: "01", start: 2657751, stop: 5315502}
+          - {label: "02", start: 5315502, stop: 7973254}
+          - {label: "03", start: 7973254, stop: 10631005}
+          - {label: "04", start: 10631005, stop: 13288756}
+          - {label: "05", start: 13288756, stop: 15946508}
+          - {label: "06", start: 15946508, stop: 18604259}
+          - {label: "07", start: 18604259, stop: 21262011}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install .[test]
+      - name: Build one exact remote THELI row-run index partition
+        run: |
+          mkdir -p outputs
+          python run_index_kids_source_tiles_v017.py \
+            --start-row ${{ matrix.partition.start }} \
+            --stop-row ${{ matrix.partition.stop }} \
+            --chunk-mib 64 \
+            --output outputs/kids_source_tile_index_v017_${{ matrix.partition.label }}.json
+      - name: Upload compact geometry index only
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: kids-source-tile-index-v017-${{ matrix.partition.label }}
+          path: outputs/kids_source_tile_index_v017_${{ matrix.partition.label }}.json
+          compression-level: 9
+          retention-days: 1
+          if-no-files-found: warn
+
+  kids-v017-orientation-basis-full-scan:
+    if: github.event_name == 'workflow_dispatch' && inputs.confirm_orientation_basis == 'RUN_V017_ORIENTATION_BASIS'
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        partition:
+          - {label: "00", start: 0, stop: 2657751}
+          - {label: "01", start: 2657751, stop: 5315502}
+          - {label: "02", start: 5315502, stop: 7973254}
+          - {label: "03", start: 7973254, stop: 10631005}
+          - {label: "04", start: 10631005, stop: 13288756}
+          - {label: "05", start: 13288756, stop: 15946508}
+          - {label: "06", start: 15946508, stop: 18604259}
+          - {label: "07", start: 18604259, stop: 21262011}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install .[test]
+      - name: Stream one authentic KiDS partition with exact orientation basis
+        run: |
+          mkdir -p outputs
+          python run_darkpipe_kids_pairs_v017.py \
+            --start-row ${{ matrix.partition.start }} \
+            --stop-row ${{ matrix.partition.stop }} \
+            --chunk-mib 32 \
+            --include-orientation-basis \
+            --output outputs/kids_orientation_basis_v017_${{ matrix.partition.label }}.npz
+      - name: Upload exact orientation sufficient statistics only
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: kids-orientation-basis-v017-${{ matrix.partition.label }}
+          path: outputs/kids_orientation_basis_v017_${{ matrix.partition.label }}.npz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: warn
+
+  kids-v017-random-pilot-pair-scan:
+    if: github.event_name == 'workflow_dispatch' && inputs.confirm_random_pilot == 'RUN_V017_RANDOM_PILOT'
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        partition:
+          - {label: "00", start: 0, stop: 2657751}
+          - {label: "01", start: 2657751, stop: 5315502}
+          - {label: "02", start: 5315502, stop: 7973254}
+          - {label: "03", start: 7973254, stop: 10631005}
+          - {label: "04", start: 10631005, stop: 13288756}
+          - {label: "05", start: 13288756, stop: 15946508}
+          - {label: "06", start: 15946508, stop: 18604259}
+          - {label: "07", start: 18604259, stop: 21262011}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install .[test]
+      - name: Scan one authentic source partition against the stratified random pilot
+        run: |
+          mkdir -p outputs
+          python run_darkpipe_kids_random_pilot_pairs_v017.py \
+            --start-row ${{ matrix.partition.start }} \
+            --stop-row ${{ matrix.partition.stop }} \
+            --chunk-mib 32 \
+            --output outputs/kids_random_pilot_pairs_v017_${{ matrix.partition.label }}.npz
+      - name: Upload pilot sufficient statistics only
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: kids-random-pilot-pairs-v017-${{ matrix.partition.label }}
+          path: outputs/kids_random_pilot_pairs_v017_${{ matrix.partition.label }}.npz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: warn

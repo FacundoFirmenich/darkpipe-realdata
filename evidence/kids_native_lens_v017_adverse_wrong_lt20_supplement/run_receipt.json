@@ -1,33 +1,32 @@
 {
-  "ambiguous_two_matches_within_tolerance": 64,
-  "angular_diameter_cartesian_geometry_count": 106843,
-  "angular_geometry_delta": 0,
+  "ambiguous_two_matches_within_tolerance": 55,
+  "angular_diameter_cartesian_geometry_count": 103600,
+  "angular_geometry_delta": -3243,
   "authority": "NATIVE_GAAP_RECOVERY_AND_LENS_SELECTION_RECONSTRUCTION_NO_LENSING_RESULT",
   "bright_rows": 1239422,
-  "candidate_rows_before_isolation": 754722,
-  "completed_at": "2026-08-31T12:30:12.646616+00:00",
-  "concurrent_comoving_geometry_count": 148539,
+  "candidate_rows_before_isolation": 706813,
+  "completed_at": "2026-08-31T11:41:00.145535+00:00",
+  "concurrent_comoving_geometry_count": 142345,
   "coordinate_tolerance_arcsec": 0.5,
-  "hybrid_angular_diameter_cartesian_geometry_count": 106843,
-  "hybrid_angular_geometry_delta": 0,
+  "hybrid_angular_diameter_cartesian_geometry_count": 107179,
+  "hybrid_angular_geometry_delta": 336,
   "hybrid_authority": "SENSITIVITY_ONLY_NATIVE_GAAP_WITH_LEPHARE_RECONSTRUCTION_FOR_UNMATCHED_ROWS",
-  "hybrid_reconstructed_fallback_rows": 0,
+  "hybrid_reconstructed_fallback_rows": 68540,
   "hybrid_selected_rows": {
-    "count": 106843,
+    "count": 107179,
     "path": "evidence/kids_native_lens_v016_complete/selected_angular_hybrid_rows.npy",
-    "sha256": "eaa41bda4a09a3f418129ed6b812f6922afedc7a2e1c38061a0bd1aa23c91fc0"
+    "sha256": "07a9f9e268cbd204611e1ed753cd14dcf3d2ee8726962cae50a7a575b7604252"
   },
-  "matched_fraction": 1.0,
-  "matched_rows": 1239422,
-  "maximum_selected_match_separation_arcsec": 3.383081725165677e-10,
+  "matched_fraction": 0.9447000295298937,
+  "matched_rows": 1170882,
+  "maximum_selected_match_separation_arcsec": 0.06150755114457642,
   "next_gate": "FULL_PAIR_ACCUMULATION_WITH_RANDOMS_AND_COVARIANCE",
-  "pair_payload_gate": "PASS_COMPLETE_NATIVE_GAAP_AND_EXACT_PUBLISHED_SELECTION",
   "published_target_count": 106843,
   "schema": "darkpipe.kids-native-lens-reconstruction.v1",
   "scientific_result": false,
   "selected_lens_pair_payload": {
     "authority": "COMPACT_SELECTED_LENS_INPUT_FOR_PAIR_ACCUMULATION_NO_LENSING_RESULT",
-    "bytes": 3234546,
+    "bytes": 3136525,
     "columns": [
       "ra_deg",
       "dec_deg",
@@ -35,16 +34,16 @@
       "baryonic_mass_msun",
       "source_row"
     ],
-    "count": 106843,
+    "count": 103600,
     "path": "evidence/kids_native_lens_v016_complete/selected_lens_pair_payload.npz",
-    "sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a"
+    "sha256": "1a1cd1f7e922c6901ed64b57b157f0223cf13676481e4c31b9180b9f9cc8570e"
   },
   "selected_rows": {
-    "count": 106843,
+    "count": 103600,
     "path": "evidence/kids_native_lens_v016_complete/selected_angular_native_rows.npy",
-    "sha256": "eaa41bda4a09a3f418129ed6b812f6922afedc7a2e1c38061a0bd1aa23c91fc0"
+    "sha256": "bf4314b41dd4c6349e8e560419f371d806eff92adcfa950ea549f0646b3b3c12"
   },
-  "started_at": "2026-08-31T12:28:34.838443+00:00",
+  "started_at": "2026-08-31T11:39:30.128523+00:00",
   "supplement_fits": [
     {
       "bytes": 11520,
@@ -430,142 +429,30 @@
       "row_bytes": 28,
       "rows": 2,
       "sha256": "a93b8a27e4e8b528f5093c9de57c9005227f0e521ad0122d0d9e6258ddb97e06"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part00.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "bbcbfef0a16232b32a471799d967190e2cd3b9db749d3b14912071fbcc8eb5db"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part01.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "6c070be302b9455538981c56a326ae603a759f11ca12cf3c51d85e6855eb0db9"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part02.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "69e72c4c33789a9fd044dc64c902dbd17b0b1c50f08540e2c6b550f99560daa7"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part03.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "4c65a5ca9db92127b926c4d189f9cdd0df3b99feefa3ba2eb64c4a115e0bc0ca"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part04.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "0291d6bb7bbfe9fb75b87d23724c35641dc39ae3a5a9feed953f6e372f04bbc8"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part05.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "9dfe653df0abf23b32000e818561c9155cee9aa7f1df64e067b22a527216b909"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part06.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "f5cedc435874f56efd078d8f5630b5f5262275476fb13a1cc25c9546a77a6652"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part07.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "2bd0debaf5ed2a12d20ece7ce40ee2eac308ff3cf396769ee6dfdc1ece83f25c"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part08.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "d2fb7f1e1cf8900a04bac779c6c709511eadefb3d53b42e7da3a0845779f58e2"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part09.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "db86a676f2d2036391537c9f27ad28af7f3ad153191216e55ac5509c0e3355f8"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part10.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "8a0012f2c1ca1eb12373b444e9826f92b9392f9ec060d74892e3191ad24a1f68"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part11.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "d313367214808e185cbf9f3e5bf303ad2118bc8b79c01441b1741078aae289de"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part12.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "aef24a3c37879ebecdbd22d3228b231909b07971e5f6fe7775c76b117c155d8a"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part13.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "409c129d7a9852818b7fad726fc23fa476377c9e2430c15859f5a6b9cf415e22"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part14.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "e1f1def8c126a9380f46772293e22f0d106e84320663a9acba2ecdbc862dfbb7"
-    },
-    {
-      "bytes": 11520,
-      "path": "evidence/kids_native_lens_v016_lt21/missing_native_gaap_tap_part15.fits",
-      "row_bytes": 28,
-      "rows": 5,
-      "sha256": "e354c022c1ab7a15db510436e8e77202fce0b42b5ab1779eb8a607a72b8da66a"
     }
   ],
   "tap_fits": {
-    "bytes": 197769600,
+    "bytes": 104276160,
     "row_bytes": 28,
-    "rows": 7062837,
-    "sha256": "9aa5e96b739bd36a4088b242f5a0ce57b8028a436ebe2d0bdb898b42d2184dbe"
+    "rows": 3723774,
+    "sha256": "90917ce35f80a5a96d65a472c4402a743eeea7cf2870e7a2f71b4c5d66b47c9b"
   },
-  "tap_query": "SELECT RAJ2000,DECJ2000,MAG_GAAP_u,MAG_GAAP_r,MAG_AUTO FROM KiDS_DR4_0_ugriZYJHKs_cat_fits_V3 WHERE MAG_AUTO < 21",
+  "tap_query": "SELECT RAJ2000,DECJ2000,MAG_GAAP_u,MAG_GAAP_r,MAG_AUTO FROM KiDS_DR4_0_ugriZYJHKs_cat_fits_V3 WHERE MAG_AUTO < 20",
   "tap_source": "https://archive.eso.org/tap_cat/sync",
   "tap_vs_bright_mag_auto_delta_quantiles": {
-    "0.01": -0.06723009055594488,
-    "0.5": 0.04260942996547179,
-    "0.99": 0.306359086229855
+    "0.01": -0.06929522998722565,
+    "0.5": 0.039807624965447985,
+    "0.99": 0.28040349248053653
   },
   "unmatched_hybrid_selected_rows": {
-    "count": 0,
+    "count": 10973,
     "path": "evidence/kids_native_lens_v016_complete/unmatched_hybrid_selected_rows.npy",
-    "sha256": "040ce28f7590a34af85fbdb8115c90c9a0529a73b047533889c859c2f2c6e627"
+    "sha256": "e0da2fbe9db0ff56884a739bd92b517a3d50128b0aaab1721ad97c329f7d9b46"
   },
   "unmatched_rows": {
-    "count": 0,
+    "count": 68540,
     "path": "evidence/kids_native_lens_v016_complete/unmatched_rows.npy",
-    "sha256": "040ce28f7590a34af85fbdb8115c90c9a0529a73b047533889c859c2f2c6e627"
+    "sha256": "e7e9812e16787b44d107fc5200df70104d5b39147d4e0c59ea3ad03fd1825dbb"
   },
-  "valid_native_gaap_rows": 1239422
+  "valid_native_gaap_rows": 1170882
 }

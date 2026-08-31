@@ -2,13 +2,42 @@ from __future__ import annotations
 
 import numpy as np
 import pytest
+import requests
 
 from darkpipe.fits_range_table import (
     FitsRangeError,
+    _get_exact_range,
     decode_columns,
     decode_numeric_columns,
     parse_bintable_layout,
 )
+
+
+class _Response:
+    def __init__(self, status: int, payload: bytes, content_range: str | None) -> None:
+        self.status_code = status
+        self.content = payload
+        self.headers = {"Content-Range": content_range} if content_range else {}
+
+    def __enter__(self) -> "_Response":
+        return self
+
+    def __exit__(self, *_args: object) -> None:
+        return None
+
+
+class _Session:
+    def __init__(self, outcomes: list[object]) -> None:
+        self.outcomes = outcomes
+        self.calls = 0
+
+    def get(self, *_args: object, **_kwargs: object) -> _Response:
+        outcome = self.outcomes[self.calls]
+        self.calls += 1
+        if isinstance(outcome, BaseException):
+            raise outcome
+        assert isinstance(outcome, _Response)
+        return outcome
 
 
 def _card(keyword: str, value: str | None = None) -> bytes:
@@ -91,3 +120,56 @@ def test_decodes_fixed_width_strings() -> None:
     layout = parse_bintable_layout(primary + extension)
     decoded = decode_columns(b"A001 B002 ", layout, ["ID"])
     np.testing.assert_array_equal(decoded["ID"], [b"A001 ", b"B002 "])
+
+
+def test_exact_range_retries_transport_then_accepts_exact_bytes() -> None:
+    session = _Session(
+        [
+            requests.ConnectionError("remote closed"),
+            _Response(206, b"abcd", "bytes 10-13/100"),
+        ]
+    )
+    payload = _get_exact_range(
+        session,  # type: ignore[arg-type]
+        "https://example.invalid/table.fits",
+        10,
+        13,
+        total_bytes=100,
+        timeout=(1.0, 1.0),
+        retry_backoff_seconds=0.0,
+    )
+    assert payload == b"abcd"
+    assert session.calls == 2
+
+
+def test_exact_range_retries_transient_status_only() -> None:
+    session = _Session(
+        [
+            _Response(503, b"", None),
+            _Response(206, b"abcd", "bytes 10-13/100"),
+        ]
+    )
+    assert _get_exact_range(
+        session,  # type: ignore[arg-type]
+        "https://example.invalid/table.fits",
+        10,
+        13,
+        total_bytes=100,
+        timeout=(1.0, 1.0),
+        retry_backoff_seconds=0.0,
+    ) == b"abcd"
+
+
+def test_exact_range_rejects_structural_drift_without_retry() -> None:
+    session = _Session([_Response(206, b"abcd", "bytes 11-14/100")])
+    with pytest.raises(FitsRangeError, match="Content-Range"):
+        _get_exact_range(
+            session,  # type: ignore[arg-type]
+            "https://example.invalid/table.fits",
+            10,
+            13,
+            total_bytes=100,
+            timeout=(1.0, 1.0),
+            retry_backoff_seconds=0.0,
+        )
+    assert session.calls == 1

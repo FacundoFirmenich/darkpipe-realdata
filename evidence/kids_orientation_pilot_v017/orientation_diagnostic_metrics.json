@@ -1,0 +1,127 @@
+{
+  "authority": "PREREGISTERED_BOUNDED_ORIENTATION_DIAGNOSTIC_NO_SCIENTIFIC_ADJUDICATION",
+  "complete": true,
+  "completed_at": "2026-08-31T19:19:25.654522+00:00",
+  "diagnostics": {
+    "accepted_pairs": 14056978,
+    "candidate_pairs": 21055521,
+    "selected_source_rows": 89404,
+    "source_rows": 100000
+  },
+  "e2_flip_reduces_median_absolute_log_difference": false,
+  "lens_count": 106843,
+  "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+  "model_or_ontology_adjudication": false,
+  "next_gate": "REPAIR_OR_REJECT_ORIENTATION_THEN_REBUILD_FULL_PAIR_SURFACE",
+  "preregistration_sha256": "a26e9ff8f105616bce10c655fcc225b2789877b960915bf2df393cbf1ac25f05",
+  "results": {
+    "east_ccw_catalog_e2_as_math": {
+      "cross_max_abs_diagonal_z": 2.102062602467466,
+      "definition": "CURRENT_IMPLEMENTATION",
+      "effective_lenses_max": 21528,
+      "effective_lenses_min": 204,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.4155959852986637,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 9,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    },
+    "east_ccw_catalog_e2_sign_flipped": {
+      "cross_max_abs_diagonal_z": 1.1345057066820163,
+      "definition": "KIDS_RA_DEC_SIGN_WARNING_TRANSFORM",
+      "effective_lenses_max": 21528,
+      "effective_lenses_min": 204,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.5163080169060201,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 11,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    },
+    "north_ccw_catalog_e2_as_math": {
+      "cross_max_abs_diagonal_z": 1.1345057066820163,
+      "definition": "NORTH_REFERENCED_ANGLE",
+      "effective_lenses_max": 21528,
+      "effective_lenses_min": 204,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.2758335881312721,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 4,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    },
+    "north_ccw_catalog_e2_sign_flipped": {
+      "cross_max_abs_diagonal_z": 2.102062602467466,
+      "definition": "NORTH_REFERENCED_AND_E2_FLIPPED",
+      "effective_lenses_max": 21528,
+      "effective_lenses_min": 204,
+      "mistele2024_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 0.33846926550049616,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 6,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    }
+  },
+  "schema": "darkpipe.kids-orientation-diagnostic.v1",
+  "scientific_result": false,
+  "sigma_lookup_sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
+  "source_intervals": [
+    [
+      0,
+      12500
+    ],
+    [
+      2657751,
+      2670251
+    ],
+    [
+      5315502,
+      5328002
+    ],
+    [
+      7973254,
+      7985754
+    ],
+    [
+      10631005,
+      10643505
+    ],
+    [
+      13288756,
+      13301256
+    ],
+    [
+      15946508,
+      15959008
+    ],
+    [
+      18604259,
+      18616759
+    ]
+  ],
+  "source_total_bytes": 17712469440,
+  "source_url": "https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS_DR4.1_ugriZYJHKs_SOM_gold_WL_cat.fits",
+  "unique_source_tiles": 377
+}

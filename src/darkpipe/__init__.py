@@ -11,7 +11,7 @@ from importlib import import_module
 from typing import Any
 
 
-__version__ = "0.15.0"
+__version__ = "0.17.0"
 
 _EXPORTS: dict[str, tuple[str, str]] = {
     "fetch_noaa_solar_wind": (".sources", "fetch_noaa_solar_wind"),
@@ -99,6 +99,18 @@ _EXPORTS: dict[str, tuple[str, str]] = {
     ),
     "fixed_gbar_radius_kpc": (".object_lensing", "fixed_gbar_radius_kpc"),
     "object_level_rar": (".object_lensing", "object_level_rar"),
+    "integrate_piecewise_linear_profile": (
+        ".kids_exact_deprojection",
+        "integrate_piecewise_linear_profile",
+    ),
+    "deproject_individual_profiles": (
+        ".kids_exact_deprojection",
+        "deproject_individual_profiles",
+    ),
+    "stack_inverse_variance": (
+        ".kids_exact_deprojection",
+        "stack_inverse_variance",
+    ),
 }
 
 __all__ = list(_EXPORTS)

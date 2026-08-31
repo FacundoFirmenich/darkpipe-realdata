@@ -1,0 +1,140 @@
+{
+  "accepted_pairs": 3017858899,
+  "authority": "FULL_AUTHENTIC_ORIENTATION_LOCALIZATION_NO_FINAL_RAR_ADJUDICATION",
+  "basis_pair_content_sha256": "5d5f8c3a11cbe99b5192f015fd43f6c8f3ac29152f51d11ef743baf868bd4cfc",
+  "complete": true,
+  "completed_at": "2026-08-31T21:04:50.026818+00:00",
+  "lens_count": 106843,
+  "lens_payload_sha256": "3c4a43f9516e438a9c35e098ddd3d37768180f9d84e08fb01d73924c899c2b0a",
+  "model_or_ontology_adjudication": false,
+  "next_gate": "IF_REPAIR_CANDIDATE_PATCH_ESTIMATOR_ELSE_AUDIT_SIGMA_CRITICAL_AND_LENS_IDENTITY",
+  "preregistration_sha256": "2434090cdcd63071845e56087a7f2a1fc938651a203196d338e4afe32e89a34d",
+  "repair_candidates": [
+    "east_ccw_catalog_e2_sign_flipped"
+  ],
+  "results": {
+    "east_ccw_catalog_e2_as_math": {
+      "definition": "CURRENT_IMPLEMENTATION",
+      "exact_cross_max_abs_diagonal_z": 1.4823869008971602,
+      "exact_effective_lenses_max": 106843,
+      "exact_effective_lenses_min": 37917,
+      "exact_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 1.0365400070171926,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 14,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "median_absolute_log10_improvement_vs_current_dex": 0.0,
+      "preregistered_repair_candidate": false,
+      "raw_sis_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 1,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 1.0056592857630662,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 13,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    },
+    "east_ccw_catalog_e2_sign_flipped": {
+      "definition": "KIDS_RA_DEC_SIGN_WARNING_TRANSFORM",
+      "exact_cross_max_abs_diagonal_z": 1.755938650268156,
+      "exact_effective_lenses_max": 106843,
+      "exact_effective_lenses_min": 37917,
+      "exact_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 10,
+        "median_absolute_difference_le_0p05_dex": true,
+        "median_absolute_log10_difference_dex": 0.049425541277337004,
+        "monotonic_residual_gate": "NOT_RUN_IN_THIS_FUNCTION",
+        "positive_estimable_bins": 15,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "median_absolute_log10_improvement_vs_current_dex": 0.9871144657398556,
+      "preregistered_repair_candidate": true,
+      "raw_sis_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 12,
+        "median_absolute_difference_le_0p05_dex": true,
+        "median_absolute_log10_difference_dex": 0.04364277046881604,
+        "monotonic_residual_gate": "NOT_RUN_IN_THIS_FUNCTION",
+        "positive_estimable_bins": 15,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    },
+    "north_ccw_catalog_e2_as_math": {
+      "definition": "NORTH_REFERENCED_ANGLE",
+      "exact_cross_max_abs_diagonal_z": 1.755938650268156,
+      "exact_effective_lenses_max": 106843,
+      "exact_effective_lenses_min": 37917,
+      "exact_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": null,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 0,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "median_absolute_log10_improvement_vs_current_dex": null,
+      "preregistered_repair_candidate": false,
+      "raw_sis_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": null,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 0,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    },
+    "north_ccw_catalog_e2_sign_flipped": {
+      "definition": "NORTH_REFERENCED_AND_E2_FLIPPED",
+      "exact_cross_max_abs_diagonal_z": 1.4823869008971602,
+      "exact_effective_lenses_max": 106843,
+      "exact_effective_lenses_min": 37917,
+      "exact_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 1.434548546914538,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 1,
+        "published_bins": 15,
+        "reproduction_gate": false
+      },
+      "median_absolute_log10_improvement_vs_current_dex": -0.3980085398973454,
+      "preregistered_repair_candidate": false,
+      "raw_sis_reproduction_diagnostic": {
+        "all_15_inside_published_total_1sigma": false,
+        "authority": "PREREGISTERED_CENTRAL_VALUE_GATE_NO_MODEL_OR_ONTOLOGY_ADJUDICATION",
+        "central_points_inside_published_total_1sigma": 0,
+        "median_absolute_difference_le_0p05_dex": false,
+        "median_absolute_log10_difference_dex": 1.6767341306185166,
+        "monotonic_residual_gate": "NOT_ESTIMABLE_FOUR_NONPOSITIVE_CENTRAL_VALUES",
+        "positive_estimable_bins": 2,
+        "published_bins": 15,
+        "reproduction_gate": false
+      }
+    }
+  },
+  "schema": "darkpipe.kids-full-orientation-rar.v1",
+  "scientific_result": false,
+  "source_rows": 21262011
+}
