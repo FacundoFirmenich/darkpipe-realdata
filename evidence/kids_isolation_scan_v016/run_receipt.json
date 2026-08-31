@@ -1,0 +1,30 @@
+{
+  "authority": "LENS_ISOLATION_GEOMETRY_DIAGNOSTIC_NO_LENSING_RESULT",
+  "base_before_isolation": 767334,
+  "completed_at": "2026-08-31T00:03:47.181934+00:00",
+  "count_at_preregistered_radius": 153877,
+  "count_delta_at_preregistered_radius": 47034,
+  "interpretation": "DIAGNOSTIC_ONLY_NO_RADIUS_TUNING_AUTHORIZED",
+  "nearest_scan_count": 99454,
+  "nearest_scan_radius_to_published_count": "4.50",
+  "preregistered_radius_mpc_h70": 4.0,
+  "published_count": 106843,
+  "radius_scan_counts": {
+    "2.50": 443405,
+    "2.75": 385340,
+    "3.00": 329592,
+    "3.25": 277316,
+    "3.50": 230202,
+    "3.75": 189230,
+    "4.00": 153877,
+    "4.25": 124022,
+    "4.50": 99454,
+    "4.75": 79203,
+    "5.00": 62842,
+    "5.25": 49720,
+    "5.50": 39408
+  },
+  "rows": 1239422,
+  "schema": "darkpipe.kids-isolation-geometry-scan.v1",
+  "started_at": "2026-08-31T00:00:01.843754+00:00"
+}
