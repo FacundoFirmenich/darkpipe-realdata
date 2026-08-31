@@ -14,6 +14,11 @@ The complete signal scan is partitioned into eight remote jobs.  The seed,
 random control are frozen before opening the signal.  A new object-level RAR
 remains unestablished until all signal partitions, the exact 1,006-tile random
 control, covariance, cross-null and deproject-first equivalence gates close.
+The v0.17 deprojection path is signed and linear in physical radius, as in the
+published method; it analytically integrates each linear segment and therefore
+does not inherit runner-dependent numerical quadrature.  The older log-profile
+helper remains available only as a historical/general kernel and is not the
+v0.17 scientific path.
 
 See
 [the v0.17 preregistration](docs/PREREGISTRATION_STREAMING_OBJECT_RAR_0.17.md).

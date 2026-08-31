@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T13:40:08.376267Z",
+  "generated_at_utc": "2026-08-31T13:58:39.923833Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 295,
-  "total_bytes": 35759422,
+  "file_count": 297,
+  "total_bytes": 35771741,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -92,8 +92,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "byte_count": 13412,
-      "sha256": "8021d6c53c1f4a1de96237bb1e5534c5be0e6b03ac3e2b724a173407899ca97d"
+      "byte_count": 13747,
+      "sha256": "60a136a708bd6bcb79d13382063325d4e464baafa4ca9577650b2ab4b906f5c7"
     },
     {
       "path": "CITATION.cff",
@@ -112,8 +112,8 @@
     },
     {
       "path": "README.md",
-      "byte_count": 22683,
-      "sha256": "2793aec2a82a88b883da17cc550c90087961ba4981371b6b9b74861e7f4c07ce"
+      "byte_count": 23019,
+      "sha256": "b2550b3ca5e2e7928850c07cb03c9632e007e5e16ef5b24d7d3cef491f4e62ee"
     },
     {
       "path": "SECURITY.md",
@@ -1212,8 +1212,8 @@
     },
     {
       "path": "src/darkpipe/__init__.py",
-      "byte_count": 4913,
-      "sha256": "95ee15408579315225ec2fb71773263babdc5f17610e1702bfe9f4fd97764717"
+      "byte_count": 5278,
+      "sha256": "02845febca8ee33b9faf88ad70cc2fb4b2742ec19cbf1f7c74f603dfbff12663"
     },
     {
       "path": "src/darkpipe/__main__.py",
@@ -1289,6 +1289,11 @@
       "path": "src/darkpipe/inobservable.py",
       "byte_count": 18525,
       "sha256": "d75e0d398ad105136b1ab81c5053ce96bda3aa00e8f7939aace1feb982a9250b"
+    },
+    {
+      "path": "src/darkpipe/kids_exact_deprojection.py",
+      "byte_count": 8007,
+      "sha256": "307df1d6826baf351f8383d30268becc8030cc9f463257d78b3bfc05695b35b0"
     },
     {
       "path": "src/darkpipe/kids_lens_sample.py",
@@ -1419,6 +1424,11 @@
       "path": "tests/test_inobservable.py",
       "byte_count": 2679,
       "sha256": "f525646b4b11a4cf38a75affe672576594b3fe723f3c0a75ae6f7af57a5ec791"
+    },
+    {
+      "path": "tests/test_kids_exact_deprojection.py",
+      "byte_count": 3276,
+      "sha256": "ab7f1b414cedce783ac561e741d3ec9bbb316251c8a1b94348d6ebfd2b9c47fb"
     },
     {
       "path": "tests/test_kids_lens_sample.py",

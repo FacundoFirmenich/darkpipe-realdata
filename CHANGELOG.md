@@ -12,6 +12,11 @@
   1,861 selected sources and 267,557 accepted pairs without local source bytes;
 - partitioned the 21,262,011-row full signal scan into eight exact GitHub
   Actions jobs and retained only compact restartable outputs;
+- froze all 28 radial edges as one binary float64 contract after preserving a
+  one-ULP cross-run `geomspace` divergence as adverse rather than tolerating it;
+- replaced the v0.17 downstream log-positive deprojection route with an
+  analytic integral of the signed physical-radius linear interpolant and
+  Eq. 60 variance propagation;
 - froze seed `20260831017`, the 900,778-row parent redshift distribution and
   the exact 45,038,900 random-coordinate request before signal inspection;
 - retained random subtraction, covariance, cross-null, deproject-first RAR and
