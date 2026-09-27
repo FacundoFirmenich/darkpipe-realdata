@@ -1,0 +1,71 @@
+name: IRP27 Gate 009 — finalize weights and outcome search
+
+on:
+  push:
+    branches:
+      - irp27-gate009-outcome-weights
+    paths:
+      - ".github/workflows/irp27-gate009-finalize.yml"
+      - "research/irp27_gate009/parse_ged_ooxml.py"
+      - "research/irp27_gate009/targeted_outcome_search.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finalize-gate009-inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install network dependency
+        run: python -m pip install requests
+      - name: Acquire GED workbook
+        run: |
+          mkdir -p "$RUNNER_TEMP/irp27_gate009/raw"
+          python - <<'PY'
+          import hashlib, json, pathlib, requests
+          root=pathlib.Path("${{ runner.temp }}/irp27_gate009")
+          url="https://www.enargas.gob.ar/secciones/transporte-y-distribucion/datos-estadisticos/GED/GED.xlsx"
+          r=requests.get(url,timeout=(20,180)); r.raise_for_status()
+          p=root/"raw/GED.xlsx"; p.write_bytes(r.content)
+          (root/"ged_download.json").write_text(json.dumps({"url":url,"final_url":r.url,"status":r.status_code,"bytes":len(r.content),"sha256":hashlib.sha256(r.content).hexdigest(),"content_type":r.headers.get("content-type")},indent=2),encoding="utf-8")
+          PY
+      - name: Extract official monthly customer and volume weights
+        run: |
+          python research/irp27_gate009/parse_ged_ooxml.py \
+            --root "$RUNNER_TEMP/irp27_gate009"
+      - name: Search official time-series API for gas-specific outcome
+        run: |
+          python research/irp27_gate009/targeted_outcome_search.py \
+            --root "$RUNNER_TEMP/irp27_gate009"
+      - name: Build manifest
+        run: |
+          ROOT="$RUNNER_TEMP/irp27_gate009"
+          (cd "$ROOT" && find . -type f ! -name MANIFEST.sha256 -print0 | sort -z | xargs -0 sha256sum > MANIFEST.sha256)
+          cat "$ROOT/weights/ged_weights_summary.json"
+          cat "$ROOT/outcome_search/outcome_search_summary.json"
+      - name: Upload Gate 009 input artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-gate009-weights-and-outcome-search
+          path: ${{ runner.temp }}/irp27_gate009
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Fail closed on extraction mismatch
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path("${{ runner.temp }}/irp27_gate009")
+          w=json.loads((root/"weights/ged_weights_summary.json").read_text())
+          if w["parsed_records"] != w["expected_records"] or w["malformed_records"] != 0:
+              raise SystemExit("Weight extraction mismatch")
+          if w["period_max"] < "2026-06-01":
+              raise SystemExit("Weight source is unexpectedly stale")
+          print("Fail-closed checks passed", w["parsed_records"], w["period_max"])
+          PY
