@@ -25,18 +25,27 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Acquire and harmonize 26 frozen GN tariff workbooks
+      - name: Acquire and parse 26 frozen GN tariff workbooks
         id: acquire
         continue-on-error: true
         run: |
           python research/irp27_gate010/fetch_historical_tariffs.py \
             --output "$RUNNER_TEMP/irp27_gate010"
 
+      - name: Correct longitudinal identity semantics
+        id: identity
+        continue-on-error: true
+        run: |
+          python research/irp27_gate010/harmonize_identity.py \
+            --root "$RUNNER_TEMP/irp27_gate010"
+
       - name: Print Gate 010A status
         if: always()
         run: |
           echo "--- gate010A_status.json ---"
           cat "$RUNNER_TEMP/irp27_gate010/output/gate010A_status.json" || true
+          echo "--- identity_harmonization_audit.json ---"
+          cat "$RUNNER_TEMP/irp27_gate010/output/identity_harmonization_audit.json" || true
           echo "--- workbook_schema_audit.csv ---"
           cat "$RUNNER_TEMP/irp27_gate010/output/workbook_schema_audit.csv" || true
           echo "--- errors.csv ---"
@@ -47,20 +56,21 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: irp27-gate010-historical-dose
+          name: irp27-gate010-historical-dose-v2
           path: ${{ runner.temp }}/irp27_gate010
           if-no-files-found: error
           retention-days: 30
           compression-level: 6
 
-      - name: Enforce raw-source completeness
+      - name: Enforce source, calendar and identity gates
         if: always()
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path("${{ runner.temp }}/irp27_gate010/output/gate010A_status.json")
-          status = json.loads(p.read_text(encoding="utf-8"))
+          root = Path("${{ runner.temp }}/irp27_gate010/output")
+          status = json.loads((root / "gate010A_status.json").read_text(encoding="utf-8"))
+          audit = json.loads((root / "identity_harmonization_audit.json").read_text(encoding="utf-8"))
           print(status)
           if status["acquired_workbooks"] != status["expected_workbooks"]:
               raise SystemExit("Gate failed closed: not all frozen workbooks were acquired.")
@@ -68,4 +78,10 @@ jobs:
               raise SystemExit("Gate failed closed: at least one acquired object is not a valid XLSX container.")
           if not status["continuous_daily_coverage"]:
               raise SystemExit("Gate failed closed: frozen historical periods do not form a continuous calendar.")
+          if status.get("identity_harmonization") != "PASS_RAW_AND_CANONICAL_PRESERVED":
+              raise SystemExit("Gate failed closed: identity harmonization did not pass.")
+          if audit["canonical_operator_count"] != 10:
+              raise SystemExit("Gate failed closed: unexpected canonical operator universe.")
+          if audit["periods_with_structural_overlap"] == 0:
+              raise SystemExit("Gate failed closed: no longitudinal structural overlap.")
           PY
