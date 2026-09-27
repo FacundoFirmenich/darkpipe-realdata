@@ -1,0 +1,71 @@
+name: IRP27 Gate 010 — historical tariff dose
+
+on:
+  push:
+    branches:
+      - irp27-gate010-historical-dose
+    paths:
+      - ".github/workflows/irp27-gate010-historical-dose.yml"
+      - "research/irp27_gate010/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-harmonize-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Acquire and harmonize 26 frozen GN tariff workbooks
+        id: acquire
+        continue-on-error: true
+        run: |
+          python research/irp27_gate010/fetch_historical_tariffs.py \
+            --output "$RUNNER_TEMP/irp27_gate010"
+
+      - name: Print Gate 010A status
+        if: always()
+        run: |
+          echo "--- gate010A_status.json ---"
+          cat "$RUNNER_TEMP/irp27_gate010/output/gate010A_status.json" || true
+          echo "--- workbook_schema_audit.csv ---"
+          cat "$RUNNER_TEMP/irp27_gate010/output/workbook_schema_audit.csv" || true
+          echo "--- errors.csv ---"
+          cat "$RUNNER_TEMP/irp27_gate010/output/errors.csv" || true
+          du -sh "$RUNNER_TEMP/irp27_gate010" || true
+
+      - name: Upload raw sources and harmonized panel
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-gate010-historical-dose
+          path: ${{ runner.temp }}/irp27_gate010
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+
+      - name: Enforce raw-source completeness
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("${{ runner.temp }}/irp27_gate010/output/gate010A_status.json")
+          status = json.loads(p.read_text(encoding="utf-8"))
+          print(status)
+          if status["acquired_workbooks"] != status["expected_workbooks"]:
+              raise SystemExit("Gate failed closed: not all frozen workbooks were acquired.")
+          if status["valid_xlsx_workbooks"] != status["expected_workbooks"]:
+              raise SystemExit("Gate failed closed: at least one acquired object is not a valid XLSX container.")
+          if not status["continuous_daily_coverage"]:
+              raise SystemExit("Gate failed closed: frozen historical periods do not form a continuous calendar.")
+          PY
