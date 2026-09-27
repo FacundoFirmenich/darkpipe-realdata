@@ -6,7 +6,7 @@ on:
       - irp27-gate009-outcome-weights
     paths:
       - ".github/workflows/irp27-gate009-finalize.yml"
-      - "research/irp27_gate009/parse_ged_ooxml.py"
+      - "research/irp27_gate009/parse_ged_cache2_fast.py"
       - "research/irp27_gate009/targeted_outcome_search.py"
   workflow_dispatch:
 
@@ -37,7 +37,7 @@ jobs:
           PY
       - name: Extract official monthly customer and volume weights
         run: |
-          python research/irp27_gate009/parse_ged_ooxml.py \
+          python research/irp27_gate009/parse_ged_cache2_fast.py \
             --root "$RUNNER_TEMP/irp27_gate009"
       - name: Search official time-series API for gas-specific outcome
         run: |
