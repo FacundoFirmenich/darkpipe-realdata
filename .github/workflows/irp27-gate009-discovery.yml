@@ -1,0 +1,60 @@
+name: IRP27 Gate 009 — acquire weights and discover outcome
+
+on:
+  push:
+    branches:
+      - irp27-gate009-outcome-weights
+    paths:
+      - ".github/workflows/irp27-gate009-discovery.yml"
+      - "research/irp27_gate009/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-and-discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests openpyxl beautifulsoup4 pandas lxml
+      - name: Acquire official weights source and inspect public outcome routes
+        id: gate009
+        continue-on-error: true
+        run: |
+          python research/irp27_gate009/discover_sources.py \
+            --output "$RUNNER_TEMP/irp27_gate009_discovery"
+      - name: Display status
+        if: always()
+        run: |
+          find "$RUNNER_TEMP/irp27_gate009_discovery" -maxdepth 4 -type f -printf '%P\t%s bytes\n' | sort
+          echo '--- status ---'
+          cat "$RUNNER_TEMP/irp27_gate009_discovery/status.json" || true
+      - name: Upload discovery artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-gate009-source-discovery
+          path: ${{ runner.temp }}/irp27_gate009_discovery
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce weights-source acquisition
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("${{ runner.temp }}/irp27_gate009_discovery/status.json")
+          d = json.loads(p.read_text(encoding="utf-8"))
+          print(d)
+          if not d.get("ged_xlsx_valid") or not d.get("ged_parsed"):
+              raise SystemExit("Gate failed closed: official GED workbook not acquired and parsed")
+          PY
