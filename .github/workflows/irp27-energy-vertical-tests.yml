@@ -1,0 +1,30 @@
+name: IRP27 Energy Vertical — computation tests
+
+on:
+  push:
+    branches: [irp27-energy-vertical-v15]
+    paths:
+      - ".github/workflows/irp27-energy-vertical-tests.yml"
+      - "research/irp27_energy_vertical/tariff_engine.py"
+      - "research/irp27_energy_vertical/test_tariff_engine.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: research/irp27_energy_vertical
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile
+        run: python -m compileall tariff_engine.py
+      - name: Unit tests
+        run: python -m unittest -v test_tariff_engine.py
