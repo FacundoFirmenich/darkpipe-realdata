@@ -1,0 +1,35 @@
+name: IRP27 Energy Vertical — September tariff acquisition
+
+on:
+  push:
+    branches: [irp27-energy-vertical-v15]
+    paths:
+      - ".github/workflows/irp27-energy-vertical-september.yml"
+      - "research/irp27_energy_vertical/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip openpyxl
+      - name: Fetch and parse official September workbook
+        run: python research/irp27_energy_vertical/fetch_september_tariff.py "$RUNNER_TEMP/irp27_energy_september"
+      - name: Show summary
+        run: |
+          cat "$RUNNER_TEMP/irp27_energy_september/source_metadata.json"
+          cat "$RUNNER_TEMP/irp27_energy_september/workbook_summary.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: irp27-energy-september-tariff
+          path: ${{ runner.temp }}/irp27_energy_september
+          if-no-files-found: error
+          retention-days: 30
