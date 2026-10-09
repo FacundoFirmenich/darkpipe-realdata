@@ -1,0 +1,29 @@
+name: IRP27 Household Sovereignty — non-collapse tests
+
+on:
+  push:
+    branches: [irp27-food-household-v18]
+    paths:
+      - ".github/workflows/irp27-household-sovereignty-tests.yml"
+      - "research/irp27_household_sovereignty/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: research/irp27_household_sovereignty
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile engine
+        run: python -m compileall noncollapse_engine.py test_noncollapse_engine.py
+      - name: Run non-collapse invariants
+        run: python -m unittest -v test_noncollapse_engine.py
