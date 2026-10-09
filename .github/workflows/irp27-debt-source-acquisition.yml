@@ -1,0 +1,62 @@
+name: IRP27 Vertical Factory — BCRA debt sources
+
+on:
+  push:
+    branches: [irp27-vertical-factory-v16]
+    paths:
+      - ".github/workflows/irp27-debt-source-acquisition.yml"
+      - "research/irp27_vertical_factory/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install parsers
+        run: python -m pip install --upgrade pip openpyxl pypdf
+      - name: Acquire six official BCRA objects
+        id: acquire
+        continue-on-error: true
+        run: |
+          python research/irp27_vertical_factory/acquire_bcra_debt_sources.py \
+            --output "$RUNNER_TEMP/irp27_debt_sources"
+      - name: Show exact status
+        if: always()
+        run: |
+          cat "$RUNNER_TEMP/irp27_debt_sources/acquisition_status.json" || true
+          cat "$RUNNER_TEMP/irp27_debt_sources/source_registry.csv" || true
+          cat "$RUNNER_TEMP/irp27_debt_sources/errors.csv" || true
+          du -sh "$RUNNER_TEMP/irp27_debt_sources" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-debt-source-acquisition
+          path: ${{ runner.temp }}/irp27_debt_sources
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce raw-source gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status = json.loads(Path("${{ runner.temp }}/irp27_debt_sources/acquisition_status.json").read_text())
+          print(status)
+          if status["acquired_sources"] != status["expected_sources"]:
+              raise SystemExit("Not all official BCRA sources were acquired")
+          if status["xlsx_valid"] != status["xlsx_expected"]:
+              raise SystemExit("At least one BCRA XLSX failed container validation")
+          if status["pdf_parsed"] != status["pdf_expected"]:
+              raise SystemExit("At least one BCRA PDF failed text extraction")
+          if status["individual_debtor_enumeration"]:
+              raise SystemExit("Forbidden individual-debtor enumeration detected")
+          PY
