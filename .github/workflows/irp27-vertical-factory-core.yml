@@ -1,0 +1,30 @@
+name: IRP27 Vertical Factory — core tests
+
+on:
+  push:
+    branches: [irp27-vertical-factory-v16]
+    paths:
+      - ".github/workflows/irp27-vertical-factory-core.yml"
+      - "research/irp27_vertical_factory/factory_core.py"
+      - "research/irp27_vertical_factory/test_factory_core.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: research/irp27_vertical_factory
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile core
+        run: python -m compileall factory_core.py test_factory_core.py
+      - name: Run fail-closed lifecycle tests
+        run: python -m unittest -v test_factory_core.py
