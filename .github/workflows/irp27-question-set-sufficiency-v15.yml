@@ -1,0 +1,81 @@
+name: IRP27 Gate SOTA-006 — question sets and sufficiency
+
+on:
+  push:
+    branches: [irp27-question-set-sufficiency-v15]
+    paths:
+      - ".github/workflows/irp27-question-set-sufficiency-v15.yml"
+      - "research/irp27_learned_questions/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip numpy scipy scikit-learn requests
+      - name: Unit tests
+        working-directory: research/irp27_learned_questions
+        run: python -m unittest -v test_question_set_sufficiency_benchmark.py test_learned_question_benchmark.py
+      - name: Acquire frozen AVeriTeC train and development splits
+        run: |
+          python - <<'PY'
+          import hashlib, requests
+          from pathlib import Path
+          root=Path("${{ runner.temp }}")
+          urls={
+            'train':'https://raw.githubusercontent.com/MichSchli/AVeriTeC/main/data/train.json',
+            'dev':'https://raw.githubusercontent.com/MichSchli/AVeriTeC/main/data/dev.json',
+          }
+          for name,url in urls.items():
+            response=requests.get(url,timeout=240); response.raise_for_status()
+            path=root/f'averitec_{name}.json'; path.write_bytes(response.content)
+            print(name, {'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest()})
+          PY
+      - name: Execute question-set and evidence-sufficiency benchmark
+        working-directory: research/irp27_learned_questions
+        run: |
+          python question_set_sufficiency_benchmark.py \
+            --train "${{ runner.temp }}/averitec_train.json" \
+            --dev "${{ runner.temp }}/averitec_dev.json" \
+            --output "${{ runner.temp }}/irp27_question_set_sufficiency_v15"
+      - name: Show exact benchmark state
+        if: always()
+        run: |
+          cat "${{ runner.temp }}/irp27_question_set_sufficiency_v15/gate_sota006_results.json" || true
+          cat "${{ runner.temp }}/irp27_question_set_sufficiency_v15/answerability_report.json" || true
+          cat "${{ runner.temp }}/irp27_question_set_sufficiency_v15/compatibility_report.json" || true
+          du -sh "${{ runner.temp }}/irp27_question_set_sufficiency_v15" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-question-set-sufficiency-v15
+          path: ${{ runner.temp }}/irp27_question_set_sufficiency_v15
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce scientific boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path("${{ runner.temp }}/irp27_question_set_sufficiency_v15/gate_sota006_results.json").read_text())
+          assert result['train_claims'] == 3068
+          assert result['dev_claims'] == 500
+          assert result['calibration_n'] == 250 and result['heldout_n'] == 250
+          assert result['candidate_passages'] == 1359
+          assert result['authority'] == 'INTERNAL_CLOSED_POOL_PILOT_NOT_EXTERNAL_VALIDATION'
+          assert result['closed_pool_non_gold_is_not_proven_false_evidence'] is True
+          assert result['human_pilot_responses'] == 0
+          assert result['automatic_publication'] is False
+          print('BOUNDARY GATE PASS')
+          PY
