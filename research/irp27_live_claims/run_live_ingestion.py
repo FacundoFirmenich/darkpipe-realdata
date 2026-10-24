@@ -39,8 +39,12 @@ def verify_fragment(fragment:str,text:str)->dict:
     fragment_folded=fold(fragment); text_folded=fold(text)
     if fragment_folded and fragment_folded in text_folded:
         return {'verified':True,'method':'EXACT_NORMALIZED','token_coverage':1.0,'numeric_coverage':1.0}
-    fragment_tokens=[t for t in re.findall(r'[a-z0-9]+',fragment_folded) if len(t)>2 or t.isdigit()]
-    text_tokens=set(re.findall(r'[a-z0-9]+',text_folded))
+    def canonical_token(token:str)->str:
+        if token.startswith('cay') or token.startswith('caid'):
+            return 'caer'
+        return token
+    fragment_tokens=[canonical_token(t) for t in re.findall(r'[a-z0-9]+',fragment_folded) if len(t)>2 or t.isdigit()]
+    text_tokens={canonical_token(t) for t in re.findall(r'[a-z0-9]+',text_folded)}
     numeric=[t for t in fragment_tokens if t.isdigit()]
     lexical=[t for t in fragment_tokens if not t.isdigit() and t not in {'respecto','igual','mes','de','del','la','el','a'}]
     numeric_cov=sum(t in text_tokens for t in numeric)/len(numeric) if numeric else 1.0
