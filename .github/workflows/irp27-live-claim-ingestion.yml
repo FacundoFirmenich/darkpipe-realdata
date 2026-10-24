@@ -24,7 +24,7 @@ jobs:
       - name: Acquire, verify and ingest live claims
         run: |
           python research/irp27_live_claims/run_live_ingestion.py \
-            --registry research/irp27_live_claims/live_claim_registry.json \
+            --registry research/irp27_live_claims/live_claim_registry.json.gz.b64 \
             --atlas research/irp27_live_claims/atlas_claims_min.json \
             --output "$RUNNER_TEMP/irp27_live_claims"
       - if: always()

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse,csv,hashlib,json,re,time
+import argparse,base64,csv,gzip,hashlib,json,re,time,unicodedata
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
@@ -31,7 +31,12 @@ def write_csv(path,rows):
         w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows(rows)
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--registry',required=True,type=Path);ap.add_argument('--atlas',required=True,type=Path);ap.add_argument('--output',required=True,type=Path);a=ap.parse_args();a.output.mkdir(parents=True,exist_ok=True);raw=a.output/'raw';texts=a.output/'text';raw.mkdir(exist_ok=True);texts.mkdir(exist_ok=True)
-    registry=json.loads(a.registry.read_text(encoding='utf-8'));atlas=json.loads(a.atlas.read_text(encoding='utf-8'));s=requests.Session();s.headers.update({'User-Agent':'IRP27-Live-Claim-Ingestion/0.5','Accept':'text/html,application/pdf,*/*'})
+    registry_path=a.registry
+    if registry_path.name.endswith('.gz.b64'):
+        registry=json.loads(gzip.decompress(base64.b64decode(registry_path.read_text(encoding='ascii'))).decode('utf-8'))
+    else:
+        registry=json.loads(registry_path.read_text(encoding='utf-8'))
+    atlas=json.loads(a.atlas.read_text(encoding='utf-8'));s=requests.Session();s.headers.update({'User-Agent':'IRP27-Live-Claim-Ingestion/0.5','Accept':'text/html,application/pdf,*/*'})
     sources=[];events=[];errors=[]
     for source in registry:
         ext='pdf' if source['kind']=='pdf' else 'html';path=raw/f"{source['source_id']}.{ext}";data,meta=fetch(s,source['url']);meta.update({k:source[k] for k in ['source_id','actor','publisher_type','date','url','kind']});sources.append(meta)
