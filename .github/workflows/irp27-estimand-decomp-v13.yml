@@ -1,0 +1,67 @@
+name: IRP27 Gate SOTA-004 — estimand decomposition
+
+on:
+  push:
+    branches: [irp27-estimand-decomp-v13]
+    paths:
+      - ".github/workflows/irp27-estimand-decomp-v13.yml"
+      - "research/irp27_estimand_decomp/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip numpy scikit-learn requests
+      - name: Unit tests
+        working-directory: research/irp27_estimand_decomp
+        run: python -m unittest -v test_estimand_decomposition.py
+      - name: Acquire frozen AVeriTeC development split
+        run: |
+          python - <<'PY'
+          import hashlib, requests
+          from pathlib import Path
+          url='https://raw.githubusercontent.com/MichSchli/AVeriTeC/main/data/dev.json'
+          response=requests.get(url,timeout=180); response.raise_for_status()
+          path=Path("${{ runner.temp }}/averitec_dev.json"); path.write_bytes(response.content)
+          print({'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest()})
+          PY
+      - name: Execute calibration and held-out benchmark
+        run: |
+          python research/irp27_estimand_decomp/estimand_decomposition.py \
+            --input "${{ runner.temp }}/averitec_dev.json" \
+            --output "${{ runner.temp }}/irp27_estimand_decomp_v13"
+      - name: Show exact result
+        if: always()
+        run: |
+          cat "${{ runner.temp }}/irp27_estimand_decomp_v13/estimand_decomposition_results.json" || true
+          cat "${{ runner.temp }}/irp27_estimand_decomp_v13/paired_bootstrap.json" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-estimand-decomp-v13
+          path: ${{ runner.temp }}/irp27_estimand_decomp_v13
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce honesty boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path("${{ runner.temp }}/irp27_estimand_decomp_v13/estimand_decomposition_results.json").read_text())
+          assert result['calibration_n']==250 and result['heldout_n']==250
+          assert result['authority']=='HELDOUT_INTERNAL_PILOT_NOT_EXTERNAL_VALIDATION'
+          assert result['candidate_passages']==1359
+          print('BOUNDARY GATE PASS')
+          PY
