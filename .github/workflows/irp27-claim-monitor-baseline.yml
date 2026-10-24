@@ -1,0 +1,47 @@
+name: IRP27 Gate 014 — claim monitor baseline
+
+on:
+  push:
+    branches: [irp27-claim-monitor-v04]
+    paths:
+      - ".github/workflows/irp27-claim-monitor-baseline.yml"
+      - "research/irp27_claim_monitor/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4 pypdf cryptography
+      - run: python research/irp27_claim_monitor/fetch_monitor_sources.py --output "$RUNNER_TEMP/irp27_claim_monitor"
+      - if: always()
+        run: |
+          cat "$RUNNER_TEMP/irp27_claim_monitor/status.json" || true
+          cat "$RUNNER_TEMP/irp27_claim_monitor/errors.json" || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-claim-monitor-baseline
+          path: ${{ runner.temp }}/irp27_claim_monitor
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path("${{ runner.temp }}/irp27_claim_monitor/status.json").read_text())
+          if status['acquired'] != status['expected'] or status['parsed'] != status['expected']:
+              raise SystemExit('Source monitor baseline failed closed')
+          if status['automatic_publication']:
+              raise SystemExit('Automatic publication boundary violated')
+          PY
