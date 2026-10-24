@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from learned_question_benchmark import (
+from learned_question_benchmark_v2 import (
     LABELS,
     claim_type_labels,
     learned_queries,
