@@ -12,9 +12,11 @@ from typing import Any
 
 import learned_question_benchmark as core
 
+_ORIGINAL_QUESTION_LABELS = core.question_labels
+
 
 def question_labels(question: str) -> set[str]:
-    labels = set(core.question_labels(question))
+    labels = set(_ORIGINAL_QUESTION_LABELS(question))
     if re.search(r"\b(?:19|20)\d{2}\b", core.fold(question)):
         labels.add("TEMPORAL")
     return labels
