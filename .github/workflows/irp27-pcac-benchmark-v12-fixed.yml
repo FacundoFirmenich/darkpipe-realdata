@@ -1,0 +1,89 @@
+name: IRP27 Gate SOTA-003 — PCAC benchmark pilot fixed
+
+on:
+  push:
+    branches: [irp27-pcac-benchmark-v12]
+    paths:
+      - ".github/workflows/irp27-pcac-benchmark-v12-fixed.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install benchmark dependencies
+        run: python -m pip install --upgrade pip requests scikit-learn scipy rank-bm25 numpy
+      - name: Decode frozen benchmark code and real PCAC cases
+        run: |
+          python - <<'PY'
+          import base64, gzip, json
+          from pathlib import Path
+          root=Path('research/irp27_pcac_benchmark')
+          script=gzip.decompress(base64.b64decode((root/'run_benchmark.py.gz.b64').read_text())).decode('utf-8')
+          script=script.replace('outputs = len(case.get("outputs", []))','outputs = int(case.get("output_count", len(case.get("outputs", []))))')
+          script=script.replace('primary_evidence = [node["statement"] for node in case["nodes"] if node.get("kind") == "EVIDENCE" and node.get("role") == "PRIMARY_EVIDENCE"]','primary_evidence = list(case.get("primary_evidence", []))\\n        if not primary_evidence and case.get("nodes"):\\n            primary_evidence = [node["statement"] for node in case["nodes"] if node.get("kind") == "EVIDENCE" and node.get("role") == "PRIMARY_EVIDENCE"]')
+          script=script.replace('assurance_node = next(node for node in case["nodes"] if node["node_id"] == case["assurance_claim_id"])','assurance_statement = case.get("assurance_claim")\\n        if isinstance(assurance_statement, dict):\\n            assurance_statement = assurance_statement.get("statement")\\n        if not assurance_statement and case.get("nodes"):\\n            assurance_node = next(node for node in case["nodes"] if node["node_id"] == case["assurance_claim_id"])\\n            assurance_statement = assurance_node["statement"]')
+          script=script.replace('"claim": assurance_node["statement"],','"claim": assurance_statement,')
+          (root/'run_benchmark.py').write_text(script,encoding='utf-8')
+          cases=json.loads(gzip.decompress(base64.b64decode((root/'pcac_cases_min.json.gz.b64').read_text())).decode('utf-8'))
+          (root/'pcac_cases_min.jsonl').write_text('\n'.join(json.dumps(x,ensure_ascii=False) for x in cases)+'\n',encoding='utf-8')
+          print({'script_chars':len(script),'pcac_cases':len(cases)})
+          PY
+      - name: Compile and smoke-test
+        run: |
+          python -m py_compile research/irp27_pcac_benchmark/run_benchmark.py
+          python - <<'PY'
+          import sys,json
+          sys.path.insert(0,'research/irp27_pcac_benchmark')
+          from run_benchmark import rank_metrics, auto_expand, pcac_mutations
+          assert rank_metrics([[1,0]],[{1}])['recall@1'] == 1.0
+          assert 'percentage' in auto_expand('The value rose 20%')
+          case=json.loads(open('research/irp27_pcac_benchmark/pcac_cases_min.jsonl').readline())
+          assert len(pcac_mutations(case)) == 4
+          assert pcac_mutations(case)[0].total_outputs == 8
+          print('SMOKE TEST PASS')
+          PY
+      - name: Execute public retrieval and PCAC revision benchmarks
+        run: |
+          python research/irp27_pcac_benchmark/run_benchmark.py \
+            --pcac research/irp27_pcac_benchmark/pcac_cases_min.jsonl \
+            --output "$RUNNER_TEMP/irp27_pcac_benchmark_v12"
+      - name: Print exact benchmark state
+        if: always()
+        run: |
+          cat "$RUNNER_TEMP/irp27_pcac_benchmark_v12/status.json" || true
+          du -sh "$RUNNER_TEMP/irp27_pcac_benchmark_v12" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-pcac-benchmark-v12-fixed
+          path: ${{ runner.temp }}/irp27_pcac_benchmark_v12
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce benchmark boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path("${{ runner.temp }}/irp27_pcac_benchmark_v12/status.json").read_text())
+          if status['human_annotation_items'] != 120:
+              raise SystemExit('Annotation corpus size mismatch')
+          if status['pcac']['mutations'] != 48:
+              raise SystemExit('PCAC mutation benchmark incomplete')
+          if status['external_human_annotations_collected'] != 0:
+              raise SystemExit('Human results must not be fabricated')
+          if status['external_validation_completed']:
+              raise SystemExit('External validation cannot be declared before external collection')
+          if status['automatic_publication']:
+              raise SystemExit('Automatic publication boundary violated')
+          PY
