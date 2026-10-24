@@ -1,0 +1,60 @@
+name: IRP27 Gate 012 — ENARGAS AIP archive
+
+on:
+  push:
+    branches: [irp27-gate012-weighting-v20]
+    paths:
+      - ".github/workflows/irp27-gate012-enargas-aip.yml"
+      - "research/irp27_gate012/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install parsers
+        run: python -m pip install --upgrade pip requests beautifulsoup4 openpyxl pypdf cryptography
+      - name: Acquire official AIP archive and attachments
+        id: acquire
+        continue-on-error: true
+        run: |
+          python research/irp27_gate012/acquire_enargas_aip_archive.py \
+            --output "$RUNNER_TEMP/irp27_gate012_aip"
+      - name: Print exact acquisition state
+        if: always()
+        run: |
+          cat "$RUNNER_TEMP/irp27_gate012_aip/acquisition_status.json" || true
+          cat "$RUNNER_TEMP/irp27_gate012_aip/target_registry.json" || true
+          cat "$RUNNER_TEMP/irp27_gate012_aip/unmatched_targets.json" || true
+          du -sh "$RUNNER_TEMP/irp27_gate012_aip" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-gate012-enargas-aip-archive
+          path: ${{ runner.temp }}/irp27_gate012_aip
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce archive acquisition boundary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status = json.loads(Path("${{ runner.temp }}/irp27_gate012_aip/acquisition_status.json").read_text())
+          print(status)
+          if not status["source_page_acquired"]:
+              raise SystemExit("Official archive page not acquired")
+          if status["targets_matched"] < 7:
+              raise SystemExit("Too few target response records matched")
+          if status["automatic_publication"]:
+              raise SystemExit("Automatic publication boundary violated")
+          PY
