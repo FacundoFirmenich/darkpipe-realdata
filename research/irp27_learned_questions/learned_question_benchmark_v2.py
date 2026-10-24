@@ -2,8 +2,9 @@
 """Corrected compatibility layer for Gate SOTA-005.
 
 This module patches the initial benchmark implementation so temporal years are
-recognized, metadata dates are admissible, numeric tokens are not duplicated as
-bare content terms, and multi-token entity queries are validated token-wise.
+recognized, metadata dates and speaker handles are admissible, numeric tokens are
+not duplicated as bare content terms, and multi-token entity queries are validated
+token-wise.
 """
 from __future__ import annotations
 
@@ -33,8 +34,10 @@ def content_terms(text: str, limit: int = 16) -> list[str]:
 
 def validate_query(text: str, contract: dict[str, Any]) -> list[str]:
     issues: list[str] = []
-    allowed_numbers = set(core.extract_numbers(contract["claim"])) | set(
-        core.extract_numbers(contract.get("date") or "")
+    allowed_numbers = (
+        set(core.extract_numbers(contract["claim"]))
+        | set(core.extract_numbers(contract.get("date") or ""))
+        | set(core.extract_numbers(contract.get("speaker") or ""))
     )
     for number in core.extract_numbers(text):
         if number not in allowed_numbers:
