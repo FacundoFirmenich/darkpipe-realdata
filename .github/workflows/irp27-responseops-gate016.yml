@@ -1,0 +1,29 @@
+name: IRP27 Gate 016 — ResponseOps core
+
+on:
+  push:
+    branches: [irp27-responseops-v06]
+    paths:
+      - ".github/workflows/irp27-responseops-gate016.yml"
+      - "research/irp27_responseops/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: research/irp27_responseops
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile
+        run: python -m compileall responseops_engine.py test_responseops_engine.py
+      - name: Run ResponseOps boundary tests
+        run: python -m unittest -v test_responseops_engine.py
