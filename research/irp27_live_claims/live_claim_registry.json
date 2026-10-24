@@ -1,0 +1,140 @@
+[
+  {
+    "source_id": "ARG_FISCAL_SEP_2026",
+    "actor": "SecretarÃ­a de Hacienda / Ministerio de EconomÃ­a",
+    "publisher_type": "official_executive",
+    "date": "2026-10-16",
+    "url": "https://www.argentina.gob.ar/noticias/en-septiembre-el-sector-publico-nacional-continuo-generando-resultado-financiero-1",
+    "kind": "html",
+    "claims": [
+      {
+        "live_claim_id": "LIVE-FIS-001",
+        "source_fragment": "Durante septiembre, el Sector PÃºblico Nacional (SPN) registrÃ³ un resultado financiero superavitario por $977.173 millones",
+        "normalized_claim": "El Sector PÃºblico Nacional registrÃ³ en septiembre de 2026 un superÃ¡vit financiero de 977.173 millones de pesos.",
+        "atlas_hint": "FIS-01",
+        "event_hint": "NUMERIC_UPDATE",
+        "claim_mode": "DESCRIPTIVE_FACT",
+        "estimand": "Resultado financiero mensual del SPN sobre base caja y con el tratamiento declarado de intereses intra-sector pÃºblico.",
+        "observed_narrow": "La fuente oficial informa un superÃ¡vit financiero mensual del SPN de $977.173 millones.",
+        "not_established": "No establece por sÃ­ sola el resultado de la AdministraciÃ³n Nacional sobre base devengado, la entrega efectiva de polÃ­ticas ni la fortaleza fiscal estructural.",
+        "safe_wording": "Hacienda informÃ³ un superÃ¡vit financiero del SPN en septiembre sobre su perÃ­metro y base contable declarados.",
+        "blocked_wording": "Septiembre fue inequÃ­vocamente superavitario bajo cualquier perÃ­metro y base contable.",
+        "orientations": ["ACCOUNTING_BASIS:BOUNDARY_DEPENDENT","INSTITUTIONAL_PERIMETER:BOUNDARY_DEPENDENT"]
+      },
+      {
+        "live_claim_id": "LIVE-FIS-002",
+        "source_fragment": "reafirmando el compromiso con el ancla fiscal del programa de gobierno",
+        "normalized_claim": "El superÃ¡vit acumulado reafirma la fortaleza del ancla fiscal del programa.",
+        "atlas_hint": "FIS-02",
+        "event_hint": "RHETORICAL_EXPANSION",
+        "claim_mode": "INTERPRETIVE_INFERENCE",
+        "estimand": "Sostenibilidad fiscal estructural neta de extraordinarios, pasivos diferidos, riesgos y perÃ­metros omitidos.",
+        "observed_narrow": "El SPN informÃ³ superÃ¡vit acumulado en su marco de mediciÃ³n.",
+        "not_established": "La condiciÃ³n estructural requiere evaluar extraordinarios, caja versus devengado, deuda flotante, inversiÃ³n diferida, riesgos y otros perÃ­metros.",
+        "safe_wording": "El resultado observado es consistente con el objetivo fiscal declarado, pero no basta para demostrar fortaleza estructural.",
+        "blocked_wording": "El superÃ¡vit acumulado prueba definitivamente que la posiciÃ³n fiscal es estructuralmente sÃ³lida.",
+        "orientations": ["FISCAL_STRUCTURE:OVERSTATES","PERIMETER:BOUNDARY_DEPENDENT","IMPLEMENTATION:MASKS_HETEROGENEITY"]
+      }
+    ]
+  },
+  {
+    "source_id": "ARG_RIFL_JUL_2026",
+    "actor": "SecretarÃ­a de Trabajo, Empleo y Seguridad Social",
+    "publisher_type": "official_executive",
+    "date": "2026-10-13",
+    "url": "https://www.argentina.gob.ar/noticias/el-rifl-ya-alcanza-mas-de-20-mil-empresas-y-63-mil-trabajadores",
+    "kind": "html",
+    "claims": [
+      {
+        "live_claim_id": "LIVE-LAB-001",
+        "source_fragment": "se incorporaron mÃ¡s de 63 mil trabajadores al empleo registrado privado",
+        "normalized_claim": "MÃ¡s de 63.000 trabajadores fueron registrados en contrataciones que utilizaron el RIFL hasta julio de 2026.",
+        "atlas_hint": "LAB-03",
+        "event_hint": "NEW_CLAIM",
+        "claim_mode": "PROGRAM_OUTPUT",
+        "estimand": "NÃºmero de trabajadores asociados administrativamente a altas bajo el rÃ©gimen, no creaciÃ³n neta contrafactual.",
+        "observed_narrow": "La administraciÃ³n informa mÃ¡s de 63.000 trabajadores y 20.873 empresas vinculados al beneficio en julio.",
+        "not_established": "No identifica cuÃ¡ntos empleos son netamente adicionales, cuÃ¡nto sustituyen contrataciones sin beneficio, su duraciÃ³n ni su calidad posterior.",
+        "safe_wording": "El RIFL fue utilizado en contrataciones registradas que alcanzaron a mÃ¡s de 63.000 trabajadores; la adicionalidad neta aÃºn requiere evaluaciÃ³n causal.",
+        "blocked_wording": "El RIFL creÃ³ 63.000 empleos nuevos que no habrÃ­an existido sin el programa.",
+        "orientations": ["ADDITIONALITY:OVERSTATES","JOB_QUALITY:UNDERDETERMINED","DURATION:UNDERDETERMINED"]
+      },
+      {
+        "live_claim_id": "LIVE-LAB-002",
+        "source_fragment": "fortaleciendo los incentivos para la incorporaciÃ³n de trabajadores al empleo formal",
+        "normalized_claim": "La utilizaciÃ³n creciente del RIFL demuestra que el rÃ©gimen estÃ¡ fortaleciendo la formalizaciÃ³n laboral.",
+        "atlas_hint": "LAB-02",
+        "event_hint": "ESTIMAND_SHIFT",
+        "claim_mode": "PROGRAM_EFFECT_INFERENCE",
+        "estimand": "Efecto causal del rÃ©gimen sobre formalizaciÃ³n neta, permanencia y calidad del empleo.",
+        "observed_narrow": "Aumentaron las empresas y contrataciones que usaron el beneficio durante sus primeros tres meses.",
+        "not_established": "La utilizaciÃ³n del instrumento no identifica formalizaciÃ³n neta, permanencia ni ausencia de desplazamiento.",
+        "safe_wording": "El uso del rÃ©gimen creciÃ³ con rapidez; su efecto neto sobre formalizaciÃ³n y calidad debe evaluarse con un comparador vÃ¡lido.",
+        "blocked_wording": "El crecimiento del uso prueba que el programa formalizÃ³ netamente el mercado laboral.",
+        "orientations": ["PROGRAM_EFFECT:OVERSTATES","DISPLACEMENT:UNDERDETERMINED","PERSISTENCE:UNDERDETERMINED"]
+      }
+    ]
+  },
+  {
+    "source_id": "ARG_CAPUTO_CREDIT_2026",
+    "actor": "Ministro de EconomÃ­a",
+    "publisher_type": "official_speech",
+    "date": "2026-10-16",
+    "url": "https://www.argentina.gob.ar/noticias/luis-caputo-un-pais-no-puede-crecer-sin-credito-porque-es-la-materia-prima-del-crecimiento",
+    "kind": "html",
+    "claims": [
+      {
+        "live_claim_id": "LIVE-FIN-001",
+        "source_fragment": "el crÃ©dito es considerablemente mayor y aumentÃ³ un 170 % en dos aÃ±os y medio",
+        "normalized_claim": "El crÃ©dito al sector privado aumentÃ³ 170% en dos aÃ±os y medio.",
+        "atlas_hint": "FIN-02",
+        "event_hint": "NUMERIC_UPDATE",
+        "claim_mode": "DESCRIPTIVE_FACT_WITH_UNSPECIFIED_DENOMINATOR",
+        "estimand": "VariaciÃ³n del crÃ©dito privado bajo definiciÃ³n, moneda, deflactor y punto inicial explÃ­citos.",
+        "observed_narrow": "El discurso afirma un aumento de 170% del crÃ©dito privado.",
+        "not_established": "Sin especificaciÃ³n completa no se identifica si el cambio es nominal, real, en dÃ³lares, saldo, flujo o ratio del PIB, ni su distribuciÃ³n o calidad.",
+        "safe_wording": "El Gobierno afirma una fuerte expansiÃ³n del crÃ©dito privado; la magnitud debe citarse con su definiciÃ³n estadÃ­stica completa.",
+        "blocked_wording": "El crÃ©dito real y saludable de todos los hogares creciÃ³ 170%.",
+        "orientations": ["DENOMINATOR:UNDERDETERMINED","WELFARE:SIGN_INDETERMINATE","DISTRIBUTION:MASKS_HETEROGENEITY"]
+      },
+      {
+        "live_claim_id": "LIVE-FIN-002",
+        "source_fragment": "Un paÃ­s no puede crecer sin crÃ©dito porque es la materia prima del crecimiento",
+        "normalized_claim": "El crÃ©dito es una condiciÃ³n necesaria y causal del crecimiento econÃ³mico.",
+        "atlas_hint": "FIN-02",
+        "event_hint": "RHETORICAL_EXPANSION",
+        "claim_mode": "GENERAL_CAUSAL_CLAIM",
+        "estimand": "Efecto causal de la profundidad, composiciÃ³n, precio y asignaciÃ³n del crÃ©dito sobre crecimiento sostenible.",
+        "observed_narrow": "El crÃ©dito puede financiar inversiÃ³n y suavizar consumo cuando es productivo, asequible y sostenible.",
+        "not_established": "El volumen agregado no identifica causalidad, asignaciÃ³n productiva, adicionalidad, coste, estrÃ©s ni riesgo macrofinanciero.",
+        "safe_wording": "El crÃ©dito puede ser una infraestructura del crecimiento, pero su efecto depende de destino, coste, plazo, calidad y estabilidad.",
+        "blocked_wording": "Todo aumento del crÃ©dito produce crecimiento y mejora el bienestar.",
+        "orientations": ["CAUSALITY:OVERSTATES","ALLOCATION:MASKS_HETEROGENEITY","DEBT_STRESS:UNDERSTATES"]
+      },
+      {
+        "live_claim_id": "LIVE-FIS-003",
+        "source_fragment": "vamos a tener cuatro aÃ±os consecutivos de superÃ¡vit fiscal a nivel financiero",
+        "normalized_claim": "Argentina tendrÃ¡ cuatro aÃ±os consecutivos de superÃ¡vit financiero.",
+        "atlas_hint": "FIS-02",
+        "event_hint": "NEW_CLAIM",
+        "claim_mode": "FORECAST",
+        "estimand": "Resultado financiero realizado bajo un perÃ­metro y base contable fijos durante cuatro ejercicios completos.",
+        "observed_narrow": "El Presupuesto 2027 y el discurso proyectan continuidad del superÃ¡vit financiero.",
+        "not_established": "Un proyecto presupuestario no es un resultado realizado; depende de actividad, ingresos, gastos, intereses, modificaciones y perÃ­metro.",
+        "safe_wording": "El Gobierno proyecta cuatro ejercicios consecutivos con superÃ¡vit financiero los aÃ±os futuros siguen siendo una previsiÃ³n condicionada.",
+        "blocked_wording": "Ya estÃ¡ probado que Argentina tendrÃ¡ cuatro aÃ±os de superÃ¡vit financiero.",
+        "orientations": ["FORECAST:UNDERDETERMINED","PERIMETER:BOUNDARY_DEPENDENT","EXECUTION:STAGE_DEPENDENT"]
+      }
+    ]
+  },
+  {
+    "source_id": "ARG_CAPUTO_GROWTH_20Y",
+    "actor": "Ministro de EconomÃ­a",
+    "publisher_type": "official_speech",
+    "date": "2026-10-02",
+    "url": "https://www.argentina.gob.ar/noticias/luis-caputo-se-van-venir-veinte-anos-de-crecimiento-y-es-el-momento-para-aprovecharlos",
+    "kind": "html",
+    "claims": [
+      {
+        "live_claim_id": "LIVE-MAC-001",
+        "source_fragment": "se van a venir vei[Hpì[ÜÈHÜ™XÚ[ZY[ÈH\È[[ÛY[È\˜H\›İ™XÚ\›ÜÈ‹ˆ››Ü›X[^™YØÛZ[Hˆ\™Ù[[˜H[™°èH™Z[Hpì[ÜÈHÜ™XÚ[ZY[ÈXÛÛ°ìÛZXÛËˆ‹ˆ˜]\×Ú[ˆ“PPËLH‹ˆ™]™[Ú[ˆ“‘U×ĞÓRSH‹ˆ˜ÛZ[WÛ[ÙHˆ“Ó‘×ÒÔ’V“Ó—Ñ“Ô‘PĞTÕ‹ˆ™\İ[X[™ˆ•˜^YXİÜšXHHÜ™XÚ[ZY[È™X[\ˆğè\]HHİH\İšXXÚpìÛˆ\˜[H™Z[Hpì[ÜÈ˜Z›È\ØÙ[˜\š[ÜÈHÚØÚÜÈ^0ëXÚ]ÜËˆ‹ˆ›ØœÙ\™YÛ˜\œ›İÈˆ‘\È[˜H^Xİ]]˜HÈÛÛ\›ÛZ\ÛÈÛ0ë]XÛÈH\™ÛÈ^›Ëˆ‹ˆ››İÙ\İX›\ÚYˆ“›È\È™\šYšXØX›HŞHÛÛ[ÈXÚÈšH]YYHY[YšXØYÈÜˆÜÈ™\İ[YÜÈÛÜœšY[\ÎÈ™\]ZY\™Hİ\Y\İÜË\ØÙ[˜\š[ÜË›ÙXİ]šYY[™\œÚpìÛ‹0ê\›Z[›ÜÈH[\˜Ø[Xš[ÈH[œİ]XÚ[Û™\Ëˆ‹ˆœØY™WİÛÜ™[™Èˆ‘[Z[š\İ›È›ŞYXİH[ˆÚXÛÈ›ÛÛ™ØYÈHÜ™XÚ[ZY[ÎÈ\È[˜H™]š\ÚpìÛˆÛ0ë]XØHH[H[˜Ù\Y[Xœ™K›È[ˆ™\İ[YÈØœÙ\˜YËˆ‹ˆ˜›ØÚÙYİÛÜ™[™Èˆ‘\İ0è[ˆØ\˜[^˜YÜÈ™Z[Hpì[ÜÈHÜ™XÚ[ZY[Ëˆ‹ˆ›ÜšY[][ÛœÈˆÈ‘“Ô‘PĞTÕ•S‘T‘UT“RS‘Q‹‘TÕ’P•USÓ“PTÒÔ×ÒUT“ÑÑS‘RUH‹”ÒĞÒÔÎ•S‘T‘UT“RS‘Q—BˆBˆBˆKˆÂˆœÛİ\˜ÙWÚYˆ’S‘P×ÕĞQÑT×ĞUQ×ÌŒˆ‹ˆ˜XİÜˆˆ’S‘PÈ‹ˆœX›\Ú\—İ\Hˆ›Ù™šXÚX[Üİ]\İXÜÈ‹ˆ™]HˆŒŒ‹LLLŒH‹ˆ\›ˆšÎ‹ËİİİËš[™XË™ÛØ‹˜\‹İ\ØYËÚ[™›Ü›Y\Ù\™[œØKÜØ[\š[Ü×ÌLÌŒŒĞP‘Kœˆ‹ˆšÚ[™ˆœˆ‹ˆ˜ÛZ[\ÈˆÂˆÂˆ›]™WØÛZ[WÚYˆ“U‘KSP‹LÈ‹ˆœÛİ\˜ÙWÙœ˜YÛY[ˆ‘[0ë[™XÙHHØ[\š[ÜÈÙH[˜Ü™[Y[0ìÈ‹ÉHY[œİX[HÍK‰H[\˜[X[‹ˆ››Ü›X[^™YØÛZ[Hˆ‘[0ë[™XÙHHØ[\š[ÜÈ][Y[0ìÈ‹ÉHY[œİX[HÍK‰H[\˜[X[[ˆYÛÜİÈHŒ‹ˆ‹ˆ˜]\×Ú[ˆ“P‹L‹ˆ™]™[Ú[ˆ“•SQT’P×ÕTUH‹ˆ˜ÛZ[WÛ[ÙHˆ“Ñ‘’PÒPSÒS‘V‹ˆ™\İ[X[™ˆ•˜\šXXÚpìÛˆ[0ë[™XÙHØ[\šX[İ[˜Z›ÈİHÛØ™\\˜HHY]ÙÛÙğëXKˆ‹ˆ›ØœÙ\™YÛ˜\œ›İÈˆ‘[0ë[™XÙHØ[\šX[İ[][Y[0ìÈÙYğî›ˆÜÈ˜[Ü™\ÈX›XØYÜËˆ‹ˆ››İÙ\İX›\ÚYˆ“›ÈZYH[™Ü™\ÛÈ\ÜÛšX›HHÙÜÈÜÈ˜X˜Z˜YÜ™\ÈHÙØ\™\ËšH\İšXXÚpìÛˆÜˆXÚ[[\[ÈÈÜ˜\Ëˆ‹ˆœØY™WİÛÜ™[™Èˆ‘[0ë[™XÙHØ[\šX[ÙšXÚX[İXšpìÈ‹ÉHY[œİX[HÍK‰H[\˜[X[ÈİHÛØ™\\˜H›È\]Z]˜[H[[™Ü™\ÛÈ™X[HÙÜÈÜÈÙØ\™\Ëˆ‹ˆ˜›ØÚÙYİÛÜ™[™Èˆ“ÜÈ[™Ü™\ÛÜÈHÙÜÈÜÈ˜X˜Z˜YÜ™\ÈHÙØ\™\È][Y[\›ÛˆÍK‰Kˆ‹ˆ›ÜšY[][ÛœÈˆÈ’S‘“Ô“PSUN•S‘T”ÕUTÈ‹‘TÕ’P•USÓ“PTÒÔ×ÒUT“ÑÑS‘RUH‹’ÕTÑRÓÒSÓÓQN““ÓÓÓTTP“H—BˆBˆBˆKˆÂˆœÛİ\˜ÙWÚYˆ’S‘P×ÔÕTT—ĞUQ×ÌŒˆ‹ˆ˜XİÜˆˆ’S‘PÈ‹ˆœX›\Ú\—İ\Hˆ›Ù™šXÚX[Üİ]\İXÜÈ‹ˆ™]HˆŒŒ‹LLLŒÈ‹ˆ\›ˆšÎ‹ËİİİËš[™XË™ÛØ‹˜\‹İ\ØYËÚ[™›Ü›Y\Ù\™[œØKÜİ\\—ÌLÌŒMÌQÌËœˆ‹ˆšÚ[™ˆœˆ‹ˆ˜ÛZ[\ÈˆÂˆÂˆ›]™WØÛZ[WÚYˆ“U‘KRS‘‹LH‹ˆœÛİ\˜ÙWÙœ˜YÛY[ˆ˜Ø^pìÈËÉH™\ÜXİÈHYİX[Y\ÈHŒH‹ˆ››Ü›X[^™YØÛZ[Hˆ“\È™[\ÈHİ\\›Y\˜ØYÜÈH™XÚ[ÜÈÛÛœİ[\ÈØ^Y\›ÛˆËÉH[\˜[X[[ˆYÛÜİÈHŒ‹ˆ‹ˆ˜]\×Ú[ˆ’S‘‹Lˆ‹ˆ™]™[Ú[ˆ“‘U×ÔÑS•S‘S‹ˆ˜ÛZ[WÛ[ÙHˆÒS““‘SÔÑS•S‘S‹ˆ™\İ[X[™ˆ•˜\šXXÚpìÛˆH™[\ÈÛÛœİ[\È[ˆ[\™\Ø\ÈHİ\\›Y\˜ØYÜÈ[Ü\˜]]›Ë›ÈÛÛœİ[[Èİ[šHšY[™\İ\‹ˆ‹ˆ›ØœÙ\™YÛ˜\œ›İÈˆ‘[Ø[˜[Hİ\\›Y\˜ØYÜÈ™YÚ\İ°ìÈ[˜HØpëYH™X[[\˜[X[H™[\Ëˆ‹ˆ››İÙ\İX›\ÚYˆ“›ÈZYHÙÈ[ÛÛœİ[[È[[Y[\š[ËØ[YY\È°ë\ÚXØ\ÈHHXÛÛ›ÛpëXK[Xœ™HšHšY[™\İ\ˆYÜ™YØYËˆ‹ˆœØY™WİÛÜ™[™Èˆ“\È™[\È™X[\ÈHİ\\›Y\˜ØYÜÈØ^Y\›ÛˆËÉH[\˜[X[È\È[˜HÙpìX[H[ˆØ[˜[\ÜXğëYšXÛË›È[˜HYYYHİ[HÛÛœİ[[ÈÈšY[™\İ\‹ˆ‹ˆ˜›ØÚÙYİÛÜ™[™Èˆ‘[ÛÛœİ[[Èİ[HÜÈÙØ\™\ÈÈH[[Y[XÚpìÛˆØ^pìÈËÉKˆ‹ˆ›ÜšY[][ÛœÈˆÈÒS“‘S“ÕS‘T–WÑTS‘S•‹•ÑST‘N““ÓÓÓTTP“H‹‘“ÓÑÔÕ‘TÔÎ”ÑS•S‘SÓÓ“H—BˆBˆBˆKˆÂˆœÛİ\˜ÙWÚYˆÔWÒQQ—ÒWÌŒˆ‹ˆ˜XİÜˆˆÔH‹ˆœX›\Ú\—İ\Hˆ›Ù™šXÚX[Ùš[˜[˜ÚX[ÜİXš[]H‹ˆ™]HˆŒŒ‹LËL‹ˆ\›ˆšÎ‹ËİİİË˜˜Ü˜K™ÛØ‹˜\‹ÜX›XØXÚ[Û™\ËÚ[™›Ü›YKYKY\İXš[YYYš[˜[˜ÚY\˜K\š[Y\‹\Ù[Y\İ™KLŒ‹È‹ˆšÚ[™ˆš[‹ˆ˜ÛZ[\ÈˆÂˆÂˆ›]™WØÛZ[WÚYˆ“U‘KQ’S‹LÈ‹ˆœÛİ\˜ÙWÙœ˜YÛY[ˆ“HØ\™ØHš[˜[˜ÚY\˜H\İ[XYH\˜HH]YHH\È˜[Z[X\ÈÙHX[]›È[ˆš]™[\È[]˜YÜÈH][Y[0ìÈ]™[Y[H‹ˆ››Ü›X[^™YØÛZ[Hˆ“HØ\™ØHš[˜[˜ÚY\˜H\İ[XYHHH]YH˜[Z[X\ˆ\›X[™XÚpìÈ[]˜YHH][Y[0ìÈ]™[Y[Kˆ‹ˆ˜]\×Ú[ˆ‘’S‹LH‹ˆ™]™[Ú[ˆ“‘U×ÔÑS•S‘S‹ˆ˜ÛZ[WÛ[ÙHˆ”ÖTÕSRP×Ô’TÒ×ÔÑS•S‘S‹ˆ™\İ[X[™ˆØ\™ØHš[˜[˜ÚY\˜H\İ[XYHH˜[Z[X\È[›È[\°ë[Y]›ÈHY]ÙÛÙğëXH[QQ‹ˆ‹ˆ›ØœÙ\™YÛ˜\œ›İÈˆ‘[ÔHØœÙ\˜H[˜HØ\™ØHš[˜[˜ÚY\˜H˜[Z[X\ˆ[]˜YHHYÙ\˜[Y[HÜ™XÚY[Kˆ‹ˆ››İÙ\İX›\ÚYˆ“›ÈÙ[œØ[^˜H]YH[™›Ü›X[š]˜XÚpìÛˆX]\šX[šHY[YšXØHØ]\Ø[YYÈ[˜ÚY[˜ÚXHÜˆ[™Ü™\ÛËˆ‹ˆœØY™WİÛÜ™[™Èˆ‘[QQˆ\ÜH]šY[˜ÚXHHØ\™ØHš[˜[˜ÚY\˜H[]˜YH[ˆ˜[Z[X\Ë[›ÈHİH\°ë[Y]›ÎÈ[\İ°ê\Èİ[™\]ZY\™Hİ˜\ÈY[\Ëˆ‹ˆ˜›ØÚÙYİÛÜ™[™Èˆ‘[ÔH[[Üİ°ìÈ]YHÙ\È\È˜[Z[X\È\İ0è[ˆÛØœ™Y[™]YY\Ëˆ‹ˆ›ÜšY[][ÛœÈˆÈ‘’SSÒPSÔÕ‘TÔÎ•S‘T”ÕUT×ÕÕS‹‘TÕ’P•USÓ“PTÒÔ×ÒUT“ÑÑS‘RUH‹ĞUTĞSUN•S‘T‘UT“RS‘Q—BˆBˆBˆKˆÂˆœÛİ\˜ÙWÚYˆ“Ô×ÑVP×ÔÑTÌŒˆ‹ˆ˜XİÜˆˆ“ÙšXÚ[˜HH™\İ\Y\İÈ[ÛÛ™Ü™\ÛÈ‹ˆœX›\Ú\—İ\Hˆ›YÚ\Û]]™WØYÙ]ÛÙ™šXÙH‹ˆ™]HˆŒŒ‹LLLMˆ‹ˆ\›ˆšÎ‹ËÛÜË™ÛØ‹˜\‹ÙZ™XİXÚ[Û‹\™\İ\Y\İ\šXKØ[˜[\Ú\ËYK[KYZ™XİXÚ[Û‹\™\İ\Y\İ\šXKYK[KXYZ[š\İ˜XÚ[Û‹[˜XÚ[Û˜[\Ù\Y[Xœ™KLŒ‹È‹ˆšÚ[™ˆš[‹ˆ˜ÛZ[\ÈˆÂˆÂˆ›]™WØÛZ[WÚYˆ“U‘KQ’TËL‹ˆœÛİ\˜ÙWÙœ˜YÛY[ˆ”Ù\Y[Xœ™HŒˆ‹ˆ››Ü›X[^™YØÛZ[Hˆ“HYZ[š\İ˜XÚpìÛˆ˜XÚ[Û˜[™YÚ\İ°ìÈ[ˆÙ\Y[Xœ™H[ˆ™\İ[YÈš[˜[˜ÚY\›ÈY[œİX[™YØ]]›ËZY[˜\ÈXİ[][0ìÈİ\\°è]š][ˆY]™HY\Ù\Ëˆ‹ˆ˜]\×Ú[ˆ‘’TËLH‹ˆ™]™[Ú[ˆ“‘U×ÒS‘TS‘S•ÓS‘PQÑH‹ˆ˜ÛZ[WÛ[ÙHˆÓÓ•TÕÓQPTÕT‘SQS•‹ˆ™\İ[X[™ˆ”™\İ[YÈHHYZ[š\İ˜XÚpìÛˆ˜XÚ[Û˜[ÛØœ™HH˜\ÙHH\°ë[Y]›È][^˜YÜÈÜˆÔÈH\\ˆHXÚY[™Kˆ‹ˆ›ØœÙ\™YÛ˜\œ›İÈˆ“ÔÈ]Y\İ˜H0êYšXÚ]š[˜[˜ÚY\›ÈY[œİX[HHYZ[š\İ˜XÚpìÛˆ˜XÚ[Û˜[Hİ\\°è]š]Xİ[][YËÛÙ^\İ[\ÈÛÛˆ[İ\\°è]š]Y[œİX[[Ôˆ[™›Ü›XYÈÜˆXÚY[™Kˆ‹ˆ››İÙ\İX›\ÚYˆ“›È^HÛÛ˜YXØÚpìÛˆ]]Ûpè]XØNˆYšY\™[ˆ\°ë[Y]›Ë˜\ÙHH˜][ZY[ÈH›Z›ÜËˆ‹ˆœØY™WİÛÜ™[™Èˆ”Ù\Y[Xœ™HYYHÙ\ˆYšXÚ]\š[È\˜HHYZ[š\İ˜XÚpìÛˆ˜XÚ[Û˜[[ˆ[˜HYYXÚpìÛˆHİ\\˜]š]\š[È\˜H[Ôˆ[ˆİ˜NÈ[\°ë[Y]›ÈX™H›ÛXœ˜\œÙKˆ‹ˆ˜›ØÚÙYİÛÜ™[™Èˆ•[˜HH\ÈÜÈ[œİ]XÚ[Û™\È\İ0èH™XÙ\Ø\šX[Y[HZ[Y[™ÈÛØœ™HÙ\Y[Xœ™Kˆ‹ˆ›ÜšY[][ÛœÈˆÈPĞÓÕS•S‘×ĞTÒTÎ“ÕS‘T–WÑTS‘S•‹’S”ÕUUSÓSÔT’SQUT“ÕS‘T–WÑTS‘S•—BˆBˆBˆB—B
