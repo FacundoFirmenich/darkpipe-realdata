@@ -42,7 +42,7 @@ jobs:
           PY
       - name: Execute learned question policy benchmark
         run: |
-          python research/irp27_learned_questions/learned_question_benchmark.py \
+          python research/irp27_learned_questions/learned_question_benchmark_v2.py \
             --train "${{ runner.temp }}/averitec_train.json" \
             --dev "${{ runner.temp }}/averitec_dev.json" \
             --output "${{ runner.temp }}/irp27_learned_questions_v14"
