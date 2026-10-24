@@ -1,0 +1,32 @@
+name: IRP27 Gate 012 — probe ENARGAS download function
+
+on:
+  push:
+    branches: [irp27-gate012-weighting-v20]
+    paths:
+      - ".github/workflows/irp27-gate012-probe-download-function.yml"
+      - "research/irp27_gate012/fetch_enargas_download_function.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests
+      - run: python research/irp27_gate012/fetch_enargas_download_function.py "$RUNNER_TEMP/enargas_download_function"
+      - run: |
+          find "$RUNNER_TEMP/enargas_download_function" -type f -maxdepth 1 -print -exec sed -n '1,240p' {} \;
+      - uses: actions/upload-artifact@v4
+        with:
+          name: enargas-aip-download-function
+          path: ${{ runner.temp }}/enargas_download_function
+          if-no-files-found: error
+          retention-days: 7
