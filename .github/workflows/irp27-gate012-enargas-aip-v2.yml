@@ -1,0 +1,37 @@
+name: IRP27 Gate 012 — exact ENARGAS AIP responses v2
+
+on:
+  push:
+    branches: [irp27-gate012-weighting-v20]
+    paths:
+      - ".github/workflows/irp27-gate012-enargas-aip-v2.yml"
+      - "research/irp27_gate012/acquire_enargas_aip_responses_v2.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4 openpyxl pypdf cryptography
+      - run: python research/irp27_gate012/acquire_enargas_aip_responses_v2.py --output "$RUNNER_TEMP/irp27_gate012_aip_v2"
+      - if: always()
+        run: |
+          cat "$RUNNER_TEMP/irp27_gate012_aip_v2/acquisition_status.json" || true
+          cat "$RUNNER_TEMP/irp27_gate012_aip_v2/errors.json" || true
+          du -sh "$RUNNER_TEMP/irp27_gate012_aip_v2" || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-gate012-enargas-aip-responses-v2
+          path: ${{ runner.temp }}/irp27_gate012_aip_v2
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
