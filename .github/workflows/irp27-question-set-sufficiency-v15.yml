@@ -43,7 +43,7 @@ jobs:
       - name: Execute question-set and evidence-sufficiency benchmark
         working-directory: research/irp27_learned_questions
         run: |
-          python question_set_sufficiency_benchmark_v2.py \
+          python question_set_sufficiency_benchmark_v3.py \
             --train "${{ runner.temp }}/averitec_train.json" \
             --dev "${{ runner.temp }}/averitec_dev.json" \
             --output "${{ runner.temp }}/irp27_question_set_sufficiency_v15"
