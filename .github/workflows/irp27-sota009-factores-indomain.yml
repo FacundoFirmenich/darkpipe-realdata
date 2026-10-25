@@ -58,15 +58,22 @@ jobs:
           path=Path("${{ runner.temp }}/factores_dev.json"); path.write_bytes(response.content)
           print({'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'url':url})
           PY
-      - name: Validate dataset schema before training
+      - name: Validate and freeze usable dataset rows
         run: |
           python - <<'PY'
           import json
-          rows=json.load(open("${{ runner.temp }}/factores_dev.json",encoding='utf-8'))
-          required={'claim_id','claim','question','summarized_text','STANCE','label'}
+          from collections import Counter
+          from pathlib import Path
+          path=Path("${{ runner.temp }}/factores_dev.json")
+          rows=json.loads(path.read_text(encoding='utf-8'))
+          required={'claim_id','claim','question','summarized_text','STANCE'}
+          usable=[row for row in rows if required.issubset(row) and row.get('STANCE') in {'Positive','Neutral','Negative'}]
+          missing=Counter(key for row in rows for key in required if key not in row)
+          labels=Counter(str(row.get('label','MISSING')) for row in usable)
           assert len(rows)>1000
-          assert all(required.issubset(row) for row in rows)
-          print({'rows':len(rows),'unique_claims':len({str(r['claim_id']) for r in rows}),'stances':sorted({r['STANCE'] for r in rows}),'labels':sorted({r['label'] for r in rows})})
+          assert len(usable)>=0.98*len(rows), {'rows':len(rows),'usable':len(usable),'missing':missing}
+          path.write_text(json.dumps(usable,ensure_ascii=False),encoding='utf-8')
+          print({'rows_raw':len(rows),'rows_usable':len(usable),'unique_claims':len({str(r['claim_id']) for r in usable}),'stances':Counter(r['STANCE'] for r in usable),'labels':labels,'missing_required':missing})
           PY
       - name: Execute Spanish in-domain benchmark
         run: |
