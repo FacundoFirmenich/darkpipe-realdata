@@ -33,19 +33,30 @@ jobs:
       - name: Compile and run fail-closed tests
         working-directory: research/irp27_arg_bilingual_gold
         run: |
-          python -m py_compile build_argentine_gold.py
-          python -m unittest -v test_build_argentine_gold.py
+          python -m py_compile build_argentine_gold.py adjudicate_annotations.py
+          python -m unittest -v test_build_argentine_gold.py test_adjudicate_annotations.py
       - name: Build 240-claim bilingual annotation corpus
         run: |
           python research/irp27_arg_bilingual_gold/build_argentine_gold.py \
             --registry research/irp27_arg_bilingual_gold/source_registry.json \
             --output "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18" \
             --translation-model Helsinki-NLP/opus-mt-es-en
+      - name: Exercise empty-response adjudication gate
+        run: |
+          printf '[]\n' > "$RUNNER_TEMP/no_responses.json"
+          python research/irp27_arg_bilingual_gold/adjudicate_annotations.py \
+            --pairs "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/data/candidate_pairs_960.jsonl" \
+            --assignments "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/data/assignments_2880.csv" \
+            --responses "$RUNNER_TEMP/no_responses.json" \
+            --output "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/adjudication"
+          cp research/irp27_arg_bilingual_gold/build_argentine_gold.py "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/"
+          cp research/irp27_arg_bilingual_gold/adjudicate_annotations.py "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/"
       - name: Print exact corpus state
         if: always()
         run: |
           cat "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/reports/QA_REPORT.json" || true
           cat "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/reports/ERRORS.json" || true
+          cat "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/adjudication/agreement_report.json" || true
           du -sh "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18" || true
       - uses: actions/upload-artifact@v4
         if: always()
@@ -61,7 +72,9 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          qa=json.loads(Path("${{ runner.temp }}/irp27_arg_bilingual_gold_v18/reports/QA_REPORT.json").read_text())
+          root=Path("${{ runner.temp }}/irp27_arg_bilingual_gold_v18")
+          qa=json.loads((root/'reports/QA_REPORT.json').read_text())
+          agreement=json.loads((root/'adjudication/agreement_report.json').read_text())
           assert qa['claims'] == 240
           assert set(qa['domain_counts'].values()) == {40}
           assert qa['pairs'] == 960
@@ -75,5 +88,9 @@ jobs:
           assert qa['automatic_evidence_promotion'] is False
           assert qa['automatic_publication'] is False
           assert min(qa['assignment_counts'].values()) == max(qa['assignment_counts'].values())
+          assert agreement['responses_valid'] == 0
+          assert agreement['items_adjudicated'] == 0
+          assert agreement['gold_frozen'] is False
+          assert agreement['automatic_majority_as_gold'] is False
           print('BOUNDARY GATE PASS')
           PY
