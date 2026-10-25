@@ -1,0 +1,87 @@
+name: IRP27 Gate SOTA-007 — selective evidence qualification
+
+on:
+  push:
+    branches: [irp27-selective-evidence-v16]
+    paths:
+      - ".github/workflows/irp27-selective-evidence-v16.yml"
+      - "research/irp27_selective_evidence/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip numpy scipy scikit-learn requests
+      - name: Unit tests
+        working-directory: research/irp27_selective_evidence
+        run: python -m unittest -v test_selective_evidence_benchmark.py
+      - name: Acquire official public benchmark data
+        run: |
+          mkdir -p "${{ runner.temp }}/datasets/scifact"
+          python - <<'PY'
+          import hashlib, requests
+          from pathlib import Path
+          targets={
+            'climate':(
+              'https://raw.githubusercontent.com/tdiggelm/climate-fever-dataset/1.0.1/dataset/climate-fever.jsonl',
+              Path("${{ runner.temp }}/datasets/climate-fever.jsonl")
+            ),
+            'scifact':(
+              'https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz',
+              Path("${{ runner.temp }}/datasets/scifact-data.tar.gz")
+            ),
+          }
+          for name,(url,path) in targets.items():
+            response=requests.get(url,timeout=300); response.raise_for_status()
+            path.write_bytes(response.content)
+            print(name, {'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'url':url})
+          PY
+          tar -xzf "${{ runner.temp }}/datasets/scifact-data.tar.gz" -C "${{ runner.temp }}/datasets/scifact"
+          find "${{ runner.temp }}/datasets/scifact" -maxdepth 3 -type f -printf '%P\t%s bytes\n' | sort | head -40
+      - name: Execute selective qualification benchmark
+        run: |
+          python research/irp27_selective_evidence/selective_evidence_benchmark.py \
+            --climate "${{ runner.temp }}/datasets/climate-fever.jsonl" \
+            --scifact-root "${{ runner.temp }}/datasets/scifact" \
+            --output "${{ runner.temp }}/irp27_selective_evidence_v16"
+      - name: Show exact benchmark state
+        if: always()
+        run: |
+          cat "${{ runner.temp }}/irp27_selective_evidence_v16/status.json" || true
+          cat "${{ runner.temp }}/irp27_selective_evidence_v16/climate_fever/results.json" || true
+          cat "${{ runner.temp }}/irp27_selective_evidence_v16/scifact/results.json" || true
+          du -sh "${{ runner.temp }}/irp27_selective_evidence_v16" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-selective-evidence-v16
+          path: ${{ runner.temp }}/irp27_selective_evidence_v16
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce scientific boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path("${{ runner.temp }}/irp27_selective_evidence_v16/status.json").read_text())
+          assert status['climate_metadata']['claims'] == 1535
+          assert status['scifact_metadata']['corpus_documents'] == 5183
+          assert status['external_validation_completed'] is False
+          assert status['open_web_validation_completed'] is False
+          assert status['automatic_evidence_promotion'] is False
+          assert status['automatic_publication'] is False
+          assert status['authority'] == 'INTERNAL_CLOSED_CORPUS_SELECTIVE_QUALIFICATION_PILOT'
+          print('BOUNDARY GATE PASS')
+          PY
