@@ -1,0 +1,98 @@
+{
+  "contract_id": "IRP27-EVIDENCE-RELATION-v2",
+  "version": "2.0.0",
+  "title": "Evidence relation and qualification shadow decision",
+  "estimand": {
+    "name": "claim_passage_relation",
+    "target": "The relation of a passage to a claim under aligned scope",
+    "unit": "claim-passage pair",
+    "universe": "Frozen benchmark pairs only",
+    "time": "as encoded in each item",
+    "geography": "as encoded in each item",
+    "limitations": [
+      "A typed model output is a proposal, not evidence authority",
+      "Context, support and refutation require independent qualification",
+      "No automatic execution or publication"
+    ]
+  },
+  "state": {
+    "format": "object",
+    "required_fields": ["claim", "passage", "source_role", "period", "geography"],
+    "template": "CLAIM: {claim}\nPASSAGE: {passage}\nSOURCE_ROLE: {source_role}\nPERIOD: {period}\nGEOGRAPHY: {geography}"
+  },
+  "questions": {
+    "relation": {
+      "type": "choice",
+      "instructions": "Classify only the evidential relation of PASSAGE to CLAIM, preserving scope, time, population, geography and denominator.",
+      "criteria": {
+        "support": "The passage directly supports all or a clearly delimited part of the claim under aligned scope.",
+        "refute": "The passage directly contradicts a material part of the claim under aligned scope.",
+        "context": "The passage is relevant or authentic context but does not directly support or refute the claim.",
+        "insufficient": "The passage does not provide enough information to determine support, refutation or relevant context."
+      }
+    },
+    "supports": {
+      "type": "noul",
+      "instructions": "Does the passage directly support the claim under aligned scope?",
+      "criteria": {
+        "true": "Direct support with compatible entity, time, geography, population, denominator and measure.",
+        "false": "No direct support, including context only, mismatch, ambiguity or refutation."
+      }
+    },
+    "refutes": {
+      "type": "noul",
+      "instructions": "Does the passage directly refute the claim under aligned scope?",
+      "criteria": {
+        "true": "Direct contradiction of a material claim component with compatible scope.",
+        "false": "No direct refutation, including context only, mismatch, ambiguity or support."
+      }
+    },
+    "evidence_strength": {
+      "type": "score",
+      "instructions": "Rate the maximum evidential authority of this passage for this claim.",
+      "criteria": {
+        "none": "No relevant evidential authority.",
+        "context": "Relevant context only.",
+        "subclaim": "Supports or refutes a delimited subclaim only.",
+        "whole_claim": "Supports or refutes the whole claim under aligned scope."
+      }
+    }
+  },
+  "loss": {
+    "primary": "multiclass_log_loss",
+    "secondary": ["macro_f1", "brier_multiclass", "ece", "risk_coverage", "option_order_stability", "paraphrase_stability"]
+  },
+  "abstention": {
+    "policy": "calibration_only",
+    "minimum_top_probability": 0.85,
+    "minimum_margin": 0.20,
+    "unresolved_labels": ["context", "insufficient"]
+  },
+  "risk_thresholds_permille": {
+    "support_precision_lcb": 950,
+    "refute_precision_lcb": 950,
+    "support_coverage": 50,
+    "refute_coverage": 50,
+    "swap_acceptance_max": 5,
+    "unsafe_conflict_commits_max": 0,
+    "class_conditional_coverage": 900
+  },
+  "prerequisites": {
+    "gold_frozen": false,
+    "translation_reviewed": false,
+    "human_annotations_complete": false,
+    "external_replication_complete": false
+  },
+  "authority": {
+    "provider_conveys_authority": false,
+    "required_roles": ["domain_reviewer", "statistical_reviewer", "policy_authority"],
+    "automatic_execution": false,
+    "automatic_publication": false
+  },
+  "lease": {
+    "required": true,
+    "future_only": true,
+    "default_ttl_seconds": 900
+  },
+  "providers": ["jev", "laya", "nimble", "bifrost_custom"]
+}
