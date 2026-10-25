@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Compatibility wrapper for scikit-learn >=1.8.
 
-The core benchmark used the now-removed `multi_class` constructor argument.
-This wrapper replaces only the model factory; all data splits, calibration,
-metrics and scientific boundaries remain unchanged.
+The core benchmark used the removed `multi_class` constructor argument and a
+solver that no longer accepts native multiclass fitting. This wrapper replaces
+only the model factory; all splits, calibration, metrics and scientific
+boundaries remain unchanged.
 """
 from __future__ import annotations
 
@@ -50,7 +51,7 @@ def build_model(evidence_only: bool = False) -> Pipeline:
                 LogisticRegression(
                     max_iter=2_500,
                     class_weight="balanced",
-                    solver="liblinear",
+                    solver="lbfgs",
                     random_state=benchmark.SEED,
                 ),
             ),
