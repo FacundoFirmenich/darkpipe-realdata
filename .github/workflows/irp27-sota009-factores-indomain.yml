@@ -30,15 +30,20 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
           python -m pip install "transformers>=4.46,<5" sentencepiece sacremoses "numpy<2.3" "scipy<1.16" "scikit-learn<1.8" requests
-      - name: Decode and compile benchmark
+      - name: Decode, verify and compile benchmark
         run: |
           python - <<'PY'
-          import base64,gzip
+          import base64,gzip,hashlib
           from pathlib import Path
           root=Path('research/irp27_sota009')
-          payload=base64.b64decode((root/'factores_in_domain_benchmark.py.gz.b64').read_text(encoding='ascii'))
-          (root/'factores_in_domain_benchmark.py').write_bytes(gzip.decompress(payload))
-          print((root/'factores_in_domain_benchmark.py').stat().st_size)
+          text=(root/'factores_in_domain_benchmark.py.gz.b64').read_text(encoding='ascii').strip()
+          text += '=' * ((4-len(text)%4)%4)
+          payload=base64.b64decode(text,validate=True)
+          source=gzip.decompress(payload)
+          assert source.startswith(b'#!/usr/bin/env python3')
+          target=root/'factores_in_domain_benchmark.py'
+          target.write_bytes(source)
+          print({'base64_chars':len(text),'gzip_bytes':len(payload),'source_bytes':len(source),'source_sha256':hashlib.sha256(source).hexdigest()})
           PY
           python -m py_compile research/irp27_sota009/factores_in_domain_benchmark.py
       - name: Acquire FactOReS public dataset
