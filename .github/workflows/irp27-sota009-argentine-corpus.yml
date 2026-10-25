@@ -5,7 +5,7 @@ on:
     branches: [irp27-in-domain-bilingual-gold-v18]
     paths:
       - ".github/workflows/irp27-sota009-argentine-corpus.yml"
-      - "research/irp27_sota009/build_argentine_corpus_v2.py.gz.b64"
+      - "research/irp27_sota009/build_argentine_corpus_v3_blind.py.gz.b64"
   workflow_dispatch:
 
 permissions:
@@ -30,20 +30,20 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
           python -m pip install "transformers>=4.46,<5" sentencepiece sacremoses requests beautifulsoup4 lxml
-      - name: Decode and compile corpus builder
+      - name: Decode and compile blind corpus builder
         run: |
           python - <<'PY'
           import base64,gzip
           from pathlib import Path
           root=Path('research/irp27_sota009')
-          payload=base64.b64decode((root/'build_argentine_corpus_v2.py.gz.b64').read_text(encoding='ascii'))
-          (root/'build_argentine_corpus_v2.py').write_bytes(gzip.decompress(payload))
-          print((root/'build_argentine_corpus_v2.py').stat().st_size)
+          payload=base64.b64decode((root/'build_argentine_corpus_v3_blind.py.gz.b64').read_text(encoding='ascii'))
+          (root/'build_argentine_corpus_v3_blind.py').write_bytes(gzip.decompress(payload))
+          print((root/'build_argentine_corpus_v3_blind.py').stat().st_size)
           PY
-          python -m py_compile research/irp27_sota009/build_argentine_corpus_v2.py
-      - name: Build balanced ClaimReview-verified corpus
+          python -m py_compile research/irp27_sota009/build_argentine_corpus_v3_blind.py
+      - name: Build balanced ClaimReview-verified blind corpus
         run: |
-          python research/irp27_sota009/build_argentine_corpus_v2.py \
+          python research/irp27_sota009/build_argentine_corpus_v3_blind.py \
             --output "${{ runner.temp }}/irp27_argentine_gold_v18" \
             --target-per-domain 40 \
             --max-pages 100 \
