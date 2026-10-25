@@ -75,15 +75,7 @@ structure RiskCertificate where
   classConditionalCoverage : Nat
 deriving Repr
 
-def riskPass (risk : RiskCertificate) : Prop :=
-  950 ≤ risk.supportPrecisionLCB ∧
-  950 ≤ risk.refutePrecisionLCB ∧
-  50 ≤ risk.supportCoverage ∧
-  50 ≤ risk.refuteCoverage ∧
-  risk.swapAcceptance ≤ 5 ∧
-  risk.unsafeConflictCommits = 0 ∧
-  900 ≤ risk.classConditionalCoverage
-
+/- The executable predicate is the single source of truth. -/
 def riskPassB (risk : RiskCertificate) : Bool :=
   decide (950 ≤ risk.supportPrecisionLCB) &&
   decide (950 ≤ risk.refutePrecisionLCB) &&
@@ -92,6 +84,10 @@ def riskPassB (risk : RiskCertificate) : Bool :=
   decide (risk.swapAcceptance ≤ 5) &&
   decide (risk.unsafeConflictCommits = 0) &&
   decide (900 ≤ risk.classConditionalCoverage)
+
+/- The proof-carrying proposition is exactly the executable result. -/
+def riskPass (risk : RiskCertificate) : Prop :=
+  riskPassB risk = true
 
 def evidenceAdmissibleB : EvidenceState → Bool
   | .support => true
@@ -137,8 +133,8 @@ theorem readyRequiresAdmissibleEvidence
 theorem readyRequiresRiskPass
     (input : GovernanceInput)
     (ready : readyToExecute input = true) :
-    riskPassB input.risk = true := by
-  simp [readyToExecute] at ready
+    riskPass input.risk := by
+  simp [readyToExecute, riskPass] at ready
   exact ready.2.1
 
 theorem readyRequiresHumanAuthorization
