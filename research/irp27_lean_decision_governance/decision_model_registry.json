@@ -1,0 +1,91 @@
+[
+  {
+    "provider_id": "typesafe-jev",
+    "display_name": "Jev",
+    "provider_family": "System One decision model",
+    "ownership": "hosted proprietary",
+    "typed_primitives": ["choice", "score", "noul"],
+    "wire_protocol": "TypeSafe /v1/systemone",
+    "source_url": "https://docs.typesafe.ai/concepts/system-one",
+    "evidence_grade": "VENDOR_PRIMARY_DOCUMENTATION",
+    "known_limits": [
+      "calibration is group-level, not a guarantee for an individual answer",
+      "jev-1.13 may be literal",
+      "jev-1.13 struggles with numeric precision, date comparison and indirection"
+    ],
+    "live_evaluation_in_this_gate": false,
+    "decision_authority": "NONE",
+    "execution_authority": "NONE"
+  },
+  {
+    "provider_id": "open-jev-random",
+    "display_name": "Open Jev",
+    "provider_family": "unofficial research reconstruction",
+    "ownership": "open source",
+    "typed_primitives": ["choice", "score", "noul"],
+    "wire_protocol": "research implementation",
+    "source_url": "https://github.com/kyegomez/open-jev",
+    "evidence_grade": "PRIMARY_REPOSITORY",
+    "known_limits": [
+      "repository explicitly states that weights are random",
+      "does not reproduce TypeSafe training data or weights",
+      "makes no claim of matching vendor results"
+    ],
+    "live_evaluation_in_this_gate": false,
+    "decision_authority": "NONE",
+    "execution_authority": "NONE"
+  },
+  {
+    "provider_id": "laya",
+    "display_name": "Laya",
+    "provider_family": "open System One decision model",
+    "ownership": "Apache-2.0 open source",
+    "typed_primitives": ["choice", "score", "noul"],
+    "wire_protocol": "TypeSafe-compatible POST /v1/systemone",
+    "source_url": "https://github.com/NandhaKishorM/laya",
+    "evidence_grade": "PRIMARY_REPOSITORY",
+    "known_limits": [
+      "compatibility of the wire schema does not establish equivalence of calibration",
+      "requires independent domain-specific held-out evaluation"
+    ],
+    "live_evaluation_in_this_gate": false,
+    "decision_authority": "NONE",
+    "execution_authority": "NONE"
+  },
+  {
+    "provider_id": "nimble",
+    "display_name": "Nimble",
+    "provider_family": "open typed decision model and training recipe",
+    "ownership": "open source",
+    "typed_primitives": ["typed decisions"],
+    "wire_protocol": "System-One-inspired adapters available",
+    "source_url": "https://github.com/bespokelabsai/nimble",
+    "evidence_grade": "PRIMARY_REPOSITORY",
+    "known_limits": [
+      "authors state it was not distilled from Jev",
+      "its probabilities and calibration are its own",
+      "requires adapter- and model-version-specific validation"
+    ],
+    "live_evaluation_in_this_gate": false,
+    "decision_authority": "NONE",
+    "execution_authority": "NONE"
+  },
+  {
+    "provider_id": "openjev-verdict-2",
+    "display_name": "openJev-verdict-2.0",
+    "provider_family": "community non-autoregressive decision engine",
+    "ownership": "open repository",
+    "typed_primitives": ["choice", "score", "noul"],
+    "wire_protocol": "Jev-style typed decisions",
+    "source_url": "https://github.com/Heman10x-NGU/openJev-verdict-2.0",
+    "evidence_grade": "PRIMARY_REPOSITORY_SELF_REPORTED_BENCHMARK",
+    "known_limits": [
+      "published benchmark results are repository-reported",
+      "independent reproduction is required before comparative claims",
+      "calibration channel semantics must be matched to the target decision"
+    ],
+    "live_evaluation_in_this_gate": false,
+    "decision_authority": "NONE",
+    "execution_authority": "NONE"
+  }
+]
