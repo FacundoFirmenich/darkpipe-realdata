@@ -1,0 +1,23 @@
+{
+  "gate": "IRP27-GATE-IN-DOMAIN-COMPETENCE-CURRICULUM-AND-ARGENTINE-BILINGUAL-EVIDENCE-GOLD-009",
+  "stages": [
+    {"stage": 0, "name": "SOURCE_ANCHOR_RECOGNITION", "authority": "PRETEXT_ONLY"},
+    {"stage": 1, "name": "FACET_ALIGNMENT", "facets": ["ENTITY", "TIME", "GEOGRAPHY", "POPULATION", "DENOMINATOR", "MEASURE", "SOURCE_ROLE"]},
+    {"stage": 2, "name": "PAIR_RELATION", "labels": ["SUPPORT", "REFUTE", "CONTEXT", "INSUFFICIENT"]},
+    {"stage": 3, "name": "SET_LEVEL_SUFFICIENCY_AND_CONFLICT", "requires_adjudicated_gold": true},
+    {"stage": 4, "name": "LEAVE_ONE_DOMAIN_OUT", "blocked_until_in_domain_gate": true},
+    {"stage": 5, "name": "BILINGUAL_TRANSFER", "blocked_until_translation_review": true},
+    {"stage": 6, "name": "OPEN_WEB", "blocked": true}
+  ],
+  "promotion_thresholds": {
+    "support_precision_lcb95": 0.95,
+    "refute_precision_lcb95": 0.95,
+    "support_coverage": 0.05,
+    "refute_coverage": 0.05,
+    "swap_acceptance": 0.005,
+    "unsafe_conflict_commits": 0,
+    "class_conditional_conformal_coverage": 0.9
+  },
+  "automatic_evidence_promotion": false,
+  "automatic_publication": false
+}
