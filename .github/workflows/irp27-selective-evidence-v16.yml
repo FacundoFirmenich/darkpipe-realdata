@@ -50,7 +50,7 @@ jobs:
           find "${{ runner.temp }}/datasets/scifact" -maxdepth 3 -type f -printf '%P\t%s bytes\n' | sort | head -40
       - name: Execute selective qualification benchmark
         run: |
-          python research/irp27_selective_evidence/selective_evidence_benchmark.py \
+          python research/irp27_selective_evidence/selective_evidence_benchmark_v2.py \
             --climate "${{ runner.temp }}/datasets/climate-fever.jsonl" \
             --scifact-root "${{ runner.temp }}/datasets/scifact" \
             --output "${{ runner.temp }}/irp27_selective_evidence_v16"
