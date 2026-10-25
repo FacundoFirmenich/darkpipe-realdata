@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from build_argentine_gold import (
+from build_argentine_gold_v2 import (
     Segment,
     annotation_schema,
     facet_hints,
