@@ -7,6 +7,7 @@ structure CalibrationKey where
   provider : String
   providerVersion : String
   checkpoint : String
+  questionId : String
   primitive : String
   domain : String
   language : String
@@ -38,6 +39,12 @@ theorem noCrossCellTransport (left right : CalibrationEntry)
     (h : left.key ≠ right.key) : ¬ sameCell left right := by
   intro hs
   exact h hs
+
+theorem differentQuestionIsDifferentCell (left right : CalibrationEntry)
+    (h : left.key.questionId ≠ right.key.questionId) : ¬ sameCell left right := by
+  intro hs
+  apply h
+  exact congrArg CalibrationKey.questionId hs
 
 theorem goldRequired (entry : CalibrationEntry)
     (h : entry.goldFrozen = false) : eligibleForPromotion entry = false := by
