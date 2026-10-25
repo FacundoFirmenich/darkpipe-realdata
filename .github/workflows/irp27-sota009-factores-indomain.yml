@@ -58,7 +58,7 @@ jobs:
           path=Path("${{ runner.temp }}/factores_dev.json"); path.write_bytes(response.content)
           print({'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'url':url})
           PY
-      - name: Audit schema and freeze all usable rows
+      - name: Audit schema and freeze exact public split
         run: |
           python - <<'PY'
           import json
@@ -71,11 +71,12 @@ jobs:
           missing=Counter(key for row in rows for key in required if key not in row)
           labels=Counter(str(row.get('label','MISSING')) for row in usable)
           unique_claims=len({str(r['claim_id']) for r in usable})
-          audit={'rows_raw':len(rows),'rows_usable':len(usable),'unique_claims':unique_claims,'stances':dict(Counter(r['STANCE'] for r in usable)),'labels':dict(labels),'missing_required':dict(missing),'retained_fraction':len(usable)/len(rows) if rows else 0}
+          audit={'rows_raw':len(rows),'rows_usable':len(usable),'unique_claims':unique_claims,'stances':dict(Counter(r['STANCE'] for r in usable)),'labels':dict(labels),'missing_required':dict(missing),'retained_fraction':len(usable)/len(rows) if rows else 0,'source_split':'public_dev_json_as_retrieved_2026-10-25'}
           Path("${{ runner.temp }}/factores_schema_audit.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
           print(audit)
-          assert len(rows)>1000
-          assert len(usable)>0, audit
+          assert len(rows)==571, audit
+          assert len(usable)==571, audit
+          assert unique_claims==81, audit
           path.write_text(json.dumps(usable,ensure_ascii=False),encoding='utf-8')
           PY
       - name: Execute Spanish in-domain benchmark
@@ -108,7 +109,7 @@ jobs:
           import json
           from pathlib import Path
           result=json.loads(Path("${{ runner.temp }}/irp27_factores_indomain_v18/factores_in_domain_results.json").read_text())
-          assert result['unique_claims'] > 0
+          assert result['unique_claims'] == 81
           assert result['human_gold_completed'] == 0
           assert result['bilingual_transport_executed'] is False
           assert result['automatic_evidence_promotion'] is False
