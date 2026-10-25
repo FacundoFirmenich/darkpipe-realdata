@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://irp27.local/schemas/decision-envelope-v1.json",
+  "title": "IRP-27 Governed Statistical Decision Envelope",
+  "type": "object",
+  "required": [
+    "proposal",
+    "risk_certificate",
+    "prerequisites",
+    "authority",
+    "execution_lease",
+    "governance_result"
+  ],
+  "properties": {
+    "proposal": {
+      "type": "object",
+      "required": ["provider", "primitive", "question_id", "state_sha256", "response_sha256", "evidence_state"],
+      "properties": {
+        "provider": {"type": "string"},
+        "primitive": {"enum": ["choice", "score", "noul"]},
+        "question_id": {"type": "string", "minLength": 1},
+        "state_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "response_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "evidence_state": {"enum": ["candidate", "context", "support", "refute", "conflicting", "insufficient"]}
+      },
+      "additionalProperties": true
+    },
+    "risk_certificate": {
+      "type": "object",
+      "required": ["source_gate", "source_hash"],
+      "properties": {
+        "support_precision_lcb95": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "refute_precision_lcb95": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "support_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "refute_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "swap_acceptance": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "unsafe_conflict_commits": {"type": ["integer", "null"], "minimum": 0},
+        "class_conditional_conformal_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "source_gate": {"type": "string"},
+        "source_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "prerequisites": {
+      "type": "object",
+      "required": ["gold_frozen", "translation_reviewed", "human_annotations_complete", "open_web_enabled"],
+      "properties": {
+        "gold_frozen": {"type": "boolean"},
+        "translation_reviewed": {"type": "boolean"},
+        "human_annotations_complete": {"type": "boolean"},
+        "open_web_enabled": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "authority": {
+      "type": "object",
+      "required": ["human_authorized"],
+      "properties": {
+        "human_authorized": {"type": "boolean"},
+        "domain_reviewer": {"type": ["string", "null"]},
+        "statistical_reviewer": {"type": ["string", "null"]},
+        "policy_authority": {"type": ["string", "null"]},
+        "authorization_hash": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "execution_lease": {
+      "type": "object",
+      "required": ["valid", "future_only"],
+      "properties": {
+        "valid": {"type": "boolean"},
+        "lease_id": {"type": ["string", "null"]},
+        "future_only": {"const": true},
+        "expires_at": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "governance_result": {
+      "type": "object",
+      "required": ["route", "provider_has_authority", "ready_to_execute", "automatic_publication"],
+      "properties": {
+        "route": {
+          "enum": [
+            "BLOCKED_PREREQUISITE",
+            "ABSTAIN",
+            "HUMAN_REVIEW",
+            "QUALIFIED_AWAITING_AUTHORITY",
+            "AUTHORIZED_AWAITING_LEASE",
+            "READY_TO_EXECUTE"
+          ]
+        },
+        "provider_has_authority": {"const": false},
+        "ready_to_execute": {"type": "boolean"},
+        "automatic_publication": {"const": false},
+        "blockers": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
