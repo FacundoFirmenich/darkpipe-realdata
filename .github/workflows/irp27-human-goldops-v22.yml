@@ -1,0 +1,98 @@
+name: IRP27 Gate SOTA-013 — Human Gold freeze proof
+
+on:
+  push:
+    branches: [irp27-human-goldops-v22]
+    paths:
+      - ".github/workflows/irp27-human-goldops-v22.yml"
+      - "research/irp27_human_goldops/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lean 4.35.0
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | \
+            sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          source "$HOME/.elan/env"
+          lean --version
+          lake --version
+
+      - name: Compile Human Gold obligations against the decision kernel
+        run: |
+          set -euo pipefail
+          source "$HOME/.elan/env"
+          PROJECT="research/irp27_lean_decision_governance"
+          cp research/irp27_human_goldops/HumanGoldFreeze.lean \
+             "$PROJECT/DecisionGov/HumanGoldFreeze.lean"
+          (
+            cd "$PROJECT"
+            lake build
+            lake env lean DecisionGov/HumanGoldFreeze.lean
+          )
+          if grep -nE '\bsorry\b|\badmit\b|\baxiom\b' \
+              "$PROJECT/DecisionGov/HumanGoldFreeze.lean"; then
+            echo 'Unfinished or assumed proof detected'
+            exit 1
+          fi
+
+      - name: Verify fail-closed authority state
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          status=json.loads(Path('research/irp27_human_goldops/GATE_STATUS_v3.0.json').read_text())
+          assert status['human_responses'] == 0
+          assert status['adjudicated_items'] == 0
+          assert status['gold_frozen'] is False
+          assert status['automatic_majority_as_gold'] is False
+          assert status['automatic_execution'] is False
+          assert status['automatic_publication'] is False
+          proof=Path('research/irp27_human_goldops/HumanGoldFreeze.lean')
+          result={
+            'gate':status['gate'],
+            'verified':True,
+            'lean_version':'4.35.0',
+            'proof_sha256':hashlib.sha256(proof.read_bytes()).hexdigest(),
+            'sorry':0,
+            'admit':0,
+            'axiom':0,
+            'gold_frozen':False,
+            'automatic_execution':False,
+            'automatic_publication':False
+          }
+          Path('research/irp27_human_goldops/FORMAL_VERIFICATION.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result,indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: irp27-human-goldops-v22-formal
+          path: |
+            research/irp27_human_goldops/HumanGoldFreeze.lean
+            research/irp27_human_goldops/GATE_STATUS_v3.0.json
+            research/irp27_human_goldops/FORMAL_VERIFICATION.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Enforce final boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('research/irp27_human_goldops/FORMAL_VERIFICATION.json').read_text())
+          assert result['verified'] is True
+          assert result['sorry'] == result['admit'] == result['axiom'] == 0
+          assert result['gold_frozen'] is False
+          assert result['automatic_execution'] is False
+          assert result['automatic_publication'] is False
+          print('GATE SOTA-013 FORMAL BOUNDARY PASS')
+          PY
