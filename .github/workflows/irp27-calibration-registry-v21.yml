@@ -1,0 +1,295 @@
+name: IRP27 Gate SOTA-012 — calibration registry
+
+on:
+  push:
+    branches: [irp27-calibration-registry-v21]
+    paths:
+      - ".github/workflows/irp27-calibration-registry-v21.yml"
+      - "research/irp27_calibration_registry/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_XET: "1"
+  HF_HUB_DISABLE_TELEMETRY: "1"
+  TOKENIZERS_PARALLELISM: "false"
+  SYS1_EVAL_COMMIT: "e74dfb6d99ed041f5f5240af386ba5272de84cdd"
+  GATE_ROOT: "research/irp27_calibration_registry"
+  CONTRACT_PATH: "research/irp27_decision_contract_compiler/contracts/evidence_relation.contract.json"
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install base scientific stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy scikit-learn jsonschema pytest requests
+
+      - name: Decode real Argentine bilingual shadow pairs
+        run: |
+          python - <<'PY'
+          import base64,gzip
+          from pathlib import Path
+          root=Path('research/irp27_calibration_registry/data')
+          payload=base64.b64decode((root/'bilingual_shadow_pairs_24.jsonl.gz.b64').read_text(encoding='ascii'))
+          target=root/'bilingual_shadow_pairs_24.jsonl'
+          target.write_bytes(gzip.decompress(payload))
+          print({'path':str(target),'bytes':target.stat().st_size,'lines':len(target.read_text(encoding='utf-8').splitlines())})
+          PY
+
+      - name: Compile and test registry kernel
+        env:
+          PYTHONPATH: research/irp27_calibration_registry
+        run: |
+          python -m compileall "$GATE_ROOT"
+          pytest -q "$GATE_ROOT/tests"
+
+      - name: Acquire pinned external benchmark raw outputs
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012"; RAW="$OUT/external_raw"; mkdir -p "$RAW"
+          python - <<'PY'
+          import hashlib,json,os,requests
+          from pathlib import Path
+          commit=os.environ['SYS1_EVAL_COMMIT']
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate012/external_raw'
+          rows=[]
+          for remote in ['bench/cases.jsonl','bench/cases-flip.jsonl','results/laya.jsonl','results/jev.jsonl','results/laya-flip.jsonl','results/jev-flip.jsonl']:
+            url=f'https://raw.githubusercontent.com/David-DL-Space/sys1-eval/{commit}/{remote}'
+            response=requests.get(url,timeout=300); response.raise_for_status()
+            path=root/Path(remote).name; path.write_bytes(response.content)
+            rows.append({'repository':'David-DL-Space/sys1-eval','commit':commit,'remote_path':remote,'url':url,'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'status':response.status_code})
+          (root/'SOURCE_REGISTRY.json').write_text(json.dumps(rows,indent=2)+'\n')
+          print(json.dumps(rows,indent=2))
+          PY
+
+      - name: Install Laya CPU shadow stack
+        id: install_laya
+        continue-on-error: true
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install laya==0.4.15
+
+      - name: Execute bilingual ES↔EN Laya shadow
+        id: bilingual_shadow
+        continue-on-error: true
+        env:
+          PYTHONPATH: research/irp27_calibration_registry
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012/live_bilingual"; mkdir -p "$OUT"
+          /usr/bin/time -v -o "$OUT/resource_time.txt" \
+            python "$GATE_ROOT/bilingual_shadow_runner.py" \
+              --pairs "$GATE_ROOT/data/bilingual_shadow_pairs_24.jsonl" \
+              --contract "$CONTRACT_PATH" \
+              --checkpoints english multilingual typed-decisions \
+              --output "$OUT"
+
+      - name: Seal bilingual shadow boundary and resource profile
+        if: always()
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012/live_bilingual"; mkdir -p "$OUT"
+          if [ ! -f "$OUT/bilingual_shadow_status.json" ]; then
+            INSTALL_OUTCOME="${{ steps.install_laya.outcome }}" RUN_OUTCOME="${{ steps.bilingual_shadow.outcome }}" OUT="$OUT" python - <<'PY'
+          import json,os
+          from pathlib import Path
+          out=Path(os.environ['OUT'])
+          (out/'bilingual_shadow_status.json').write_text(json.dumps({
+            'attempted':os.environ['INSTALL_OUTCOME']=='success',
+            'completed':False,
+            'install_outcome':os.environ['INSTALL_OUTCOME'],
+            'run_outcome':os.environ['RUN_OUTCOME'],
+            'failures':None,
+            'gold_status':'NOT_FROZEN',
+            'translation_status':'MODEL_TRANSLATION_PENDING_HUMAN_REVIEW',
+            'provider_has_authority':False,
+            'automatic_execution':False,
+            'automatic_publication':False,
+            'error_boundary':'BILINGUAL_LIVE_SHADOW_INCOMPLETE_OR_BLOCKED'
+          },indent=2)+'\n')
+          PY
+          fi
+          OUT="$OUT" python - <<'PY'
+          import json,os,re,subprocess
+          from pathlib import Path
+          out=Path(os.environ['OUT'])
+          status=json.loads((out/'bilingual_shadow_status.json').read_text())
+          text=(out/'resource_time.txt').read_text(errors='replace') if (out/'resource_time.txt').exists() else ''
+          match=re.search(r'Maximum resident set size \(kbytes\):\s*(\d+)',text)
+          try:
+            cache_bytes=int(subprocess.check_output(['du','-sb',str(Path.home()/'.cache/huggingface')]).split()[0])
+          except Exception:
+            cache_bytes=None
+          profile={
+            'hardware':'github-actions-ubuntu-latest-cpu',
+            'device':status.get('device'),
+            'cold_load_ms':status.get('load_ms'),
+            'max_rss_kb':int(match.group(1)) if match else None,
+            'huggingface_cache_bytes':cache_bytes,
+            'direct_api_cost_usd_per_1000':0.0 if status.get('completed') else None,
+            'infrastructure_cost_usd_per_1000':None,
+            'energy_joules_per_decision':None,
+            'energy_status':'NOT_MEASURED',
+            'authority':'DIAGNOSTIC_ONLY'
+          }
+          (out/'resource_profile.json').write_text(json.dumps(profile,indent=2)+'\n')
+          print(json.dumps(status,indent=2)); print(json.dumps(profile,indent=2))
+          PY
+
+      - name: Build keyed calibration registry
+        env:
+          PYTHONPATH: research/irp27_calibration_registry
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012"; RAW="$OUT/external_raw"; REG="$OUT/registry"; mkdir -p "$REG"
+          python "$GATE_ROOT/calibration_registry.py" \
+            --cases "$RAW/cases.jsonl" \
+            --flip-cases "$RAW/cases-flip.jsonl" \
+            --providers laya_public jev_public \
+            --provider-versions public-artifact-0.4.15 jev-1.13.0 \
+            --base-outputs "$RAW/laya.jsonl" "$RAW/jev.jsonl" \
+            --flip-outputs "$RAW/laya-flip.jsonl" "$RAW/jev-flip.jsonl" \
+            --contract "$CONTRACT_PATH" \
+            --external-vintage "$SYS1_EVAL_COMMIT" \
+            --bilingual-pairs "$GATE_ROOT/data/bilingual_shadow_pairs_24.jsonl" \
+            --bilingual-outputs "$OUT/live_bilingual/bilingual_shadow_outputs.jsonl" \
+            --laya-version 0.4.15 \
+            --live-hardware github-actions-ubuntu-latest-cpu \
+            --argentine-vintage SOTA009-v1.8-machine-translation-unreviewed \
+            --output "$REG"
+
+      - name: Validate every registry cell against schema
+        env:
+          PYTHONPATH: research/irp27_calibration_registry
+        run: |
+          python - <<'PY'
+          import json,jsonschema,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate012'
+          schema=json.loads(Path('research/irp27_calibration_registry/protocols/calibration_registry.schema.json').read_text())
+          rows=[json.loads(line) for line in (root/'registry/calibration_registry.jsonl').read_text().splitlines() if line.strip()]
+          for row in rows: jsonschema.validate(row,schema)
+          print({'validated_cells':len(rows)})
+          PY
+
+      - name: Install Lean 4.35.0 and prove calibration invariants
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          source "$HOME/.elan/env"
+          PROJECT="research/irp27_lean_decision_governance"; OUT="$RUNNER_TEMP/irp27_gate012"
+          cp "$GATE_ROOT/formal/CalibrationRegistry.lean" "$PROJECT/DecisionGov/CalibrationRegistry.lean"
+          (cd "$PROJECT" && lake build && lake env lean DecisionGov/CalibrationRegistry.lean)
+          if grep -nE '\bsorry\b|admit|axiom[[:space:]]' "$PROJECT/DecisionGov/CalibrationRegistry.lean"; then exit 1; fi
+          LEAN_VERSION="$(lean --version | head -1)" LAKE_VERSION="$(lake --version | head -1)" OUT="$OUT" python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ['OUT']); proof=Path('research/irp27_lean_decision_governance/DecisionGov/CalibrationRegistry.lean')
+          (out/'formal_calibration_verification.json').write_text(json.dumps({'verified':True,'lean_version':os.environ['LEAN_VERSION'],'lake_version':os.environ['LAKE_VERSION'],'proof_sha256':hashlib.sha256(proof.read_bytes()).hexdigest(),'no_cross_cell_transport':True,'automatic_execution':False,'automatic_publication':False},indent=2)+'\n')
+          PY
+
+      - name: Emit blocked RiskCertificate and report
+        env:
+          PYTHONPATH: research/irp27_calibration_registry
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012"; mkdir -p "$OUT/report"
+          python "$GATE_ROOT/build_report.py" \
+            --registry "$OUT/registry/registry_index.json" \
+            --matrix "$OUT/registry/calibration_matrix.csv" \
+            --bilingual-status "$OUT/live_bilingual/bilingual_shadow_status.json" \
+            --output "$OUT/report"
+          OUT="$OUT" python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ['OUT']); index=json.loads((out/'registry/registry_index.json').read_text())
+          certificate={
+            'certificate_id':'RISK-CERT-GATE012-BLOCKED',
+            'gate':index['gate'],
+            'registry_receipt_root':index['receipt_root'],
+            'status':'BLOCKED_PREREQUISITE',
+            'observed':{'cells':index['cells'],'external_cells':index['external_cells'],'bilingual_cells':index['bilingual_cells']},
+            'blockers':['ARGENTINE_GOLD_NOT_FROZEN','TRANSLATION_NOT_HUMAN_REVIEWED','HUMAN_ANNOTATIONS_INCOMPLETE','NO_EXTERNAL_REPLICATION','NO_PROVIDER_PROMOTION'],
+            'human_signatures':[],
+            'signed':False,
+            'provider_conveys_authority':False,
+            'automatic_execution':False,
+            'automatic_publication':False
+          }
+          certificate['certificate_hash']=hashlib.sha256(json.dumps(certificate,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          (out/'RISK_CERTIFICATE_BLOCKED_v2.2.json').write_text(json.dumps(certificate,indent=2)+'\n')
+          PY
+
+      - name: Assemble artifact and manifest
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012"
+          mkdir -p "$OUT/src" "$OUT/protocols" "$OUT/formal" "$OUT/data" "$OUT/reports"
+          cp "$GATE_ROOT/"*.py "$OUT/src/"
+          cp "$GATE_ROOT/tests/"*.py "$OUT/src/"
+          cp "$GATE_ROOT/protocols/"*.json "$OUT/protocols/"
+          cp "$GATE_ROOT/formal/CalibrationRegistry.lean" "$OUT/formal/"
+          cp "$OUT/formal_calibration_verification.json" "$OUT/formal/"
+          cp "$GATE_ROOT/data/bilingual_shadow_pairs_24.jsonl" "$OUT/data/"
+          cp "$OUT/report/"*.md "$OUT/reports/"
+          cp "$OUT/report/"*.html "$OUT/"
+          cp "$OUT/report/GATE_DECISION_v2.2.json" "$OUT/"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate012'; decision=json.loads((root/'GATE_DECISION_v2.2.json').read_text()); index=json.loads((root/'registry/registry_index.json').read_text())
+          status={'gate':decision['gate'],'registry_cells':index['cells'],'external_cells':index['external_cells'],'bilingual_cells':index['bilingual_cells'],'bilingual_live_completed':decision['bilingual_live_completed'],'calibration_transport':'PROHIBITED_ACROSS_NONIDENTICAL_KEYS','provider_promotion':'BLOCKED','execution_authority':'NONE','automatic_execution':False,'automatic_publication':False}
+          (root/'STATUS_v2.2.json').write_text(json.dumps(status,indent=2)+'\n')
+          lines=[f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}" for path in sorted(root.rglob('*')) if path.is_file() and path.name!='MANIFEST.sha256']
+          (root/'MANIFEST.sha256').write_text('\n'.join(lines)+'\n')
+          print({'manifest_entries':len(lines),'status':status})
+          PY
+
+      - name: Print exact gate state
+        if: always()
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate012"
+          cat "$OUT/STATUS_v2.2.json" || true
+          cat "$OUT/registry/registry_index.json" || true
+          cat "$OUT/live_bilingual/bilingual_shadow_status.json" || true
+          cat "$OUT/RISK_CERTIFICATE_BLOCKED_v2.2.json" || true
+          du -sh "$OUT" || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-calibration-registry-v21
+          path: ${{ runner.temp }}/irp27_gate012
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+
+      - name: Enforce scientific and authority boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate012'
+          index=json.loads((root/'registry/registry_index.json').read_text())
+          decision=json.loads((root/'GATE_DECISION_v2.2.json').read_text())
+          formal=json.loads((root/'formal/formal_calibration_verification.json').read_text())
+          risk=json.loads((root/'RISK_CERTIFICATE_BLOCKED_v2.2.json').read_text())
+          status=json.loads((root/'STATUS_v2.2.json').read_text())
+          assert index['validation_errors']==[]
+          assert index['promotion_counts']=={'BLOCKED':index['cells']}
+          assert formal['verified'] is True and formal['no_cross_cell_transport'] is True
+          assert decision['calibration_transport']=='PROHIBITED_ACROSS_NONIDENTICAL_KEYS'
+          assert decision['argentine_accuracy_calibration']=='BLOCKED_GOLD_NOT_FROZEN'
+          assert risk['status']=='BLOCKED_PREREQUISITE' and risk['signed'] is False
+          assert risk['human_signatures']==[]
+          assert status['provider_promotion']=='BLOCKED' and status['execution_authority']=='NONE'
+          assert status['automatic_execution'] is False and status['automatic_publication'] is False
+          assert (root/'MANIFEST.sha256').exists()
+          print('GATE SOTA-012 BOUNDARY PASS')
+          PY
