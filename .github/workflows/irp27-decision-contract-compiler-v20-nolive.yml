@@ -1,0 +1,110 @@
+name: IRP27 Gate SOTA-011 — deterministic closure
+
+on:
+  push:
+    branches: [irp27-decision-contract-compiler-v20]
+    paths:
+      - ".github/workflows/irp27-decision-contract-compiler-v20-nolive.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SYS1_EVAL_COMMIT: "e74dfb6d99ed041f5f5240af386ba5272de84cdd"
+  GATE_ROOT: "research/irp27_decision_contract_compiler"
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip jsonschema numpy scipy scikit-learn pytest requests
+      - name: Test and compile contract
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          python -m compileall "$GATE_ROOT/src" "$GATE_ROOT/tests"
+          pytest -q "$GATE_ROOT/tests"
+          OUT="$RUNNER_TEMP/irp27_gate011"; mkdir -p "$OUT/compiled"
+          python "$GATE_ROOT/src/decision_contract_compiler.py" \
+            --contract "$GATE_ROOT/contracts/evidence_relation.contract.json" \
+            --schema "$GATE_ROOT/protocols/decision_contract.schema.json" \
+            --output "$OUT/compiled"
+      - name: Install Lean and prove generated contract
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          source "$HOME/.elan/env"
+          PROJECT="research/irp27_lean_decision_governance"; OUT="$RUNNER_TEMP/irp27_gate011"
+          cp "$OUT/compiled/CompiledContract.lean" "$PROJECT/DecisionGov/CompiledContract.lean"
+          (cd "$PROJECT" && lake build && lake env lean DecisionGov/CompiledContract.lean)
+          if grep -R --line-number --extended-regexp '\bsorry\b|admit|axiom[[:space:]]' "$PROJECT/DecisionGov"; then exit 1; fi
+          LEAN_VERSION="$(lean --version | head -1)" LAKE_VERSION="$(lake --version | head -1)" python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011'; c=out/'compiled/CompiledContract.lean'; m=json.loads((out/'compiled/compiler_manifest.json').read_text())
+          (out/'formal_contract_verification.json').write_text(json.dumps({'verified':True,'lean_version':os.environ['LEAN_VERSION'],'lake_version':os.environ['LAKE_VERSION'],'contract_hash':m['contract_hash'],'proof_sha256':hashlib.sha256(c.read_bytes()).hexdigest(),'automatic_execution':False,'automatic_publication':False},indent=2)+'\n')
+          PY
+      - name: Acquire and reanalyse pinned public outputs
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"; RAW="$OUT/external_raw"; mkdir -p "$RAW" "$OUT/shadow_benchmark"
+          python - <<'PY'
+          import hashlib,json,os,requests
+          from pathlib import Path
+          commit=os.environ['SYS1_EVAL_COMMIT']; root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011/external_raw'; rows=[]
+          for remote in ['bench/cases.jsonl','bench/cases-flip.jsonl','results/laya.jsonl','results/jev.jsonl','results/laya-flip.jsonl','results/jev-flip.jsonl']:
+            url=f'https://raw.githubusercontent.com/David-DL-Space/sys1-eval/{commit}/{remote}'; r=requests.get(url,timeout=300); r.raise_for_status(); p=root/Path(remote).name; p.write_bytes(r.content); rows.append({'commit':commit,'remote_path':remote,'url':url,'sha256':hashlib.sha256(r.content).hexdigest(),'bytes':len(r.content)})
+          (root/'SOURCE_REGISTRY.json').write_text(json.dumps(rows,indent=2)+'\n')
+          PY
+          python "$GATE_ROOT/src/shadow_benchmark.py" --cases "$RAW/cases.jsonl" --providers "$RAW/laya.jsonl" "$RAW/jev.jsonl" --provider-names laya_public_raw jev_public_raw --variant-cases "$RAW/cases-flip.jsonl" --variant-providers "$RAW/laya-flip.jsonl" "$RAW/jev-flip.jsonl" --output "$OUT/shadow_benchmark"
+      - name: Record explicit live-model boundary and provider availability
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"; mkdir -p "$OUT/live_laya"
+          cat > "$OUT/live_laya/live_laya_status.json" <<'JSON'
+          {"attempted":false,"completed":false,"checkpoints":{},"boundary":"DETERMINISTIC_CLOSURE_WORKFLOW_EXCLUDES_LIVE_MODELS","provider_has_authority":false,"automatic_execution":false,"automatic_publication":false}
+          JSON
+          python "$GATE_ROOT/src/provider_availability.py" > "$OUT/provider_availability.json"
+      - name: Build report and artifact
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"; mkdir -p "$OUT/report"
+          python "$GATE_ROOT/src/build_gate011_report.py" --compiled "$OUT/compiled" --external "$OUT/shadow_benchmark" --availability "$OUT/provider_availability.json" --live "$OUT/live_laya" --output "$OUT/report"
+          mkdir -p "$OUT/src" "$OUT/contracts" "$OUT/protocols" "$OUT/formal" "$OUT/reports"
+          cp "$GATE_ROOT/src/"*.py "$OUT/src/"; cp "$GATE_ROOT/tests/"*.py "$OUT/src/"; cp "$GATE_ROOT/contracts/"*.json "$OUT/contracts/"; cp "$GATE_ROOT/protocols/"*.json "$OUT/protocols/"
+          cp "$OUT/compiled/CompiledContract.lean" "$OUT/formal/"; cp "$OUT/formal_contract_verification.json" "$OUT/formal/"; cp research/irp27_lean_decision_governance/DecisionGov/Kernel.lean "$OUT/formal/Kernel.lean"; cp research/irp27_lean_decision_governance/lean-toolchain "$OUT/formal/"
+          cp "$OUT/report/"*.md "$OUT/reports/"; cp "$OUT/report/"*.html "$OUT/"; cp "$OUT/report/GATE_DECISION_v2.0.json" "$OUT/"; cp "$OUT/report/status.json" "$OUT/reports/report_status.json"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011'; d=json.loads((root/'GATE_DECISION_v2.0.json').read_text())
+          s={'gate':d['gate'],'contract_hash':d['contract_hash'],'compiler':'PASS','formal_contract_verification':True,'shadow_reanalysis':'PASS','live_laya_attempted':False,'live_laya_completed':False,'live_jev_completed':False,'live_nimble_completed':False,'provider_promotion':'BLOCKED','execution_authority':'NONE','automatic_execution':False,'automatic_publication':False}
+          (root/'STATUS_v2.0.json').write_text(json.dumps(s,indent=2)+'\n')
+          lines=[f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(root).as_posix()}" for p in sorted(root.rglob('*')) if p.is_file() and p.name!='MANIFEST.sha256']; (root/'MANIFEST.sha256').write_text('\n'.join(lines)+'\n')
+          PY
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-decision-contract-compiler-v20-nolive
+          path: ${{ runner.temp }}/irp27_gate011
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011'; c=json.loads((root/'compiled/compiler_manifest.json').read_text()); f=json.loads((root/'formal/formal_contract_verification.json').read_text()); b=json.loads((root/'shadow_benchmark/shadow_benchmark.json').read_text()); s=json.loads((root/'STATUS_v2.0.json').read_text())
+          assert c['semantic_invariants']=={'provider_conveys_authority':False,'automatic_execution':False,'automatic_publication':False,'future_only_lease':True}; assert f['verified'] and f['contract_hash']==c['contract_hash']; assert b['provider_results_are_not_new_live_calls']; assert s['provider_promotion']=='BLOCKED' and s['execution_authority']=='NONE' and not s['automatic_execution'] and not s['automatic_publication']; print('DETERMINISTIC GATE SOTA-011 PASS')
+          PY
