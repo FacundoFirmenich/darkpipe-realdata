@@ -8,12 +8,24 @@
     "key": {
       "type": "object",
       "required": ["contract_hash", "provider", "provider_version", "checkpoint", "primitive", "domain", "language", "hardware", "data_vintage", "evaluation_mode"],
+      "properties": {
+        "contract_hash": {"type": "string", "minLength": 1},
+        "provider": {"type": "string", "minLength": 1},
+        "provider_version": {"type": "string", "minLength": 1},
+        "checkpoint": {"type": "string", "minLength": 1},
+        "primitive": {"enum": ["choice", "score", "noul"]},
+        "domain": {"type": "string", "minLength": 1},
+        "language": {"type": "string", "minLength": 1},
+        "hardware": {"type": "string", "minLength": 1},
+        "data_vintage": {"type": "string", "minLength": 1},
+        "evaluation_mode": {"type": "string", "minLength": 1}
+      },
       "additionalProperties": false
     },
     "n": {"type": "integer", "minimum": 0},
-    "gold_status": {"type": "string"},
+    "gold_status": {"type": "string", "minLength": 1},
     "metrics": {"type": "object"},
-    "validity": {"type": "string"},
+    "validity": {"type": "string", "minLength": 1},
     "promotion_status": {"const": "BLOCKED"},
     "blockers": {"type": "array", "items": {"type": "string"}, "minItems": 1},
     "automatic_execution": {"const": false},
