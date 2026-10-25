@@ -1,0 +1,23 @@
+{
+  "gate": "IRP27-GATE-HARD-NEGATIVE-CROSS-ENCODER-AND-CONFLICT-AWARE-QUALIFICATION-008",
+  "primary_design": "PREREGISTERED_CROSS_DOMAIN",
+  "primary_configurations": 8,
+  "posthoc_configurations": 8,
+  "total_configurations": 16,
+  "promotions": 0,
+  "all_argmax_context": true,
+  "conformal_all_class_passes": 6,
+  "conformal_all_class_total": 16,
+  "cross_domain_directional_transfer": "FAILED",
+  "in_domain_directional_learning": "FAILED_UNDER_THIS_MODEL_AND_TRAINING_REGIME",
+  "domain_shift_as_sole_explanation": "REJECTED_BY_POSTHOC_DIAGNOSTIC",
+  "hard_negative_effect": "REDUCED_SET_SIZE_BUT_DID_NOT_ENABLE_PROMOTION_AND_SOMETIMES_REDUCED_CLASS_COVERAGE",
+  "target_calibration_effect": "DID_NOT_RESCUE_DIRECTIONAL_PROMOTION",
+  "conflict_safety": "ZERO_UNSAFE_COMMITMENTS_ONLY_VIA_TOTAL_ABSTENTION",
+  "counterfactual_swap": "ZERO_ACCEPTANCE_ONLY_VIA_TOTAL_ABSTENTION",
+  "automatic_evidence_promotion": false,
+  "automatic_publication": false,
+  "primary_authority": "PREREGISTERED_INTERNAL_CROSS_DOMAIN_BENCHMARK",
+  "posthoc_authority": "DIAGNOSTIC_ONLY_NOT_PROMOTION_EVIDENCE",
+  "formal_decision": "PASS_EXECUTION_FAIL_DIRECTIONAL_PROMOTION_FREEZE_AUTOMATIC_EVIDENCE"
+}
