@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IRP-27 Calibration Registry Cell",
+  "type": "object",
+  "required": ["calibration_id", "key", "n", "gold_status", "metrics", "validity", "promotion_status", "blockers", "automatic_execution", "automatic_publication"],
+  "properties": {
+    "calibration_id": {"type": "string", "pattern": "^CAL-[a-f0-9]{20}$"},
+    "key": {
+      "type": "object",
+      "required": ["contract_hash", "provider", "provider_version", "checkpoint", "primitive", "domain", "language", "hardware", "data_vintage", "evaluation_mode"],
+      "additionalProperties": false
+    },
+    "n": {"type": "integer", "minimum": 0},
+    "gold_status": {"type": "string"},
+    "metrics": {"type": "object"},
+    "validity": {"type": "string"},
+    "promotion_status": {"const": "BLOCKED"},
+    "blockers": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "automatic_execution": {"const": false},
+    "automatic_publication": {"const": false}
+  },
+  "additionalProperties": false
+}
