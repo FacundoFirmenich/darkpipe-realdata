@@ -1,0 +1,128 @@
+name: IRP27 Gate SOTA-008 — hard-negative cross-encoder
+
+on:
+  push:
+    branches: [irp27-hard-negative-crossencoder-v17]
+    paths:
+      - ".github/workflows/irp27-hard-negative-crossencoder-v17.yml"
+      - "research/irp27_hard_negative_crossencoder/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_XET: "1"
+  TOKENIZERS_PARALLELISM: "false"
+  IRP27_CROSS_ENCODER_MODEL: "prajjwal1/bert-tiny"
+  IRP27_MAX_LENGTH: "192"
+  IRP27_BATCH_SIZE: "32"
+  IRP27_EPOCHS_SCOPE: "1"
+  IRP27_EPOCHS_RELATION: "2"
+  IRP27_LEARNING_RATE: "3e-5"
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install CPU training stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.46,<5" "numpy<2.3" "scipy<1.16" "scikit-learn<1.8" requests
+
+      - name: Decode frozen benchmark source
+        run: |
+          python - <<'PY'
+          import base64, gzip
+          from pathlib import Path
+          root=Path('research/irp27_hard_negative_crossencoder')
+          for name in ('hard_negative_crossencoder.py','test_hard_negative_crossencoder.py'):
+              payload=base64.b64decode((root/f'{name}.gz.b64').read_text(encoding='ascii'))
+              (root/name).write_bytes(gzip.decompress(payload))
+              print(name, (root/name).stat().st_size)
+          PY
+
+      - name: Compile and run fail-closed unit tests
+        env:
+          PYTHONPATH: research/irp27_hard_negative_crossencoder:research/irp27_selective_evidence
+        run: |
+          python -m py_compile research/irp27_hard_negative_crossencoder/hard_negative_crossencoder.py
+          python -m unittest -v research/irp27_hard_negative_crossencoder/test_hard_negative_crossencoder.py
+
+      - name: Acquire official public benchmark data
+        run: |
+          mkdir -p "${{ runner.temp }}/datasets/scifact"
+          python - <<'PY'
+          import hashlib, requests
+          from pathlib import Path
+          targets={
+            'climate':(
+              'https://raw.githubusercontent.com/tdiggelm/climate-fever-dataset/1.0.1/dataset/climate-fever.jsonl',
+              Path("${{ runner.temp }}/datasets/climate-fever.jsonl")
+            ),
+            'scifact':(
+              'https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz',
+              Path("${{ runner.temp }}/datasets/scifact-data.tar.gz")
+            ),
+          }
+          for name,(url,path) in targets.items():
+              response=requests.get(url,timeout=300); response.raise_for_status()
+              path.write_bytes(response.content)
+              print(name, {'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'url':url})
+          PY
+          tar -xzf "${{ runner.temp }}/datasets/scifact-data.tar.gz" -C "${{ runner.temp }}/datasets/scifact"
+
+      - name: Execute cross-domain hard-negative benchmark
+        env:
+          PYTHONPATH: research/irp27_hard_negative_crossencoder:research/irp27_selective_evidence
+        run: |
+          python research/irp27_hard_negative_crossencoder/hard_negative_crossencoder.py \
+            --climate "${{ runner.temp }}/datasets/climate-fever.jsonl" \
+            --scifact-root "${{ runner.temp }}/datasets/scifact" \
+            --output "${{ runner.temp }}/irp27_hard_negative_crossencoder_v17"
+
+      - name: Print exact benchmark state
+        if: always()
+        run: |
+          cat "${{ runner.temp }}/irp27_hard_negative_crossencoder_v17/status.json" || true
+          du -sh "${{ runner.temp }}/irp27_hard_negative_crossencoder_v17" || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-hard-negative-crossencoder-v17
+          path: |
+            ${{ runner.temp }}/irp27_hard_negative_crossencoder_v17
+            research/irp27_hard_negative_crossencoder/hard_negative_crossencoder.py
+            research/irp27_hard_negative_crossencoder/test_hard_negative_crossencoder.py
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+
+      - name: Enforce scientific boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path("${{ runner.temp }}/irp27_hard_negative_crossencoder_v17/status.json").read_text())
+          assert status['climate_metadata']['claims'] == 1535
+          assert status['scifact_metadata']['corpus_documents'] == 5183
+          assert status['hard_negative_proxy_is_not_real_world_falsehood'] is True
+          assert status['external_validation_completed'] is False
+          assert status['open_web_validation_completed'] is False
+          assert status['argentine_bilingual_pilot_completed'] is False
+          assert status['automatic_evidence_promotion'] is False
+          assert status['automatic_publication'] is False
+          assert status['authority'] == 'CROSS_DOMAIN_INTERNAL_PILOT_NOT_DEPLOYMENT_READY'
+          print('BOUNDARY GATE PASS')
+          PY
