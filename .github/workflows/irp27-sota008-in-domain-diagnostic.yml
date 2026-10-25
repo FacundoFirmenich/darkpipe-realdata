@@ -1,0 +1,96 @@
+name: IRP27 SOTA-008 — in-domain diagnostic
+
+on:
+  push:
+    branches: [irp27-hard-negative-crossencoder-v17]
+    paths:
+      - ".github/workflows/irp27-sota008-in-domain-diagnostic.yml"
+      - "research/irp27_hard_negative_crossencoder/run_in_domain_diagnostic.py.gz.b64"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_XET: "1"
+  TOKENIZERS_PARALLELISM: "false"
+  IRP27_CROSS_ENCODER_MODEL: "prajjwal1/bert-tiny"
+  IRP27_MAX_LENGTH: "192"
+  IRP27_BATCH_SIZE: "32"
+  IRP27_EPOCHS_SCOPE: "1"
+  IRP27_EPOCHS_RELATION: "2"
+  IRP27_LEARNING_RATE: "3e-5"
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install CPU stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.46,<5" "numpy<2.3" "scipy<1.16" "scikit-learn<1.8" requests
+      - name: Decode source and diagnostic
+        run: |
+          python - <<'PY'
+          import base64,gzip
+          from pathlib import Path
+          root=Path('research/irp27_hard_negative_crossencoder')
+          for name in ('hard_negative_crossencoder.py','run_in_domain_diagnostic.py'):
+              payload=base64.b64decode((root/f'{name}.gz.b64').read_text(encoding='ascii'))
+              (root/name).write_bytes(gzip.decompress(payload))
+              print(name,(root/name).stat().st_size)
+          PY
+          python -m py_compile research/irp27_hard_negative_crossencoder/hard_negative_crossencoder.py research/irp27_hard_negative_crossencoder/run_in_domain_diagnostic.py
+      - name: Acquire datasets
+        run: |
+          mkdir -p "${{ runner.temp }}/datasets/scifact"
+          python - <<'PY'
+          import requests
+          from pathlib import Path
+          targets={
+            'climate':('https://raw.githubusercontent.com/tdiggelm/climate-fever-dataset/1.0.1/dataset/climate-fever.jsonl',Path("${{ runner.temp }}/datasets/climate-fever.jsonl")),
+            'scifact':('https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz',Path("${{ runner.temp }}/datasets/scifact-data.tar.gz")),
+          }
+          for _,(url,path) in targets.items():
+              response=requests.get(url,timeout=300); response.raise_for_status(); path.write_bytes(response.content)
+          PY
+          tar -xzf "${{ runner.temp }}/datasets/scifact-data.tar.gz" -C "${{ runner.temp }}/datasets/scifact"
+      - name: Execute explicitly post-hoc in-domain diagnostic
+        env:
+          PYTHONPATH: research/irp27_hard_negative_crossencoder:research/irp27_selective_evidence
+        run: |
+          python research/irp27_hard_negative_crossencoder/run_in_domain_diagnostic.py \
+            --climate "${{ runner.temp }}/datasets/climate-fever.jsonl" \
+            --scifact-root "${{ runner.temp }}/datasets/scifact" \
+            --output "${{ runner.temp }}/irp27_sota008_in_domain"
+      - if: always()
+        run: cat "${{ runner.temp }}/irp27_sota008_in_domain/status.json" || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: irp27-sota008-in-domain-diagnostic
+          path: ${{ runner.temp }}/irp27_sota008_in_domain
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce post-hoc boundary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path("${{ runner.temp }}/irp27_sota008_in_domain/status.json").read_text())
+          assert status['post_hoc'] is True
+          assert status['preregistered_primary'] is False
+          assert status['automatic_evidence_promotion'] is False
+          assert status['automatic_publication'] is False
+          assert status['authority']=='POSTHOC_DIAGNOSTIC_NOT_PROMOTION_EVIDENCE'
+          print('POSTHOC BOUNDARY PASS')
+          PY
