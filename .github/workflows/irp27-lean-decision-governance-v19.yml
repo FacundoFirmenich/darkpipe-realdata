@@ -1,0 +1,138 @@
+name: IRP27 Gate SOTA-010 — Lean decision governance
+
+on:
+  push:
+    branches: [irp27-lean-decision-governance-v19]
+    paths:
+      - ".github/workflows/irp27-lean-decision-governance-v19.yml"
+      - "research/irp27_lean_decision_governance/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prove-and-govern:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install statistical runtime
+        run: python -m pip install --upgrade pip scipy jsonschema
+
+      - name: Run statistical governance tests
+        working-directory: research/irp27_lean_decision_governance
+        run: |
+          python -m compileall decision_governance.py test_decision_governance.py
+          python -m unittest -v test_decision_governance.py
+
+      - name: Execute real SOTA-008/SOTA-009 provider-invariance gate
+        working-directory: research/irp27_lean_decision_governance
+        run: |
+          python decision_governance.py \
+            --curriculum fixtures/sota009_curriculum.json \
+            --qa fixtures/sota009_qa.json \
+            --sota008 fixtures/sota008_gate_decision.json \
+            --output "$RUNNER_TEMP/irp27_lean_decision_governance_v19"
+
+      - name: Validate model registry and schemas
+        working-directory: research/irp27_lean_decision_governance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          registry=json.loads(Path('decision_model_registry.json').read_text())
+          assert len(registry) >= 5
+          assert all(row['decision_authority']=='NONE' for row in registry)
+          assert all(row['execution_authority']=='NONE' for row in registry)
+          assert all(row['live_evaluation_in_this_gate'] is False for row in registry)
+          schema=json.loads(Path('decision_envelope.schema.json').read_text())
+          assert schema['properties']['governance_result']['properties']['provider_has_authority']['const'] is False
+          assert schema['properties']['governance_result']['properties']['automatic_publication']['const'] is False
+          print('REGISTRY AND SCHEMA BOUNDARIES PASS')
+          PY
+
+      - name: Install Lean 4.35.0 with elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | \
+            sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          source "$HOME/.elan/env"
+          lean --version
+          lake --version
+
+      - name: Compile formal kernel and proofs
+        working-directory: research/irp27_lean_decision_governance
+        run: |
+          source "$HOME/.elan/env"
+          lake build
+          lake env lean DecisionGov/Tests.lean
+
+      - name: Assemble reproducible artifact
+        run: |
+          OUT="$RUNNER_TEMP/irp27_lean_decision_governance_v19"
+          mkdir -p "$OUT/formal" "$OUT/runtime" "$OUT/protocols" "$OUT/fixtures"
+          cp -r research/irp27_lean_decision_governance/DecisionGov "$OUT/formal/"
+          cp research/irp27_lean_decision_governance/DecisionGov.lean "$OUT/formal/"
+          cp research/irp27_lean_decision_governance/lakefile.lean "$OUT/formal/"
+          cp research/irp27_lean_decision_governance/lean-toolchain "$OUT/formal/"
+          cp research/irp27_lean_decision_governance/decision_governance.py "$OUT/runtime/"
+          cp research/irp27_lean_decision_governance/test_decision_governance.py "$OUT/runtime/"
+          cp research/irp27_lean_decision_governance/LEAN_DECISION_GOVERNANCE_SPEC_v1.0.md "$OUT/protocols/"
+          cp research/irp27_lean_decision_governance/decision_envelope.schema.json "$OUT/protocols/"
+          cp research/irp27_lean_decision_governance/decision_model_registry.json "$OUT/protocols/"
+          cp research/irp27_lean_decision_governance/fixtures/*.json "$OUT/fixtures/"
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          root=Path("${{ runner.temp }}/irp27_lean_decision_governance_v19")
+          lines=[]
+          for path in sorted(root.rglob('*')):
+              if path.is_file() and path.name != 'MANIFEST.sha256':
+                  lines.append(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}")
+          (root/'MANIFEST.sha256').write_text('\n'.join(lines)+'\n')
+          print({'manifest_entries':len(lines)})
+          PY
+
+      - name: Print exact gate state
+        if: always()
+        run: |
+          cat "$RUNNER_TEMP/irp27_lean_decision_governance_v19/status.json" || true
+          cat "$RUNNER_TEMP/irp27_lean_decision_governance_v19/provider_invariance_matrix.json" || true
+          du -sh "$RUNNER_TEMP/irp27_lean_decision_governance_v19" || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-lean-decision-governance-v19
+          path: ${{ runner.temp }}/irp27_lean_decision_governance_v19
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+
+      - name: Enforce scientific and authority boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("${{ runner.temp }}/irp27_lean_decision_governance_v19")
+          status=json.loads((root/'status.json').read_text())
+          matrix=json.loads((root/'provider_invariance_matrix.json').read_text())
+          assert status['providers_evaluated']==['jev','laya','nimble','openjev']
+          assert status['live_model_calls']==0
+          assert status['provider_invariance'] is True
+          assert status['unique_route']=='BLOCKED_PREREQUISITE'
+          assert status['receipt_chain_valid'] is True
+          assert status['automatic_execution'] is False
+          assert status['automatic_publication'] is False
+          assert all(row['provider_has_authority'] is False for row in matrix)
+          assert all(row['ready_to_execute'] is False for row in matrix)
+          assert len({row['route'] for row in matrix})==1
+          print('FORMAL GOVERNANCE BOUNDARY GATE PASS')
+          PY
