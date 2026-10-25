@@ -1,0 +1,24 @@
+{
+  "claims": 240,
+  "domain_counts": {
+    "fiscal": 40,
+    "laboral": 40,
+    "social": 40,
+    "energia": 40,
+    "credito_finanzas": 40,
+    "macro_productivo": 40
+  },
+  "pairs": 960,
+  "assignments": 2880,
+  "pilot_claims": 60,
+  "pilot_pairs": 240,
+  "pilot_assignments": 720,
+  "sources_expected": 37,
+  "sources_acquired": 37,
+  "human_annotations_collected": 0,
+  "adjudicated_items": 0,
+  "gold_status": "NOT_YET_GOLD",
+  "automatic_evidence_promotion": false,
+  "automatic_publication": false,
+  "errors": []
+}
