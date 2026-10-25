@@ -85,17 +85,17 @@ def failedRiskInput : GovernanceInput :=
     executionLease := true
   }
 
-example : riskPass passingRisk := by decide
+example : riskPass passingRisk := by rfl
 
-example : riskPassB passingRisk = true := by decide
+example : riskPassB passingRisk = true := by rfl
 
-example : riskPassB failingRisk = false := by decide
+example : riskPassB failingRisk = false := by rfl
 
-example : readyToExecute (readyInput .jev) = true := by decide
+example : readyToExecute (readyInput .jev) = true := by rfl
 
-example : readyToExecute unsignedInput = false := by decide
+example : readyToExecute unsignedInput = false := by rfl
 
-example : readyToExecute failedRiskInput = false := by decide
+example : readyToExecute failedRiskInput = false := by rfl
 
 example :
     readyToExecute (readyInput .jev) =
@@ -113,7 +113,7 @@ example : readyToExecute
       risk := passingRisk
       humanAuthorized := true
       executionLease := true
-    } = false := by decide
+    } = false := by rfl
 
 example :
     readyToPublish
@@ -121,7 +121,7 @@ example :
         executionVerified := true
         publicationSigned := true
         explicitPublishRequest := false
-      } = false := by decide
+      } = false := by rfl
 
 example :
     readyToPublish
@@ -129,7 +129,7 @@ example :
         executionVerified := true
         publicationSigned := true
         explicitPublishRequest := true
-      } = true := by decide
+      } = true := by rfl
 
 example :
     ¬ CanTransition .proposed .executed :=
