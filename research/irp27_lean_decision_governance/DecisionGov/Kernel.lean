@@ -85,7 +85,13 @@ def riskPass (risk : RiskCertificate) : Prop :=
   900 ≤ risk.classConditionalCoverage
 
 def riskPassB (risk : RiskCertificate) : Bool :=
-  decide (riskPass risk)
+  decide (950 ≤ risk.supportPrecisionLCB) &&
+  decide (950 ≤ risk.refutePrecisionLCB) &&
+  decide (50 ≤ risk.supportCoverage) &&
+  decide (50 ≤ risk.refuteCoverage) &&
+  decide (risk.swapAcceptance ≤ 5) &&
+  decide (risk.unsafeConflictCommits = 0) &&
+  decide (900 ≤ risk.classConditionalCoverage)
 
 def evidenceAdmissibleB : EvidenceState → Bool
   | .support => true
@@ -227,7 +233,6 @@ structure ExecutionLease where
   futureOnly : Bool
   futureOnlyProof : futureOnly = true
   expiresAt : String
-
 deriving Repr
 
 structure ExecutedDecision where
@@ -240,35 +245,38 @@ structure PublicationAuthorization where
   explicitRequest : Bool
   explicitRequestProof : explicitRequest = true
   signatureHash : String
-
 deriving Repr
 
 structure PublishedDecision where
   executed : ExecutedDecision
   publication : PublicationAuthorization
 
- theorem qualifiedIsNotConflict (decision : QualifiedDecision) :
+theorem qualifiedIsNotConflict (decision : QualifiedDecision) :
     decision.proposal.evidence ≠ .conflicting := by
-  rcases decision.evidenceProof with support | refute <;> simp [support, refute]
+  cases decision.evidenceProof with
+  | inl support => simp [support]
+  | inr refute => simp [refute]
 
- theorem qualifiedIsNotInsufficient (decision : QualifiedDecision) :
+theorem qualifiedIsNotInsufficient (decision : QualifiedDecision) :
     decision.proposal.evidence ≠ .insufficient := by
-  rcases decision.evidenceProof with support | refute <;> simp [support, refute]
+  cases decision.evidenceProof with
+  | inl support => simp [support]
+  | inr refute => simp [refute]
 
- theorem executionCarriesRiskProof (decision : ExecutedDecision) :
+theorem executionCarriesRiskProof (decision : ExecutedDecision) :
     riskPass decision.authorized.qualified.risk :=
   decision.authorized.qualified.riskProof
 
- theorem executionCarriesHumanAuthorization (decision : ExecutedDecision) :
+theorem executionCarriesHumanAuthorization (decision : ExecutedDecision) :
     ∃ authorization : HumanAuthorization,
       decision.authorized.authorization = authorization := by
   exact ⟨decision.authorized.authorization, rfl⟩
 
- theorem executionIsFutureOnly (decision : ExecutedDecision) :
+theorem executionIsFutureOnly (decision : ExecutedDecision) :
     decision.lease.futureOnly = true :=
   decision.lease.futureOnlyProof
 
- theorem publicationCarriesExplicitHumanRequest
+theorem publicationCarriesExplicitHumanRequest
     (decision : PublishedDecision) :
     decision.publication.explicitRequest = true :=
   decision.publication.explicitRequestProof
@@ -297,24 +305,24 @@ inductive CanTransition : Stage → Stage → Prop where
   | executeClose : CanTransition .executed .closed
   | closeSuccessor : CanTransition .closed .successor
 
- theorem noProposalToExecution :
+theorem noProposalToExecution :
     ¬ CanTransition .proposed .executed := by
   intro transition
   cases transition
 
- theorem noProposalToPublication :
+theorem noProposalToPublication :
     ¬ CanTransition .proposed .closed := by
   intro transition
   cases transition
 
- theorem closedStateOnlyAdvancesToSuccessor
+theorem closedStateOnlyAdvancesToSuccessor
     {target : Stage}
     (transition : CanTransition .closed target) :
     target = .successor := by
   cases transition
   rfl
 
- theorem executionNeedsLeaseTransition :
+theorem executionNeedsLeaseTransition :
     CanTransition .leased .executed :=
   CanTransition.leaseExecute
 
