@@ -63,7 +63,7 @@ class SelectiveEvidenceTests(unittest.TestCase):
                 [0.05, 0.05, 0.90],
             ]
         )
-        heldout = np.asarray([[0.80, 0.10, 0.10]])
+        heldout = np.asarray([[0.95, 0.03, 0.02]])
         classes = ["NEUTRAL", "REFUTE", "SUPPORT"]
         sets, _ = conformal_prediction_sets(
             calibration,
