@@ -1,0 +1,17 @@
+{
+  "gate": "IRP27-GATE-HUMAN-GOLD-EXECUTION-AND-MULTI-INVARIANCE-AUDIT-013",
+  "version": "3.0.0",
+  "curation": "ACTIVE",
+  "translation": "LOCKED_PENDING_CURATION",
+  "semantic": "LOCKED_PENDING_CURATION",
+  "provenance": "LOCKED_PENDING_CURATION",
+  "planned_assignments": 1700,
+  "active_assignments": 180,
+  "human_responses": 0,
+  "adjudicated_items": 0,
+  "gold_frozen": false,
+  "automatic_majority_as_gold": false,
+  "automatic_execution": false,
+  "automatic_publication": false,
+  "authority": "CURATION_COLLECTION_READY_DOWNSTREAM_LOCKED_NOT_GOLD"
+}
