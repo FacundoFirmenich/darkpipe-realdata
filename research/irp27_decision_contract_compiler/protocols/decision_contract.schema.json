@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IRP-27 Decision Contract",
+  "type": "object",
+  "required": ["contract_id", "version", "estimand", "state", "questions", "loss", "abstention", "risk_thresholds_permille", "prerequisites", "authority", "lease", "providers"],
+  "properties": {
+    "contract_id": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "estimand": {"type": "object", "required": ["name", "target", "unit", "universe", "limitations"]},
+    "state": {"type": "object", "required": ["format", "required_fields", "template"]},
+    "questions": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "instructions", "criteria"],
+        "properties": {
+          "type": {"enum": ["choice", "score", "noul"]},
+          "instructions": {"type": "string", "minLength": 1},
+          "criteria": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "loss": {"type": "object", "required": ["primary", "secondary"]},
+    "abstention": {"type": "object", "required": ["policy", "minimum_top_probability", "minimum_margin"]},
+    "risk_thresholds_permille": {
+      "type": "object",
+      "required": ["support_precision_lcb", "refute_precision_lcb", "support_coverage", "refute_coverage", "swap_acceptance_max", "unsafe_conflict_commits_max", "class_conditional_coverage"],
+      "additionalProperties": {"type": "integer", "minimum": 0, "maximum": 1000}
+    },
+    "prerequisites": {"type": "object", "additionalProperties": {"type": "boolean"}},
+    "authority": {"type": "object", "required": ["provider_conveys_authority", "required_roles", "automatic_execution", "automatic_publication"]},
+    "lease": {"type": "object", "required": ["required", "future_only", "default_ttl_seconds"]},
+    "providers": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": false
+}
