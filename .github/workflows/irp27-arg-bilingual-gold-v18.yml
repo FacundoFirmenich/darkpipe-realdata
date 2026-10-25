@@ -33,11 +33,11 @@ jobs:
       - name: Compile and run fail-closed tests
         working-directory: research/irp27_arg_bilingual_gold
         run: |
-          python -m py_compile build_argentine_gold.py adjudicate_annotations.py
+          python -m py_compile build_argentine_gold.py build_argentine_gold_v2.py adjudicate_annotations.py
           python -m unittest -v test_build_argentine_gold.py test_adjudicate_annotations.py
       - name: Build 240-claim bilingual annotation corpus
         run: |
-          python research/irp27_arg_bilingual_gold/build_argentine_gold.py \
+          python research/irp27_arg_bilingual_gold/build_argentine_gold_v2.py \
             --registry research/irp27_arg_bilingual_gold/source_registry.json \
             --output "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18" \
             --translation-model Helsinki-NLP/opus-mt-es-en
@@ -50,6 +50,7 @@ jobs:
             --responses "$RUNNER_TEMP/no_responses.json" \
             --output "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/adjudication"
           cp research/irp27_arg_bilingual_gold/build_argentine_gold.py "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/"
+          cp research/irp27_arg_bilingual_gold/build_argentine_gold_v2.py "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/"
           cp research/irp27_arg_bilingual_gold/adjudicate_annotations.py "$RUNNER_TEMP/irp27_arg_bilingual_gold_v18/"
       - name: Print exact corpus state
         if: always()
