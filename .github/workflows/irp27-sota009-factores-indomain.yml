@@ -1,0 +1,99 @@
+name: IRP27 SOTA-009 — FactOReS in-domain competence
+
+on:
+  push:
+    branches: [irp27-in-domain-bilingual-gold-v18]
+    paths:
+      - ".github/workflows/irp27-sota009-factores-indomain.yml"
+      - "research/irp27_sota009/factores_in_domain_benchmark.py.gz.b64"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_XET: "1"
+  TOKENIZERS_PARALLELISM: "false"
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install CPU training stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.46,<5" sentencepiece sacremoses "numpy<2.3" "scipy<1.16" "scikit-learn<1.8" requests
+      - name: Decode and compile benchmark
+        run: |
+          python - <<'PY'
+          import base64,gzip
+          from pathlib import Path
+          root=Path('research/irp27_sota009')
+          payload=base64.b64decode((root/'factores_in_domain_benchmark.py.gz.b64').read_text(encoding='ascii'))
+          (root/'factores_in_domain_benchmark.py').write_bytes(gzip.decompress(payload))
+          print((root/'factores_in_domain_benchmark.py').stat().st_size)
+          PY
+          python -m py_compile research/irp27_sota009/factores_in_domain_benchmark.py
+      - name: Acquire FactOReS public dataset
+        run: |
+          python - <<'PY'
+          import hashlib,requests
+          from pathlib import Path
+          url='https://raw.githubusercontent.com/hitz-zentroa/AFC_FactOReS/main/factores_dataset/dev.json'
+          response=requests.get(url,timeout=300); response.raise_for_status()
+          path=Path("${{ runner.temp }}/factores_dev.json"); path.write_bytes(response.content)
+          print({'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'url':url})
+          PY
+      - name: Validate dataset schema before training
+        run: |
+          python - <<'PY'
+          import json
+          rows=json.load(open("${{ runner.temp }}/factores_dev.json",encoding='utf-8'))
+          required={'claim_id','claim','question','summarized_text','STANCE','label'}
+          assert len(rows)>1000
+          assert all(required.issubset(row) for row in rows)
+          print({'rows':len(rows),'unique_claims':len({str(r['claim_id']) for r in rows}),'stances':sorted({r['STANCE'] for r in rows}),'labels':sorted({r['label'] for r in rows})})
+          PY
+      - name: Execute Spanish in-domain benchmark
+        run: |
+          python research/irp27_sota009/factores_in_domain_benchmark.py \
+            --data "${{ runner.temp }}/factores_dev.json" \
+            --output "${{ runner.temp }}/irp27_factores_indomain_v18" \
+            --model MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli \
+            --epochs 2 \
+            --batch-size 24
+      - name: Print exact benchmark state
+        if: always()
+        run: |
+          cat "${{ runner.temp }}/irp27_factores_indomain_v18/factores_in_domain_results.json" || true
+          du -sh "${{ runner.temp }}/irp27_factores_indomain_v18" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-sota009-factores-indomain
+          path: ${{ runner.temp }}/irp27_factores_indomain_v18
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce scientific and authority boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path("${{ runner.temp }}/irp27_factores_indomain_v18/factores_in_domain_results.json").read_text())
+          assert result['unique_claims'] >= 1000
+          assert result['human_gold_completed'] == 0
+          assert result['bilingual_transport_executed'] is False
+          assert result['automatic_evidence_promotion'] is False
+          assert result['automatic_publication'] is False
+          assert result['authority'] == 'IN_DOMAIN_SPANISH_PILOT_NOT_EXTERNAL_VALIDATION'
+          print('MODEL BOUNDARY PASS')
+          PY
