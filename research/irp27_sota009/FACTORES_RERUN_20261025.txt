@@ -1,0 +1,1 @@
+Gate SOTA-009 FactOReS in-domain benchmark rerun after adapting schema validation to the dataset actually published. This marker changes no benchmark logic or authority boundary.
