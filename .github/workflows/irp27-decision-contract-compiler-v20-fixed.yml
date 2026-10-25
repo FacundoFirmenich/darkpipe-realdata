@@ -1,0 +1,260 @@
+name: IRP27 Gate SOTA-011 — compiler fixed transport
+
+on:
+  push:
+    branches: [irp27-decision-contract-compiler-v20]
+    paths:
+      - ".github/workflows/irp27-decision-contract-compiler-v20-fixed.yml"
+      - "research/irp27_decision_contract_compiler/contracts/**"
+      - "research/irp27_decision_contract_compiler/protocols/**"
+      - "research/irp27_decision_contract_compiler/src/**"
+      - "research/irp27_decision_contract_compiler/tests/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_XET: "1"
+  HF_HUB_DISABLE_TELEMETRY: "1"
+  TOKENIZERS_PARALLELISM: "false"
+  SYS1_EVAL_COMMIT: "e74dfb6d99ed041f5f5240af386ba5272de84cdd"
+  GATE_ROOT: "research/irp27_decision_contract_compiler"
+
+jobs:
+  compile-prove-benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install jsonschema numpy scipy scikit-learn pytest requests
+
+      - name: Verify materialized source tree
+        run: |
+          set -euo pipefail
+          test -f "$GATE_ROOT/contracts/evidence_relation.contract.json"
+          test -f "$GATE_ROOT/protocols/decision_contract.schema.json"
+          test -f "$GATE_ROOT/src/decision_contract_compiler.py"
+          test -f "$GATE_ROOT/src/shadow_benchmark.py"
+          test -f "$GATE_ROOT/src/provider_availability.py"
+          test -f "$GATE_ROOT/src/run_laya_shadow.py"
+          test -f "$GATE_ROOT/src/build_gate011_report.py"
+          find "$GATE_ROOT" -maxdepth 3 -type f -printf '%P\t%s bytes\n' | sort
+
+      - name: Compile Python and run tests
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          python -m compileall "$GATE_ROOT/src" "$GATE_ROOT/tests"
+          pytest -q "$GATE_ROOT/tests"
+
+      - name: Compile canonical contract
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"
+          mkdir -p "$OUT/compiled"
+          python "$GATE_ROOT/src/decision_contract_compiler.py" \
+            --contract "$GATE_ROOT/contracts/evidence_relation.contract.json" \
+            --schema "$GATE_ROOT/protocols/decision_contract.schema.json" \
+            --output "$OUT/compiled"
+          cat "$OUT/compiled/compiler_manifest.json"
+
+      - name: Install Lean 4.35.0
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | \
+            sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          source "$HOME/.elan/env"
+          lean --version
+          lake --version
+
+      - name: Prove generated obligations against SOTA-010 kernel
+        run: |
+          set -euo pipefail
+          source "$HOME/.elan/env"
+          PROJECT="research/irp27_lean_decision_governance"
+          OUT="$RUNNER_TEMP/irp27_gate011"
+          cp "$OUT/compiled/CompiledContract.lean" "$PROJECT/DecisionGov/CompiledContract.lean"
+          (cd "$PROJECT" && lake build && lake env lean DecisionGov/CompiledContract.lean)
+          if grep -R --line-number --extended-regexp '\bsorry\b|admit|axiom[[:space:]]' \
+              "$PROJECT/DecisionGov" "$OUT/compiled/CompiledContract.lean"; then
+            echo 'Unfinished or assumed proof detected'; exit 1
+          fi
+          LEAN_VERSION="$(lean --version | head -1)" LAKE_VERSION="$(lake --version | head -1)" \
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011'
+          compiled=out/'compiled/CompiledContract.lean'
+          manifest=json.loads((out/'compiled/compiler_manifest.json').read_text())
+          (out/'formal_contract_verification.json').write_text(json.dumps({
+            'verified':True,'lean_version':os.environ['LEAN_VERSION'],'lake_version':os.environ['LAKE_VERSION'],
+            'contract_id':manifest['contract_id'],'contract_hash':manifest['contract_hash'],
+            'proof_sha256':hashlib.sha256(compiled.read_bytes()).hexdigest(),
+            'sorry_admit_axiom_count_allowed':0,'automatic_execution':False,'automatic_publication':False
+          },indent=2)+'\n')
+          PY
+
+      - name: Acquire pinned public raw outputs
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"; RAW="$OUT/external_raw"; mkdir -p "$RAW"
+          python - <<'PY'
+          import hashlib,json,os,requests
+          from pathlib import Path
+          commit=os.environ['SYS1_EVAL_COMMIT']; root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011/external_raw'
+          names=['bench/cases.jsonl','bench/cases-flip.jsonl','results/laya.jsonl','results/jev.jsonl','results/laya-flip.jsonl','results/jev-flip.jsonl']
+          registry=[]
+          for remote in names:
+            url=f'https://raw.githubusercontent.com/David-DL-Space/sys1-eval/{commit}/{remote}'
+            response=requests.get(url,timeout=300); response.raise_for_status()
+            path=root/Path(remote).name; path.write_bytes(response.content)
+            registry.append({'repository':'David-DL-Space/sys1-eval','commit':commit,'remote_path':remote,'url':url,'local_path':path.name,'bytes':len(response.content),'sha256':hashlib.sha256(response.content).hexdigest(),'status':response.status_code})
+          (root/'SOURCE_REGISTRY.json').write_text(json.dumps(registry,indent=2)+'\n')
+          print(json.dumps(registry,indent=2))
+          PY
+
+      - name: Reanalyse published Jev and Laya outputs
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"; RAW="$OUT/external_raw"; mkdir -p "$OUT/shadow_benchmark"
+          python "$GATE_ROOT/src/shadow_benchmark.py" \
+            --cases "$RAW/cases.jsonl" \
+            --providers "$RAW/laya.jsonl" "$RAW/jev.jsonl" \
+            --provider-names laya_public_raw jev_public_raw \
+            --variant-cases "$RAW/cases-flip.jsonl" \
+            --variant-providers "$RAW/laya-flip.jsonl" "$RAW/jev-flip.jsonl" \
+            --output "$OUT/shadow_benchmark"
+
+      - name: Attempt live Laya shadow run
+        continue-on-error: true
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          set -u
+          OUT="$RUNNER_TEMP/irp27_gate011"; LIVE="$OUT/live_laya"; RAW="$OUT/external_raw"; mkdir -p "$LIVE"
+          START="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          set +e
+          python -m pip install laya
+          INSTALL_RC=$?; RUN_RC=99
+          if [ "$INSTALL_RC" -eq 0 ]; then
+            python "$GATE_ROOT/src/run_laya_shadow.py" \
+              --cases "$RAW/cases.jsonl" --flip-cases "$RAW/cases-flip.jsonl" \
+              --output "$LIVE" --limit 12 --checkpoints english multilingual typed-decisions
+            RUN_RC=$?
+          fi
+          set -e
+          if [ ! -f "$LIVE/live_laya_status.json" ]; then
+            INSTALL_RC="$INSTALL_RC" RUN_RC="$RUN_RC" START="$START" LIVE="$LIVE" python - <<'PY'
+          import json,os
+          from pathlib import Path
+          Path(os.environ['LIVE'],'live_laya_status.json').write_text(json.dumps({
+            'attempted':True,'started_at_utc':os.environ['START'],'completed':False,
+            'install_returncode':int(os.environ['INSTALL_RC']),'run_returncode':int(os.environ['RUN_RC']),
+            'checkpoints':{},'error_boundary':'LIVE_LAYA_INCOMPLETE_OR_BLOCKED',
+            'provider_has_authority':False,'automatic_execution':False,'automatic_publication':False
+          },indent=2)+'\n')
+          PY
+          fi
+          cat "$LIVE/live_laya_status.json"
+          exit 0
+
+      - name: Record provider availability
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"
+          python "$GATE_ROOT/src/provider_availability.py" > "$OUT/provider_availability.json"
+          cat "$OUT/provider_availability.json"
+
+      - name: Build closure and navigable lab
+        env:
+          PYTHONPATH: research/irp27_decision_contract_compiler/src
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"; mkdir -p "$OUT/report"
+          python "$GATE_ROOT/src/build_gate011_report.py" \
+            --compiled "$OUT/compiled" --external "$OUT/shadow_benchmark" \
+            --availability "$OUT/provider_availability.json" --live "$OUT/live_laya" \
+            --output "$OUT/report"
+
+      - name: Assemble artifact and manifest
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/irp27_gate011"
+          mkdir -p "$OUT/src" "$OUT/contracts" "$OUT/protocols" "$OUT/formal" "$OUT/reports"
+          cp "$GATE_ROOT/src/"*.py "$OUT/src/"
+          cp "$GATE_ROOT/tests/"*.py "$OUT/src/"
+          cp "$GATE_ROOT/contracts/"*.json "$OUT/contracts/"
+          cp "$GATE_ROOT/protocols/"*.json "$OUT/protocols/"
+          cp "$OUT/compiled/CompiledContract.lean" "$OUT/formal/"
+          cp "$OUT/formal_contract_verification.json" "$OUT/formal/"
+          cp research/irp27_lean_decision_governance/DecisionGov/Kernel.lean "$OUT/formal/Kernel.lean"
+          cp research/irp27_lean_decision_governance/lean-toolchain "$OUT/formal/"
+          cp "$OUT/report/"*.md "$OUT/reports/"
+          cp "$OUT/report/"*.html "$OUT/"
+          cp "$OUT/report/GATE_DECISION_v2.0.json" "$OUT/"
+          cp "$OUT/report/status.json" "$OUT/reports/report_status.json"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011'
+          decision=json.loads((root/'GATE_DECISION_v2.0.json').read_text())
+          summary={'gate':decision['gate'],'contract_hash':decision['contract_hash'],'compiler':decision['contract_compiler'],'formal_contract_verification':True,'shadow_reanalysis':decision['external_published_raw_outputs_reanalysis'],'live_laya_attempted':decision['live_laya_attempted'],'live_laya_completed':decision['live_laya_completed'],'live_jev_completed':False,'live_nimble_completed':False,'provider_promotion':'BLOCKED','execution_authority':'NONE','automatic_execution':False,'automatic_publication':False}
+          (root/'STATUS_v2.0.json').write_text(json.dumps(summary,indent=2)+'\n')
+          lines=[]
+          for path in sorted(root.rglob('*')):
+            if path.is_file() and path.name!='MANIFEST.sha256': lines.append(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}")
+          (root/'MANIFEST.sha256').write_text('\n'.join(lines)+'\n')
+          print({'manifest_entries':len(lines),'summary':summary})
+          PY
+
+      - name: Print gate state
+        if: always()
+        run: |
+          OUT="$RUNNER_TEMP/irp27_gate011"
+          cat "$OUT/STATUS_v2.0.json" || true
+          cat "$OUT/GATE_DECISION_v2.0.json" || true
+          cat "$OUT/shadow_benchmark/shadow_benchmark.json" || true
+          cat "$OUT/live_laya/live_laya_status.json" || true
+          du -sh "$OUT" || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-decision-contract-compiler-v20-fixed
+          path: ${{ runner.temp }}/irp27_gate011
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+
+      - name: Enforce authority boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'irp27_gate011'
+          compiler=json.loads((root/'compiled/compiler_manifest.json').read_text())
+          formal=json.loads((root/'formal/formal_contract_verification.json').read_text())
+          shadow=json.loads((root/'shadow_benchmark/shadow_benchmark.json').read_text())
+          decision=json.loads((root/'GATE_DECISION_v2.0.json').read_text())
+          status=json.loads((root/'STATUS_v2.0.json').read_text())
+          assert compiler['semantic_invariants']=={'provider_conveys_authority':False,'automatic_execution':False,'automatic_publication':False,'future_only_lease':True}
+          assert formal['verified'] is True and formal['contract_hash']==compiler['contract_hash']
+          assert shadow['source']=='EXTERNAL_PUBLISHED_RAW_OUTPUTS_REANALYSIS'
+          assert shadow['provider_results_are_not_new_live_calls'] is True
+          assert {'laya_public_raw','jev_public_raw'} <= set(shadow['providers'])
+          assert decision['provider_promotion']=='BLOCKED' and decision['execution_authority']=='NONE'
+          assert status['automatic_execution'] is False and status['automatic_publication'] is False
+          assert status['live_jev_completed'] is False and status['live_nimble_completed'] is False
+          assert (root/'MANIFEST.sha256').exists()
+          print('GATE SOTA-011 BOUNDARY PASS')
+          PY
