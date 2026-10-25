@@ -1,0 +1,61 @@
+name: IRP27 SOTA-009 — Argentine real-claim inventory
+
+on:
+  push:
+    branches: [irp27-in-domain-bilingual-gold-v18]
+    paths:
+      - ".github/workflows/irp27-sota009-argentine-inventory.yml"
+      - "research/irp27_sota009/build_argentine_inventory.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install acquisition stack
+        run: python -m pip install requests beautifulsoup4
+      - name: Compile inventory builder
+        run: python -m py_compile research/irp27_sota009/build_argentine_inventory.py
+      - name: Acquire real Chequeado public-claim inventory
+        run: |
+          python research/irp27_sota009/build_argentine_inventory.py \
+            --output "${{ runner.temp }}/irp27_argentine_inventory_v18" \
+            --max-pages 100
+      - name: Print exact inventory state
+        if: always()
+        run: |
+          cat "${{ runner.temp }}/irp27_argentine_inventory_v18/status.json" || true
+          cat "${{ runner.temp }}/irp27_argentine_inventory_v18/acquisition_gap_queue.csv" || true
+          du -sh "${{ runner.temp }}/irp27_argentine_inventory_v18" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: irp27-sota009-argentine-inventory
+          path: ${{ runner.temp }}/irp27_argentine_inventory_v18
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
+      - name: Enforce inventory and authority boundaries
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path("${{ runner.temp }}/irp27_argentine_inventory_v18/status.json").read_text())
+          assert status['inventory_candidates'] > 0
+          assert status['balanced_240_gold_completed'] is False
+          assert status['gold_labels_completed'] == 0
+          assert status['human_screening_completed'] == 0
+          assert status['translations_generated'] == 0
+          assert status['source_titles_are_not_adjudicated_claims'] is True
+          assert status['automatic_publication'] is False
+          print('INVENTORY BOUNDARY PASS')
+          PY
