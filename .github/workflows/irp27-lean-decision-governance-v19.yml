@@ -69,9 +69,38 @@ jobs:
       - name: Compile formal kernel and proofs
         working-directory: research/irp27_lean_decision_governance
         run: |
+          set -euo pipefail
           source "$HOME/.elan/env"
           lake build
           lake env lean DecisionGov/Tests.lean
+          OUT="$RUNNER_TEMP/irp27_lean_decision_governance_v19"
+          mkdir -p "$OUT"
+          LEAN_VERSION="$(lean --version | head -1)"
+          LAKE_VERSION="$(lake --version | head -1)"
+          python - <<PY
+          import json
+          from pathlib import Path
+          Path("$OUT/formal_verification.json").write_text(json.dumps({
+              "verified": True,
+              "kernel": "Lean",
+              "lean_version": "$LEAN_VERSION",
+              "lake_version": "$LAKE_VERSION",
+              "library_target": "DecisionGov",
+              "proof_suite": "DecisionGov/Tests.lean",
+              "sorry_count_allowed": 0,
+              "automatic_execution": False,
+              "automatic_publication": False
+          }, indent=2))
+          PY
+
+      - name: Reject unfinished Lean proofs
+        working-directory: research/irp27_lean_decision_governance
+        run: |
+          if grep -R --line-number --extended-regexp '\bsorry\b|admit|axiom[[:space:]]' DecisionGov DecisionGov.lean; then
+            echo 'Unfinished or assumed Lean proof detected'
+            exit 1
+          fi
+          echo 'NO SORRY / ADMIT / AXIOM PASS'
 
       - name: Assemble reproducible artifact
         run: |
@@ -102,6 +131,7 @@ jobs:
       - name: Print exact gate state
         if: always()
         run: |
+          cat "$RUNNER_TEMP/irp27_lean_decision_governance_v19/formal_verification.json" || true
           cat "$RUNNER_TEMP/irp27_lean_decision_governance_v19/status.json" || true
           cat "$RUNNER_TEMP/irp27_lean_decision_governance_v19/provider_invariance_matrix.json" || true
           du -sh "$RUNNER_TEMP/irp27_lean_decision_governance_v19" || true
@@ -115,15 +145,20 @@ jobs:
           retention-days: 30
           compression-level: 6
 
-      - name: Enforce scientific and authority boundaries
+      - name: Enforce scientific, formal and authority boundaries
         if: always()
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           root=Path("${{ runner.temp }}/irp27_lean_decision_governance_v19")
+          formal=json.loads((root/'formal_verification.json').read_text())
           status=json.loads((root/'status.json').read_text())
           matrix=json.loads((root/'provider_invariance_matrix.json').read_text())
+          assert formal['verified'] is True
+          assert formal['kernel']=='Lean'
+          assert formal['proof_suite']=='DecisionGov/Tests.lean'
+          assert formal['sorry_count_allowed']==0
           assert status['providers_evaluated']==['jev','laya','nimble','openjev']
           assert status['live_model_calls']==0
           assert status['provider_invariance'] is True
