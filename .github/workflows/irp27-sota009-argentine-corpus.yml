@@ -5,7 +5,7 @@ on:
     branches: [irp27-in-domain-bilingual-gold-v18]
     paths:
       - ".github/workflows/irp27-sota009-argentine-corpus.yml"
-      - "research/irp27_sota009/build_argentine_corpus_v3_blind.py.gz.b64"
+      - "research/irp27_sota009/corpus_payload/**"
   workflow_dispatch:
 
 permissions:
@@ -30,15 +30,22 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
           python -m pip install "transformers>=4.46,<5" sentencepiece sacremoses requests beautifulsoup4 lxml
-      - name: Decode and compile blind corpus builder
+      - name: Reassemble, verify and compile blind corpus builder
         run: |
           python - <<'PY'
-          import base64,gzip
+          import base64,gzip,hashlib
           from pathlib import Path
           root=Path('research/irp27_sota009')
-          payload=base64.b64decode((root/'build_argentine_corpus_v3_blind.py.gz.b64').read_text(encoding='ascii'))
-          (root/'build_argentine_corpus_v3_blind.py').write_bytes(gzip.decompress(payload))
-          print((root/'build_argentine_corpus_v3_blind.py').stat().st_size)
+          parts=sorted((root/'corpus_payload').glob('corpus_*.part'))
+          assert len(parts)==4, parts
+          text=''.join(path.read_text(encoding='ascii') for path in parts).strip()
+          text += '=' * ((4-len(text)%4)%4)
+          payload=base64.b64decode(text,validate=True)
+          source=gzip.decompress(payload)
+          assert source.startswith(b'#!/usr/bin/env python3')
+          target=root/'build_argentine_corpus_v3_blind.py'
+          target.write_bytes(source)
+          print({'parts':len(parts),'base64_chars':len(text),'gzip_bytes':len(payload),'source_bytes':len(source),'source_sha256':hashlib.sha256(source).hexdigest()})
           PY
           python -m py_compile research/irp27_sota009/build_argentine_corpus_v3_blind.py
       - name: Build balanced ClaimReview-verified blind corpus
