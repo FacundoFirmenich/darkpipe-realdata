@@ -7,12 +7,13 @@
     "calibration_id": {"type": "string", "pattern": "^CAL-[a-f0-9]{20}$"},
     "key": {
       "type": "object",
-      "required": ["contract_hash", "provider", "provider_version", "checkpoint", "primitive", "domain", "language", "hardware", "data_vintage", "evaluation_mode"],
+      "required": ["contract_hash", "provider", "provider_version", "checkpoint", "question_id", "primitive", "domain", "language", "hardware", "data_vintage", "evaluation_mode"],
       "properties": {
         "contract_hash": {"type": "string", "minLength": 1},
         "provider": {"type": "string", "minLength": 1},
         "provider_version": {"type": "string", "minLength": 1},
         "checkpoint": {"type": "string", "minLength": 1},
+        "question_id": {"type": "string", "minLength": 1},
         "primitive": {"enum": ["choice", "score", "noul"]},
         "domain": {"type": "string", "minLength": 1},
         "language": {"type": "string", "minLength": 1},
