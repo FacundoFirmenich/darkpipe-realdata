@@ -29,7 +29,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-          python -m pip install "transformers>=4.46,<5" sentencepiece sacremoses requests beautifulsoup4 pypdf openpyxl scikit-learn numpy
+          python -m pip install "transformers>=4.46,<5" sentencepiece sacremoses requests beautifulsoup4 pypdf cryptography openpyxl scikit-learn numpy
       - name: Compile and run fail-closed tests
         working-directory: research/irp27_arg_bilingual_gold
         run: |
@@ -83,6 +83,8 @@ jobs:
           assert qa['pilot_claims'] == 60
           assert qa['pilot_pairs'] == 240
           assert qa['pilot_assignments'] == 720
+          assert qa['sources_acquired'] == qa['sources_expected'] == 37
+          assert qa['errors'] == []
           assert qa['human_annotations_collected'] == 0
           assert qa['adjudicated_items'] == 0
           assert qa['gold_status'] == 'NOT_YET_GOLD'
