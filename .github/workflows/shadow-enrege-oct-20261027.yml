@@ -1,0 +1,101 @@
+name: Tarifa Abierta · ENReGE Oct 2026 one-off byte check
+on:
+  push:
+    branches:
+      - shadow/tarifa-octubre-official-check-20261027
+    paths:
+      - .github/workflows/shadow-enrege-oct-20261027.yml
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Official GET and historical-series verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audit_output
+          python3 - <<'PY'
+          import hashlib, html, io, json, re, zipfile
+          from datetime import datetime, timezone
+          from urllib.request import Request,urlopen
+          from html.parser import HTMLParser
+          from pathlib import Path
+          ROOT="https://www.enargas.gob.ar/secciones/precios-y-tarifas/"
+          URLS={
+            "xlsx": ROOT+"descargas/tarifas-gn-20261001.xlsx",
+            "current":ROOT+"cuadros-tarifarios.php",
+            "history":ROOT+"cuadros-tarifarios-serie-historica.php",
+            "resolutions":ROOT+"resoluciones-tarifas-vigentes.php",
+          }
+          SHA="fefe75fd5a1e9fa747e4871165b4a1e046743f050343d73a4b7eefaee91540b6"
+          SIZE=653597
+          known_resolutions={f"RESFC2026-{i:04d}" for i in range(710,729)}
+          class Anchors(HTMLParser):
+            def __init__(self):super().__init__();self.href=None;self.buffer=[];self.items=[]
+            def handle_starttag(self,t,attrs):
+              if t=="a": self.href=dict(attrs).get("href");self.buffer=[]
+            def handle_data(self,data):
+              if self.href is not None:self.buffer.append(data)
+            def handle_endtag(self,t):
+              if t=="a" and self.href is not None:
+                self.items.append({"text":" ".join(html.unescape(" ".join(self.buffer)).split()),"href":self.href});self.href=None
+          results={"checked_at_utc":datetime.now(timezone.utc).isoformat(),
+             "baseline":{"file":"tarifas-gn-20261001.xlsx","baseline_verified_utc_date":"2026-10-23","bytes":SIZE,"sha256":SHA,"tarifa_abierta":"v1.6 SHADOW","residential_cells":585,"sept_oct_comparisons":585},
+             "sources":{},"changes":[],"errors":[],"rebuild":"NOT_EXECUTED","merge":False,"automatic_publication":False}
+          for kind,url in URLS.items():
+            try:
+              request=Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; research-audit; +https://www.enargas.gob.ar/)","Accept":"*/*"})
+              with urlopen(request,timeout=70) as resp:
+                data=resp.read()
+                metadata={"requested_url":url,"final_url":resp.geturl(),"http_status":resp.status,
+                    "mime":resp.headers.get("Content-Type"),"content_length_header":resp.headers.get("Content-Length"),
+                    "last_modified":resp.headers.get("Last-Modified"),"etag":resp.headers.get("ETag"),
+                    "bytes":len(data),"sha256":hashlib.sha256(data).hexdigest()}
+              if kind=="xlsx":
+                metadata["valid_ooxml_zip"]=zipfile.is_zipfile(io.BytesIO(data))
+                metadata["matches_baseline_sha256"]=metadata["sha256"]==SHA
+                metadata["matches_baseline_bytes"]=len(data)==SIZE
+                if metadata["valid_ooxml_zip"] and not metadata["matches_baseline_sha256"]:
+                  results["changes"].append("OFFICIAL_GN_OCT2026_XLSX_BYTES_CHANGED")
+                if not metadata["valid_ooxml_zip"]:
+                  results["errors"].append("OFFICIAL_XLSX_PAYLOAD_INVALID")
+              else:
+                text=data.decode("utf-8",errors="replace");anchors=Anchors();anchors.feed(text)
+                if kind=="current":
+                  matched=[a for a in anchors.items if "gas natural" in a["text"].casefold()]
+                  metadata["gas_natural_current_links"]=matched
+                  metadata["oct_2026_is_current"]=any("01/10/2026" in a["text"] for a in matched)
+                elif kind=="history":
+                  matched=[a for a in anchors.items if "gas natural" in a["text"].casefold()]
+                  metadata["newest_gn_history_items"]=matched[:3]
+                  metadata["oct_2026_in_historical_series"]=any("01/10/2026" in a["text"] for a in matched)
+                  if metadata["oct_2026_in_historical_series"]:
+                    results["changes"].append("OCT2026_GAS_NATURAL_IN_HISTORICAL_SERIES")
+                elif kind=="resolutions":
+                  codes=set(re.findall(r"RESFC\s*2026\s*-\s*0\d{3}",text))
+                  metadata["gas_resolution_codes"]=sorted(codes)
+                  extra=codes-known_resolutions
+                  metadata["unexpected_resolution_codes"]=sorted(extra)
+                  if extra:
+                    results["changes"].append("UNEXPECTED_NEW_RESOLUTION_ON_VIGENTES_PAGE_REVIEW_NEEDED")
+              results["sources"][kind]=metadata
+            except Exception as exc:
+              results["errors"].append({"source":kind,"error":type(exc).__name__+": "+str(exc)})
+          results["changes"]=sorted(set(results["changes"]))
+          results["status"]="MATERIAL_CHANGE" if results["changes"] else "NO_CHANGE_VERIFIED" if not results["errors"] else "PARTIAL_NO_CHANGE_UNCONFIRMED"
+          p=Path("audit_output/official_check_20261027.json");p.write_text(json.dumps(results,ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(results,ensure_ascii=False,indent=2))
+          if results["errors"]:raise SystemExit(1)
+          PY
+      - name: Save metadata privately in shadow workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrege-tarifa-octubre-20261027-readonly-metadata
+          path: audit_output/official_check_20261027.json
+          if-no-files-found: warn
+          retention-days: 30
