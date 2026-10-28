@@ -1,0 +1,159 @@
+name: Tarifa Abierta · ENReGE Oct 2026 official byte check 20261028
+on:
+  push:
+    branches:
+      - shadow/tarifa-octubre-official-check-20261028
+    paths:
+      - .github/workflows/shadow-enrege-oct-20261028.yml
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify official October 2026 XLSX and historical/current pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audit_output
+          python3 - <<'PY'
+          from __future__ import annotations
+          import hashlib, html, io, json, re, zipfile
+          from datetime import datetime, timezone
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from urllib.parse import urljoin
+
+          ROOT="https://www.enargas.gob.ar/secciones/precios-y-tarifas/"
+          SOURCES={
+              "xlsx":ROOT+"descargas/tarifas-gn-20261001.xlsx",
+              "current":ROOT+"cuadros-tarifarios.php",
+              "history":ROOT+"cuadros-tarifarios-serie-historica.php",
+              "resolutions":ROOT+"resoluciones-tarifas-vigentes.php",
+          }
+          BASE_SHA="fefe75fd5a1e9fa747e4871165b4a1e046743f050343d73a4b7eefaee91540b6"
+          BASE_LEN=653597
+          EXPECTED_CURRENT_SUFFIX="tarifas-gn-20261001.xlsx"
+          EXPECTED_RESOLUTIONS={f"RESFC2026-{i:04d}" for i in range(710,729)}
+
+          class LinkParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.href=None
+                  self.parts=[]
+                  self.links=[]
+              def handle_starttag(self,tag,attrs):
+                  if tag=="a":
+                      self.href=dict(attrs).get("href")
+                      self.parts=[]
+              def handle_data(self,data):
+                  if self.href is not None: self.parts.append(data)
+              def handle_endtag(self,tag):
+                  if tag=="a" and self.href is not None:
+                      self.links.append({"text":" ".join(html.unescape(" ".join(self.parts)).split()),"href":self.href})
+                      self.href=None
+
+          result={
+              "checked_at_utc":datetime.now(timezone.utc).isoformat(),
+              "baseline":{
+                  "verified_on":"2026-10-23",
+                  "xlsx_sha256":BASE_SHA,
+                  "xlsx_bytes":BASE_LEN,
+                  "tarifa_abierta":"v1.6 SHADOW",
+                  "residential_cells":585,
+                  "september_october_comparisons":585
+              },
+              "sources":{},
+              "changes":[],
+              "errors":[],
+              "additional_shadow_rebuild":{"executed":False,"reason":"Not required absent changed official bytes; no local reconstruction executed by this read-only check"},
+              "merged":False,
+              "published_automatically":False
+          }
+
+          for kind,url in SOURCES.items():
+              try:
+                  req=Request(url,headers={
+                      "User-Agent":"Mozilla/5.0 (compatible; TarifaAbiertaReadOnlyVerification/1.0)",
+                      "Accept":"*/*"
+                  })
+                  with urlopen(req,timeout=70) as resp:
+                      raw=resp.read()
+                      m={
+                          "requested_url":url,
+                          "final_url":resp.geturl(),
+                          "http_status":resp.status,
+                          "mime":resp.headers.get("Content-Type"),
+                          "content_length_header":resp.headers.get("Content-Length"),
+                          "last_modified_http":resp.headers.get("Last-Modified"),
+                          "etag_http":resp.headers.get("ETag"),
+                          "bytes":len(raw),
+                          "sha256":hashlib.sha256(raw).hexdigest()
+                      }
+                  if kind=="xlsx":
+                      m["valid_ooxml_zip"]=zipfile.is_zipfile(io.BytesIO(raw))
+                      m["matches_baseline_sha256"]=m["sha256"]==BASE_SHA
+                      m["matches_baseline_bytes"]=len(raw)==BASE_LEN
+                      if m["valid_ooxml_zip"] and not m["matches_baseline_sha256"]:
+                          result["changes"].append("OFFICIAL_OCT_2026_GN_XLSX_HASH_CHANGED")
+                      if not m["valid_ooxml_zip"]:
+                          result["errors"].append("INVALID_OOXML_PAYLOAD")
+                  else:
+                      text=raw.decode("utf-8",errors="replace")
+                      parser=LinkParser()
+                      parser.feed(text)
+                      if kind=="current":
+                          links=[a for a in parser.links if "gas natural" in a["text"].casefold()]
+                          m["gn_current_links"]=[{**a,"resolved_url":urljoin(m["final_url"],a["href"])} for a in links]
+                          expected=[a for a in links if "01/10/2026" in a["text"]]
+                          m["oct_2026_gn_current"]=bool(expected)
+                          if expected:
+                              href=expected[0]["href"]
+                              if EXPECTED_CURRENT_SUFFIX not in href:
+                                  result["changes"].append("CURRENT_OCTOBER_GN_WORKBOOK_LINK_CHANGED")
+                          elif links:
+                              result["changes"].append("CURRENT_GN_EFFECTIVE_DATE_CHANGED_REVIEW_REQUIRED")
+                          else:
+                              result["errors"].append("CURRENT_GN_LINK_NOT_FOUND")
+                      elif kind=="history":
+                          links=[a for a in parser.links if "gas natural" in a["text"].casefold()]
+                          m["gn_history_newest"]=links[:4]
+                          october=[a for a in links if "01/10/2026" in a["text"] or "octubre 2026" in a["text"].casefold()]
+                          m["oct_2026_added"]=bool(october)
+                          m["oct_2026_entries"]=october[:4]
+                          if october:
+                              result["changes"].append("OCT_2026_GN_ADDED_TO_HISTORICAL_SERIES")
+                          if not links:result["errors"].append("GN_HISTORICAL_LINKS_NOT_FOUND")
+                      elif kind=="resolutions":
+                          codes=set(re.findall(r"RESFC2026-\d{4}",html.unescape(text)))
+                          m["resolutions_2026_codes"]=sorted(codes)
+                          m["new_2026_codes"]=sorted(codes-EXPECTED_RESOLUTIONS)
+                          if codes-EXPECTED_RESOLUTIONS:
+                              result["changes"].append("NEW_2026_RESOLUTION_ON_CURRENT_INDEX_REVIEW")
+                          if not codes:result["errors"].append("RESOLUTIONS_NOT_PARSED")
+                  result["sources"][kind]=m
+              except Exception as exc:
+                  result["errors"].append({"source":kind,"error":type(exc).__name__+": "+str(exc)})
+
+          result["changes"]=sorted(set(result["changes"]))
+          if result["changes"]:
+              result["status"]="MATERIAL_CHANGE_REVIEW" if result["errors"] else "MATERIAL_CHANGE"
+          elif result["errors"]:
+              result["status"]="PARTIAL_NO_CHANGE_UNCONFIRMED"
+          else:
+              result["status"]="NO_CHANGE_VERIFIED"
+          Path("audit_output/official_check_20261028.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(result,ensure_ascii=False,indent=2))
+          if result["errors"]:raise SystemExit(1)
+          PY
+      - name: Save read-only metadata as shadow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrege-october-20261028-official-check-metadata
+          path: audit_output/official_check_20261028.json
+          if-no-files-found: warn
+          retention-days: 30
