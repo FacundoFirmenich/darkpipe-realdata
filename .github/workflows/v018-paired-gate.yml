@@ -1,0 +1,30 @@
+name: KiDS paired covariance gate
+on:
+  push:
+    branches: [v018-paired-random-covariance-gate]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install .[test]
+      - name: Algebra, covariance, provenance and integrity tests only
+        run: >-
+          python -m pytest tests/test_kids_paired_covariance.py
+          tests/test_kids_next_gate.py tests/test_kids_random_control.py
+          tests/test_kids_random_catalogue.py tests/test_kids_source_tile_index.py -q
+      - name: Readiness audit without scientific launch
+        run: python run_darkpipe_next_gate_v018.py --output outputs/readiness.json
+      - uses: actions/upload-artifact@v7.0.0
+        with:
+          name: kids-v018-readiness
+          path: outputs/readiness.json
+          retention-days: 7
