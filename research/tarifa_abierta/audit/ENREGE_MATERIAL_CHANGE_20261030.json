@@ -1,0 +1,134 @@
+{
+  "event": "ENREGE_OCT2026_MATERIAL_TARIFF_RESOLUTION_CHANGE",
+  "detected_at_utc": "2026-10-30T08:21:34Z",
+  "official_resolution_date": "2026-10-27",
+  "official_publication_date": "2026-10-28",
+  "official_boletin_number": 36022,
+  "baseline": {
+    "verified_date": "2026-10-23",
+    "source_sha256": "fefe75fd5a1e9fa747e4871165b4a1e046743f050343d73a4b7eefaee91540b6",
+    "source_bytes": 653597,
+    "residential_cells": 585,
+    "sept_oct_comparisons": 585,
+    "tarifa_abierta_version": "1.6 SHADOW"
+  },
+  "current_xlsx": {
+    "final_url": "https://www.enargas.gob.ar/secciones/precios-y-tarifas/descargas/tarifas-gn-20261001.xlsx",
+    "http_status": 200,
+    "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "bytes": 653597,
+    "sha256": "fefe75fd5a1e9fa747e4871165b4a1e046743f050343d73a4b7eefaee91540b6",
+    "matches_baseline": true,
+    "last_modified_header": "Tue, 06 Oct 2026 11:08:53 GMT"
+  },
+  "official_listing": {
+    "final_url": "https://www.enargas.gob.ar/secciones/precios-y-tarifas/resoluciones-tarifas-vigentes.php",
+    "http_status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "bytes": 38046,
+    "sha256": "2a9b0eaebfd39c021c9a6c696761428fa4ebabbc17a42a3356fcd916761a3099"
+  },
+  "current_tariff_index": {
+    "final_url": "https://www.enargas.gob.ar/secciones/precios-y-tarifas/cuadros-tarifarios.php",
+    "http_status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "bytes": 8834,
+    "sha256": "8f7d237401aeef58ef6973947ff6ed18ae2a105843fcc7e1e358f426e005481c",
+    "displayed_effective_date": "2026-10-01"
+  },
+  "historical_index": {
+    "final_url": "https://www.enargas.gob.ar/secciones/precios-y-tarifas/cuadros-tarifarios-serie-historica.php",
+    "http_status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "bytes": 37219,
+    "sha256": "019429ea396cf8f1b78b218632342c57ad95f73f7137dda2c09a72aa432641cd",
+    "latest_gas_natural_period": "2026-09-01/2026-09-30",
+    "october_in_historical_series": false
+  },
+  "new_official_resolutions": [
+    {
+      "number": 816,
+      "company": "Distribuidora de Gas del Centro",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431702/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51404,
+      "sha256": "4a3b2fbd4a0161a101743155298d9ada829d1d0f1c361f05ee3dcf13e49ad60b",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    },
+    {
+      "number": 817,
+      "company": "Naturgy BAN",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431703/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51220,
+      "sha256": "f834701122c5cb391350726dc2667eed761d7fc5d67a02d3b24c4960e9cf885e",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    },
+    {
+      "number": 818,
+      "company": "Naturgy NOA",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431704/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51266,
+      "sha256": "85914c41eed4dc81ac8cba32e8a20023f3177a4ef5758d3ddef7d2610fbef379",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    },
+    {
+      "number": 819,
+      "company": "Distribuidora de Gas Cuyana",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431705/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51366,
+      "sha256": "da5570cb0b0e80985f6174cca00d0fcce1b2074edd3caf91b6a62d4cf6c426a6",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    },
+    {
+      "number": 820,
+      "company": "Litoral Gas",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431706/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51224,
+      "sha256": "c4ea37c044cadc2588140cf76bb481f4c99cbc775a0d9c207bfc5added86c912",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    },
+    {
+      "number": 821,
+      "company": "Camuzzi Gas Pampeana",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431707/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51304,
+      "sha256": "dfb0bcb510ae3ad24c407ece98e4125feafcc487f51ab7cd032f301bd6e920c0",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    },
+    {
+      "number": 822,
+      "company": "Camuzzi Gas del Sur",
+      "final_url": "https://www.argentina.gob.ar/normativa/nacional/norma-431708/texto",
+      "http_status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 51297,
+      "sha256": "708c70195f5d5ed8d765b3af4330824c8701ad877245489f1ceba4f36bb5ac6a",
+      "scope": "Normative HTML only; official annex bytes not acquired"
+    }
+  ],
+  "interpretation": "Seven new official tariff resolutions approve annexed tables in the context of Law 27.828 / 2026 Zona Fría changes, published on 2026-10-28. Their indexed appearance is material, even though the October 1 XLSX bytes remain identical. Do not equate the unchanged workbook with the full current legal tariff state.",
+  "authority_boundaries": {
+    "annex_tables_bytes_downloaded": false,
+    "quantitative_deltas_computed": false,
+    "additional_tarifa_abierta_shadow_reconstruction_executed": false,
+    "merges": false,
+    "automatic_publication": false,
+    "causal_conclusions": false
+  },
+  "evidence_runs": [
+    "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/41025560602",
+    "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/41025695927",
+    "https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/41025872983"
+  ]
+}
