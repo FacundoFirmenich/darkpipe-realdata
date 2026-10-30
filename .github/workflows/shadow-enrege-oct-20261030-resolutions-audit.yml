@@ -31,16 +31,16 @@ jobs:
               meta={"checked_at_utc":datetime.now(timezone.utc).isoformat(),"url_final":resp.geturl(),"http_status":resp.status,"mime":resp.headers.get("Content-Type"),"bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
           page=raw.decode("utf-8",errors="replace")
           records=[]
-          for code in sorted(set(re.findall(r"RESFC2026-\\d{4}",html.unescape(page)))):
+          for code in sorted(set(re.findall(r"RESFC2026-\d{4}",html.unescape(page)))):
               pos=page.find(code)
               left=page.rfind("<tr",0,pos)
               right=page.find("</tr>",pos)
               frag=page[left:right+5] if left>=0 and right>=0 else page[max(0,pos-500):pos+500]
               text=" ".join(html.unescape(re.sub(r"<[^>]*>"," ",frag)).split())
-              hrefs=re.findall(r"href\\s*=\\s*[\\\"']([^\\\"']+)",frag,re.I)
+              hrefs=re.findall(r"""href\s*=\s*["']([^"']+)""",frag,re.I)
               records.append({"code":code,"row_text":text[:500],"hrefs":[urljoin(url,x) for x in hrefs]})
           meta["resolutions"]=records
-          Path("audit_resolutions_output/resolution_delta_20261030.json").write_text(json.dumps(meta,ensure_ascii=False,indent=2)+"\\n")
+          Path("audit_resolutions_output/resolution_delta_20261030.json").write_text(json.dumps(meta,ensure_ascii=False,indent=2)+"\n")
           print(json.dumps(meta,ensure_ascii=False,indent=2))
           PY
       - uses: actions/upload-artifact@v4
