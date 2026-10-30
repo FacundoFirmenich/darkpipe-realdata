@@ -49,6 +49,19 @@ acceso denegado al temporal global y luego inexistencia del padre del temporal
 de workspace. Se usó un temporal nuevo de ruta corta y la suite terminó. No se
 cambió ningún dato, umbral o aserción para obtener el PASS.
 
+El primer CI Ubuntu detectó un contrato de bytes mal definido en este nuevo
+auditor: había tomado el hash CRLF del checkout Windows, aunque Git conserva
+explícitamente LF para ese JSON. Se corrigió admitiendo sólo los dos hashes
+exactos conocidos y verificando su transformación; cualquier otro byte sigue
+produciendo abstención. No se mutaron las entradas históricas.
+
+El CI general detectó además dos comparaciones históricas AION afectadas por
+el lector decimal por defecto de pandas: diferencias de unos 1e-12 en los
+errores normalizados, con decisiones 7/7 intactas. El parser AION declara ahora
+`float_precision="high"`, la precisión histórica que antes era implícita. Las
+aserciones y los recibos científicos permanecen intactos. Los runs adversos
+`41133174270`, `41133174272` y `41133243313` se conservan como fallidos.
+
 ## Frontera científica
 
 La corrección geométrica histórica permanece: discrepancia mediana 0,04943 dex,

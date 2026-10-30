@@ -18,13 +18,20 @@ from darkpipe.kids_source_tile_index import tile_runs_sha256
 
 FROZEN = {
     "evidence/kids_randoms_v017/frozen_random_configuration.json":
-        "b8dbd23db187a8daf289f81624e068d630d007b67c03dce585956965ed6e199f",
+        "94127b901ec934d4fe9e37ce8a0a5f100e1ab90f8a51a15a4ad6c6851cfa6a1e",
     "evidence/kids_source_tile_index_v017/source_tile_index.json.gz":
         "9caea1a33b9d3816e69163b0343ab562398ec969a948ad44b8c6cad50938c700",
     "evidence/kids_sigma_critical_v016/effective_sigma_critical_lookup.csv":
         "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1",
     "evidence/kids_full_orientation_rar_v017/full_orientation_metrics.json":
         "19547845fb4afb2ef6e3fec5cccb717fe91d8d894c02bc0db444e02b6db7ae12",
+}
+
+# This single pre-existing checkout replica is admitted by exact byte hash,
+# not by accepting arbitrary whitespace or canonicalizing untrusted JSON.
+CHECKOUT_REPLICAS = {
+    "evidence/kids_randoms_v017/frozen_random_configuration.json":
+        "b8dbd23db187a8daf289f81624e068d630d007b67c03dce585956965ed6e199f",
 }
 
 
@@ -37,9 +44,14 @@ def audit(root: Path) -> dict:
             continue
         body = path.read_bytes()
         digest = hashlib.sha256(body).hexdigest()
+        replica = (digest == CHECKOUT_REPLICAS.get(name)
+                   and hashlib.sha256(body.replace(b"\r\n", b"\n")).hexdigest() == expected)
+        passed = digest == expected or replica
         records.append({"path": name, "bytes": len(body), "sha256": digest,
-                        "passed": digest == expected})
-        if digest != expected:
+                        "git_blob_sha256": expected,
+                        "byte_domain": "EXACT_DECLARED_CRLF_REPLICA" if replica else "EXACT_GIT_BLOB",
+                        "passed": passed})
+        if not passed:
             failures.append(f"frozen hash differs: {name}")
         payloads[name] = body
     if not failures:

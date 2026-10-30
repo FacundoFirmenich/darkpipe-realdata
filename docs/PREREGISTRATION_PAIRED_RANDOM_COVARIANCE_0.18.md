@@ -24,6 +24,14 @@ It independently recomputes the row-run hash and exact [0, 21262011) coverage,
 988 source pointings, 1006 random tiles and 45,038,900 allocation conservation.
 An altered byte or missing input forces integrity abstention.
 
+Transport amendment before the full-control execution: Git explicitly stores
+the random configuration as LF (SHA-256 `94127b901ec934d4fe9e37ce8a0a5f100e1ab90f8a51a15a4ad6c6851cfa6a1e`),
+while the historical Windows checkout has CRLF (SHA-256
+`b8dbd23db187a8daf289f81624e068d630d007b67c03dce585956965ed6e199f`).
+Both exact byte hashes are recorded. Only that known replica is admitted,
+and its CRLF-to-LF transform must hash to the known published blob. No generic
+JSON canonicalization or unknown whitespace variant is accepted.
+
 ## Statistical contract
 
 The corrected observable is D = S - R. Its covariance is
