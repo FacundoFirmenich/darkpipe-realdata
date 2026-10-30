@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-08-31T21:13:19.513413Z",
+  "generated_at_utc": "2026-10-30T21:43:17.382182Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
-  "file_count": 350,
-  "total_bytes": 38355526,
+  "file_count": 358,
+  "total_bytes": 38382744,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -49,6 +49,11 @@
       "path": ".github/workflows/v015-drive-shards.yml",
       "byte_count": 1462,
       "sha256": "c9a077cb2bbb39e930d4b7a05df409b2acbe19923bbc50686c1cf1c4b342e249"
+    },
+    {
+      "path": ".github/workflows/v018-paired-gate.yml",
+      "byte_count": 1030,
+      "sha256": "2785047e5ff8541c4addbd62766d76d74d9208f42a7a5b095a7dcdc623d8832e"
     },
     {
       "path": ".github/workflows/v07-confirm.yml",
@@ -316,6 +321,11 @@
       "sha256": "2483432ba1698f4c3b07cf5f62782610a50b695ce193ef706d5d7357ba31074c"
     },
     {
+      "path": "docs/PREREGISTRATION_PAIRED_RANDOM_COVARIANCE_0.18.md",
+      "byte_count": 4971,
+      "sha256": "59c904f15a26d584bf3e959c1bc2ee3599110c7759ec6ee33b322138be13ef7e"
+    },
+    {
       "path": "docs/PREREGISTRATION_REMOTE_OBJECT_PIPELINE_0.14.md",
       "byte_count": 4510,
       "sha256": "62506115a0b1d42420d8b852c6ad444982ae4c0ed6833a1fc2c143909e00a303"
@@ -399,6 +409,11 @@
       "path": "docs/V017_SIGNAL_GEOMETRY_AND_RANDOM_GATE_2026-08-31.md",
       "byte_count": 6557,
       "sha256": "d9360fa933a17159003f08623aeb32df0ce6dd1b576b2669cd49a3a45a7be7ef"
+    },
+    {
+      "path": "docs/V018_SUBSTANTIVE_CHECKPOINT_ES_2026-10-30.md",
+      "byte_count": 4422,
+      "sha256": "67cd49cfac40f16a670292a3b78353c089d5f17664445cf561307a602dc0eba5"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -879,6 +894,11 @@
       "path": "evidence/kids_native_lens_v017_adverse_wrong_lt20_supplement/run_receipt.json",
       "byte_count": 16839,
       "sha256": "69155948e7b4999161376d55956e2ca53a8b6f42a1e2ed162e3a86daa4ad5aab"
+    },
+    {
+      "path": "evidence/kids_next_gate_v018/readiness.json",
+      "byte_count": 2193,
+      "sha256": "226c22ac794df7211d9b29c0b40390d575a4c76e8c83ae8971f862d3c34d217d"
     },
     {
       "path": "evidence/kids_orientation_pilot_v017/orientation_convention_rar.csv",
@@ -1381,6 +1401,11 @@
       "sha256": "0df94bcd1cad4e38d77fddd268b41617f7601daa903751a86e16c3c01dcd6a9c"
     },
     {
+      "path": "run_darkpipe_next_gate_v018.py",
+      "byte_count": 5309,
+      "sha256": "f4aee827d4b2cd5f04ca419d746f4ddb85fb27d7b1e4595b0464dc49c171c1a3"
+    },
+    {
       "path": "run_darkpipe_object_recoverability_v013.py",
       "byte_count": 4234,
       "sha256": "68116c01b1f193ca8f2de49d26a857a41e63fedf4aef277daaab843433269ae6"
@@ -1541,6 +1566,11 @@
       "sha256": "b0d2ff0c9f970455e4ef8c5de192f1d1cceb4c7c847f1d93c35587a3ee42a992"
     },
     {
+      "path": "src/darkpipe/kids_paired_covariance.py",
+      "byte_count": 4571,
+      "sha256": "e00dd9341aeb00660ac03ed3c09eb31318ac796672e12b1c66c1201e30d30a53"
+    },
+    {
       "path": "src/darkpipe/kids_random_catalogue.py",
       "byte_count": 5283,
       "sha256": "f5e8a86e1feb49602331a381d552da192efb6ee59db92b7150ca0c424022dcd3"
@@ -1691,9 +1721,19 @@
       "sha256": "9d258818454de4aa7603c4a2ddf52a126f0e6ffbe4253dd123a504d9ab3c7a91"
     },
     {
+      "path": "tests/test_kids_next_gate.py",
+      "byte_count": 1429,
+      "sha256": "68ce7e7b93a3eef9d7840d2e7e9a21e87ad9e14eaa98e0369a05526690fdbb38"
+    },
+    {
       "path": "tests/test_kids_pair_estimator.py",
       "byte_count": 1715,
       "sha256": "5bbc9a5adbb1a96899c3c191e40fab9f10d30b6474a6e1013fb4a2890b3bba2f"
+    },
+    {
+      "path": "tests/test_kids_paired_covariance.py",
+      "byte_count": 3293,
+      "sha256": "fe3f3988692053a73d945299761db6b0e2ed90344ed1abf3ac0be6c3e1b88228"
     },
     {
       "path": "tests/test_kids_pairs_runner.py",

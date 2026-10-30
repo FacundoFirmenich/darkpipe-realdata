@@ -1,0 +1,56 @@
+{
+  "blockers": [
+    "FULL_45038900_RANDOM_CONTROL_NOT_EXECUTED",
+    "PAIRED_SIGNAL_RANDOM_SPATIAL_REPLICATES_NOT_AVAILABLE",
+    "REMOTE_DARKPIPE_RESOURCE_AND_FINITE_COMPUTE_BUDGET_NOT_BOUND"
+  ],
+  "covariance_boundary": "empirical spatial covariance, conditional on map/deletion policy; not total systematics",
+  "covariance_contract": "Cs + Cr - Csr - Csr.T from matched spatial exclusions",
+  "failures": [],
+  "files": [
+    {
+      "bytes": 116183,
+      "passed": true,
+      "path": "evidence/kids_randoms_v017/frozen_random_configuration.json",
+      "sha256": "b8dbd23db187a8daf289f81624e068d630d007b67c03dce585956965ed6e199f"
+    },
+    {
+      "bytes": 799081,
+      "passed": true,
+      "path": "evidence/kids_source_tile_index_v017/source_tile_index.json.gz",
+      "sha256": "9caea1a33b9d3816e69163b0343ab562398ec969a948ad44b8c6cad50938c700"
+    },
+    {
+      "bytes": 16687,
+      "passed": true,
+      "path": "evidence/kids_sigma_critical_v016/effective_sigma_critical_lookup.csv",
+      "sha256": "02700c57c9affa47630881b4f2f23023fd632ca4cd0a42c82c89ee78b9bd3da1"
+    },
+    {
+      "bytes": 6910,
+      "passed": true,
+      "path": "evidence/kids_full_orientation_rar_v017/full_orientation_metrics.json",
+      "sha256": "19547845fb4afb2ef6e3fec5cccb717fe91d8d894c02bc0db444e02b6db7ae12"
+    }
+  ],
+  "gate": "BLOCKED_EXECUTION_AND_PAIRED_COVARIANCE",
+  "generated_at_utc": "2026-10-30T21:37:57.699962+00:00",
+  "input_integrity_passed": true,
+  "next_gate": "SIGNAL_MINUS_FULL_RANDOM_CONTROL_WITH_PAIRED_SPATIAL_COVARIANCE",
+  "remote_resource_proposal": {
+    "full_campaign_automatic_launch": false,
+    "initial_benchmark_max_wall_minutes": 30,
+    "prior_linear_projection_cpu_context": "231-417 hours per original partition; eight partitions; not a benchmark of tile-local code",
+    "raw_source_bytes": 17712469440,
+    "raw_source_local_workstation": false,
+    "required_before_full_campaign": [
+      "benchmark receipt",
+      "finite CPU-hour cap",
+      "authorized DarkPipe node"
+    ],
+    "scratch_minimum_bytes": 40000000000
+  },
+  "reproduction_established": false,
+  "schema": "darkpipe.kids-next-gate-readiness.v1",
+  "scientific_result": false
+}
