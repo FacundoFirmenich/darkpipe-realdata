@@ -1,0 +1,74 @@
+name: ENReGE 2026-10-28 new tariff resolutions source registry
+on:
+  push:
+    branches:
+      - shadow/tarifa-octubre-official-check-20261030
+    paths:
+      - .github/workflows/shadow-enrege-oct-20261030-newresolutions.yml
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and hash seven official resolution HTML texts
+        run: |
+          set -euo pipefail
+          mkdir -p audit_new_resolutions/html
+          python3 - <<'PY'
+          import hashlib,html,json,re
+          from datetime import datetime,timezone
+          from pathlib import Path
+          from urllib.request import Request,urlopen
+          ids={
+            816:(431702,"Distribuidora de Gas del Centro"),
+            817:(431703,"Naturgy BAN"),
+            818:(431704,"Naturgy NOA"),
+            819:(431705,"Distribuidora de Gas Cuyana"),
+            820:(431706,"Litoral Gas"),
+            821:(431707,"Camuzzi Gas Pampeana"),
+            822:(431708,"Camuzzi Gas del Sur"),
+          }
+          entries=[]
+          for number,(norma_id,company) in ids.items():
+            url=f"https://www.argentina.gob.ar/normativa/nacional/norma-{norma_id}/texto"
+            with urlopen(Request(url,headers={"User-Agent":"Mozilla/5.0 (TarifaAbierta Verification; no automatic publication)","Accept":"text/html"}),timeout=60) as resp:
+              data=resp.read()
+              meta={"number":number,"company":company,"requested_url":url,"final_url":resp.geturl(),"http_status":resp.status,
+                    "mime":resp.headers.get("Content-Type"),"bytes":len(data),"sha256":hashlib.sha256(data).hexdigest(),
+                    "checked_at_utc":datetime.now(timezone.utc).isoformat()}
+            text=html.unescape(re.sub("<[^>]*>"," ",data.decode("utf-8",errors="replace")))
+            meta["mentions_resolution"]=f"816/2026" in text if number==816 else f"{number}/2026" in text
+            meta["mentions_new_tariff_tables"]="cuadros tarifarios" in text.lower()
+            meta["mentions_2026_10_28"]=("28-10-2026" in text or "28/10/2026" in text)
+            meta["mentions_law_27828"]="27.828" in text
+            meta["metadata_scope"]="Official normative HTML text, not the annex table bytes"
+            if not meta["mentions_resolution"] or not meta["mentions_new_tariff_tables"] or meta["http_status"]!=200:
+              raise RuntimeError(f"Unverifiable official text {number}: {meta}")
+            out=Path(f"audit_new_resolutions/html/RESFC-2026-{number}.html");out.write_bytes(data)
+            meta["artifact_path"]=str(out)
+            entries.append(meta)
+          result={
+            "checked_at_utc":datetime.now(timezone.utc).isoformat(),
+            "source_registry":"Official Argentina.gob.ar / InfoLEG normative texts",
+            "publication_date_official":"2026-10-28",
+            "resolution_numbers":[816,817,818,819,820,821,822],
+            "change_kind":"NEW_TARIFF_RESOLUTIONS_EXIST_REQUIRING_SEPARATE_ANNEX_VERIFICATION",
+            "official_october_xlsx_hash_changed":False,
+            "new_annex_bytes_reconstructed":False,
+            "shadow_reconstruction_executed":False,
+            "merged":False,
+            "automatic_publication":False,
+            "entries":entries,
+          }
+          Path("audit_new_resolutions/new_resolution_source_registry_20261030.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\\n")
+          print(json.dumps(result,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: enrege-20261030-material-new-resolutions-source-registry
+          path: audit_new_resolutions/
+          retention-days: 30
+          if-no-files-found: error
