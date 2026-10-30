@@ -55,12 +55,19 @@ explícitamente LF para ese JSON. Se corrigió admitiendo sólo los dos hashes
 exactos conocidos y verificando su transformación; cualquier otro byte sigue
 produciendo abstención. No se mutaron las entradas históricas.
 
-El CI general detectó además dos comparaciones históricas AION afectadas por
-el lector decimal por defecto de pandas: diferencias de unos 1e-12 en los
-errores normalizados, con decisiones 7/7 intactas. El parser AION declara ahora
-`float_precision="high"`, la precisión histórica que antes era implícita. Las
-aserciones y los recibos científicos permanecen intactos. Los runs adversos
-`41133174270`, `41133174272` y `41133243313` se conservan como fallidos.
+El CI general detectó además dos comparaciones históricas AION con diferencias
+numéricas de unos 1e-12 en los errores normalizados, con decisiones 7/7
+intactas. Se probó declarar `float_precision="high"`; el cambio no reparó el
+fallo en Linux y fue retirado. La causa exacta de la diferencia entre entornos
+sigue pendiente; no se afirma que sea sólo una versión concreta de pandas.
+Las aserciones, el código histórico y los recibos científicos permanecen
+intactos. Los runs adversos `41133174270`, `41133174272`, `41133243313`,
+`41133991790` y `41133997722` se conservan como fallidos. El gate focal sí
+terminó PASS, run `41133991749`, 17/17 pruebas. No se declara CI global verde.
+
+Una ampliación local dio 33 pases y un fallo de manifiesto durante una
+escritura concurrente del índice Git por el propio agente. Esta carrera de
+validación se preserva como adversa; no cambia ningún resultado observacional.
 
 ## Frontera científica
 

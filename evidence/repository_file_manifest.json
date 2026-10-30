@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-10-30T21:50:35.355317Z",
+  "generated_at_utc": "2026-10-30T21:58:22.322399Z",
   "byte_domain": "exact Git index blobs; independent of checkout EOL normalization",
   "file_count": 358,
-  "total_bytes": 38384841,
+  "total_bytes": 38385229,
   "exclusions": [
     "evidence/repository_file_manifest.json (self)",
     "ignored private native threads",
@@ -412,8 +412,8 @@
     },
     {
       "path": "docs/V018_SUBSTANTIVE_CHECKPOINT_ES_2026-10-30.md",
-      "byte_count": 5266,
-      "sha256": "aeeb3db4fe0578e67e1485e03bb658f32fd52141e9c188211c1e773c41d339d9"
+      "byte_count": 5726,
+      "sha256": "15fcf49120cb4f66875cbb7cf0f707ddaba9dba427570cf8f6f591c90bcdcb2f"
     },
     {
       "path": "docs/V09_SUBSTANTIVE_CLOSURE_ES_2026-08-26.md",
@@ -1477,8 +1477,8 @@
     },
     {
       "path": "src/darkpipe/aion.py",
-      "byte_count": 20272,
-      "sha256": "24d60a1f97a5e675e5479030f109cf762538355de0ad2600744eb1707577cffc"
+      "byte_count": 20200,
+      "sha256": "7846108a1bae640f3c47ea5316d46de78e6420978558116940e3a6e116db8f9f"
     },
     {
       "path": "src/darkpipe/aion_blind.py",

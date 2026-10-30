@@ -51,7 +51,7 @@ REQUIRED_MLE_COLUMNS = {
 
 
 def _read_csv(path: Path) -> pd.DataFrame:
-    return pd.read_csv(path, comment="#", low_memory=False, float_precision="high")
+    return pd.read_csv(path, comment="#", low_memory=False)
 
 
 def _manifest(root: Path) -> dict[str, Any]:
@@ -115,7 +115,7 @@ def validate_aion_evidence(evidence_root: str | Path) -> dict[str, Any]:
         }
 
     try:
-        mle = pd.read_csv(root / "upstream" / "mle_scan.csv", low_memory=False, float_precision="high")
+        mle = pd.read_csv(root / "upstream" / "mle_scan.csv", low_memory=False)
         missing_mle = REQUIRED_MLE_COLUMNS.difference(mle.columns)
         if missing_mle:
             failures.append(f"MLE columns absent: {sorted(missing_mle)}")
@@ -342,7 +342,7 @@ def run_aion_validation(evidence_root: str | Path, output: str | Path) -> dict[s
         (target / "report.md").write_text(_render_markdown(base), encoding="utf-8")
     else:
         manifest = _manifest(root)
-        mle = pd.read_csv(root / "upstream" / "mle_scan.csv", low_memory=False, float_precision="high")
+        mle = pd.read_csv(root / "upstream" / "mle_scan.csv", low_memory=False)
         recoveries = []
         for dataset_id in INJECTIONS:
             raw_entry = _entry_for_stored(manifest, f"injection_{dataset_id}.csv")
