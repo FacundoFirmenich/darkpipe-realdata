@@ -1,0 +1,57 @@
+name: ENReGE 821-822 annex direct-origin recovery 20261031
+on:
+  push:
+    branches:
+      - shadow/tarifa-octubre-official-check-20261031
+    paths:
+      - .github/workflows/shadow-enrege-oct-20261031-annex-recovery.yml
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify missing annexes by immutable official source URLs
+        run: |
+          set -euo pipefail
+          mkdir -p annex_recovery_20261031
+          python3 - <<'PY'
+          import hashlib,json,io,time
+          from pathlib import Path
+          from urllib.request import Request,urlopen
+          from urllib.error import HTTPError
+          from datetime import datetime,timezone
+          rows=[]
+          for n,norm in ((821,431707),(822,431708)):
+            urls=[
+              f"https://www.argentina.gob.ar/sites/default/files/infoleg/{norm}/res{n}-1.pdf",
+              f"https://www.argentina.gob.ar/normativa/{norm}_res{n}-1_pdf/archivo",
+            ]
+            row={'resolution':n,'tried_urls':[],'verified':False}
+            for url in urls:
+              try:
+                req=Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'application/pdf,*/*'})
+                with urlopen(req,timeout=45) as resp:
+                  b=resp.read(20000001)
+                  md={'requested_url':url,'final_url':resp.geturl(),'status':resp.status,'mime':resp.headers.get('Content-Type'),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'last_modified':resp.headers.get('Last-Modified')}
+                if not b.startswith(b'%PDF-'): raise ValueError('not PDF')
+                if len(b)>20000000: raise ValueError('oversize')
+                (Path('annex_recovery_20261031')/f'RESFC2026-{n}_annex.pdf').write_bytes(b)
+                row.update({'verified':True,'meta':md})
+                break
+              except Exception as exc:
+                row['tried_urls'].append({'url':url,'error':f'{type(exc).__name__}: {str(exc)[:250]}'})
+            rows.append(row)
+          result={'checked_at_utc':datetime.now(timezone.utc).isoformat(),'event':'ANNEX_821_822_RECOVERY','rows':rows,'acquired_count':sum(r['verified'] for r in rows),'automatic_publication':False,'merge':False,'shadow_rebuild_executed':False}
+          Path('annex_recovery_20261031/recovery.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrege-821-822-annex-recovery-20261031
+          path: annex_recovery_20261031/
+          retention-days: 30
+          if-no-files-found: error
