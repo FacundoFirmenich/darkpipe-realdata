@@ -1,0 +1,37 @@
+name: Tarifa Abierta October frozen XLSX contrast source 20261031
+on:
+  push:
+    branches:
+      - shadow/tarifa-octubre-official-check-20261031
+    paths:
+      - .github/workflows/shadow-enrege-oct-20261031-workbook-snapshot.yml
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch byte-identical October XLSX for local annex comparison only
+        run: |
+          mkdir -p unchanged_workbook_20261031
+          python3 - <<'PY'
+          import hashlib,json,zipfile,io
+          from urllib.request import Request,urlopen
+          from pathlib import Path
+          u='https://www.enargas.gob.ar/secciones/precios-y-tarifas/descargas/tarifas-gn-20261001.xlsx'
+          with urlopen(Request(u,headers={'User-Agent':'Mozilla/5.0 (TarifaAbiertaReadOnlyContrast/1.0)'}),timeout=70) as resp:
+            b=resp.read(); meta={'final_url':resp.geturl(),'status':resp.status,'mime':resp.headers.get('Content-Type'),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+          assert meta['sha256']=='fefe75fd5a1e9fa747e4871165b4a1e046743f050343d73a4b7eefaee91540b6'
+          assert len(b)==653597 and zipfile.is_zipfile(io.BytesIO(b))
+          Path('unchanged_workbook_20261031/tarifas-gn-20261001.xlsx').write_bytes(b)
+          Path('unchanged_workbook_20261031/metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
+          print(json.dumps(meta,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: enrege-20261031-unchanged-frozen-october-xlsx-for-contrast
+          path: unchanged_workbook_20261031/
+          if-no-files-found: error
+          retention-days: 30
