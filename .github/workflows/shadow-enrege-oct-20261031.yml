@@ -1,0 +1,51 @@
+name: ENReGE October 2026 annex acquisition and byte audit 20261031
+on:
+  push:
+    branches:
+      - shadow/tarifa-octubre-official-check-20261031
+    paths:
+      - .github/workflows/shadow-enrege-oct-20261031.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install read-only PDF verification tools
+        run: python3 -m pip install --disable-pip-version-check pypdf==5.9.0
+      - name: GET official XLSX, indices, and official annex PDFs
+        run: python3 research/tarifa_abierta/audit/read_only_check_20261031.py
+      - name: Validate scope and metadata
+        run: |
+          python3 - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          p=Path('official_check_20261031/audit_20261031.json')
+          j=json.loads(p.read_text())
+          assert j['merge'] is False and j['automatic_publication'] is False
+          assert j['additional_shadow_reconstruction']['executed'] is False
+          assert j['numeric_tariff_delta_computed'] is False
+          assert j['causal_conclusions'] is False
+          for a in j['annexes']:
+              if a.get('acquired'):
+                  name=Path(a['stored_at'])
+                  b=name.read_bytes()
+                  assert b.startswith(b'%PDF-')
+                  assert hashlib.sha256(b).hexdigest()==a['pdf_meta']['sha256']
+                  assert len(b)==a['pdf_meta']['bytes']
+          if 'workbook' in j['sources'] and j['sources']['workbook'].get('valid_ooxml'):
+              if j['sources']['workbook']['sha256'] != j['baseline']['workbook_sha256']:
+                  assert Path('official_check_20261031/CHANGED_OFFICIAL_OCTOBER.xlsx').exists()
+          print(json.dumps({'status':j['status'],'material_changes':j['material_changes'],'annexes_acquired':j['annex_acquired_count'],'verified_pdf_hashes':sum(a.get('acquired',False) for a in j['annexes'])},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrege-official-october-20261031-audit-and-annexes
+          path: official_check_20261031/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
