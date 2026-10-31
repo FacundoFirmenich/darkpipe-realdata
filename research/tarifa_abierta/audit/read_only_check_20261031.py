@@ -106,7 +106,7 @@ for name,url in URLS.items():
     report["material_changes"].append("OCTOBER_2026_ENTERED_GN_HISTORICAL_SERIES")
    if not starts:report["errors"].append({"source":name,"error":"GN_HISTORICAL_NOT_FOUND"})
   elif name=="resolutions":
-   codes=sorted(set(int(x) for x in re.findall(r"RESFC2026-0?(\\d{3,4})",html.unescape(decoded))))
+   codes=sorted(set(int(x) for x in re.findall(r"RESFC2026-0?(\d{3,4})",html.unescape(decoded))))
    meta["codes"]=codes
    meta["new_since_20261030"]=[x for x in codes if x not in BASE_RESOLUTIONS]
    if meta["new_since_20261030"]:
@@ -144,7 +144,7 @@ for number,norm_id in RESOLUTION_IDS.items():
   texts=[page.extract_text(extraction_mode="layout") or "" for page in obj.pages]
   text="\n".join(texts)
   row["text_extracted_chars"]=len(text)
-  row["numeric_table_line_candidates"]=sum(bool(re.search(r"\\d[.,]\\d+.*\\d[.,]\\d+",ln)) for ln in text.splitlines())
+  row["numeric_table_line_candidates"]=sum(bool(re.search(r"\d[.,]\d+.*\d[.,]\d+",ln)) for ln in text.splitlines())
   row["pdf_contains_tariff_terms"]=bool(re.search(r"RESIDENCIAL|TARIFA|R1|R2|R3",text,re.I))
   (PDF_DIR/f"ENREGE_RESFC_2026_{number}_annex.txt").write_text(text,encoding="utf-8")
  except Exception as exc:
