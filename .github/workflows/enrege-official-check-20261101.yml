@@ -1,0 +1,45 @@
+name: ENReGE 2026-11-01 official material-diff audit
+on:
+  push:
+    branches:
+      - shadow/enrege-watch-20261101
+    paths:
+      - ".github/workflows/enrege-official-check-20261101.yml"
+      - "research/tarifa_abierta/audit/watch_20261101/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  official-byte-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install HTTP and HTML parsing dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: GET official XLSX, three indices and seven annexes, compare material baselines
+        run: python research/tarifa_abierta/audit/watch_20261101/check_official_bytes.py
+      - name: Print audit status and checksums
+        if: always()
+        run: |
+          cat research/tarifa_abierta/audit/watch_20261101/SUMMARY.txt || true
+          test -f research/tarifa_abierta/audit/watch_20261101/audit.json && python - <<'PY'
+          import json
+          from pathlib import Path
+          doc=json.loads(Path("research/tarifa_abierta/audit/watch_20261101/audit.json").read_text())
+          print(json.dumps({"state":doc["state"],"verification_complete":doc["verification_complete"],"material_changes":doc["material_changes"],"sources":[{"id":r["id"],"final_url":r.get("final_url"),"http":r.get("http_status"),"mime":r.get("mime"),"bytes":r.get("bytes"),"sha256":r.get("sha256")} for r in doc["sources"]]},indent=2))
+          PY
+      - name: Preserve strict SHADOW audit with raw bytes and hash metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrege-watch-20261101-material-only
+          path: research/tarifa_abierta/audit/watch_20261101/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
