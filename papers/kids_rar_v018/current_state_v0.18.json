@@ -1,0 +1,36 @@
+{
+  "schema": "darkpipe.integrated-paper-state.v1",
+  "version": "0.18-paper-dossier-0.1.0",
+  "repository": "https://github.com/FacundoFirmenich/darkpipe-realdata",
+  "governing_branch": "v018-paired-random-covariance-gate",
+  "governing_commit": "df321b1fdba0f7b1a3e0379186785005c9d2b1d4",
+  "draft_pull_request": 25,
+  "observational_result": {
+    "source_rows": 21262011,
+    "lenses": 106843,
+    "accepted_signal_pairs": 3017858899,
+    "orientation_repair": "east_ccw_catalog_e2_sign_flipped",
+    "median_absolute_log_discrepancy_before_dex": 1.0365400070171926,
+    "median_absolute_log_discrepancy_after_dex": 0.049425541277337004,
+    "positive_bins_after": 15,
+    "deproject_first_bins_inside_published_total_1sigma": 10,
+    "sis_bins_inside_published_total_1sigma": 12,
+    "reproduction_gate": false
+  },
+  "random_pilot": {
+    "centres": 10060,
+    "candidate_pairs": 575059669,
+    "accepted_pairs": 433841322,
+    "material_large_radius_term": true,
+    "confirmatory_50x_substitute": false
+  },
+  "covariance_contract": "C_D=C_S+C_R-C_SR-C_SR.T",
+  "terminal_gate": "BLOCKED_EXECUTION_AND_PAIRED_COVARIANCE",
+  "blockers": [
+    "FULL_45038900_RANDOM_CONTROL_NOT_EXECUTED",
+    "PAIRED_SIGNAL_RANDOM_SPATIAL_REPLICATES_NOT_AVAILABLE",
+    "REMOTE_DARKPIPE_RESOURCE_AND_FINITE_COMPUTE_BUDGET_NOT_BOUND"
+  ],
+  "physics_adjudication": "NOT_ESTIMABLE_MODEL_NOT_YET_DIFFERENTIALLY_PREDICTIVE",
+  "submission_status": "WORKING_METHODS_REPLICATION_MANUSCRIPT_NOT_DEFINITIVE_RAR"
+}
