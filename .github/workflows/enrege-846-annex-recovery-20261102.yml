@@ -1,0 +1,43 @@
+name: ENReGE 2026-11-02 Resolution 846 official annex recovery
+on:
+  push:
+    branches:
+      - shadow/enrege-watch-20261102
+    paths:
+      - ".github/workflows/enrege-846-annex-recovery-20261102.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests
+      - name: Verify official norm 846 PDF using corrected Infoleg record id 431859
+        run: |
+          mkdir -p research/tarifa_abierta/audit/watch_20261102_november_846
+          python - <<'PY'
+          import datetime,hashlib,json,requests
+          from pathlib import Path
+          root=Path("research/tarifa_abierta/audit/watch_20261102_november_846")
+          url="https://www.argentina.gob.ar/sites/default/files/infoleg/431859/res846-1.pdf"
+          r=requests.get(url,timeout=(15,75),allow_redirects=True,headers={"User-Agent":"TarifaAbierta-SHADOW-ByteAudit/20261102"})
+          meta={"norm":846,"norm_summary_url":"https://www.argentina.gob.ar/normativa/nacional/norma-431859","requested_url":url,"final_url":r.url,"acquired_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"http":r.status_code,"mime":r.headers.get("Content-Type"),"http_date":r.headers.get("Date"),"last_modified":r.headers.get("Last-Modified"),"bytes":len(r.content),"sha256":hashlib.sha256(r.content).hexdigest(),"pdf_magic":r.content.startswith(b"%PDF"),"automatic_merge":False,"automatic_publication":False,"rebuild":False}
+          (root/"META_846.json").write_text(json.dumps(meta,indent=2)+"\n")
+          print(json.dumps(meta,indent=2))
+          r.raise_for_status()
+          assert meta["pdf_magic"] and (meta["mime"] or "").lower().startswith("application/pdf")
+          (root/"res846-1.pdf").write_bytes(r.content)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrege-november-20261102-846-recovered
+          path: research/tarifa_abierta/audit/watch_20261102_november_846/
+          if-no-files-found: error
+          retention-days: 30
