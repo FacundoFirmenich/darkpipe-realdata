@@ -1,0 +1,36 @@
+name: ENReGE 2026-11-02 bounded November regulatory byte audit
+on:
+  push:
+    branches:
+      - shadow/enrege-watch-20261102
+    paths:
+      - ".github/workflows/enrege-november-fast-20261102.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-bounded-get:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4 --disable-pip-version-check
+      - name: Bounded parallel GET official Infoleg norms and annexes
+        run: python research/tarifa_abierta/audit/watch_20261102_november_fast/fast_november_bytes.py
+      - name: Print conclusion and exact byte identifiers
+        if: always()
+        run: |
+          cat research/tarifa_abierta/audit/watch_20261102_november_fast/SUMMARY.txt || true
+          test -f research/tarifa_abierta/audit/watch_20261102_november_fast/audit_fast.json
+      - name: Upload read-only evidence artifact (no merge, no publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrege-november-20261102-fast-official-bytes
+          path: research/tarifa_abierta/audit/watch_20261102_november_fast/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
