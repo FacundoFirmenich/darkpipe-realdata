@@ -1,0 +1,46 @@
+name: ENReGE 2026-11-02 newly published November acts — primary-source byte audit
+on:
+  push:
+    branches:
+      - shadow/enrege-watch-20261102
+    paths:
+      - ".github/workflows/enrege-november-acts-20261102.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acquire-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install requests and BeautifulSoup
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: GET Infoleg primary notices and actual annex PDF bytes in SHADOW
+        run: |
+          set -euo pipefail
+          python research/tarifa_abierta/audit/watch_20261102_november_acts/check_november_acts.py
+      - name: Log new material events without publication
+        if: always()
+        run: |
+          cat research/tarifa_abierta/audit/watch_20261102_november_acts/SUMMARY.txt || true
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('research/tarifa_abierta/audit/watch_20261102_november_acts/audit_november_acts.json')
+          if p.exists():
+              j=json.loads(p.read_text())
+              print(json.dumps({'new_material_regulatory_acts_confirmed':j['new_material_regulatory_acts_confirmed'],'sumario':j['sumario_confirmed_norm_numbers'],'primary_notices':j['individual_official_summary_confirmed_norm_numbers'],'new_annexes_acquired':j['official_pdf_annexes_newly_acquired_norm_numbers'],'acts':[{'number':x['number'],'legal_sanction_date':x['sanction'],'legal_publication_date':x['publication'],'annex_bytes':x['annex_bytes'],'annex_sha256':x['annex_sha256'],'annex_url':x['annex_url']} for x in j['acts']]},indent=2))
+          PY
+      - name: Upload evidence-only SHADOW artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrege-november-20261102-official-acts-and-annexes
+          path: research/tarifa_abierta/audit/watch_20261102_november_acts/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 6
