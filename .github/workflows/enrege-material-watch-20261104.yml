@@ -35,3 +35,5 @@ jobs:
             research/tarifa_abierta/audit/watch_20261104/SUMMARY.txt
           if-no-files-found: warn
           retention-days: 30
+
+# Corrected audit: official annex 822 SHA baseline and Infoleg semantic validity.
