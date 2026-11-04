@@ -17,7 +17,7 @@ OLD_ANNEX={
 819:(441883,"a4e50cb0b6ffc149d27f218db8b84b1372a86c70b684405387af3fe51a3d2acd","431705"),
 820:(453109,"a256195c813fa3b9a0d26bd341712287d6058f3a8ee545608021103fc4e98277","431706"),
 821:(513423,"7984543b193aa740865b0fa494d704437a745951fb61ccd0dfec4b3573c4a67f","431707"),
-822:(529227,"85c8b86982022ef7ea1b3ec4b8bd99ed78dd478457b48b98b81c451afef52c6f0","431708"),
+822:(529227,"85c8b86982022ef7ea1b3ecb8bd99ed78dd478457b48b98b81c451afef52c6f0","431708"),
 }
 prior=json.loads(Path("research/tarifa_abierta/audit/ENREGE_MATERIAL_NEW_NOVEMBER_841_859_20261102.json").read_text())
 new_annex={int(x["resolution"]):(int(x["bytes"]),x["sha256"],x["requested_url"]) for x in prior["new_annexes"]}
@@ -114,7 +114,8 @@ bo_findings=[]
 for rec in records:
  if not rec["id"].startswith("bo_") or not rec["verified"]:continue
  t=rec.get("extracted_text","")
- rec["page_semantically_usable"]=bool(re.search(r"Sumario N[º°]|Fecha de publicaci[oó]n|ENTE NACIONAL REGULADOR|SECCI[ÓO]N",t,re.I))
+ rec["page_semantically_usable"]=bool(re.search(r"Sumario\s*N[º°o.]?\s*\d{5}",t,re.I)) and not bool(re.search(r"servicio moment[aá]neamente no disponible|error 50[0-9]",t,re.I))
+ rec["bo_text_first_300"]=t[:300]
  if not rec["page_semantically_usable"]:
   unverified.append(rec["id"]+"_semantics")
  # Analyze row/block text where possible; do not treat generic word 'gas' as a material price change.
@@ -134,7 +135,7 @@ semantics={"bo_findings":bo_findings,"history_index_baseline":"01/10/2026–12/1
 for rec in records:
  rec.pop("extracted_text",None)
  rec.pop("links",None)
- if rec["id"].startswith("bo_"):rec.pop("page_semantically_usable",None)
+ # Retain semantic validation of BO pages in the audit.
 status={
  "run":"2026-11-04","checked_at_utc":dt.datetime.now(UTC).isoformat(),
  "policy":"SHADOW_ONLY_NO_MERGE_NO_PUBLICATION_NO_AUTO_REBUILD",
