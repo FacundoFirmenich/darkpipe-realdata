@@ -1,0 +1,9 @@
+# Audit correction — 2026-11-04 (SHADOW)
+
+The first automated check (GitHub Actions run 41797217976) produced an **invalid material-change flag** for resolution 822/2026. Its baseline comparator mistakenly transcribed the known 2026-10-31 SHA-256 as `85c8b86982022ef7ea1b3ec4b8bd99ed78dd478457b48b98b81c451afef52c6f0`. The verified official PDF was unchanged: 529227 bytes, SHA-256 `85c8b86982022ef7ea1b3ecb8bd99ed78dd478457b48b98b81c451afef52c6f0`. **No official PDF modification occurred.**
+
+The comparator was corrected and rerun independently in successful GitHub Actions run [41797504434](https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/41797504434), artifact [13306365743](https://github.com/FacundoFirmenich/darkpipe-realdata/actions/runs/41797504434/artifacts/13306365743). Corrected result: `NO_MATERIAL_CHANGE_DETECTED_PARTIAL_VERIFICATION`, `material_changes=[]`. October XLSX and all 26 PDFs (816–822, 841–859) returned HTTP 200 with baseline-matching raw-byte hashes. The regulator's current/history/resolution indices returned HTTP 200 and did not disclose a newly material period relative to 2026-11-03. The known 1–12 October historical period was already notified on 2026-11-03.
+
+**Scope limitation:** Four Infoleg daily summary URLs returned HTTP 200 and hashed HTML, but the retrieved pages did **not** contain verifiable issue-specific sumarios. The official Boletín Oficial first-section endpoint timed out. These daily normative searches remain `SIN VERIFICAR` semantically; the corrected report does not assert that no other acts exist. All requested/final URLs, download timestamps, HTTP status, MIME, sizes, SHA-256, Last-Modified and source-specific errors are recorded in the corrected Actions artifact. No incremental tariff table reconstruction, merge or publication took place.
+
+The first artifact is superseded and must not be used as evidence of a material tariff change.
