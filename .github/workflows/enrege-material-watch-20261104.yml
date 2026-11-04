@@ -1,0 +1,37 @@
+name: ENReGE 2026-11-04 material-only SHADOW audit
+on:
+  push:
+    branches:
+      - shadow/enrege-watch-20261104
+    paths:
+      - .github/workflows/enrege-material-watch-20261104.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-get:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Raw HTTPS GET for workbook, indices, 26 annex PDFs and BO/Infoleg
+        run: python research/tarifa_abierta/audit/watch_20261104/run_check.py
+      - name: Summary
+        if: always()
+        run: |
+          cat research/tarifa_abierta/audit/watch_20261104/SUMMARY.txt || true
+      - name: Preserve SHADOW verification metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrege-material-watch-20261104-shadow-audit
+          path: |
+            research/tarifa_abierta/audit/watch_20261104/AUDIT_20261104.json
+            research/tarifa_abierta/audit/watch_20261104/SUMMARY.txt
+          if-no-files-found: warn
+          retention-days: 30
